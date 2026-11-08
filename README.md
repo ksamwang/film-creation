@@ -22,14 +22,14 @@ LLM 读到它之后，能判断用户要什么、该读哪一块、给到什么�
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 故事 / 剧本诊断 | `craft/story.md` | 诊断 + 修改建议 |
-| 短片 / 长片结构 | `craft/story.md` | logline + 结构方案 |
-| 人物 / 表演 | `craft/performance.md` | 动作表 + 给演员的指令 |
-| 调度 / 走位 / 覆盖 | `craft/staging.md` | 走位 + 机位 + 覆盖 |
-| 分镜 / 镜头设计 | `craft/staging.md` + `craft/visual.md` | 镜头表 |
-| 视觉 / 色彩 / 光线 / 镜头 | `craft/visual.md` + 导演/摄影档案 | 视觉方案 + 参考 |
-| 声音 | `craft/sound.md` | 声音层方案 |
-| 制作 / 预算 / 排期 | `craft/production.md` | 约束 + 计划 |
+| 故事 / 剧本诊断 | `craft/story/index.md` | 诊断 + 修改建议 |
+| 短片 / 长片结构 | `craft/story/index.md` | logline + 结构方案 |
+| 人物 / 表演 | `craft/performance/index.md` | 动作表 + 给演员的指令 |
+| 调度 / 走位 / 覆盖 | `craft/staging/index.md` | 走位 + 机位 + 覆盖 |
+| 分镜 / 镜头设计 | `craft/staging/index.md` + `craft/visual/index.md` | 镜头表 |
+| 视觉 / 色彩 / 光线 / 镜头 | `craft/visual/index.md` + 导演/摄影档案 | 视觉方案 + 参考 |
+| 声音 | `craft/sound/index.md` | 声音层方案 |
+| 制作 / 预算 / 排期 | `craft/production/index.md` | 约束 + 计划 |
 | 想要某种风格 | `index.md` + `taxonomy.md` | 2–3 个候选 + 约束 |
 | 混搭 | `mixing.md` | 主/副风格 + 冲突规则 |
 | AIGC 图像提示 | `aigc/prompt-syntax.md` + `aigc/assets.md` | 图像 token 块 |
@@ -77,7 +77,10 @@ LLM 读到它之后，能判断用户要什么、该读哪一块、给到什么�
 .claude/skills/film-creation/
   SKILL.md                  路由手册
   references/
-    craft/                  6 个创作方法模块
+    craft/                  6 个方法模块
+      index.md              顶层导航
+      sources.md            全局来源表
+      story/ visual/ ...    每个模块 index + 子文件
     aigc/                   token 语法、文本资产
     index.md                125 导演 + 29 摄影总表
     taxonomy.md             风格族谱
@@ -96,7 +99,7 @@ LLM 读到它之后，能判断用户要什么、该读哪一块、给到什么�
     ai-prompt.md
     style-brief.md
 DESIGN.md                   设计说明
-CRAFT_BRIEF.md              方法模块简报
+CRAFT_DEEP_BRIEF.md          方法模块深度提炼简报
 DP_BRIEF.md                 摄影指导层简报
 tools/                      索引、结构/视觉/提示/重复度检查
 ```
@@ -105,7 +108,7 @@ tools/                      索引、结构/视觉/提示/重复度检查
 
 - 新增导演：复制 `templates/director-entry.md`，按八节填写
 - 新增摄影：按 `DP_BRIEF.md` 的 14 节结构
-- 调整方法模块：读 `CRAFT_BRIEF.md`
+- 调整方法模块：读 `CRAFT_DEEP_BRIEF.md`
 
 全局复用：把 `.claude/skills/film-creation/` 整个复制到 `~/.claude/skills/film-creation/`。
 

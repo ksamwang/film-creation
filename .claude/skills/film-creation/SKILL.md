@@ -21,15 +21,15 @@ LLM 的职责：**判断请求类型 → 读对应文件 → 按需要提问 →
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 故事 / 剧本诊断 | `craft/story.md` | 诊断 + 修改建议 |
-| 短片 / 长片结构 | `craft/story.md` | logline + 结构方案 |
-| 人物 / 表演 | `craft/performance.md` | 动作表 + 给演员的指令 |
+| 故事 / 剧本诊断 | `craft/story/index.md` | 诊断 + 修改建议 |
+| 短片 / 长片结构 | `craft/story/index.md` | logline + 结构方案 |
+| 人物 / 表演 | `craft/performance/index.md` | 动作表 + 给演员的指令 |
 | 人物资产 / 角色表 | `templates/character-sheet.md` + `aigc/assets.md` | trait card + 三面板角色表（单条 prompt） |
-| 调度 / 走位 / 覆盖 | `craft/staging.md` | 走位 + 机位 + 覆盖 |
-| 分镜 / 镜头设计 | `craft/staging.md` + `craft/visual.md` | 镜头表 |
-| 视觉 / 色彩 / 光线 / 镜头 | `craft/visual.md` + 导演/摄影档案 | 视觉方案 + 参考 |
-| 声音 | `craft/sound.md` | 声音层方案 |
-| 制作 / 预算 / 排期 | `craft/production.md` | 约束 + 计划 |
+| 调度 / 走位 / 覆盖 | `craft/staging/index.md` | 走位 + 机位 + 覆盖 |
+| 分镜 / 镜头设计 | `craft/staging/index.md` + `craft/visual/index.md` | 镜头表 |
+| 视觉 / 色彩 / 光线 / 镜头 | `craft/visual/index.md` + 导演/摄影档案 | 视觉方案 + 参考 |
+| 声音 | `craft/sound/index.md` | 声音层方案 |
+| 制作 / 预算 / 排期 | `craft/production/index.md` | 约束 + 计划 |
 | 想要某种风格 | `index.md` + `taxonomy.md` | 2–3 个候选 + 约束 |
 | 混搭 | `mixing.md` | 主/副风格 + 冲突规则 |
 | AIGC 图像提示 | `aigc/prompt-syntax.md` + `aigc/assets.md` | 图像 token 块 |

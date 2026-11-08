@@ -28,7 +28,9 @@
 
 6 个模块：`story` / `visual` / `staging` / `performance` / `sound` / `production`。
 
-每篇 2000–3000 字，结构固定：核心方法、8–12 条可执行规则、场景检查清单、常见错误、练习、与风格层的接口。
+每个模块是一个目录：`index.md` 导航 + 4–6 个子文件，每篇 800–1500 字，模块合计 4000–6000 字。LLM 先读模块 index，再读 1–2 个子文件，不一次加载全部。
+
+每个子文件：核心判断、书里的方法、可执行规则、检查清单、与风格层接口、来源。来源表统一在 `craft/sources.md`。
 
 来源是 `docs/` 下的 19 本电影书；模块为原创提炼，不复制原文。`docs/` 不进入公开仓库。
 
@@ -56,7 +58,7 @@ LLM 不按固定流程走；它按请求类型读模块，按需要提问，按�
 | 项目 | 决定 |
 |---|---|
 | 用途 | LLM 创作参考包：按请求路由，不绑定固定流程 |
-| 深度 | 导演档案 1200–1800 字；craft 模块 2000–3000 字 |
+| 深度 | 导演档案 1200–1800 字；craft 模块 4000–6000 字（分子文件） |
 | 名单 | 125 位导演 + 29 位摄影指导 + 6 个 craft 模块 |
 | 混搭 | 支持，含导演 × 摄影 |
 | 输出 | 按粒度：一句话建议 / 单场方案 / 完整计划 / 分镜 / 提示 |
@@ -314,13 +316,15 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
 .claude/skills/film-creation/
   SKILL.md                 # 路由手册：请求 → 读什么 → 输出
   references/
-    craft/                 # 6 个创作方法模块
-      story.md
-      visual.md
-      staging.md
-      performance.md
-      sound.md
-      production.md
+    craft/                 # 6 个方法模块
+      index.md             # 顶层导航
+      sources.md           # 全局来源表
+      story/               # index.md + 5 个子文件
+      visual/              # index.md + 6 个子文件
+      staging/             # index.md + 6 个子文件
+      performance/         # index.md + 5 个子文件
+      sound/               # index.md + 5 个子文件
+      production/          # index.md + 5 个子文件
     aigc/                  # 注意力友好的 token 规则与文本资产
       prompt-syntax.md
       assets.md

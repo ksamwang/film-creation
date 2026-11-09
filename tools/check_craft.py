@@ -8,6 +8,13 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CRAFT = os.path.join(ROOT, ".claude", "skills", "film-creation", "references", "craft")
 MODULES = ["story", "visual", "staging", "performance", "sound", "production"]
+BANNED = ["演员", "排练", "选角", "剧组", "通告", "拍摄日", "排期",
+          "现场录音", "同期声", "灯具", "轨道", "布光", "制片人", "摄制组"]
+BANNED_PATTERNS = [
+    (r"(制片|拍摄|制作)预算|预算表", "制片预算"),
+    (r"拍摄场地|外景地", "拍摄场地"),
+]
+AIGC_TERMS = ["token", "prompt", "镜头", "资产", "negative", "motion", "生成"]
 CJK = re.compile(r"[一-鿿]")
 
 
@@ -52,6 +59,17 @@ def main() -> None:
                 issues += 1
             if "来源" not in text:
                 print(f"[!] {m}/{name}: 缺来源行")
+                issues += 1
+            hits = [w for w in BANNED if w in text]
+            for pat, label in BANNED_PATTERNS:
+                if re.search(pat, text):
+                    hits.append(label)
+            if hits:
+                print(f"[!] {m}/{name}: 实拍词 {','.join(hits)}")
+                issues += 1
+            aigc_hits = [w for w in AIGC_TERMS if w.lower() in text.lower()]
+            if len(aigc_hits) < 2:
+                print(f"[!] {m}/{name}: 缺 AIGC 执行词")
                 issues += 1
         if not (3500 <= total <= 6500):
             print(f"[!] {m}: 子文件合计 {total} 字（应 3500–6500）")

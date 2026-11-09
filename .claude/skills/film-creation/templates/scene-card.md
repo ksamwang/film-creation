@@ -1,40 +1,49 @@
-# Scene Card
+# Scene to Shots
 
-## 基本信息
-- 场次 / 地点 / 时间：
-- 人物：
-- 时长：
+## 场景
 
-## 戏
-- 场景目标（谁想要什么）：
-- 冲突（谁挡着）：
-- 转折（这场戏结束时，什么变了）：
-- 潜台词（人物不说出口的是什么）：
+- 地点 / 时间 / 人物：
+- 目标（谁想要什么）：
+- 障碍（谁挡着）：
+- 转折（结束时什么变了）：
 - 与全片的关系：
 
-## 调度
-- 空间与走位：
-- 权力关系（谁站哪、谁先动）：
-- 摄影机位置与运动：
-- 覆盖方式：
+## 镜头序列
 
-## 镜头
-- 景别序列：
-- 焦段：
-- 关键镜头：
+| # | 画面 | 景别 | 机位 | 运动 | 时长 | 资产 | 声音 |
+|---|---|---|---|---|---|---|---|
+| 1 |  |  |  |  |  |  |  |
+| 2 |  |  |  |  |  |  |  |
+| 3 |  |  |  |  |  |  |  |
+| 4 |  |  |  |  |  |  |  |
 
-## 表演
-- 每个人的 action（动词，不是情绪）：
-- 排练要点：
-- 给演员的指令：
+## 图像 prompt
 
-## 声音
-- 环境声：
-- 音乐 / 沉默：
-- 关键声音：
+```text
+STYLE: ...
+SUBJECT: {{character_token}} | {{action}}
+ENVIRONMENT: {{scene_token}} | {{time}} | {{weather}}
+SHOT: {{size}} | {{angle}} | {{lens}} | {{composition}}
+LIGHT: ...
+COLOR: ...
+TEXTURE: ...
+```
 
-## 生成提示（可选）
-- 主风格 / 摄影：
-- 图像提示：
-- 视频提示：
-- 负面提示：
+## 视频 motion
+
+```text
+MOTION: <subject action> | <camera movement> | <duration> | <speed>
+```
+
+## Negative
+
+```text
+extra face | duplicate head | morphing | extra limbs | flicker | jump cut | text | watermark
+```
+
+## 检查
+
+- [ ] 每个镜头是否改变信息？
+- [ ] 轴线 / 屏幕方向是否可读？
+- [ ] 身份 / 场景是否用固定 token？
+- [ ] 视频提示是否只写运动？

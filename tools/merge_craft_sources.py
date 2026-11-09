@@ -16,9 +16,12 @@ def main() -> None:
             print(f"[!] missing {m}/_sources.md")
             continue
         text = open(path, encoding="utf-8").read().strip()
-        # Normalize heading to the module name
-        if not text.startswith("## "):
-            text = f"## {m}\n\n" + text
+        # Keep only the module section if the fragment has its own heading/intro
+        marker = f"## {m}"
+        if marker in text:
+            text = text[text.index(marker):]
+        else:
+            text = f"{marker}\n\n" + text
         parts.append(text)
 
     out = ["# 来源表\n", "> 每条规则/概念 → 书名/章节。正文只标注模块锚点。\n"]

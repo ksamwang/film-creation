@@ -33,23 +33,27 @@ age | build | face | hair | outfit | palette (hex) | props | headwear
 
 ## 提示词
 
+正面写目标效果（多数图像模型没有 negative 参数，正文里的「no ...」反而会招来那样东西）。
+
 ```text
-CHARACTER SHEET — 3:2 horizontal, three equal panels, solid #D9D9D9 background, even shadowless studio lighting.
+CHARACTER SHEET, 3:2 horizontal, three equal side-by-side panels on one seamless solid #D9D9D9 background, even shadowless studio lighting.
 
-IDENTITY (all panels): {{age}} | {{build}} | {{outfit}} | {{palette hex}} | {{props}}
-HEAD (middle + right only): {{face}} | {{hair}} | {{headwear}}
+IDENTITY (all panels): {{age}}, {{build}}, wearing {{outfit}} ({{palette hex}}), carrying {{props}}.
+HEAD (middle and right panels): {{face}}, {{hair}}, {{headwear}}.
 
-LEFT PANEL: front full-body, headless. Everything above the neck base is exactly #D9D9D9, seamless with the background; no head, no face, no ears, no hair, no headwear above the neck base; no silhouette, outline, shadow, texture, gradient, or mask edge; no neck cross-section, wound, or injury. Body from neck base to shoe soles visible; arms hanging; hands empty; same framing and scale as the middle panel. If headwear or clothing extends below the neck base, keep the part at and below the neck base.
+LEFT PANEL: front full-body view from the neck base down to the shoe soles. The area above the neck base is plain #D9D9D9, continuous with the background, so the figure reads as a clean headless garment-and-body reference cut flat at the neck base. Natural standing pose, shoulders relaxed, arms hanging, hands empty. Same framing and scale as the middle panel. Headwear or collars that reach below the neck base keep that lower part.
 
-MIDDLE PANEL: full back view, head visible, no face. Same outfit, proportions, camera height, distance, body scale; shared ground baseline.
+MIDDLE PANEL: full-body back view, head visible from behind. Same outfit, proportions, camera height, distance and body scale; shared ground baseline.
 
-RIGHT PANEL: three-quarter head-and-shoulders close-up; body and face turned to viewer's left; gaze into lens. Same identity and outfit. This is the only face in the sheet.
+RIGHT PANEL: three-quarter head-and-shoulders portrait from the chest up, body and face turned toward the viewer's left, eyes looking into the lens. Same person and outfit. This is the single face shown on the sheet.
 
-ALIGNMENT: neck base, shoulder line, elbows, waist, hips, knees, ankles, shoe soles at identical vertical coordinates; same torso length, limb lengths, shoulder width, stance width; no stretch, compress, shift, or rescale.
+ALIGNMENT: neck base, shoulder line, elbows, waist, hips, knees, ankles and shoe soles sit at the same heights in the left and middle panels; same torso length, limb length, shoulder width and stance width; each figure centred in its panel.
 ```
 
-## Negative
+以参考图做变体时，开头加一句：`Same person as the reference image: keep face, skin tone, body shape and hair identical; change only the outfit and condition described below.`
+
+## Negative（模型有 negative 参数时）
 
 ```text
-extra face | duplicate head | neck cross-section | wound | cut | injury | outline | shadow | gradient | mask edge | cropped body | inconsistent outfit | different body scale | misaligned panels | text | watermark
+extra face | duplicate head | neck cross-section | wound | outline | shadow | gradient | mask edge | cropped body | inconsistent outfit | different body scale | misaligned panels | text | watermark
 ```

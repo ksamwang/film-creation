@@ -10,40 +10,37 @@
 
 ## 镜头序列
 
-| # | 画面 | 景别 | 机位 | 运动 | 时长 | 资产 | 声音 |
+| # | 画面（起点 → 动作 → 落点） | 景别 | 机位 | 运动 | 时长 | 资产 / 参考图 | 声音 |
 |---|---|---|---|---|---|---|---|
 | 1 |  |  |  |  |  |  |  |
 | 2 |  |  |  |  |  |  |  |
 | 3 |  |  |  |  |  |  |  |
 | 4 |  |  |  |  |  |  |  |
 
-## 图像 prompt
+## 镜头提示（模式 A）
+
+```text
+参考图 1 是 {C1}，参考图 2 是 {S1}。
+{C1} 在画左，{起点}；{动作 1}，{动作 2}，停在 {落点}。
+{景别}，{机位}，{运镜}。{光线变化}。
+```
+
+## 镜头提示（模式 B）
 
 ```text
 STYLE: ...
-SUBJECT: {{character_token}} | {{action}}
-ENVIRONMENT: {{scene_token}} | {{time}} | {{weather}}
-SHOT: {{size}} | {{angle}} | {{lens}} | {{composition}}
+SUBJECT: {character_token} | {action}
+ENVIRONMENT: {scene_token} | {time} | {weather}
+SHOT: {size} | {angle} | {lens} | {composition}
 LIGHT: ...
 COLOR: ...
-TEXTURE: ...
-```
-
-## 视频 motion
-
-```text
-MOTION: <subject action> | <camera movement> | <duration> | <speed>
-```
-
-## Negative
-
-```text
-extra face | duplicate head | morphing | extra limbs | flicker | jump cut | text | watermark
+MOTION（图生视频）: <subject action> | <camera movement> | <duration>
+NEGATIVE: extra face | duplicate head | morphing | extra limbs | flicker | text | watermark
 ```
 
 ## 检查
 
 - [ ] 每个镜头是否改变信息？
-- [ ] 轴线 / 屏幕方向是否可读？
-- [ ] 身份 / 场景是否用固定 token？
-- [ ] 视频提示是否只写运动？
+- [ ] 轴线 / 画面方向是否可读，前后深度按机位写了？
+- [ ] 身份 / 场景靠参考图（或逐字复用的文本锁），正文没重复外貌？
+- [ ] 一镜不超过 2–3 个动作？图生视频只写运动？

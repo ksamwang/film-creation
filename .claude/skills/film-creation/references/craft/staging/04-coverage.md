@@ -71,4 +71,4 @@ Q: who bears | SHOT: medium close-up | C1 | 50mm | slight dolly-in
 
 ## 来源
 
-见 `_sources.md`；合并后见 `craft/sources.md#staging`。
+见 `craft/sources.md#staging`。

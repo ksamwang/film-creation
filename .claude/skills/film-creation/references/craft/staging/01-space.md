@@ -58,4 +58,4 @@ S1: 1990s kitchen | narrow | door screen-left | window back-right | counter cent
 
 ## 来源
 
-见 `_sources.md`；合并后见 `craft/sources.md#staging`。
+见 `craft/sources.md#staging`。

@@ -60,4 +60,4 @@ MOTION: slow dolly-in | start medium on C1 at counter | trigger C2 enters frame-
 
 ## 来源
 
-见 `_sources.md`；合并后见 `craft/sources.md#staging`。
+见 `craft/sources.md#staging`。

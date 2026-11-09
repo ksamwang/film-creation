@@ -67,4 +67,4 @@ A 形写 `C1 front-center | C2 back-left | C3 back-right`；L 形写 `C1 screen-
 
 ## 来源
 
-见 `_sources.md`；合并后见 `craft/sources.md#staging`。
+见 `craft/sources.md#staging`。

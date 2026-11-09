@@ -29,4 +29,4 @@ AIGC 里没有临场试错，调度必须先变成文字资产：场景 token �
 
 ## 来源
 
-见 `_sources.md`；合并后见 `craft/sources.md#staging`。
+见 `craft/sources.md#staging`。

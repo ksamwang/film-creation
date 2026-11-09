@@ -75,4 +75,4 @@ scene card 把风格意图落到生成层：导演档案定 beat 取舍与镜头
 
 ## 来源
 
-见 `_sources.md`；合并后见 `craft/sources.md#staging`。
+见 `craft/sources.md#staging`。

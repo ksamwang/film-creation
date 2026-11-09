@@ -1,6 +1,6 @@
 ---
 name: film-creation
-description: AIGC 创作参考包，供 LLM 在用户提出故事、角色、镜头序列、图像/视频提示、资产一致性、声音与剪辑需求时调用。内置 6 个 AIGC 方法模块、125 位导演、29 位摄影指导与注意力友好的 token 规则。默认输出 AIGC 产物；实拍只在用户明确要求时回答。
+description: AIGC 创作参考包，供 LLM 在用户提出故事、角色、镜头序列、图像/视频提示、资产一致性、声音与剪辑、竖屏短剧（立项、分集大纲、剧本、角色场景拆解、分镜、片段提示词）需求时调用。内置 6 个 AIGC 方法模块、竖屏短剧生产标准、125 位导演、29 位摄影指导与注意力友好的 token 规则。默认输出 AIGC 产物；实拍只在用户明确要求时回答。
 ---
 
 # AIGC 创作参考包
@@ -12,6 +12,7 @@ LLM 的职责：**判断请求类型 → 读对应文件 → 按需要提问 →
 ## 包里有什么
 
 - `references/craft/` — 6 个 AIGC 方法模块
+- `references/drama/` — 竖屏短剧：生产标准（字段契约）+ 立项到成片的写法
 - `references/directors/` + `references/cinematographers/` — 视觉参考
 - `references/aigc/` — token 语法、文本资产
 - `templates/` — concept、scene-to-shots、shot prompt、asset tokens、character sheet、edit-sound、AI prompt
@@ -39,9 +40,18 @@ LLM 的职责：**判断请求类型 → 读对应文件 → 按需要提问 →
 | 视频提示 | `aigc/prompt-syntax.md` | motion token |
 | 资产一致性 | `aigc/assets.md` + `templates/asset-tokens.md` | 固定 token |
 | 声音 / 剪辑 | `craft/sound/index.md` + `templates/edit-sound.md` | 声音层 + 剪辑方案 |
-| 风格参考 | `index.md` + `taxonomy.md` | 2–3 个参考 + 视觉 token |
+| 风格参考 | `references/index.md` + `references/taxonomy.md` | 2–3 个参考 + 视觉 token |
 | 迭代 / 交付 | `craft/production/index.md` | 镜头数 / 迭代预算 / 交付 |
+| 短剧：立项 / 题材 / 出海 | `references/drama/index.md` → `drama/01-premise.md` | 立项设定 setting |
+| 短剧：分集大纲 / 付费点 | `references/drama/index.md` → `drama/02-season.md` | 分集大纲 outline |
+| 短剧：单集剧本 | `references/drama/index.md` → `drama/03-episode.md` + `drama/04-script.md` | 结构化剧本 script |
+| 短剧：角色 / 场景拆解、造型图 | `references/drama/index.md` → `drama/05-breakdown.md` | 拆解 breakdown + 造型图规格 |
+| 短剧：分镜 / 片段提示词 | `references/drama/index.md` → `drama/06-storyboard.md` | 分镜 segments（按 `drama/standard.md` 字段） |
 | 明确要实拍 | 先说明本包默认不做实拍；按需给通用建议 | — |
+
+## 短剧另有标准
+
+竖屏短剧按 `references/drama/standard.md` 的字段出稿，面向多参考图、原生出声、多镜头一次生成的视频模型。下方「AIGC 提示规则」与它冲突时（参考图、自然语言片段提示词、无 negative、台词由模型说出），**短剧以 `references/drama/` 为准**。
 
 ## 使用原则
 
@@ -83,6 +93,7 @@ LLM 的职责：**判断请求类型 → 读对应文件 → 按需要提问 →
 ## 文件地图
 
 - `references/craft/` — 6 个 AIGC 方法模块（index + 子文件）
+- `references/drama/` — 竖屏短剧：`index.md` 路由、`standard.md` 字段契约、01–09 分阶段写法、`sources.md`
 - `references/aigc/prompt-syntax.md` — token 语法与失败模式
 - `references/aigc/assets.md` — 文本资产 token 与一致性
 - `references/index.md` — 125 导演 + 29 摄影总表
@@ -93,5 +104,4 @@ LLM 的职责：**判断请求类型 → 读对应文件 → 按需要提问 →
 - `references/prompts/<slug>.md` — 导演提示参考
 - `references/cinematographers/<slug>.md` — 摄影档案
 - `references/prompts-cinematographers/<slug>.md` — 摄影提示参考
-- `templates/` — concept / scene-to-shots / shot prompt / asset tokens / character sheet / edit-sound / AI prompt
-- `../../../DESIGN.md` — 设计说明
+- `templates/` — concept / scene-to-shots / shot prompt / asset tokens / character sheet / edit-sound / AI prompt；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

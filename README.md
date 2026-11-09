@@ -11,6 +11,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 - 「把这场戏拆成 6 个镜头，每镜给图像和视频提示」
 - 「这个角色在 10 个镜头里怎么保持一致」
 - 「用王家卫 × 卢贝兹基的视觉 token，写雨夜便利店的镜头」
+- 「做一部 60 集出海竖屏短剧，先给 3 个方向」「把第 3 集切成 15 秒片段的分镜，输出 JSON」
 
 ## 默认输出
 
@@ -27,6 +28,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 ## 包里有什么
 
 - **6 个 AIGC 方法模块**：故事、视觉、调度、表演、声音、制作
+- **竖屏短剧**：生产标准（立项 → 大纲 → 剧本 → 拆解 → 造型图 → 分镜 → 片段提示词 → 成片的字段契约）+ 各阶段写法，见 `.claude/skills/film-creation/references/drama/`
 - **125 位导演 + 29 位摄影指导**：视觉 token 参考
 - **AIGC token 规则**：注意力友好的提示写法、文本资产、固定三面板角色表
 - **模板**：concept、scene-to-shots、shot prompt、asset tokens、character sheet、edit-sound、AI prompt
@@ -44,6 +46,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 声音 / 剪辑 | `craft/sound/index.md` + `templates/edit-sound.md` | 声音层 + 剪辑方案 |
 | 风格参考 | `index.md` + `taxonomy.md` | 2–3 个参考 + 视觉 token |
 | 迭代 / 交付 | `craft/production/index.md` | 镜头数 / 迭代预算 / 交付 |
+| 竖屏短剧 | `drama/index.md` | setting / outline / script / breakdown / storyboard（按 `drama/standard.md`） |
 | 明确要实拍 | 先说明本包默认不做实拍；按需给通用建议 | — |
 
 ## 使用原则

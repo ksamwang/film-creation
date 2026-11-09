@@ -4,6 +4,8 @@ title: 迈克尔·鲍尔豪斯 Michael Ballhaus
 style_file: ../cinematographers/michael-ballhaus.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 35mm, eye-level camera one and a half meters from the body, 32mm lens, a slow 360-degree dolly orbit around two people in a furnished interior, tungsten practical lamps visible in frame, warm amber and faded green, to contrast, mirrors and doorways doubling the room, dark wood and velvet, fine grain, theatrical, enclosed, unbroken.
 

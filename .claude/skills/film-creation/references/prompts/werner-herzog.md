@@ -4,6 +4,8 @@ title: 沃纳·赫尔佐格 Werner Herzog
 style_file: ../directors/werner-herzog.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, ecstatic documentary, extreme wide landscape, a human figure reduced to a speck at the lower edge, sky or mountain filling two-thirds of the frame, low camera near water level, 25mm wide lens, natural light with backlit fog and rain, the figure half-swallowed by glare, deep black-green jungle and blinding white ice, mud, river, rusted boat hull, 16mm grain, doomed, obsessive, awe-struck.
 

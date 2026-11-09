@@ -4,6 +4,8 @@ title: 霍伊特·范霍伊特玛 Hoyte van Hoytema
 style_file: ../cinematographers/hoyte-van-hoytema.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic 65mm film still, large-format IMAX texture, soft overcast daylight, low-saturation steel blue and grey-green palette, warm skin against cold air, visible haze and dust in the beam, wide 40mm lens, small figure against a vast sky, natural window light with detail held in shadow, fine film grain, quiet, monumental, unforced.
 

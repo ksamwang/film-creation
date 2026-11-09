@@ -4,6 +4,8 @@ title: 罗贝尔·布列松 Robert Bresson
 style_file: ../directors/robert-bresson.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, black and white, hard directional light, few grey tones, tight close shot of a hand on a wooden door handle, the rest of the body cut off by the frame edge, 50mm lens close to the action, fixed eye-level camera, closed stone room, coarse cloth and iron bars, deep blacks with no detail, no fill, austere, exact, nothing decorative.
 

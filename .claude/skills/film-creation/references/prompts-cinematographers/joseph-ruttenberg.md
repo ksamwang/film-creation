@@ -4,6 +4,8 @@ title: 约瑟夫·鲁滕贝格 Joseph Ruttenberg
 style_file: ../cinematographers/joseph-ruttenberg.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Classic Hollywood studio portrait, black and white, 35mm, high-key butterfly key through silk, soft fill from camera left, hair light and shoulder rim, face at to with no hard shadow, background one to two stops down, gauze diffusion, satin and fur, full tonal range from velvet black to satin white, centered symmetrical composition, glamorous, composed, immaculate.
 

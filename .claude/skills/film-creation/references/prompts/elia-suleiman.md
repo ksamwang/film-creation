@@ -4,6 +4,8 @@ title: 埃利亚·苏莱曼 Elia Suleiman
 style_file: ../directors/elia-suleiman.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, fixed frontal wide shot, symmetrical deep-focus 35mm, a small deadpan man standing at the edge of the frame while the center stays empty, concrete bollards and a doorway framing him, flat even daylight, no dramatic side light, muted concrete grey, olive green and white wall, dust and a plastic chair, static, dry, absurd, no music.
 

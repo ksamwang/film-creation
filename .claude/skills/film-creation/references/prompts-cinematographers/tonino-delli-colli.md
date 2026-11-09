@@ -4,6 +4,8 @@ title: 托尼诺·德利科利 Tonino Delli Colli
 style_file: ../cinematographers/tonino-delli-colli.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Sun-baked Italian film still, Techniscope , extreme close-up on a sweating face or a vast empty landscape, hard single-source sun, deep clean black shadow, ochre and rust and olive, dust in the beam, long-lens compression, frame within a doorway, 35mm grain, patient, tactile, unsentimental.
 

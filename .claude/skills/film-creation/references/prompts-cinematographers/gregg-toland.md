@@ -4,6 +4,8 @@ title: 格雷格·托兰 Gregg Toland
 style_file: ../cinematographers/gregg-toland.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Black-and-white deep-focus frame, 24mm wide-angle, low camera with the ceiling in shot, everything sharp from foreground hand to far doorway, hard window light and practical lamps, high chiaroscuro contrast, staged figures on multiple planes, silver-gelatin grain, theatrical depth, 1940s, monumental, democratic.
 

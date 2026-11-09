@@ -4,6 +4,8 @@ title: 塞尔吉奥·莱昂内 Sergio Leone
 style_file: ../directors/sergio-leone.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, anamorphic western, extreme wide landscape with the horizon pressed into the upper third, a tiny figure walking in from far away, then an extreme close-up of sweat and narrowed eyes, low camera near boot height, hard noon sunlight carving wrinkles, dust ochre rust red and faded blue, weathered wood leather and grit, deep focus, no middle distance, 35mm grain, waiting, indebted, still.
 

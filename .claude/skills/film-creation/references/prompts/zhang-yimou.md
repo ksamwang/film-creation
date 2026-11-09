@@ -4,6 +4,8 @@ title: 张艺谋 Zhang Yimou
 style_file: ../directors/zhang-yimou.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, one dominant colour per scene — saturated red, black, gold or pure grey — symmetrical composition locked to a central axis of gate, road or queue, arrays of lanterns, drums or banners filling the frame, extreme wide shot making the figure a small block of colour, hard backlight rimming dust and smoke, 24–35mm keeping verticals straight, ritual, geometric, severe.
 

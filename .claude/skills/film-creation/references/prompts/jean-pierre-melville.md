@@ -4,6 +4,8 @@ title: 让-皮埃尔·梅尔维尔 Jean-Pierre Melville
 style_file: ../directors/jean-pierre-melville.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 1960s Paris at night, cold blue-grey and black, rain-slick asphalt, a lone man in a trench coat and fedora, white gloves, an almost empty apartment, hard practical light pooling on the floor, deep shadows, symmetrical wide composition, 50mm lens, 35mm grain, silent, ritualistic, fatalistic, no warmth.
 

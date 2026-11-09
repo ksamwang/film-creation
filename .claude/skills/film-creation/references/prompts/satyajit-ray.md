@@ -4,6 +4,8 @@ title: 萨蒂亚吉特·雷伊 Satyajit Ray
 style_file: ../directors/satyajit-ray.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic black-and-white film still, Indian humanist realism, Academy ratio, 35–50mm at eye level, subject small in a doorway or under a tree, deep tonal range from available daylight, mud walls and worn cloth, long static observation, patient, unhurried, no melodrama.
 

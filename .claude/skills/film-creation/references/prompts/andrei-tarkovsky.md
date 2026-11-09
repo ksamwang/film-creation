@@ -4,6 +4,8 @@ title: 安德烈·塔可夫斯基 Andrei Tarkovsky
 style_file: ../directors/andrei-tarkovsky.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Contemplative film still, low horizon with a small figure pushed to the frame corner and the sky taking most of the image, slightly low stable camera, 35mm or 50mm, desaturated brown-green present-day palette, natural and practical light with layered shadows, peeling walls, mossy timber, standing water, ruins, faint rain and fire, no clean modern surfaces, patient, sacred, time visible inside the frame.
 

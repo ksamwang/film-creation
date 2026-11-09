@@ -4,6 +4,8 @@ title: 阿巴斯·基亚罗斯塔米 Abbas Kiarostami
 style_file: ../directors/abbas-kiarostami.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, Iranian minimalist realism, distant 50–135mm long lens compressing a zigzag dirt road, a tiny figure on a khaki hillside, olive trees, dust, hard midday sun or long dusk shadows, low saturation ochre and grey-green, camera fixed inside a car window frame, no score.
 

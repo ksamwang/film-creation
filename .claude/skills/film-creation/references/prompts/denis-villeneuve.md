@@ -4,6 +4,8 @@ title: 丹尼斯·维伦纽瓦 Denis Villeneuve
 style_file: ../directors/denis-villeneuve.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic anamorphic film still, a tiny human silhouette at the lower edge of a vast ochre desert or grey monolith, thick atmospheric haze, desaturated sand and steel-blue palette with one saturated accent, diffuse overcast backlight, centered monumental composition, negative space, extreme scale, fine grain, silent and austere.
 

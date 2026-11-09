@@ -4,6 +4,8 @@ title: 大卫·芬奇 David Fincher
 style_file: ../directors/david-fincher.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, cold green-cyan and sodium-yellow palette, hard directional practical light, deep crushed blacks, camera at surveillance height slightly above eye line, subject boxed by a doorframe or monitor frame, center composition deliberately a few centimeters off, 35–50mm lens, glass, brushed metal, rain, screen pixels, controlled, clinical, no comfort.
 

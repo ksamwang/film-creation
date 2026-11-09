@@ -4,6 +4,8 @@ title: 斯坦利·库布里克 Stanley Kubrick
 style_file: ../directors/stanley-kubrick.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, one-point perspective, figure pinned on the central axis, 18–25mm wide angle, symmetrical corridor or room, ceiling and floor both visible, flat even practical light, controlled contrast, red white and blue blocks in the dream-logic films, carpet, mirror, geometric furniture, cold, measured, institutional.
 

@@ -4,6 +4,8 @@ title: 侯孝贤 Hou Hsiao-hsien
 style_file: ../directors/hou-hsiao-hsien.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, southern Taiwanese wooden house or mountain village, fixed very long shot from outside a doorway, a small figure inside a door or window frame, layered deep space, low-saturation grey-green and earth brown, soft natural daylight, dark interior, wood, lime plaster, tatami, rain, patient, distant, historical weight in the empty edges.
 

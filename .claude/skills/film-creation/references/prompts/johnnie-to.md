@@ -4,6 +4,8 @@ title: 杜琪峰 Johnnie To
 style_file: ../directors/johnnie-to.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic crime film still, cold blue Hong Kong parking garage or warehouse, wide-angle deep-focus full shot, five figures distributed evenly like chess pieces, hard practical light with large dark areas, columns and exits dividing the frame, black-white-grey clothing, precise geometry, stillness before violence, no atmosphere for its own sake.
 

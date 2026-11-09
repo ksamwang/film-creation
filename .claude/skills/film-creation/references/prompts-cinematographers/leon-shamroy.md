@@ -4,6 +4,8 @@ title: 莱昂·沙姆罗伊 Leon Shamroy
 style_file: ../cinematographers/leon-shamroy.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Saturated Technicolor film still, CinemaScope , one dominant primary plus one complementary accent, hard arc-light key cutting a sharp nose shadow, coloured rim light burning the shoulder, deep pure black, painted backdrops, silk and lacquer, medium wide shot, stage-like stillness, 35mm dye-transfer grain, theatrical, bold, artificial.
 

@@ -4,6 +4,8 @@ title: 克日什托夫·基耶斯洛夫斯基 Krzysztof Kieślowski
 style_file: ../directors/krzysztof-kieslowski.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Ethical-suspense film still, medium close-up at slightly below eye level, 35–50mm, subject framed and halved by glass, mirror or window, one dominant color system running through the film with a single late shift, natural window light and practical lamps, cool interiors with living shadows, glass, rain, old wood, wool, restrained, tender, a decision held one second too long.
 

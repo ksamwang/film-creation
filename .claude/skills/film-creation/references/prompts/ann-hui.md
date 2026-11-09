@@ -4,6 +4,8 @@ title: 许鞍华 Ann Hui
 style_file: ../directors/ann-hui.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic social-realist film still, cramped Hong Kong public-housing kitchen or wet market, eye-level medium shot on a light tripod, natural available light, cluttered foreground of drying racks and plastic bags, ungraded on-site color, tiled walls, iron gates, old wood, rain, lived-in, unsentimental, quiet.
 

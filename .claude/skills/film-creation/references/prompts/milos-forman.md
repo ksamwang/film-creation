@@ -4,6 +4,8 @@ title: 米洛斯·福尔曼 Miloš Forman
 style_file: ../directors/milos-forman.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 1960s Czechoslovakia or a 1970s American institution, ordinary non-professional faces crowded in a real room, eye-level medium shot, slightly off-center, overlapping bodies, flat available light, muted grey-brown-green palette, cheap suits and uniforms, 35mm lens, documentary naturalism, awkward, affectionate, comic without punchlines.
 

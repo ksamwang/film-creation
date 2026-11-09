@@ -4,6 +4,8 @@ title: 卢奎西亚·马特尔 Lucrecia Martel
 style_file: ../directors/lucrecia-martel.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, a sweltering Salta afternoon, a middle-class family crushed around a plastic table, 100mm telephoto compressing shoulders and heads, top of frame cropping a forehead, damp moss-green wall, mildew yellow, faded pink, diffuse light through a gauze curtain, skin slick with sweat, blurred garden green behind, soft grain, someone off-frame is being ignored.
 

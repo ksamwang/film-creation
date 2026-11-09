@@ -4,6 +4,8 @@ title: 黑泽明 Akira Kurosawa
 style_file: ../directors/akira-kurosawa.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, epic historical action, three planes of depth held in one frame: a figure's back of head in the foreground, bodies and movement in the midground, mountain or storm sky behind, compressed by a long lens, low angle against hard outdoor sunlight, rain, mud and torn armor, wind pulling cloth sideways, high-contrast black and white, academy ratio, tense, elemental, human against weather.
 

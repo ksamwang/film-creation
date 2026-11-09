@@ -4,6 +4,8 @@ title: 姜文 Jiang Wen
 style_file: ../directors/jiang-wen.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 1970s Beijing rooftops or wartime village, 24–35mm wide lens close to the face so it distorts, hard noon sunlight and dust backlight, high-saturation red-yellow-brown in the historical section, desaturated grey-green in the private section, tilted and off-balance framing, half a face blocked, sweat-stained uniform, chipped rifle, open space to run through, loud, kinetic, unreliable.
 

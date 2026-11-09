@@ -4,6 +4,8 @@ title: 拉夫·迪亚兹 Lav Diaz
 style_file: ../directors/lav-diaz.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, black and white, deep-focus 35mm wide shot, tiny human figures lost in a vast rain-soaked landscape, sky and mud filling most of the frame, overcast natural light, no fill, single practical source at night, heavy grey tonal range, wet earth and corrugated iron, static camera at human height, figures walking a real distance, documentary gravity, no grain nostalgia.
 

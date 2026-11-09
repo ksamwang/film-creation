@@ -4,6 +4,8 @@ title: 拉斯·冯·提尔 Lars von Trier
 style_file: ../directors/lars-von-trier.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, artificial confession, a woman's face half a metre from a jittering 28mm handheld lens, frame tilted, background smeared by motion, cold blue and sick green, blown highlights, raw digital noise, or the opposite: a flat frontal stage with chalk lines for walls, centred 50mm, theatrical light falling visibly from above, devotional, punishing, self-indicting.
 

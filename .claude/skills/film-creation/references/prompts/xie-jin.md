@@ -4,6 +4,8 @@ title: 谢晋 Xie Jin
 style_file: ../directors/xie-jin.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 1960s–1980s rural China, high-key frontal lighting with no hidden shadows, medium shot with faces open to camera, symmetrical staging of a struggle session or a family table, cold grey for the public scene and warm tungsten yellow for the kitchen, 35–50mm at eye level, patches, enamel cups, faded slogans, sweat and dirt visible, direct, unironic.
 

@@ -4,6 +4,8 @@ title: 西奥·安哲罗普洛斯 Theo Angelopoulos
 style_file: ../directors/theo-angelopoulos.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, faded olive-green and ochre, low overcast light, mist and rain, a very wide open landscape cut by a road, railway or river, tiny figures walking along the line, 35–50mm lateral panorama, camera placed ahead of the characters, wet stone and rusted rails, flat contrast, history heavier than the people.
 

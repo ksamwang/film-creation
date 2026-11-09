@@ -4,6 +4,8 @@ title: 埃里克·侯麦 Éric Rohmer
 style_file: ../directors/eric-rohmer.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, quiet French interior, medium two-shot across a table, 50mm at seated eye height, fixed camera or an almost imperceptible push, soft window daylight plus a table lamp, no dramatic side fill, books and wine glasses on a cloth, muted seasonal color, plain, talkative, restrained, unglamorous.
 

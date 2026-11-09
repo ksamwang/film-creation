@@ -4,6 +4,8 @@ title: 达伦·阿罗诺夫斯基 Darren Aronofsky
 style_file: ../directors/darren-aronofsky.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 American psychological body film, bleached high-contrast image, hip-height handheld camera pressed close to skin, 24mm wide-angle distortion, overhead fluorescent light, blown highlights and crushed blacks, sweat, pores, glass, concrete, one accent color of red or pink, coarse 16mm grain, obsessive, airless, subjective.
 

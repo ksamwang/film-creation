@@ -4,6 +4,8 @@ title: 罗伯特·瑟蒂斯 Robert Surtees
 style_file: ../cinematographers/robert-surtees.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Naturalistic deep-focus film still, wide frame, 28–40mm lens at eye level, foreground hands and distant figures equally sharp, flat daylight with bounce fill, restrained low-saturation colour, accurate skin, real dust and wood, figures placed at both edges with open space between, 35mm grain, observational, unforced, documentary calm.
 

@@ -4,6 +4,8 @@ title: 努里·比格·锡兰 Nuri Bilge Ceylan
 style_file: ../directors/nuri-bilge-ceylan.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, Anatolian slow cinema, 50–135mm long lens, two figures small in a vast snowfield or a large dark room, low-saturation ochre, slate blue and snow white, window light as key with the face left dark in backlight, near-static long take, wool coats, mud, wood, silence.
 

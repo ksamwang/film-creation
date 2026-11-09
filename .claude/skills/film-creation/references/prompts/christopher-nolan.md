@@ -4,6 +4,8 @@ title: 克里斯托弗·诺兰 Christopher Nolan
 style_file: ../directors/christopher-nolan.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic 65mm IMAX film still, a lone figure centered on the axis of a vast concrete chamber, steel-blue and charcoal palette with a single warm amber practical, hard directional overcast light, deep focus, fine 65mm grain, symmetrical composition, oppressive negative space above, monumental scale, cold and restrained, no digital gloss.
 

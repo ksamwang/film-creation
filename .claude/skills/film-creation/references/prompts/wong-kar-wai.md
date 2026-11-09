@@ -4,6 +4,8 @@ title: 王家卫 Wong Kar-wai
 style_file: ../directors/wong-kar-wai.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 1990s Hong Kong, saturated emerald green and deep crimson neon, tungsten practical lights, smoky narrow interior, foreground doorframe or window frame cutting the subject, half the face lost in shadow, shallow depth of field, 35mm film grain, melancholic, intimate, off-center, slight motion blur on a passing figure.
 

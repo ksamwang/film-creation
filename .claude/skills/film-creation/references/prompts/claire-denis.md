@@ -4,6 +4,8 @@ title: 克莱尔·德尼 Claire Denis
 style_file: ../directors/claire-denis.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, extreme close-up of skin and sweat in backlight, low camera at floor or bed height, 85mm isolating a shoulder and breath, night exterior lit by neon and dying ember orange, hard practical light with deep colored shadows, uniform fabric and dust, no establishing wide, body cropped by the frame, sensual, tense, unexoticized.
 

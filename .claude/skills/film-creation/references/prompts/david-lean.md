@@ -4,6 +4,8 @@ title: 大卫·里恩 David Lean
 style_file: ../directors/david-lean.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 1960s 70mm epic, extreme wide desert or snow plain, a tiny figure walking along a measurable horizon, vast empty sky, sun-bleached ochre khaki and slate blue, hard noon sunlight and long shadows, deep focus, 28–40mm wide lens, no medium-shot bridge, one face held at the end of the journey, fine 65mm grain, patient, austere, monumental.
 

@@ -4,6 +4,8 @@ title: 蔡明亮 Tsai Ming-liang
 style_file: ../directors/tsai-ming-liang.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, bare Taipei apartment or flooded corridor, fixed extreme wide-angle full shot, low light from a single practical source, subject centered or pressed against the frame edge, damp stained walls, mattress, leaking water, cool cyan-grey, mould green and sodium yellow, oppressive stillness, minimal, no camera movement.
 

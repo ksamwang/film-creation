@@ -4,6 +4,8 @@ title: 英格玛·伯格曼 Ingmar Bergman
 style_file: ../directors/ingmar-bergman.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, chamber drama, two faces close together across a bare table, background stripped of decoration, single window light from the left, half of each face falling into darkness, high-contrast black and white, linen, worn wood floor, a glass of water, 50mm framing held, 85mm close-up, deep grain, intimate, severe, unconsoled.
 

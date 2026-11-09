@@ -4,6 +4,8 @@ title: 阿涅斯·瓦尔达 Agnès Varda
 style_file: ../directors/agnes-varda.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, handheld 35mm at the subject's eye height, available daylight, cluttered real location with passers-by and cables left in frame, collage of pink, blue and yellow against faded wall plaster, old clothes and handwritten paper, the photographer's shadow or hand entering the frame, medium close-up, tender, unsentimental, imperfect, alive.
 

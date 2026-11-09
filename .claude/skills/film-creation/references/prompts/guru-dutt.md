@@ -4,6 +4,8 @@ title: 古鲁·杜特 Guru Dutt
 style_file: ../directors/guru-dutt.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic black-and-white film still, 1950s Bombay melodrama, hard side-and-back light slicing the face into lit and dark halves, 50–85mm compressed interior, subject pushed to the frame edge while an empty chair or bare stage holds the center, velvet, cigarette smoke, rain-wet street, romantic self-destruction.
 

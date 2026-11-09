@@ -4,6 +4,8 @@ title: 贾法·帕纳西 Jafar Panahi
 style_file: ../directors/jafar-panahi.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, Iranian documentary realism, 24–35mm wide-angle handheld from behind or beside the subject, a barrier — checkpoint gate, turnstile, car window — cutting the frame, flat fluorescent and daylight, restrained grey, beige and asphalt black with red only on a sign or scarf, real tile and steel.
 

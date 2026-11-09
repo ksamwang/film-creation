@@ -4,6 +4,8 @@ title: 阿尔弗雷德·希区柯克 Alfred Hitchcock
 style_file: ../directors/alfred-hitchcock.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Classic suspense film still, geometrically legible space, doorframes inside doorframes cutting the figure into sections, eye-level camera with one precise high or low angle, 35–50mm lens and 75–100mm for object close-ups, high-saturation red, green and grey-blue or hard-lit black and white, single-source light with half the face in shadow, wooden staircase, glass, telephone, curtain, controlled and almost too calm.
 

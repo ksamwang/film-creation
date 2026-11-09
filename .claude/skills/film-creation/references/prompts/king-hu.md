@@ -4,6 +4,8 @@ title: 胡金铨 King Hu
 style_file: ../directors/king-hu.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic wuxia film still, Ming-era timber inn or bamboo forest, layered deep space with foreground branches, mid-ground figures and misted mountains behind, wide static medium-long shot, backlight and fog, earth yellow, ink green and lime white, weathered wood, bamboo, old cloth, poised before motion, 1970s film grain.
 

@@ -4,6 +4,8 @@ title: 格劳贝尔·罗查 Glauber Rocha
 style_file: ../directors/glauber-rocha.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, brutal overhead sun with no fill on the face, low camera near the ground looking up so the figure cuts into a huge white sky, 25–35mm wide angle, high-contrast black and white or earth-yellow, blood-red and indigo, dry earth, rock, dead tree, dust, sweat, coarse cloth, handheld frame with aggressive energy, mythic, hungry, confrontational.
 

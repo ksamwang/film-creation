@@ -4,6 +4,8 @@ title: 费穆 Fei Mu
 style_file: ../directors/fei-mu.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, 1940s Chinese small town, desaturated blue-grey and earth yellow with one candle-warm accent, natural window light, one side of the face in shadow, deep focus, door and window frames splitting the composition, figure and wall each half the frame, peeling plaster, damp brick, old timber, cotton cloth, 35mm film grain, academy ratio, restrained, still, wide negative space.
 

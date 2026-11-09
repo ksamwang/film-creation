@@ -4,6 +4,8 @@ title: 吉布里尔·迪奥普·曼贝蒂 Djibril Diop Mambéty
 style_file: ../directors/djibril-diop-mambety.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, a Dakar street at noon, saturated red, yellow, blue and green cloth colliding with painted walls, a young man in mirrored sunglasses pushed to the frame edge by an 18mm wide angle, low tilted handheld framing, hard sunlight and chrome glare, dust in the air, high-contrast saturated film, someone running into the shot, composition refusing to settle.
 

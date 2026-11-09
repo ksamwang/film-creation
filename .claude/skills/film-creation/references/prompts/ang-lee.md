@@ -4,6 +4,8 @@ title: 李安 Ang Lee
 style_file: ../directors/ang-lee.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, restrained family drama, beige grey and navy palette, a single window light from the side, interior corners kept dark, a long dining table with porcelain bowls and rising steam, figures seated in careful social positions, door frames and corridors cutting some of them out of frame, slightly off-axis formal composition, standing eye-level camera, quiet, withheld, polite.
 

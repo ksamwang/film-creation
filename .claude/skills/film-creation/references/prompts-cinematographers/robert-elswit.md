@@ -4,6 +4,8 @@ title: 罗伯特·艾尔斯维特 Robert Elswit
 style_file: ../cinematographers/robert-elswit.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, true anamorphic, 35mm, eye-level camera across the room from the subject, 40–100mm lens, motivated practical light — a desk lamp, a window, a sodium streetlamp, fluorescent tubes, low key at to , half the face in shadow, sodium amber and fluorescent green against neutral daylight, desaturated with one saturated accent, real walls and doorways, sweat and dust, observational, unglamorous, held.
 

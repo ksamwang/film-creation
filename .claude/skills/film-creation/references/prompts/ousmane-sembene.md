@@ -4,6 +4,8 @@ title: 乌斯曼·塞姆班 Ousmane Sembène
 style_file: ../directors/ousmane-sembene.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, a West African village courtyard at noon, a woman in a white headwrap facing the camera in frontal medium shot, bystanders planted on both sides as witnesses, hard unmodified midday sun, mud-brick wall, indigo cloth, corrugated iron, 35mm standard lens, static camera, symmetrical staging, plain unfiltered color, public, declarative, no one is decorative.
 

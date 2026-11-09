@@ -4,6 +4,8 @@ title: 维姆·文德斯 Wim Wenders
 style_file: ../directors/wim-wenders.md
 ---
 
+> 用法：「风格锚点」可直接放在模式 A 提示词末尾当风格句；「负面提示」和句中的 no ... 只在模型有 negative 参数时使用（模式 B 放进 NEGATIVE），否则改写成正面描述；「视频提示」的镜头运动按图生视频写，文生视频要先补人物位置。见 `../prompting.md`。
+
 ## 风格锚点
 Cinematic film still, road movie stillness, a figure seen from behind at the edge of a wide horizontal frame, horizon line cutting through the body, vast empty space left unfilled, motel window, railway, sky, flat eye-level 35mm lens holding its distance, natural dawn light mixed with motel neon, saturated green magenta and blue, glass, worn photograph, neon tubing, 35mm grain, quiet, wandering, tender.
 

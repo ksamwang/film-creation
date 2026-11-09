@@ -1,48 +1,35 @@
-# 从档案到 token
+# 从档案到提示词
 
-> 档案是给人看的；token 是给模型看的。这一层只做转换。
+> 档案是给人看的；提示词是给模型看的。这一层只做转换。写法见 `aigc/prompt-syntax.md`（两种模式），资产见 `aigc/assets.md`。
 
 ## 输出顺序
 
 ```text
-选导演/摄影 → 提取视觉 token → 组合资产 token → 镜头提示 → 视频提示
-```
-
-## token 块
-
-```text
-STYLE: ...
-SUBJECT: {{character_token}} | {{action}}
-ENVIRONMENT: {{scene_token}} | {{time}} | {{weather}}
-SHOT: {{size}} | {{angle}} | {{lens}} | {{composition}}
-LIGHT: ...
-COLOR: ...
-TEXTURE: ...
-MOTION: ...
-NEGATIVE: ...
+选导演/摄影 → 提取视觉基元 → 资产卡与参考图 → 镜头提示 → 视频提示
 ```
 
 ## 从档案映射
 
-| 档案字段 | 进入哪一块 |
-|---|---|
-| 视觉规则 | LIGHT / COLOR / TEXTURE / SHOT |
-| 镜头语法 | SHOT / MOTION |
-| 视觉配方 | STYLE / LIGHT / COLOR / TEXTURE |
-| 反向约束 | NEGATIVE |
-| 误读警告 | NEGATIVE 的第一行 |
-| 核心命题 | 不进 prompt；用于选导演 |
-| 同族差异 | 用于区分两位导演的 token |
+| 档案字段 | 模式 A（自然语言）放哪 | 模式 B（token 块）放哪 |
+|---|---|---|
+| 视觉规则 | 镜头、光色、质感那几句 | LIGHT / COLOR / TEXTURE / SHOT |
+| 镜头语法 | 取景与运镜那句；视频的动作顺序 | SHOT / MOTION |
+| 视觉配方 | 风格那一句（放最后） | STYLE / LIGHT / COLOR / TEXTURE |
+| 反向约束 | 改写成正面描述；有 negative 参数时放进去 | NEGATIVE |
+| 误读警告 | 同上，优先处理 | NEGATIVE 第一行 |
+| 核心命题 | 不进提示词；用于选导演 | 同左 |
+| 同族差异 | 用于区分两位导演的写法 | 同左 |
+
+`references/prompts/<slug>.md` 和 `prompts-cinematographers/<slug>.md` 里的英文段落可以直接当模式 A 的风格描述；其中的 `no ...` 句和 negative 块只在模型有 negative 参数时使用，或在模式 B 里放进 NEGATIVE。
 
 ## 组合规则
 
-1. **一个提示一个主语**：人物、场景、物品分开生成。
-2. **资产 token 逐字复用**：同一角色/场景不改写。
-3. **文字只写变化**：动作、景别、机位、光线变化；身份和场景不重复。
-4. **图像与运动分离**：视频提示只写运动。
-5. **不写画幅**：画幅由用户/工具设定。
-6. **不写导演名**：用视觉基元。
+1. **资产先行**：人物、场景、道具先有资产卡；模型支持参考图时先出定稿图。
+2. **文字只写变化**：动作、景别、机位、光线变化；有参考图时不重复外貌。
+3. **风格压到最后、压到最少**：8–15 个视觉基元，不写导演名。
+4. **不写画幅、分辨率、时长参数**：交给工具。
+5. **模式 B 额外**：一个提示一个主语；token 逐字复用；图生视频只写运动。
 
 ## 检查
 
-见 `references/aigc/prompt-syntax.md` 的「出图前检查」。
+见 `aigc/prompt-syntax.md` 的「出图前检查」。

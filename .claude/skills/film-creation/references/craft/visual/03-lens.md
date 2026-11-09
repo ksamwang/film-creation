@@ -16,7 +16,7 @@
 
 - SHOT 块固定顺序：焦段 → 透视后果 → 景深 → 焦点对象。四项缺一，模型会自己补默认值。
 - 每个角色或空间锁一个主焦段，跨镜头逐字复用；换焦段必须写理由（进入主观、制造压迫、揭示空间）。
-- 不要用 `zoom` 当走位；视频里推拉要有动机，且只写运动，不重复静态描述。
+- 不要用 `zoom` 当走位；视频里推拉要有动机；图生视频只写运动，不重复静态描述。
 - 变形镜头写具体后果：`anamorphic | oval bokeh | horizontal flare | compressed width`，不只写 `cinematic lens`。
 - NEGATIVE 写失败模式：`fisheye distortion | distorted face | flat telephoto compression | deep focus portrait | zoom blur`。
 

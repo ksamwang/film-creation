@@ -32,7 +32,7 @@ S1: 1990s kitchen | narrow | door screen-left | window back-right | counter cent
 
 纵深按层：前景放遮挡或背身人物，中景放当前动作，后景放地点信息。三层都清晰等于没有重点；一层承担信息，其余低对比、背身或虚焦。
 
-生成顺序：先出主构图，确认门窗桌的位置；之后所有角度以它为准。支持首帧或参考图时用它锁地理；否则逐字粘贴 S1 与朝向锁。negative 写 `floating furniture | impossible doorway | mirrored layout | centered symmetrical room | empty background`。
+生成顺序：先出主构图，确认门窗桌的位置；之后所有角度以它为准。之后每镜把它当场景参考图挂上，锁住地理；纯文本时才逐字粘贴 S1 与朝向锁。失败模式（NEGATIVE）： `floating furniture | impossible doorway | mirrored layout | centered symmetrical room | empty background`。
 
 ## 检查清单
 

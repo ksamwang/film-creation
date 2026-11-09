@@ -18,7 +18,7 @@
 
 ## AIGC 执行
 
-视频提示只写运动、镜头、时长，不重复静态描述。格式：
+图生视频（首帧已定）只写运动、镜头、时长，不重复静态描述；文生或参考图生视频要先写起幅的人物位置，再写运动。模式 B 格式：
 
 ```text
 MOTION: slow dolly-in | start medium on C1 at counter | trigger C2 enters frame-left | end close-up on C1 | 5s | 24fps
@@ -43,7 +43,7 @@ MOTION: slow dolly-in | start medium on C1 at counter | trigger C2 enters frame-
 - [ ] 运动是否有画面内动机？
 - [ ] 反推镜头是否只出现一次？
 - [ ] 受限空间是否避免长距离推近？
-- [ ] 视频提示是否只写运动，不重复静态描述？
+- [ ] 图生视频是否只写运动；文生视频是否写清起幅位置？
 
 ## 常见错误
 

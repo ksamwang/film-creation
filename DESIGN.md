@@ -1,7 +1,7 @@
 # AIGC 创作参考包 film-creation · 设计说明
 
-> 目标：把 19 本电影书的方法，与 125 位导演 + 29 位摄影指导的视觉 token，合成一份 **LLM 可参考、可路由的 AIGC 创作包**。
-> 默认输出 AI 图像/视频作品所需的 concept、镜头、token、资产、剪辑/声音；不默认做实拍。
+> 目标：把 19 本电影书的方法，与 125 位导演 + 29 位摄影指导的视觉基元，合成一份 **LLM 可参考、可路由的 AIGC 创作包**。
+> 默认输出 AI 图像/视频作品所需的 concept、镜头、提示词、资产、剪辑/声音；不默认做实拍。另含竖屏短剧生产标准（`references/drama/`）。
 
 ---
 
@@ -62,9 +62,10 @@ LLM 不按固定流程走；它按请求类型读模块，按需要提问，按�
 | 深度 | 导演档案 1200–1800 字；craft 模块 4000–6000 字（分子文件） |
 | 名单 | 125 位导演 + 29 位摄影指导 + 6 个 craft 模块 |
 | 混搭 | 支持，含导演 × 摄影 |
-| 输出 | concept / beat / shot sequence / image token / motion token / asset token / negative / edit-sound |
+| 输出 | concept / beat / shot sequence / 图像与视频提示词 / 资产卡与参考图规格 / edit-sound |
 | 实拍 | 只在用户明确要求时回答 |
-| AIGC | 纯文本 token；不绑定平台、不用参考图、不写画幅 |
+| AIGC | 两种提示词模式：A 自然语言 + 参考图（默认，LLM 编码的现代模型），B token 块 + NEGATIVE（CLIP 系模型）；一致性按参考图 → 首帧续接 → 文本锁分层；不绑定平台、不写画幅（2026-11-10 起，取代「纯文本 token、不用参考图」） |
+| 短剧 | `references/drama/standard.md` 定义立项到成片的字段契约，平台无关；与通用规则冲突时以短剧为准 |
 | 语言 | 中文条目，导演名保留原文/通用译名 |
 
 ---
@@ -327,19 +328,20 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
       performance/         # index.md + 5 个子文件
       sound/               # index.md + 5 个子文件
       production/          # index.md + 5 个子文件
-    aigc/                  # 注意力友好的 token 规则与文本资产
+    aigc/                  # 两种提示词模式、资产与一致性
       prompt-syntax.md
       assets.md
+    drama/                 # 竖屏短剧：index 路由、standard 字段契约、01–09 分阶段写法、sources
     index.md               # 125 导演 + 29 摄影总表
     taxonomy.md            # 风格族谱与近亲替代关系
     mixing.md              # 混搭协议 + 导演 × 摄影
-    prompting.md           # 从档案到 token 的转换规则
+    prompting.md           # 从档案到提示词的转换规则
     directors/
       wong-kar-wai.md
       bresson.md
       ...
     prompts/
-      wong-kar-wai.md      # 提示参考（散文式；按 prompting.md 转 token）
+      wong-kar-wai.md      # 提示参考（英文风格段可直接用于模式 A；按 prompting.md 转模式 B）
       ...
     cinematographers/
       emmanuel-lubezki.md
@@ -352,20 +354,21 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
     scene-card.md          # scene to shots
     shot-list.md           # shot prompt list
     character-sheet.md     # 三面板人物角色表
-    asset-tokens.md        # 人物/场景/道具 token
+    asset-tokens.md        # 资产卡（参考图 + 描述 + token）
     edit-sound.md          # 剪辑与声音
     ai-prompt.md           # AI 生成提示卡
     style-brief.md         # AIGC 风格卡
     director-entry.md      # 新增导演的空白模板
+    drama-*.md             # 短剧 bible / outline / episode / breakdown / storyboard
 ```
 
 ### AIGC 参考层
 
-- `references/aigc/prompt-syntax.md`：注意力友好的 token 语法、词序、预算、失败模式。
-- `references/aigc/assets.md`：文本资产 token（人物/场景/道具），逐字复用锁一致性。
+- `references/aigc/prompt-syntax.md`：先按模型类型选模式；模式 A 自然语言、模式 B token 块；两种模式的规则、对照例与失败模式。
+- `references/aigc/assets.md`：资产卡（描述 + token + 参考图），一致性四层（参考图、首帧续接、训练身份、文本锁）。
 - 人物资产使用固定三面板角色表：`templates/character-sheet.md`（左无头正面、中背面、右 3/4 特写，全表一张脸）。
-- 不绑定平台、不用参考图、不写画幅。
-- 现有 `references/prompts/<slug>.md` 是提示参考（散文式）；按 `references/prompting.md` 转成 token 块。
+- 不绑定平台、不写画幅；模型支持参考图时一致性先靠参考图。
+- `references/prompts/<slug>.md` 的英文风格段可直接用于模式 A；负面提示只在有 negative 参数时用；按 `references/prompting.md` 转成模式 B。
 
 ### 摄影指导层（29 位）
 
@@ -384,7 +387,7 @@ DP 层与导演层并列，但不复制导演结构：
 3. 需要时问最多 3 个问题。
 4. 按粒度输出 AIGC 产物。
 5. 默认不提供实拍方案；实拍只在明确要求时回答。
-6. 自检：是否落到 token/镜头/资产/剪辑；反向约束是否转成 negative；提示是否无否定/无画幅。
+6. 自检：是否落到提示词/镜头/资产/剪辑；模式是否选对；反向约束是否改写成正面描述或进入 negative；提示是否无画幅、无导演名。
 
 ### 风格执行卡（输出模板）
 

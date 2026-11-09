@@ -51,4 +51,4 @@
 
 ## 来源
 
-见 `craft/sources.md#story`，明细见 `_sources.md`。
+见 `craft/sources.md#story`。

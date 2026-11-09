@@ -39,16 +39,22 @@ LLM 的职责：**判断请求类型 → 读对应文件 → 按需要提问 →
 | 声音 / 剪辑 | `craft/sound/index.md` + `templates/edit-sound.md` | 声音分工 + 剪辑方案 |
 | 风格参考 | `references/index.md` + `references/taxonomy.md` | 2–3 个参考 + 视觉基元 |
 | 迭代 / 交付 | `craft/production/index.md` | 镜头数 / 迭代预算 / 交付 |
-| 短剧：立项 / 题材 / 出海 | `references/drama/index.md` → `drama/01-premise.md` | 立项设定 setting |
+| 短剧：立项 / 题材 | `references/drama/index.md` → `drama/01-premise.md` | 立项设定 setting |
+| 短剧：出海 / 海外市场 | `drama/01-premise.md` + `drama/09-overseas.md` | 本地化的立项设定 |
 | 短剧：分集大纲 / 付费点 | `references/drama/index.md` → `drama/02-season.md` | 分集大纲 outline |
 | 短剧：单集剧本 | `references/drama/index.md` → `drama/03-episode.md` + `drama/04-script.md` | 结构化剧本 script |
 | 短剧：角色 / 场景拆解、造型图 | `references/drama/index.md` → `drama/05-breakdown.md` | 拆解 breakdown + 造型图规格 |
-| 短剧：分镜 / 片段提示词 | `references/drama/index.md` → `drama/06-storyboard.md` | 分镜 segments（按 `drama/standard.md` 字段） |
+| 短剧：分镜 | `references/drama/index.md` → `drama/06-storyboard.md` | 分镜 segments（按 `drama/standard.md` 字段） |
+| 短剧：片段提示词 / 口型 / 站位问题 | `drama/07-segment-prompt.md` | 编译后的片段提示词，问题回分镜改 |
+| 短剧：成片 / 配乐字幕 / 质检 | `drama/08-cut-qc.md` | 成片方案 + 质检结论 |
+| 短剧：字段 / JSON / 对接平台 | `drama/standard.md` | 按标准字段落表 |
 | 明确要实拍 | 先说明本包默认不做实拍；按需给通用建议 | — |
 
 ## 短剧另有标准
 
 竖屏短剧按 `references/drama/standard.md` 的字段出稿，面向多参考图、原生出声、多镜头一次生成的视频模型。与下面的通用规则冲突时，**短剧以 `references/drama/` 为准**。
+
+宿主平台或工具已经规定了输出格式（比如某个阶段要求返回指定 JSON）时，**格式以平台为准**，本包只提供写法；不要改字段名、不要加平台没要的字段。一次只读当前阶段需要的 1–2 篇。
 
 ## 使用原则
 
@@ -105,7 +111,7 @@ LLM 的职责：**判断请求类型 → 读对应文件 → 按需要提问 →
 ## 文件地图
 
 - `references/craft/` — 6 个 AIGC 方法模块（index + 子文件）
-- `references/drama/` — 竖屏短剧：`index.md` 路由、`standard.md` 字段契约、01–09 分阶段写法、`sources.md`
+- `references/drama/` — 竖屏短剧：`drama/index.md` 路由、`drama/standard.md` 字段契约、01–09 分阶段写法、`drama/sources.md`
 - `references/aigc/prompt-syntax.md` — 两种提示词模式与失败模式
 - `references/aigc/assets.md` — 资产卡、参考图与一致性
 - `references/index.md` — 125 导演 + 29 摄影总表

@@ -1,6 +1,6 @@
 # 短剧单集剧本（script）
 
-> 节奏见 `references/drama/03-episode.md`，写法见 `04-script.md`；字段见 `standard.md` P3。
+> 节奏见 `references/drama/03-episode.md`，写法见 `references/drama/04-script.md`；字段见 `references/drama/standard.md` P3。
 
 ## 骨架（写正文前先填）
 

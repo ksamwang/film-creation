@@ -18,7 +18,7 @@
 | 成片 / 质检 | 「配乐字幕」「怎么剪」「这段能不能用」 | `08-cut-qc.md` | P8 cut |
 | 落表 / 对接平台 | 「字段是什么」「输出 JSON」 | `standard.md` | 全部 |
 
-模板：`templates/drama-bible.md`（立项）、`drama-outline.md`、`drama-episode.md`、`drama-breakdown.md`、`drama-storyboard.md`。
+模板：`templates/drama-bible.md`（立项）、`templates/drama-outline.md`、`templates/drama-episode.md`、`templates/drama-breakdown.md`、`templates/drama-storyboard.md`。
 
 ## 默认值（用户没说就用）
 

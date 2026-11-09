@@ -51,4 +51,4 @@ AIGC 短片最常见的失败不是镜头不好，而是没有“非发生不可
 
 ## 来源
 
-见 `craft/sources.md#story`，明细见 `_sources.md`。
+见 `craft/sources.md#story`。

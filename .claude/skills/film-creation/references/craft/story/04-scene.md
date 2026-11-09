@@ -52,4 +52,4 @@ AIGC 里，场景不是台词，而是一个 3–8 镜的序列，必须完成�
 
 ## 来源
 
-见 `craft/sources.md#story`，明细见 `_sources.md`。
+见 `craft/sources.md#story`。

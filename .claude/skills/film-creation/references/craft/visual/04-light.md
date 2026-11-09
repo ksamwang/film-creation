@@ -48,4 +48,4 @@
 
 ## 来源
 
-见 `craft/sources.md#visual`；逐条章节见 `craft/visual/_sources.md`。
+见 `craft/sources.md#visual`。

@@ -47,4 +47,4 @@ AIGC 里一个提示只生成一个镜头，景别不是后期能改的构图，
 
 ## 来源
 
-见 `craft/sources.md#visual`；逐条章节见 `craft/visual/_sources.md`。
+见 `craft/sources.md#visual`。

@@ -29,22 +29,40 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 - **竖屏短剧**：生产标准（立项 → 大纲 → 剧本 → 拆解 → 造型图 → 分镜 → 片段提示词 → 成片的字段契约）+ 各阶段写法，见 `.claude/skills/film-creation/references/drama/`
 - **125 位导演 + 29 位摄影指导**：视觉基元参考
 - **AIGC 提示规则**：两种模式（自然语言 + 参考图 / token 块）、资产卡与一致性分层、三面板角色表
+- **生成方式与模型**：文生 / 参考图生 / 首帧 / 首尾帧 / 续接怎么选、怎么串；模型能力卡
+- **短剧画风**：写实与漫剧等非写实画风的设定
 - **模板**：concept、scene-to-shots、shot prompt、资产卡、character sheet、edit-sound、AI prompt；短剧模板
 
 ## 请求路由表
 
+「先读」里的路径都从 `.claude/skills/film-creation/` 算起。
+
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 故事 / 概念 | `craft/story/index.md` | 一句话 + beat sheet |
-| 角色 / 人物 | `craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
-| 镜头序列 / 分镜 | `craft/staging/index.md` + `craft/visual/index.md` | shot list + prompts |
-| 图像 / 视频提示词 | `aigc/prompt-syntax.md` | 按模式出提示词 |
-| 资产一致性 / 参考图 | `aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |
-| 声音 / 剪辑 | `craft/sound/index.md` + `templates/edit-sound.md` | 声音层 + 剪辑方案 |
-| 风格参考 | `index.md` + `taxonomy.md` | 2–3 个参考 + 视觉基元 |
-| 迭代 / 交付 | `craft/production/index.md` | 镜头数 / 迭代预算 / 交付 |
-| 竖屏短剧 | `drama/index.md` | setting / outline / script / breakdown / storyboard（按 `drama/standard.md`） |
+| 故事 / 概念 | `references/craft/story/index.md` | 一句话 + beat sheet |
+| 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
+| 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + prompts |
+| 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
+| 怎么生成 / 用哪种生成方式 / 镜头衔接 | `references/aigc/workflow.md` | 生成方式选择与串联（文生、参考图生、首帧、首尾帧、续接、关键帧先行） |
+| 选模型 / 模型能力 | `references/aigc/models.md` | 模型与提示词模式（参考图上限、原生音频、negative 等） |
+| 资产一致性 / 参考图 | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |
+| 声音 / 剪辑 | `references/craft/sound/index.md` + `templates/edit-sound.md` | 声音层 + 剪辑方案 |
+| 风格参考 | `references/taxonomy.md` 选族 → `references/directors/<slug>.md` 或 `references/cinematographers/<slug>.md`，再读 `references/prompts/` 或 `references/prompts-cinematographers/` 下的同名文件；混搭读 `references/mixing.md` | 2–3 个参考 + 视觉基元 |
+| 按地域 / 年代查导演、摄影全表 | `references/index.md`（较大，只在需要全表时读） | 候选名单 |
+| 迭代 / 交付 | `references/craft/production/index.md` | 镜头数 / 迭代预算 / 交付 |
+| 竖屏短剧：立项 / 题材 | `references/drama/01-premise.md` | 立项设定 setting |
+| 竖屏短剧：出海 / 海外市场 | `references/drama/01-premise.md` + `references/drama/09-overseas.md` | 本地化的立项设定 |
+| 竖屏短剧：画风 / 漫剧 / 视觉风格 | `references/drama/10-look.md` | 画风设定（含非写实画风） |
+| 竖屏短剧：分集大纲 / 付费点 | `references/drama/02-season.md` | 分集大纲 outline |
+| 竖屏短剧：单集剧本 | `references/drama/03-episode.md` + `references/drama/04-script.md` | 结构化剧本 script |
+| 竖屏短剧：角色 / 场景拆解、造型图 | `references/drama/05-breakdown.md` | 拆解 breakdown + 造型图规格 |
+| 竖屏短剧：分镜 | `references/drama/06-storyboard.md` | 分镜 segments |
+| 竖屏短剧：片段提示词 / 口型 / 站位 | `references/drama/07-segment-prompt.md` | 编译后的片段提示词，问题回分镜改 |
+| 竖屏短剧：成片 / 配乐字幕 / 质检 | `references/drama/08-cut-qc.md` | 成片方案 + 质检结论 |
+| 竖屏短剧：字段 / JSON / 对接平台 | `references/drama/standard.md` | 按标准字段落表 |
 | 明确要实拍 | 先说明本包默认不做实拍；按需给通用建议 | — |
+
+竖屏短剧第一次进入时先读 `references/drama/index.md`（阶段路由、默认值、与通用规则的差异），产物字段以 `references/drama/standard.md` 为准。
 
 ## 使用原则
 
@@ -61,6 +79,8 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 - **模式 A（默认）**：大语言模型编码的图像/视频模型（Seedance、Kling、Veo、Wan、Hailuo、GPT-Image、Nano Banana、Flux 等）。自然语言按时间顺序写；空间写画面左右和机位前后；有参考图时不重复外貌；正面描述，否定只进 negative 参数。
 - **模式 B**：CLIP 系模型（SD / SDXL 及微调）。token 块、`|` 分隔；一个提示一个主语；否定进 NEGATIVE；token 逐字复用；图生视频只写运动。
 
+生成方式见 `references/aigc/workflow.md`，模型能力见 `references/aigc/models.md`。
+
 通用：具体胜过形容；风格放最后、8–15 个视觉基元；不写画幅、分辨率、导演名；一致性先靠参考图，再靠首帧续接，文本锁兜底。竖屏短剧按 `references/drama/standard.md`。
 
 ## 目录结构
@@ -73,10 +93,19 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       index.md              顶层导航
       sources.md            全局来源表
       story/ visual/ staging/ performance/ sound/ production/
-    aigc/                   两种提示词模式、资产与一致性
-    drama/                  竖屏短剧：生产标准 + 分阶段写法
-    index.md                125 导演 + 29 摄影总表
-    taxonomy.md             风格族谱
+    aigc/
+      prompt-syntax.md      两种提示词模式与失败模式
+      assets.md             资产卡、参考图与一致性
+      workflow.md           生成方式的选择与串联（关键帧先行）
+      models.md             模型能力卡
+    drama/                  竖屏短剧
+      index.md              阶段路由与默认值
+      standard.md           生产标准（字段契约）
+      01-09                 立项 → 成片的分阶段写法（09 出海）
+      10-look.md            画风与漫剧（非写实画风）
+      sources.md            来源
+    taxonomy.md             风格族谱（风格参考先读这里选族）
+    index.md                125 导演 + 29 摄影总表（按地域/年代查全表时读）
     mixing.md               视觉混搭 + 导演 × 摄影
     prompting.md            档案 → 提示词的转换规则
     directors/<slug>.md     125 份导演档案

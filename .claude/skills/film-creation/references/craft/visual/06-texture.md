@@ -13,12 +13,12 @@
 ## AIGC 执行
 
 - 画幅属于交付参数，不写进提示；提示只写介质、颗粒、反差、柔化、空气。
-- TEXTURE 块固定五项：`medium | grain | contrast | diffusion | atmosphere`。例：`35mm film | fine grain | low contrast | soft diffusion | smoke haze`。
-- 颗粒全片一种结构，不按场次换；negative 写 `uniform grain | digital noise` 防两种颗粒混用。
-- 柔化从镜头与光做：`halation around highlights | soft focus | mist diffusion`；不要写 `blurry` 或靠后期糊整张。
-- 暗部要有细节：`open shadows | detailed blacks`；negative 写 `crushed blacks | clipped highlights`。
-- 用 `haze | dust | smoke` 拉纵深，但一场只用一种空气介质，避免画面脏。
-- 视频的首帧承担表面，运动提示不重复颗粒与柔化词。
+- 质感固定五项：介质、颗粒、反差、柔化、空气。模式 A 放在提示末尾一句：`Shot on 35mm film with fine grain, low contrast, soft halation on the highlights and a thin haze of smoke.` 模式 B：`TEXTURE: 35mm film | fine grain | low contrast | soft diffusion | smoke haze`。
+- 颗粒全片一种结构，不按场次换；质感句逐字复用，防两种颗粒混用。
+- 柔化从镜头与光做：`soft halation around the highlights, a light mist diffusion`；不要写 `blurry` 或靠后期糊整张。
+- 暗部要有细节：`open shadows, detail in the blacks`；`crushed blacks | clipped highlights` 是失败模式，模式 B 放进 NEGATIVE，模式 A 只写正面那句。
+- 用 `haze` / `dust` / `smoke` 拉纵深，但一场只用一种空气介质，避免画面脏。
+- 图生视频由首帧承担表面，运动提示不重复颗粒与柔化词；文生视频和参考图生视频把同一句质感描述放在末尾。
 
 ## 检查清单
 
@@ -39,11 +39,11 @@
 | 每场颗粒不同 | 像不同素材拼接 | 全片固定 TEXTURE 块 |
 | 写 `8K | sharp | HDR` | 塑料皮肤、过锐 | 删掉，改低反差与柔化 |
 | 柔化靠 `blurry` | 主体也糊 | 写 `soft diffusion` + 主体 sharp |
-| 死黑 | 质感变脏 | `open shadows | detailed blacks` |
+| 死黑 | 质感变脏 | `open shadows, detail in the blacks` |
 
 ## 与风格层接口
 
-摄影档案的“材质”项只取画幅、介质、颗粒、反差、柔化、处理链，不取“胶片感”一词。把这些写成全局 TEXTURE 块与固定 NEGATIVE，所有镜头复用；画幅在交付时统一设定，不在每条提示里重复。剪辑上，表面一致性比单张精致更重要：两镜颗粒、反差、柔化不一致，剪在一起就会跳。资产 token 里的场景材质（湿玻璃、金属、布）要和 TEXTURE 块同向，不要一个要粗颗粒、一个要数码干净。
+摄影档案的“材质”项只取画幅、介质、颗粒、反差、柔化、处理链，不取“胶片感”一词。把这些写成全局质感描述（模式 B 为 TEXTURE 与 NEGATIVE 块），所有镜头复用；画幅在交付时统一设定，不在每条提示里重复。剪辑上，表面一致性比单张精致更重要：两镜颗粒、反差、柔化不一致，剪在一起就会跳。资产描述里的场景材质（湿玻璃、金属、布）要和 TEXTURE 块同向，不要一个要粗颗粒、一个要数码干净。
 
 ## 来源
 

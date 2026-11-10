@@ -12,26 +12,28 @@ AIGC 里走位不能试错，必须一次写进画面：静止图写最终位置
 
 **调度人物和摄影机**（3.3）：调度只做四件事——强调主体、强调组中一个、把注意力从 A 转到 B、连接区域。AIGC 用法：每次位置变化必须对应其中一个功能，否则删掉；"随便走走"只会带来漂移。
 
-**反向运动**（3.4）：两主体反向移动，距离与张力同时变化。AIGC 用法：写成 `C1 moves screen-right | C2 moves screen-left | same axis`；若模型把两人融合，就拆成单人镜头，在交叉点剪开。
+**反向运动**（3.4）：两主体反向移动，距离与张力同时变化。AIGC 用法：写成 `Lin walks toward frame right as Gu walks toward frame left along the same line; they pass at the table.`；若模型把两人融合，就拆成单人镜头，在交叉点剪开。
 
 ## AIGC 执行
 
-位置行用固定字段：角色 | 起始区 | 终点 | 画面位置 | 朝向 | 视线。例：
+每人一句，字段固定：角色、起始区、终点、画面位置、朝向、视线。模式 A：
 
 ```text
-C1: Z1 to Z2 | stops screen-left of C2 | faces C2 | eyeline to C2 face
-C2: Z3 | stands screen-right | 3/4 toward camera | eyeline off-screen left
+Lin walks in from the door and stops at the counter, frame left of Gu, facing him and looking at his face.
+Gu stays by the window at frame right, turned three-quarters toward the camera, eyes on something off-screen left.
 ```
 
-位置只用屏幕坐标：`screen-left / screen-right / frame third / foreground / background`。不要写"舞台左""靠近观众"，模型理解不一致。
+模式 B 每人一行：`C1: Z1 to Z2 | stops screen-left of C2 | faces C2 | eyeline to C2 face`。
 
-静止图只写最终位置，不写过程。视频 motion prompt 只写一条路径：`C1 walks from door to counter | stops screen-left of C2 | 4s`。一条提示出现两次转身、一次绕桌、一次坐下，模型会中途变形；拆成两镜，用动作接动作。
+位置只用屏幕坐标：`screen-left / screen-right / frame third / foreground / background`。不要写"舞台左""靠近观众"。
 
-强调三法：主体靠近镜头；被两人夹在中间；前景遮挡另一人。转移注意力优先用前景擦过：`C3 crosses foreground | occludes C2 | C2 revealed`。连接区域用道具传递或门口穿越，比横穿画面稳。
+静止图只写最终位置，不写过程。视频 prompt 只写一条路径：`Lin walks from the door to the counter and stops at frame left of Gu.`一条提示出现两次转身、一次绕桌、一次坐下，模型会中途变形；拆成两镜，用动作接动作。
+
+强调三法：主体靠近镜头；被两人夹在中间；前景遮挡另一人。转移注意力优先用前景擦过：`A waiter crosses the foreground, hiding Gu for a beat, then Gu is revealed.`连接区域用道具传递或门口穿越，比横穿画面稳。
 
 视线是走位的一半。说话者与听者各有一侧脸可读；背对者承担"被排除"。写 `C1 3/4 face camera`、`C2 profile`、`C3 back to camera`；写"大家看向彼此"只会得到三张正脸。
 
-跨镜头走位要连续：上一镜右出，下一镜左入，中间补空镜或插入。方向锁定下后，所有镜头复用 `C1 screen-left | C2 screen-right`。
+跨镜头走位要连续：上一镜右出，下一镜左入，中间补空镜或插入。方向锁定下后，所有镜头复用同一句：`Lin at frame left, Gu at frame right`。
 
 ## 检查清单
 

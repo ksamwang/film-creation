@@ -12,7 +12,7 @@
 
 ## AIGC 执行
 
-先把表演拆成五元组，每个 token 只写可观察值：
+先把表演拆成五元组，每个 token 只写可观察值（字段表；模式 B 可直接当 token 块）：
 
 ```text
 GAZE: target | direction | duration | blink
@@ -21,6 +21,8 @@ HAND: contact object | grip | still or moving
 WEIGHT: front foot | back foot | lean | off-balance
 DISTANCE: to partner | to prop | to exit | approach or retreat
 ```
+
+模式 A 把五项连成句子：`Her eyes stay on his face without blinking; she holds her breath; her right hand grips the chair back; her weight is on the front foot, half a step closer.`
 
 迭代按四步走。第一步探索：用三到五条不同 take 试探情境与动作，不动风格；这一步只回答“哪种动作成立”。第二步命名：对比目标，指出是哪一项 token 不对，例如“视线没有落到对方脸上”“重心还在后脚”。第三步单变量：一条只改这一项，其余逐字不动；一轮最多改两项，否则无法归因。第四步定分：当某条读起来对了，把它冻结成 token 得分表——每镜记录起止的 gaze/breath/hand/weight/distance，后续镜头照此批量生成。
 

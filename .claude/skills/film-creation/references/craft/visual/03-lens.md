@@ -8,17 +8,17 @@
 
 《电影语言的语法》区分实际距离与光学距离：走近是实际距离，换长焦是光学距离；两者都能把人拍大，但空间被压扁的程度不同。《导演的摄影课》把镜头上的两个数字讲清楚：焦距决定视野与透视，光圈决定进光量与景深；焦距越短视野越广、靠近镜头的东西被夸张，焦距越长前后景越压缩、人物从背景里“剥”出来；变形镜头横向压缩再展开，得到不同焦外形状。
 
-《镜头的语法》把景深写成四个变量：光圈、焦距、拍摄距离、感光材料尺寸与感光度。光圈越小、焦距越短、距离越远，景深越大；聚焦平面只有一个，景深约前三分之一、后三分之二。AIGC 里不能真的调光圈，就把这四变量翻译成成对 token：`24mm | deep focus | exaggerated foreground`、`85mm | shallow depth of field | compressed background`。焦点是注意力：先定观众该看清什么，再写景深。
+《镜头的语法》把景深写成四个变量：光圈、焦距、拍摄距离、感光材料尺寸与感光度。光圈越小、焦距越短、距离越远，景深越大；聚焦平面只有一个，景深约前三分之一、后三分之二。AIGC 里不能真的调光圈，就把这四变量翻译成“焦段 + 后果”：`24mm, deep focus, the foreground exaggerated`、`85mm, shallow depth of field, the background compressed`。焦点是注意力：先定观众该看清什么，再写景深。
 
-广角与长焦各有后果。广角贴近拍特写会夸张鼻子、让耳朵后缩，适合喜剧或噩梦，不适合普通肖像；广角景深大，适合全景与空间交代。长焦压缩空间，适合肖像与“人群中的孤独”，景深浅，焦点必须跟住。AIGC 里要直接写后果，避免模型把 `wide-angle` 理解成鱼眼：需要空间时写 `24mm perspective | deep focus | wide environment`，需要肖像时写 `85mm portrait | shallow focus | soft background`。
+广角与长焦各有后果。广角贴近拍特写会夸张鼻子、让耳朵后缩，适合喜剧或噩梦，不适合普通肖像；广角景深大，适合全景与空间交代。长焦压缩空间，适合肖像与“人群中的孤独”，景深浅，焦点必须跟住。AIGC 里要直接写后果，避免模型把 `wide-angle` 理解成鱼眼：需要空间时写 `24mm perspective, deep focus, the whole room readable`，需要肖像时写 `85mm portrait, shallow focus, soft background`。
 
 ## AIGC 执行
 
-- SHOT 块固定顺序：焦段 → 透视后果 → 景深 → 焦点对象。四项缺一，模型会自己补默认值。
+- 镜头描述固定顺序：焦段 → 透视后果 → 景深 → 焦点对象，例：`On an 85mm lens from across the room, his face is sharp while the bar behind him melts into soft blur.` 四项缺一，模型会自己补默认值；模式 B 写进 SHOT 块。
 - 每个角色或空间锁一个主焦段，跨镜头逐字复用；换焦段必须写理由（进入主观、制造压迫、揭示空间）。
 - 不要用 `zoom` 当走位；视频里推拉要有动机；图生视频只写运动，不重复静态描述。
-- 变形镜头写具体后果：`anamorphic | oval bokeh | horizontal flare | compressed width`，不只写 `cinematic lens`。
-- NEGATIVE 写失败模式：`fisheye distortion | distorted face | flat telephoto compression | deep focus portrait | zoom blur`。
+- 变形镜头写具体后果：`anamorphic lens, oval bokeh, a horizontal flare across the frame`，不只写 `cinematic lens`。
+- 失败模式：`fisheye distortion | distorted face | flat telephoto compression | deep focus portrait | zoom blur`。模式 B 放进 NEGATIVE；模式 A 写成正面后果（`natural facial proportions, background soft`）。
 
 ## 检查清单
 
@@ -35,15 +35,15 @@
 
 | 错误做法 | 后果 | 替代做法 |
 |---|---|---|
-| 只写 `close-up` | 模型随机选焦段，脸型不稳 | 写 `85mm | shallow focus` |
+| 只写 `close-up` | 模型随机选焦段，脸型不稳 | 写 `85mm, shallow focus` |
 | 广角拍普通肖像 | 鼻子放大、脸变形 | 长焦稍远，或明确接受夸张 |
-| 全景用大光圈 | 空间读不清 | `deep focus | wide lens` |
+| 全景用大光圈 | 空间读不清 | `wide lens, deep focus` |
 | 每镜换焦段 | 人物像换了一张脸 | 固定主焦段，换时给理由 |
 | 写 `bokeh` 不写主体距离 | 背景糊、主体也糊 | 写 `subject sharp | background soft` |
 
 ## 与风格层接口
 
-摄影档案的镜头项只写后果，例如“35mm，靠近时前景夸张”“85mm，人物从背景剥出”。把这两句变成 SHOT 与 NEGATIVE 的固定子块，跨镜头复用；焦段一致性是角色一致性的一部分，和服装 token 同级。剪辑上，焦段变化本身就是信息：从广角环境切到长焦肖像，等于从“处境”切到“人”；没有这层意图就不要换。
+摄影档案的镜头项只写后果，例如“35mm，靠近时前景夸张”“85mm，人物从背景剥出”。把这两句变成每镜固定的镜头描述与失败模式，跨镜头复用；焦段一致性是角色一致性的一部分，和服装 token 同级。剪辑上，焦段变化本身就是信息：从广角环境切到长焦肖像，等于从“处境”切到“人”；没有这层意图就不要换。
 
 ## 来源
 

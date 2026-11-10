@@ -10,11 +10,11 @@
 
 《导演的摄影课》把照明风格与类型挂钩：高调照明整体亮、阴影少，常用于喜剧；低调照明暗部多、光比大，常用于惊悚与黑色电影。导演要能说出视觉基调，光服务主题，不只是曝光。光源还必须有画内动机：窗、台灯、霓虹、火、门缝；没有动机，观众会注意“为什么这么亮”。
 
-在 AIGC 里，这一模型翻译成三个 light 子句，但只允许一个主光：`key from window camera-left | soft | 4:1 | 5600K`、`negative fill shadow side`、`rim light one side only`。大面积柔光与切光的效果，改写成光质词：`large soft source`、`soft shadow edge`、`hard cut shadow`、`negative fill`，只写光质后果。
+在 AIGC 里，这一模型翻译成三个光的子句，但只允许一个主光：`Soft 5600K daylight from a window frame left is the only key; the shadow side falls off to near black, about 4:1; a thin rim catches one edge of her hair.`大面积柔光与切光的效果，改写成光质词：`large soft source`、`soft shadow edge`、`hard cut shadow`、`negative fill`，只写光质后果。
 
 ## AIGC 执行
 
-- LIGHT 块按“动机 → 方向 → 硬度 → 光比 → 色温”写。例：`single window practical | camera-left | soft | 4:1 | 5600K`。
+- 光按“动机 → 方向 → 硬度 → 光比 → 色温”写。模式 A：`A single desk lamp frame right throws hard warm light across his face; the far side stays in deep shadow.` 模式 B：`LIGHT: single window practical | camera-left | soft | 4:1 | 5600K`。
 - 一句只给一个主光方向；辅光只负责让该看见的看见，不能形成第二主光。
 - 硬光给纹理与威胁，柔光给安全与修饰；全片不要一种硬度到底，但要按场景统一。
 - 高调/低调是整场的决定，写进场景 token，不是单镜随机。
@@ -37,14 +37,14 @@
 | 错误做法 | 后果 | 替代做法 |
 |---|---|---|
 | 写 `cinematic lighting` | 得到均匀柔光棚拍 | 写方向 + 硬度 + 光比 + 色温 |
-| 同时写 key 和 fill 两个方向 | 双主光、脸变平 | 只给一个主光，暗部用 negative fill |
+| 同时写 key 和 fill 两个方向 | 双主光、脸变平 | 只给一个主光，暗部写“落入阴影” |
 | 每镜换光比 | 一场戏不连 | 按场景锁光比 |
 | 没有画内动机 | 光像从天而降 | 写窗、台灯、霓虹、门缝 |
 | 写设备清单 | 模型不理解，且偏离 AIGC | 写光质与光位后果 |
 
 ## 与风格层接口
 
-摄影档案的“光”项只取四项：主光方向、硬度、光比、色温基准；不取“氛围”形容词。把这四项变成可复用的 LIGHT 块，同一场景逐字复用；NEGATIVE 固定写 `even fill | flat studio lighting | multiple key directions | frontal fill`。光也是剪辑信息：从高调到低调的切换，应该对应场景或情绪的转折，不要在同一场里无理由变。
+摄影档案的“光”项只取四项：主光方向、硬度、光比、色温基准；不取“氛围”形容词。把这四项变成可复用的光的描述，同一场景逐字复用；失败模式固定为 `even fill | flat studio lighting | multiple key directions | frontal fill`，模式 B 放进 NEGATIVE，模式 A 写成“唯一主光、暗部保留阴影”。光也是剪辑信息：从高调到低调的切换，应该对应场景或情绪的转折，不要在同一场里无理由变。
 
 ## 来源
 

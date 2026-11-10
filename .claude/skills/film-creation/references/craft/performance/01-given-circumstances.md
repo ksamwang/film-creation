@@ -12,19 +12,19 @@
 
 ## AIGC 执行
 
-先写一个 CONTEXT 块，只放事实，不放情绪：
+先列一份情境底稿，只放事实，不放情绪；它是工作笔记，不直接进提示：
 
 ```text
-CONTEXT: 1973 | New York | third-floor walk-up | July heat | swollen heel | unopened mail | man at window across street | 10:00 audition
+CONTEXT: 1973, New York, third-floor walk-up, July heat, swollen heel, unopened mail, a man at the window across the street, a 10:00 audition
 ```
 
 然后逐条问：这个事实能不能变成画面里看得见的东西。时间落到光与汗；地点落到墙面、窗框、楼层；过去落到身上的痕迹；关系落到距离和物件归属；目标与障碍落到动作对象。写不出来的事实，等于没写。
 
-图像 prompt 用可观察状态替换氛围词。不写 `tense atmosphere`，写 `sweat at hairline | shirt stuck to back | one sandal off | stack of unopened mail`。视频 prompt 的首帧继承情境，运动从一个情境事实启动：热就抬手擦汗或推窗，门外有脚步就先看门再起身。
+图像 prompt 用可观察状态替换氛围词。不写 `tense atmosphere`，写 `Sweat beads at his hairline and his shirt sticks to his back; one sandal is off, and a stack of unopened mail sits by the door.` 图生视频由首帧继承情境，文生视频把情境写在动作前一句；运动从一个情境事实启动：热就抬手擦汗或推窗，门外有脚步就先看门再起身。
 
-资产 token 承接情境：场景用 S 编号，关键道具用 P 编号，人物加一条 body-state token（湿发、手上的灰、没换的衬衫）。这些 token 在同一场里逐字复用，情境才不会在镜头之间漂移。
+资产承接情境：场景用 S 编号，关键道具用 P 编号，各挂参考图；人物加一句身体状态（湿发、手上的灰、没换的衬衫），同一场里逐字复用，情境才不会在镜头之间漂移。
 
-NEGATIVE 写具体失败模式：`generic apartment | clean clothes | studio backdrop | empty surfaces | symmetrical pose`。
+失败模式：`generic apartment | clean clothes | studio backdrop | empty surfaces | symmetrical pose`。模式 B 放进 NEGATIVE；模式 A 不写否定，把对应的情境事实写具体即可。
 
 ## 检查清单
 
@@ -39,7 +39,7 @@ NEGATIVE 写具体失败模式：`generic apartment | clean clothes | studio bac
 
 - 把情境写成人物小传 → 模型读到一堆抽象关系，画面仍是通用房间；改成物件、痕迹、距离。
 - 用“压抑的房间”代替具体陈设 → 生成的是模板化暗调内景；改为墙面材质、光源、桌面状态。
-- 每镜重写情境 → 场景 token 漂移；固定 S/P token，只改动作与景别。
+- 每镜重写情境 → 场景漂移；固定 S/P 资产，只改动作与景别。
 
 ## 与风格层接口
 

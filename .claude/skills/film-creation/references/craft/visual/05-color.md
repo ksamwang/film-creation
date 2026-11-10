@@ -2,7 +2,7 @@
 
 ## 核心判断
 
-色彩不是滤镜，是信息：它告诉观众时间、地点、温度、人物状态，也告诉观众这一场和上一场不是同一个世界。AIGC 里色彩最容易失控，因为模型有默认审美，会往高饱和、青橙、HDR 上漂；所以色板必须写成固定 token 串，并在 negative 里逐项排除默认值。
+色彩不是滤镜，是信息：它告诉观众时间、地点、温度、人物状态，也告诉观众这一场和上一场不是同一个世界。AIGC 里色彩最容易失控，因为模型有默认审美，会往高饱和、青橙、HDR 上漂；所以色板必须写成固定描述，跨镜头逐字复用，并把默认值列为要排除的失败模式。
 
 ## 书里的原则
 
@@ -12,12 +12,12 @@
 
 ## AIGC 执行
 
-- COLOR 块写六项：基准色温、主导色、对抗色、中性色、饱和度、对比度。例：`5600K base | dominant desaturated olive | counter rust | neutral bone white | low saturation | high contrast`。
+- 色写六项：基准色温、主导色、对抗色、中性色、饱和度、对比度。模式 A：`Daylight-balanced, dominated by desaturated olive walls, one rust-red coat as the only accent, bone-white highlights, low saturation and hard contrast.` 模式 B：`COLOR: 5600K base | dominant desaturated olive | counter rust | neutral bone white | low saturation | high contrast`。
 - 需要精确锁色时给 2–4 个 hex：`#6B6B4A | #8A4B32 | #E8E0D0`；hex 是资产与后期的共同参照，不保证模型逐像素还原，所以还要写色名。
 - 一场戏不超过两个主色相加一个中性色；主导色要能一句话说出来。
-- 肤色优先：正向写 `natural skin tone`，negative 写 `oversaturated skin | orange skin | grey skin | plastic skin`。
+- 肤色优先：正向写 `natural skin tone with visible pores`；模式 B 在 NEGATIVE 排除 `oversaturated skin | orange skin | grey skin | plastic skin`，模式 A 不在正文写否定。
 - 冷暖分区必须有空间动机，例如窗、灯、室内外；没有动机的冷暖就是滤镜。
-- 混合色温要显式写：`mixed 3200K practicals | 5600K window`，否则模型统一成一种。
+- 混合色温要显式写：`warm 3200K lamps inside, cool 5600K daylight from the window`，否则模型统一成一种。
 
 ## 检查清单
 
@@ -42,7 +42,7 @@
 
 ## 与风格层接口
 
-摄影档案的“色”项只取基准色温、主导色、对抗色、饱和度、肤色处理，不取“复古”“高级”这类词。把这些写成固定 COLOR 块和 NEGATIVE 块，所有镜头原样复用；后期只做统一与微调，不靠调色救生成时的错误色温。色彩还决定剪辑的“世界感”：同一场内的镜头共享一套色板，换场才换主导色，观众才能读出场与场的边界。
+摄影档案的“色”项只取基准色温、主导色、对抗色、饱和度、肤色处理，不取“复古”“高级”这类词。把这些写成固定的色彩描述（模式 B 为 COLOR 与 NEGATIVE 块），所有镜头原样复用；后期只做统一与微调，不靠调色救生成时的错误色温。色彩还决定剪辑的“世界感”：同一场内的镜头共享一套色板，换场才换主导色，观众才能读出场与场的边界。
 
 ## 来源
 

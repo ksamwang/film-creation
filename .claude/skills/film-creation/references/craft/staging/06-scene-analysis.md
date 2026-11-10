@@ -6,15 +6,15 @@
 
 ## 书里的原则
 
-**三遍拆析**（《场面调度：影像的运动》8.1）：第一遍只读故事与人物，标出戏剧性单元与节拍；第二遍找视觉机会——空间对比、视觉母题、替代台词的动作；第三遍做技术拆析。AIGC 用法：第三遍换成生成参数——SHOT、MOTION、NEGATIVE、资产 token、剪辑点；三遍分开，不让参数压掉人物。
+**三遍拆析**（《场面调度：影像的运动》8.1）：第一遍只读故事与人物，标出戏剧性单元与节拍；第二遍找视觉机会——空间对比、视觉母题、替代台词的动作；第三遍做技术拆析。AIGC 用法：第三遍换成生成参数——取景、运动、失败模式、资产、剪辑点；三遍分开，不让参数压掉人物。
 
 **头脑风暴**（8.2）：先不判断，列全部调度可能，再按"是否推进人物关系"筛。AIGC 用法：每场至少五种走位，再按空间事件筛；不直接写第一条提示。
 
-**视觉化方案**（8.1）：每场画平面图与简笔故事板，标出入口、表演区、机位、运动路径。AIGC 用法：平面图变文本区域表与方向锁；故事板变同一 S1、C token 的关键帧表。
+**视觉化方案**（8.1）：每场画平面图与简笔故事板，标出入口、表演区、机位、运动路径。AIGC 用法：平面图变文本区域表与方向锁；故事板变同一组 S1、C 参考图的关键帧表。
 
 **预估备选镜头**（8.2）：主方案旁写"不成立时备选是什么"与触发条件。AIGC 用法：备选是"若双人镜头脸混，回退单人加插入"，不是"多生成几个角度"。
 
-**数字化故事板与动态故事板**（9.3–9.4）：预演检查运动、遮挡与衔接，但不当作最终答案。AIGC 用法：关键帧查地理与轴线，图生视频查运动；都不能替代 token 一致。
+**数字化故事板与动态故事板**（9.3–9.4）：预演检查运动、遮挡与衔接，但不当作最终答案。AIGC 用法：关键帧查地理与轴线，图生视频查运动；都不能替代资产一致。
 
 **问答模式与动作轴线**（《电影镜头设计》7.3、6.5）：镜头按问题—回答组织；动作轴线保证银幕方向。AIGC 用法：每镜写一个 Q；每场写 `AXIS: C1 screen-left | C2 screen-right`，所有镜头只在一侧。
 
@@ -25,27 +25,26 @@
 ```text
 SCENE: 厨房摊牌 | 夜
 SPACE EVENT: C1 从门口走到灶台，堵住 C2 的出口
-S1: 1990s kitchen | narrow | door screen-left | window back-right | counter center
-C1: ... | C2: ...
-AXIS: C1 screen-left | C2 screen-right
+ASSETS: S1 kitchen_night | C1 | C2  (reference images)
+AXIS: C1 frame left | C2 frame right
 BEATS: B1 追问 | B2 否认 | B3 逼近 | B4 让步
 
-B1 | Q where | SHOT wide | static | 3s
-B2 | Q relation | SHOT medium two-shot | C1 screen-left | C2 screen-right | 4s
-B3 | Q who bears | SHOT medium close-up C1 | slow dolly-in | 4s
-B4 | Q who changed | SHOT close-up C2 | static | 3s | cut on hand drop
-NEGATIVE: merged faces | mirrored room | extra limbs
+B1 | Q where | Wide, static: the whole kitchen, C1 in the doorway, C2 at the window. | 3s
+B2 | Q relation | Medium two-shot: C1 at frame left, C2 at frame right, the counter between them. | 4s
+B3 | Q who bears | Medium close-up of C1 as the camera dollies slowly in. | 4s
+B4 | Q who changed | Close-up of C2, static; cut as her hand drops. | 3s
+FAILURE (mode B: NEGATIVE): merged faces | mirrored room | extra limbs
 ```
 
 三遍：
 
 1. 第一遍只写 beat，不写镜头。每个 beat 必须改变关系；不改变的合并。
 2. 第二遍找三样：空间对比（谁被框住）、视觉母题（可重复道具或颜色）、替代台词的 action（放杯子、挡门）。
-3. 第三遍把 beat 映射成 3–8 镜，每镜填 Q、SHOT、MOTION、时长、剪辑点、资产。
+3. 第三遍把 beat 映射成 3–8 镜，每镜填 Q、取景、运动、时长、剪辑点、资产。
 
-头脑风暴至少五种走位：正对、背对、交叉、前景遮挡、后景逼近。只问：它是否改变人物关系。不改变的删。
+头脑风暴至少五种走位：正对、背对、交叉、前景遮挡、后景逼近。不改变关系的删。
 
-镜头数控制在 3–8。15–90 秒短片按 6–12 镜；一场戏超过 8 镜，多半是台词被逐句切开，回到问答合并。
+15–90 秒短片按 6–12 镜；一场戏超过 8 镜，多半是台词被逐句切开，回到问答合并。
 
 关键帧先查地理与轴线：同一 S1 下门是否一直在左，人物左右是否一致。通过后再图生视频。动态故事板只查运动与遮挡，不查表演。
 
@@ -67,11 +66,11 @@ NEGATIVE: merged faces | mirrored room | extra limbs
 - 没有空间事件 → 好看但戏不动。改：写"谁从哪到哪，改变什么"。
 - 故事板精细但轴线反了 → 全部重做。改：关键帧先查方向锁。
 - 备选写"多来几个角度"→ 迭代预算翻倍、一致性更差。改：写触发条件与回退。
-- 不写 negative → 多手、换衣、镜像房间。改：每镜带具体失败模式。
+- 不列失败模式 → 多手、换衣、镜像房间。改：每镜写清站位与资产，模式 B 再带 NEGATIVE。
 
 ## 与风格层接口
 
-scene card 把风格意图落到生成层：导演档案定 beat 取舍与镜头数，摄影档案定 SHOT 与 MOTION，视觉 token 填进 `STYLE`。风格词只有能改变镜头、运动或顺序时才有意义。scene card 直接交给 `templates/shot-list.md`，一镜一行，不写散文分镜。
+scene card 把风格意图落到生成层：导演档案定 beat 取舍与镜头数，摄影档案定 SHOT 与 MOTION，视觉描述填进风格句（模式 B 为 `STYLE`）。风格词只有能改变镜头、运动或顺序时才有意义。scene card 直接交给 `templates/shot-list.md`，一镜一行，不写散文分镜。
 
 ## 来源
 

@@ -15,16 +15,16 @@
 一个镜头只放一个及物动作。把“她生气地收拾东西然后离开”拆成三条：推椅、抓包、停在门口。每条写成 action token，动词必须具体：按、压、捏、推、抽、扣、松、挡、递、收回，而不是“动”“反应”“表演”。
 
 ```text
-SUBJECT: C1
-ACTION: right palm presses cup to table edge | fingers stay on rim | gaze at C2
-MOTION: slow push | 2s hold | static camera | 4s
+She presses the cup against the table edge with her right palm, fingers staying on the rim, eyes on him. She holds still for two beats. Static camera.
 ```
+
+模式 B：`ACTION: right palm presses cup to table edge | fingers stay on rim | gaze at C2`。
 
 动作链写成得分表，四列：起始状态、动作、结束状态、尺寸。尺寸跟景别绑定：全景给位移和重心变化，中景给手与前臂，特写给视线与呼吸，大特写给眼睑与指尖。动作结束处就是剪辑落点，不是台词结束处。
 
-每个动作追问一次“为什么是现在”：画面里要有一个触发物——门响、电话亮、对方伸手。触发物缺失，模型会把动作生成成无原因的摆拍。多人同框时分开写动作，不要在一个 prompt 里塞两个主语。
+每个动作追问一次“为什么是现在”：画面里要有一个触发物——门响、电话亮、对方伸手。触发物缺失，模型会把动作生成成无原因的摆拍。多人同框时每人一句动作、写清谁在画面哪侧，一镜只让一人做主动作；模式 B 才拆开生成。
 
-NEGATIVE 针对表演失败模式：`waving arms | theatrical gesture | crying face | frozen smile | idle hands | floating weight`。
+表演失败模式：`waving arms | theatrical gesture | crying face | frozen smile | idle hands | floating weight`。模式 B 放进 NEGATIVE；模式 A 改写成正面动作（`hands busy with the cup, weight settled in the chair`）。
 
 ## 检查清单
 
@@ -34,7 +34,7 @@ NEGATIVE 针对表演失败模式：`waving arms | theatrical gesture | crying f
 - [ ] 画面里是否有“为什么现在做”的触发物？
 - [ ] 动作尺寸是否与景别匹配？
 - [ ] 动作结束点是否就是剪辑点？
-- [ ] 多人镜头是否拆开生成？
+- [ ] 多人镜头是否只有一人做主动作？
 
 ## 常见错误
 

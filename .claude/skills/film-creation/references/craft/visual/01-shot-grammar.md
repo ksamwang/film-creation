@@ -8,9 +8,9 @@ AIGC 里一个提示只生成一个镜头，景别不是后期能改的构图，
 
 《电影语言的语法》把距离分成五种基本景别：特写或大特写、近景、中景、全景、远景；人体有可悦目的分截高度——腋下、胸下、腰下、臀下、膝下，全景必须包括脚。生成时把“中景”这类模糊词换成具体切点：`medium shot cut at waist`、`close-up cut below collarbone`、`full shot including feet`，比只写景别稳。
 
-同一本书的三种剪辑方法——一个主镜头记录整场、主镜头与短镜头交切、两个以上主镜头平行——在 AIGC 里对应三种镜头序列结构。主镜头不是“拍下来”，而是先做一张覆盖全场的 wide 基准图，用它锁定空间、光、色与人物位置；后续镜头从这张图的描述里逐字抄资产 token。平行剪辑则是两条镜头序列交替，不是两个人物塞进一张图。
+同一本书的三种剪辑方法——一个主镜头记录整场、主镜头与短镜头交切、两个以上主镜头平行——在 AIGC 里对应三种镜头序列结构。主镜头不是“拍下来”，而是先做一张覆盖全场的 wide 基准图，用它锁定空间、光、色与人物位置；后续镜头挂这张图做参考，纯文本时逐字抄它的资产描述。平行剪辑则是两条镜头序列交替，不是两个人物塞进一张图。
 
-动作与反应成对、剪在高峰瞬间：每个 beat 生成“动作帧”和“反应帧”两张，剪辑点落在反应峰值；视频运动只覆盖峰值那几秒，不生成完整过程。三角形原理、180°法则、30°定律落到屏幕方向 token：`actor A screen left | actor B screen right | camera stays on one side of the line`。外反拍把三分之二画面给面向镜头者：`over-the-shoulder | 2/3 frame on facing actor`。
+动作与反应成对、剪在高峰瞬间：每个 beat 生成“动作帧”和“反应帧”两张，剪辑点落在反应峰值；视频运动只覆盖峰值那几秒，不生成完整过程。三角形原理、180°法则、30°定律落到屏幕方向：`A sits frame left facing right, B sits frame right facing left; the camera stays on A's side of the table.` 外反拍把三分之二画面给面向镜头者：`Over B's shoulder, A fills two-thirds of the frame.`
 
 ## AIGC 执行
 
@@ -43,7 +43,7 @@ AIGC 里一个提示只生成一个镜头，景别不是后期能改的构图，
 
 ## 与风格层接口
 
-导演/摄影档案只取两三条能变成 token 的约束，例如“对话只用一个三角形”“每场先 wide 基准再近景”“越轴只允许一次”。这些约束写进分镜表的固定列，再转成 SHOT 块与 NEGATIVE 块：`NEGATIVE: crossed axis | screen direction flip | 30-degree jump cut | centered medium shot`。剪辑节奏也由景别序列决定：wide 建立空间，近景给信息，反应帧给情绪；不要把三个近景连排。
+导演/摄影档案只取两三条能变成 token 的约束，例如“对话只用一个三角形”“每场先 wide 基准再近景”“越轴只允许一次”。这些约束写进分镜表的固定列，再转成每镜的取景句；模式 B 另写 SHOT 块与 `NEGATIVE: crossed axis | screen direction flip | 30-degree jump cut | centered medium shot`，模式 A 改成正面写法：`same side of the line as the previous shot, A still frame left`。剪辑节奏也由景别序列决定：wide 建立空间，近景给信息，反应帧给情绪；不要把三个近景连排。
 
 ## 来源
 

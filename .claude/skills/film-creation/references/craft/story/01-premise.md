@@ -21,11 +21,11 @@
 ## AIGC 执行
 
 1. **概念块。** 先写 `LOGLINE:` 一句，句式是“某人 + 反常处境 + 引出的麻烦”。再写 `QUESTION:` 一句视觉问句，不写主题名词。
-2. **首帧即钩子。** 用图像 token 写第一镜：`SUBJECT: C1 | 动作 | 反常细节`，`ENVIRONMENT: S1 | 时间`，`SHOT: 景别 | 机位 | 焦段`。反常必须在画面里，不靠字幕解释。
-3. **前三秒。** 视频 motion token 只写一个变化：`MOTION: 主体动作 | 镜头运动 | 3s`。不要在同一镜里塞入第二个信息。
-4. **资产先行。** 首帧的人物、场景、关键道具各写一条固定 token，逐字复用；反常最好由道具 token 承担，便于重复。
+2. **首帧即钩子。** 挂 C1、S1 参考图，按「主体动作 → 环境 → 镜头」写：`A man in a wedding suit sits alone on the hard shoulder of a highway at dawn, eating cake from the box with his hands. Wide shot, low angle, 35mm.` 模式 B 拆成 SUBJECT / ENVIRONMENT / SHOT。
+3. **前三秒。** 视频提示只写一个变化，一个动作加一个运镜：`He stops chewing and looks up as a car slows beside him; the camera holds still.`
+4. **资产先行。** 首帧的人物、场景、关键道具各定参考图，挂图复用（纯文本时描述逐字复用）；反常最好由道具承担。
 5. **主题变母题。** 把视觉问句压成一个可重复的视觉母题（空椅、镜子、未接来电），在 beat 1、中点、结尾各出现一次，每次含义不同。
-6. **negative。** 首帧 negative 至少写 6 项具体失败：`generic cinematic | poster composition | text overlay | watermark | extra characters | symmetrical staging`。
+6. **失败模式。** 首帧排除 6 项左右具体失败：`generic cinematic | poster composition | text overlay | watermark | extra characters | symmetrical staging`。模式 B 放进 NEGATIVE，模式 A 改成正面描述：`one man alone, off-centre, clean frame`。
 
 ## 检查清单
 

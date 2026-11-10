@@ -6,9 +6,9 @@
 
 ## 书里的原则
 
-**表演区域**（《场面调度：影像的运动》7.1）：把多人场景划成几区，每组占一区，镜头只处理当前区，其余用景深、背身或暗部降级。AIGC 用法：区域表进分镜不进提示；每镜只写当前区人物，其余写 `background group | defocused`。
+**表演区域**（《场面调度：影像的运动》7.1）：把多人场景划成几区，每组占一区，镜头只处理当前区，其余用景深、背身或暗部降级。AIGC 用法：区域表进分镜不进提示；每镜只写当前区人物，其余写 `a few people further back, out of focus`。
 
-**三角群**（《电影镜头入门》Step2 三人、四人构图）：用身体朝向与视线组织三角形，多人场景拆成三角群，换组用一次走位或视线。AIGC 用法：先写主三角群 `C1 front-center | C2 back-left | C3 back-right`，其他人物不进此镜。
+**三角群**（《电影镜头入门》Step2 三人、四人构图）：用身体朝向与视线组织三角形，多人场景拆成三角群，换组用一次走位或视线。AIGC 用法：先写主三角群（谁在前、谁在后左右），其他人物不进此镜。
 
 **形态 A 和 L**（《电影镜头设计》10.1）：A 形一人在前、两人在后，前方者被共同注视；L 形一人侧翼、两人成一线。AIGC 用法：形态写成位置行，不写"孤立""结盟"；形态就是权力平面图。
 
@@ -23,23 +23,23 @@
 一条提示最好只有一两个承担动作的有名角色；多参考图模型能放下更多人，但同时动起来的人越多越乱。三人以上用三种方式之一：
 
 1. 双人镜头拍关系，第三人另起一镜。
-2. 单人反应镜头，背景写 `S1 | empty background`。
+2. 单人反应镜头，背景只留 S1 的空间。
 3. 分层合成：前景人物一张、后景群像一张，同一 S1 与光色，靠门框、柱子、遮挡接缝。
 
-位置图用文本三角：
+位置图用文本三角，挂齐三人参考图：
 
 ```text
-MAIN TRIANGLE: C1 front-center | faces camera 3/4 | C2 back-left | profile right | C3 back-right | back to camera
-ENV LAYER: background group | defocused | low contrast | no faces
+Lin stands front and centre, turned three-quarters to the camera. Behind her, Gu stands back left in profile facing right, and Mei stands back right with her back to us.
+A few guests further back are soft and low in contrast, their faces turned away.
 ```
 
-A 形写 `C1 front-center | C2 back-left | C3 back-right`；L 形写 `C1 screen-left | C2 center | C3 screen-right back`。形态定了再调站位，不边写边改。
+模式 B 一条提示只放一个主语，三人分开生成再合成。A 形写 `one in front at centre, two behind at left and right`；L 形写 `one on the left flank, two in a line receding to the right`。形态定了再调站位，不边写边改。
 
-换组只允许一次走位或视线转移。跨镜头时，所有人物左右位置逐字复用方向锁；否则观众以为换位。
+换组只允许一次走位或视线转移。跨镜头复用方向锁。
 
-四人以上先选方式。平面：`front row C1 C2 C3 | all facing camera | wide`，适合仪式、审讯、排队。纵深：`foreground C1 back to camera | midground C2 C3 | background crowd | deep focus`，适合空间与孤立。长焦压缩时有名角色放最前，背景只写 `crowd | silhouettes | no faces`，避免给背景人生成脸。
+四人以上先选方式。平面：`Wide shot, the three of them in one row facing the camera.` 适合仪式、审讯、排队。纵深：`Lin in the foreground with her back to us, Gu and Mei in the middle ground, a crowd behind, all in deep focus.` 适合空间与孤立。长焦压缩时有名角色放最前，背景只写 `a crowd in silhouette`，避免给背景人生成脸。
 
-特征污染控制：每角色一条固定 C token；给可区分的轮廓或服装色；同画面只让一张脸清晰；用手部遮挡、背身、门框切断易崩部位；背景不写五官。negative 写 `merged faces | identical people | duplicate characters | extra limbs | swapped costumes | everyone facing camera | detailed background faces`。
+特征污染控制：每角色挂自己的参考图（纯文本时一条固定描述）；给可区分的轮廓或服装色；同画面只让一张脸清晰；用手部遮挡、背身、门框切断易崩部位；背景不写五官。失败模式（模式 B 进 NEGATIVE）：`merged faces | identical people | duplicate characters | extra limbs | swapped costumes | everyone facing camera | detailed background faces`。
 
 ## 检查清单
 
@@ -57,8 +57,8 @@ A 形写 `C1 front-center | C2 back-left | C3 back-right`；L 形写 `C1 screen-
 - 一条提示写五个名字 → 脸糊、衣服互换。改：挂齐参考图，只让一两人动；或拆双人/单人镜头、分层合成。
 - 所有人正对镜头 → 画面平、关系消失。改：写 3/4、侧脸、背身。
 - 相邻镜头左右互换 → 观众以为换人。改：方向锁逐字复用。
-- 背景群众写得太具体 → 抢焦点、多出脸。改：`silhouettes | defocused | no faces`。
-- 服装同色 → 模型分不清谁是谁。改：每个 C token 给一个差异色。
+- 背景群众写得太具体 → 抢焦点、多出脸。改：`out-of-focus silhouettes`。
+- 服装同色 → 模型分不清谁是谁。改：每个人物资产给一个差异色。
 - 四人以上平面前后混写 → 站位混乱。改：先选平面或纵深。
 
 ## 与风格层接口

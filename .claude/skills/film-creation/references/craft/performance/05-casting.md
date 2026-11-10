@@ -14,15 +14,17 @@ AIGC 里没有真人可挑，只有角色设计。要判断的不是“谁最像
 
 角色设计先写动作清单，不写性格形容词：这个角色要推、要等、要挡、要递、要退。再看设计的工具能否覆盖这份清单。AIGC 的“工具”是可见项：年龄、体型、脸型、眼睛、发型、肤色、服装、配饰、疤痕、默认姿态、表情基线；有声时再加音色与语速。
 
-一个角色只写一条固定 token，字段顺序不变，逐字复用：
+一个角色只写一条固定描述，字段顺序不变；姿态与表情属于镜头，不进描述：
 
 ```text
-C1: 30s East Asian woman | slim | sharp jaw | narrow eyes | shoulder-length black hair | pale skin | grey wool coat | black turtleneck | scar above left eyebrow | upright | guarded
+C1: A woman in her thirties, East Asian and slim, with a sharp jaw and narrow eyes; shoulder-length black hair, pale skin; a grey wool coat over a black turtleneck; a thin scar above her left eyebrow.
 ```
 
-设计判据有四条。第一，辨识度：缩小到缩略图仍能靠轮廓或一个特征认出。第二，动作范围：体型与服装允许角色完成最难的那场动作，不因长外套或高跟鞋而只能站桩。第三，位置区分：主角、对手、摇摆者、旁观者各有不同剪影，多人同框不混脸。第四，稳定性：token 越短越稳，只留决定身份的词；情绪词不进身份 token。
+模式 B 写成：`C1: 30s East Asian woman | slim | sharp jaw | narrow eyes | shoulder-length black hair | pale skin | grey wool coat | black turtleneck | scar above left eyebrow`。
 
-一致性先靠参考图：身份 token 定稿后出一张角色表，之后每镜挂图，正文只写动作不重复外貌；没有参考图时才靠文本锁，每镜原样粘贴同一串 token，不改写、不换同义词，漂移时用原 token 重跑，而不是换词试。服装变体另建 token（C1-W2），标明继承关系，不把两套衣服写进同一条。道具归属写进 P token（谁的手、哪个口袋），避免下一镜换手。
+设计判据有四条。第一，辨识度：缩小到缩略图仍能靠轮廓或一个特征认出。第二，动作范围：体型与服装允许角色完成最难的那场动作，不因长外套或高跟鞋而只能站桩。第三，位置区分：主角、对手、摇摆者、旁观者各有不同剪影，多人同框不混脸。第四，稳定性：描述越短越稳，只留决定身份的词；情绪词不进身份 token。
+
+一致性先靠参考图：身份 token 定稿后出一张角色表，之后每镜挂图，正文只写动作不重复外貌；没有参考图时才靠文本锁，每镜原样粘贴同一串 token，不改写、不换同义词，漂移时用原 token 重跑，而不是换词试。服装变体另建造型（C1 · 婚礼礼服），以基础形象的图为参考出图，不把两套衣服写进同一条。道具归属写进 P 资产（谁的手、哪个口袋），避免下一镜换手。
 
 ## 检查清单
 
@@ -37,7 +39,7 @@ C1: 30s East Asian woman | slim | sharp jaw | narrow eyes | shoulder-length blac
 
 ## 常见错误
 
-- 每条 prompt 重写外貌 → 脸、发长、衣服逐镜漂移；固定 C token 原样复用。
+- 每条 prompt 重写外貌 → 脸、发长、衣服逐镜漂移；有参考图时只挂图，纯文本时 C 描述原样复用。
 - 堆“beautiful | stunning | gorgeous” → 生成通用偶像脸，角色之间无法区分；换成一个具体特征。
 - 给两个角色写相似剪影 → 同框时脸和衣服互相污染；先拉开体型、发型、服装轮廓。
 - 把情绪写进身份 token → 下一镜无法回到基线；身份与表情分开，表情进表演 token。

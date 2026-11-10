@@ -8,31 +8,32 @@
 
 **场景空间**（《场面调度：影像的运动》3.1）：把整场戏落到地面图，只圈出人物实际走到的区域，其余只作气氛。AIGC 用法：场景 token 只写三四个锚点，不写整栋房子。
 
-**动作的戏剧性范围**（同书 1.3）：摄影机可在动作范围之中，成为参与者；也可在范围之外，成为旁观者。AIGC 用法：SHOT 块写明确字段——`camera inside action range` 或 `camera outside action range`，不靠"紧张""客观"暗示。
+**动作的戏剧性范围**（同书 1.3）：摄影机可在动作范围之中，成为参与者；也可在范围之外，成为旁观者。AIGC 用法：取景写明——`the camera is inside the action, just behind her shoulder` 或 `the camera watches from outside, through the doorway`，不靠"紧张""客观"暗示。
 
 **视点与戏剧性重点**（1.1–1.2）：谁在前景、谁被遮挡、机位高低，决定观众站在谁一边。AIGC 用法：把立场翻译成前景归属与遮挡，模型不会从"同情"推出构图。
 
-**受限空间与开阔空间**（第 4–6 章）：窄空间靠纵深、前后景和小位移；开阔空间要先重建边界。AIGC 用法：窄空间写 `narrow | foreground occlusion | compressed depth`；开阔空间写地标与动线，否则只剩空荡。
+**受限空间与开阔空间**（第 4–6 章）：窄空间靠纵深、前后景和小位移；开阔空间要先重建边界。AIGC 用法：窄空间写 `a narrow room, foreground shoulders blocking part of the frame, compressed depth`；开阔空间写地标与动线，否则只剩空荡。
 
 **纵深调度**（《电影镜头设计》13.1–13.2、13.6）：前景、中景、后景各承担信息。AIGC 用法：给每层一个具体物体或人物，不要让三层都退成"背景"。
 
 ## AIGC 执行
 
-先写一条场景 token，字段固定：地点 | 年代 | 尺度 | 入口 | 固定障碍 | 纵深锚点 | 时间。例：
+先写一条场景描述，字段固定：地点、年代、尺度、入口、固定障碍、纵深锚点、时间。模式 A：
 
 ```text
-S1: 1990s kitchen | narrow | door screen-left | window back-right | counter center | fridge foreground-right | tiled floor | night
+S1: A narrow 1990s kitchen at night with a tiled floor. The door is at frame left, a window at the back right, the counter in the centre, the fridge in the right foreground.
 ```
 
-这条 token 逐字复用，不改同义词。每镜再补朝向锁：`door screen-left | window screen-right`。没有它，重生成时左右会翻，接起来就是错的空间。
+模式 B：`S1: 1990s kitchen | narrow | door screen-left | window back-right | counter center | fridge foreground-right | tiled floor | night`。
+先用它出无人的场景参考图，纯文本时逐字复用。每镜再补朝向锁：`the door at frame left, the window at frame right`。没有它左右会翻。
 
-机位内外写成 SHOT 字段。之内：`camera inside action range | shoulder foreground | medium`；之外：`camera outside action range | wide | doorway frame`。两种放法不混在一条提示里，否则模型会把机位与构图折中。
+机位内外写进取景句。之内：`Medium shot from just behind his shoulder, inside the argument.` 之外：`Wide shot from the hallway, framed by the doorway.`
 
-受限空间不用广角全景，改用中景、前景遮挡和小幅摇移，把变化压在距离与朝向。开阔空间先给两三个地标与一个前景尺度物（路牌、车、栏杆），否则"辽阔"变空白。人群用长焦压缩表示被困，广角加空通道表示孤立。
+受限空间不用广角全景，改用中景、前景遮挡和小幅摇移。开阔空间先给两三个地标与一个前景尺度物（路牌、车、栏杆），否则"辽阔"变空白。人群用长焦压缩表示被困，广角加空通道表示孤立。
 
-纵深按层：前景放遮挡或背身人物，中景放当前动作，后景放地点信息。三层都清晰等于没有重点；一层承担信息，其余低对比、背身或虚焦。
+纵深按层：前景放遮挡或背身人物，中景放当前动作，后景放地点信息。一层承担信息，其余低对比、背身或虚焦。
 
-生成顺序：先出主构图，确认门窗桌的位置；之后所有角度以它为准。之后每镜把它当场景参考图挂上，锁住地理；纯文本时才逐字粘贴 S1 与朝向锁。失败模式（NEGATIVE）： `floating furniture | impossible doorway | mirrored layout | centered symmetrical room | empty background`。
+生成顺序：先出主构图，确认门窗桌的位置；之后每镜挂它做场景参考图，所有角度以它为准。失败模式（模式 B 进 NEGATIVE，模式 A 改正面描述）：`floating furniture | impossible doorway | mirrored layout | centered symmetrical room | empty background`。
 
 ## 检查清单
 

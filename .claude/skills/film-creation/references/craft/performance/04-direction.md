@@ -18,7 +18,7 @@
 2. 表演 token 层：视线、呼吸、手、重心、距离，可逐镜调。
 3. 剪辑层：选 take、定切点、排顺序。
 
-一条调整只给一个 token 差分。不写“更脆弱”，写 `GAZE: down-left | held | no blink`；不写“更爱他”，写 `DISTANCE: 20cm closer | hand stops at his sleeve`。一次只改目标、障碍、尺寸、节奏中的一项。
+一条调整只给一个 token 差分。不写“更脆弱”，写 `her eyes drop to the lower left and stay there, unblinking`；不写“更爱他”，写 `she moves a hand's width closer and her hand stops at his sleeve`。一次只改目标、障碍、尺寸、节奏中的一项。
 
 不做整段示范。要参照就只给一个动作或一个节奏点：一只手停住、一次呼吸断开。不要粘贴一段“参考表演”让模型模仿，那会把风格和表演混成一个不可归因的变量。
 
@@ -46,7 +46,7 @@
 
 ## 与风格层接口
 
-导演档案与摄影档案给的是视觉约束：一个机位、一个光源、一个色彩关系，转成 STYLE/LIGHT/SHOT token。这些 token 不决定人物怎么看、手放哪、重心在哪。写 prompt 时先放表演 token，再放风格 token；风格词过多会挤掉动作。若画面“有风格但人像假的”，先查表演 token 是否为空，而不是继续加风格。
+导演档案与摄影档案给的是视觉约束：一个机位、一个光源、一个色彩关系，转成风格、光、取景的描述（模式 B 为 STYLE/LIGHT/SHOT 块）。这些 token 不决定人物怎么看、手放哪、重心在哪。写 prompt 时先放表演 token，再放风格 token；风格词过多会挤掉动作。若画面“有风格但人像假的”，先查表演 token 是否为空，而不是继续加风格。
 
 ## 来源
 

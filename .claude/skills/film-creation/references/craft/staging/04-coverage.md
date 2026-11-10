@@ -10,7 +10,7 @@ AIGC 覆盖不是"多生成几个角度"，而是用最少镜头回答空间与�
 
 **长镜头**（1.4）：不切开动作，保留连续与空间完整。AIGC 用法：一条 5–8 秒连续视频，内部必须有一次注意力转移，否则拆成分切。
 
-**多机位与备用镜头**（1.5）：书里指多视点记录以备剪辑。AIGC 没有同时生成；改为同一场景 token 分角度重生成，每角度仍答新问题。
+**多机位与备用镜头**（1.5）：书里指多视点记录以备剪辑。AIGC 没有同时生成；改为同一场景参考图分角度重生成，每角度仍答新问题。
 
 **问答模式**（《电影镜头设计》7.3）：每切一镜，等于向观众提一个问题或答一个问题。AIGC 用法：镜头顺序按"在哪—怎么相对—谁承受—谁变了"排，不按台词句子排。
 
@@ -27,21 +27,23 @@ AIGC 覆盖不是"多生成几个角度"，而是用最少镜头回答空间与�
 3. 谁承受：single，背景简化，脸可读。
 4. 谁变了：close-up，只给变化的一下。
 
-每镜一行：`Q | SHOT | MOTION | NEGATIVE`。写不出 Q 的删掉。
+每镜一行：Q 加这一镜的提示。写不出 Q 的删掉。
 
 ```text
-Q: where | SHOT: wide | S1 | all characters | eye level | 24mm | static
-Q: relation | SHOT: medium two-shot | C1 screen-left | C2 screen-right | static
-Q: who bears | SHOT: medium close-up | C1 | 50mm | slight dolly-in
+Q where     | Wide shot at eye level on a 24mm lens: the whole kitchen, Lin in the doorway, Gu by the window. Static.
+Q relation  | Medium two-shot: Lin at frame left, Gu at frame right, the counter between them. Static.
+Q who bears | Medium close-up of Lin on a 50mm lens; the camera eases slightly closer.
 ```
 
-长镜头内部安排一次注意力交接：前景擦过、门被推开、光线变化；没有就改分切。超过 8 秒漂移风险上升，除非信息极简。
+模式 B 把右栏写成 SHOT / MOTION / NEGATIVE 块。
 
-分角度重生成时，SHOT 变，S1、C token 与方向锁逐字复用。**不要**在同一条提示写两台摄影机或两个视点，模型会合成错误机位。
+长镜头内部安排一次注意力交接：前景擦过、门被推开、光线变化；没有就改分切。
 
-备用只在具体风险出现时生成：双人脸混、遮挡挡错、身份漂移。写清触发条件，如"若 two-shot 中 C2 脸漂移，回退两条 single 加插入"，不写"多来几个角度"。
+分角度重生成时，取景变，S1、C 参考图与方向锁不变（纯文本时逐字复用）。**不要**在同一条提示写两台摄影机或两个视点，模型会合成错误机位。
 
-分离与综合按 beat 选：关系转折用双人同框，内心反应用单人，对话信息用正反打。正反打左右不互换，否则观众以为换人。
+备用只在具体风险出现时生成（双人脸混、遮挡挡错、身份漂移），写清触发条件与回退，不写"多来几个角度"。
+
+分离与综合按 beat 选：关系转折用双人同框，内心反应用单人，对话信息用正反打。正反打左右不互换。
 
 剪辑点优先落在运动上：出画、手放下、门关上、画面清空。相邻镜头若背景与站位相同、只换景别，会读成跳接；补 30° 以上角度或插入。
 
@@ -67,7 +69,7 @@ Q: who bears | SHOT: medium close-up | C1 | 50mm | slight dolly-in
 
 ## 与风格层接口
 
-覆盖表决定剪辑节奏与生成清单。导演档案取"长镜头还是分切"，转成镜头数与时长；摄影档案取"机位是否固定"，转成 SHOT 与 MOTION。冷静或压迫靠长镜头与分切、固定与手持的选择，不靠后期加速。分镜每行保留 Q，剪辑按 Q 检查。
+覆盖表决定剪辑节奏与生成清单。导演档案取"长镜头还是分切"，转成镜头数与时长；摄影档案取"机位是否固定"，转成取景与运动。冷静或压迫靠长镜头与分切、固定与手持的选择，不靠后期加速。分镜每行保留 Q，剪辑按 Q 检查。
 
 ## 来源
 

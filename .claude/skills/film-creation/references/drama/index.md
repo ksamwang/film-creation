@@ -11,6 +11,7 @@
 | 立项 | 「我想做个短剧」「这个题材行不行」「出海做什么」 | `01-premise.md`（出海再读 `09-overseas.md`） | P1 setting |
 | 大纲 | 「排 60 集」「付费点放哪」「分集大纲」 | `02-season.md` | P2 outline |
 | 剧本 | 「写第 3 集」「开头不够抓人」「台词太水」 | `03-episode.md` + `04-script.md` | P3 script |
+| 画风 | 「做成漫剧」「国漫 / 3D 风」「画面有塑料感」「借某位导演的光」 | `10-look.md` | 项目参数 `style` + 风格基准图 |
 | 拆解 | 「拆角色和场景」「她后来换了身份要不要新形象」 | `05-breakdown.md` | P4 breakdown |
 | 造型图 | 「出角色图」「三视图」「场景图」 | `05-breakdown.md` + `templates/character-sheet.md` | P5 look image |
 | 分镜 | 「把这集切成片段」「分镜」 | `06-storyboard.md` | P6 storyboard |

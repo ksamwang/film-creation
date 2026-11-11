@@ -1,6 +1,6 @@
 ---
 name: film-creation
-description: AIGC 创作参考包，供 LLM 在用户提出故事、角色、镜头序列、图像/视频提示词、资产与一致性（参考图、角色表）、声音与剪辑、竖屏短剧（立项、分集大纲、剧本、角色场景拆解、分镜、片段提示词）需求时调用。内置 6 个 AIGC 方法模块、竖屏短剧生产标准、125 位导演、29 位摄影指导，以及按模型类型区分的两种提示词写法（自然语言 + 参考图 / token 块）。默认输出 AIGC 产物；实拍只在用户明确要求时回答。Triggers: story, storyboard, shot list, image/video prompts, character consistency, reference images, vertical short drama / micro-drama, script, episode outline.
+description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、镜头序列、图像/视频提示词、资产与一致性（参考图、角色表）、声音与剪辑、竖屏短剧（立项、分集大纲、剧本、角色场景拆解、分镜、片段提示词）需求时调用。内置 6 个 AIGC 方法模块、竖屏短剧生产标准、125 位导演、29 位摄影指导，以及按模型类型区分的两种提示词写法（自然语言 + 参考图 / token 块）。默认输出 AIGC 产物；实拍只在用户明确要求时回答。Triggers: story, storyboard, shot list, image/video prompts, character consistency, reference images, vertical short drama / micro-drama, script, episode outline."
 ---
 
 # AIGC 创作参考包

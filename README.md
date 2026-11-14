@@ -169,7 +169,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
     drama-*.md              短剧：bible / outline / episode / breakdown / storyboard
 DESIGN.md                   设计说明
 dev-history/                开发过程简报（写作标准、改写简报，供维护者参考）
-tools/                      索引、结构/视觉/提示/重复度检查；镜头层、写作层检查
+tools/                      索引、结构/视觉/提示/重复度检查；镜头层、写作层、分镜层检查
 ```
 
 ## 扩展
@@ -179,6 +179,7 @@ tools/                      索引、结构/视觉/提示/重复度检查；镜�
 - 调整方法模块：读 `dev-history/AIGC_CRAFT_BRIEF.md`，改完跑 `python tools/check_craft.py`
 - 调整镜头语言查阅层：词典条目按 `references/camera/index.md` 的字段写，配方按 `references/camera/recipes/index.md` 的结构写，改完跑 `python tools/check_camera.py`
 - 调整写作查阅层：手法按 `references/writing/dialogue.md`、技巧按 `references/writing/devices.md` 的字段写，类型按 `references/writing/genres/index.md` 的结构写，改完跑 `python tools/check_writing.py`
+- 调整分镜查阅层：镜头功能按 `references/storyboard/shot-functions.md` 的字段写，分镜脚本表按 `references/storyboard/breakdown.md` 的九列写（功能取自功能词典，生成栏写可靠性），改完跑 `python tools/check_storyboard.py`
 
 全局复用：把 `.claude/skills/film-creation/` 整个复制到 `~/.claude/skills/film-creation/`。
 

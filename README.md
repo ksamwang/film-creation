@@ -26,7 +26,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 ## 包里有什么
 
 - **6 个 AIGC 方法模块**：故事、视觉、调度、表演、声音、制作
-- **镜头语言查阅层**：景别、角度、焦段、景深与运镜、航拍、速度的词典（写法 + 生成可靠性），以及按目的反查拍法
+- **镜头语言查阅层**：景别、角度、焦段、景深与运镜、航拍、速度的词典（写法 + 生成可靠性），按目的反查拍法，以及 9 类场景的镜头序列配方
 - **竖屏短剧**：生产标准（立项 → 大纲 → 剧本 → 拆解 → 造型图 → 分镜 → 片段提示词 → 成片的字段契约）+ 各阶段写法，见 `.claude/skills/film-creation/references/drama/`
 - **125 位导演 + 29 位摄影指导**：视觉基元参考
 - **AIGC 提示规则**：两种模式（自然语言 + 参考图 / token 块）、资产卡与一致性分层、三面板角色表
@@ -46,6 +46,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
 | 镜头语言：角度 / 运镜 / 焦段怎么写、能否生成 | `references/camera/lexicon-shot.md` 或 `references/camera/lexicon-move.md` | 取景句 / 运动句 + 生成方式 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
+| 某类场景怎么排镜头（对话、追逐、打斗、悬疑、亲密、蒙太奇、开场结尾、反转打脸） | `references/camera/recipes/index.md` → 对应配方 | 镜头序列 + 逐镜提示词 + 生成方式 |
 | 怎么生成 / 用哪种生成方式 / 镜头衔接 | `references/aigc/workflow.md` | 生成方式选择与串联（文生、参考图生、首帧、首尾帧、续接、关键帧先行） |
 | 选模型 / 模型能力 | `references/aigc/models.md` | 模型与提示词模式（参考图上限、原生音频、negative 等） |
 | 资产一致性 / 参考图 | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |
@@ -101,6 +102,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       lexicon-shot.md       景别、角度、焦段、景深
       lexicon-move.md       运镜、航拍与穿越、速度与时间
       intent.md             按目的反查拍法
+      recipes/              场景手法配方（9 类场景）
       sources.md            来源
     aigc/
       prompt-syntax.md      两种提示词模式与失败模式

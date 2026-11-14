@@ -19,6 +19,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
 | 镜头语言：某个角度 / 运镜 / 焦段怎么写、能否生成 | `references/camera/lexicon-shot.md` 或 `references/camera/lexicon-move.md` | 取景句 / 运动句 + 生成方式 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
+| 某类场景怎么排镜头（对话、追逐、打斗、悬疑、亲密、蒙太奇、开场结尾、反转打脸） | `references/camera/recipes/index.md` → 对应配方 | 镜头序列 + 逐镜提示词 + 生成方式 |
 | 怎么生成 / 生成方式 / 镜头衔接 | `references/aigc/workflow.md` | 生成方式与串联 |
 | 选模型 / 模型能力 | `references/aigc/models.md` | 模型与模式 |
 | 资产一致性 / 参考图 | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |

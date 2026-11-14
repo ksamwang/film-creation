@@ -271,7 +271,7 @@ at once; music; slow motion; slow camera drift; daylight; waxy skin.
 
 ## 竖屏短剧
 
-竖屏短剧的片段提示词按 `references/drama/07-segment-prompt.md` 的格式和两条固定约束编译。平台允许较长提示词时，可以在那个格式的基础上加入本层的 THE BEAT、人数锁、识别特征锁、总锁和这场戏的 negative；格式本身以 drama/07 为准。
+竖屏短剧的片段提示词按 `references/drama/07-segment-prompt.md` 的格式和两条固定约束编译。平台允许较长提示词时，可以在那个格式的基础上加入本层的 THE BEAT、人数锁、识别特征锁、总锁和这场戏的 negative，放在哪、什么时候值得加见 drama/07 §7；格式本身以 drama/07 为准。
 
 ## 来源
 

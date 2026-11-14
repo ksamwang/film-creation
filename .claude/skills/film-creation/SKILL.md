@@ -63,7 +63,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 
 细则与失败模式见 `references/aigc/prompt-syntax.md`。
 
-- **模式 A（默认）**：大语言模型编码的模型（Seedance、Kling、Veo、Wan、Hailuo、GPT-Image、Nano Banana、Flux 等）。自然语言按时间顺序写，一镜 2–3 个动作；空间写画面左右、机位前后、接触点，情绪写成可见动作；有参考图时不重复外貌，写清每张图是谁；正面描述，否定只进 negative 参数或工具约定的约束句。
+- **模式 A（默认）**：大语言模型编码的模型（Seedance、Kling、Veo、Wan、Hailuo、GPT-Image、Nano Banana、Flux 等）。自然语言按时间顺序写，一镜 2–3 个动作；空间写画面左右、机位前后、接触点，情绪写成可见动作；有参考图时不重写外貌、只写 2–4 条识别特征锁，写清每张图是谁、只管什么；正面描述优先，顽固默认（配乐、文字、多余的人、漂移）集中成约束句并列全同义说法，negative 只写这一镜的错误版本。多镜头和长提示词见 `references/video-prompt/`。
 - **模式 B**：CLIP 系（SD / SDXL 及微调）或用户要 token 写法。`|` 分隔的 token 块；一个提示一个主语；词序即权重；正向不写否定，否定进 NEGATIVE；token 逐字复用；图生视频只写运动。
 - **通用**：具体胜过形容（一个机位、一个光源、一个材质），不写 `cinematic / 8K / masterpiece`；风格放最后，8–15 个视觉基元；不写画幅、分辨率、时长；一致性先靠参考图，再靠首帧续接，文本锁兜底（`references/aigc/assets.md`）。
 

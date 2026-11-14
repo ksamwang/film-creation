@@ -66,7 +66,7 @@ LLM 不按固定流程走；它按请求类型读模块，按需要提问，按�
 | 实拍 | 只在用户明确要求时回答 |
 | AIGC | 两种提示词模式：A 自然语言 + 参考图（默认，LLM 编码的现代模型），B token 块 + NEGATIVE（CLIP 系模型）；一致性按参考图 → 首帧续接 → 文本锁分层；不绑定平台、不写画幅（2026-11-10 起，取代「纯文本 token、不用参考图」） |
 | 短剧 | `references/drama/standard.md` 定义立项到成片的字段契约，平台无关；与通用规则冲突时以短剧为准 |
-| 镜头语言 | `references/camera/` 为查阅层：取景 / 运动词典（写法、作用、用与不用、生成可靠性「稳 / 定帧 / 后期」、短剧枚举）、按目的反查和场景手法配方（recipes/）；craft 的 visual / staging 仍是判断层（2026-11-14） |
+| 镜头语言 | `references/camera/` 为查阅层：取景 / 运动 / 光 / 构图 / 转场词典（写法、作用、用与不用、生成可靠性「稳 / 定帧 / 后期」、短剧枚举）、按目的反查和场景手法配方（recipes/）；craft 的 visual / staging 仍是判断层（2026-11-14） |
 | 语言 | 中文条目，导演名保留原文/通用译名 |
 
 ---
@@ -329,7 +329,7 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
       performance/         # index.md + 5 个子文件
       sound/               # index.md + 5 个子文件
       production/          # index.md + 5 个子文件
-    camera/                # 镜头语言查阅层：index、lexicon-shot、lexicon-move、intent、recipes/、sources
+    camera/                # 镜头语言查阅层：index、lexicon-shot、lexicon-move、lexicon-light、lexicon-frame、lexicon-transition、intent、recipes/、sources
     aigc/                  # 两种提示词模式、资产与一致性
       prompt-syntax.md
       assets.md

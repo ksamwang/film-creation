@@ -25,6 +25,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + 提示词 |
 | 图像 / 视频提示词（单镜、基本语法） | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
 | 视频提示词：按分镜脚本写多镜头 / 长提示词（导演 + 摄影 + 场记写进一条） | `references/video-prompt/compile.md`（段落 `references/video-prompt/anatomy.md`，档位 `references/video-prompt/index.md`） | 生成单位切分 + 逐段提示词（全局段复用、逐镜时间线、总锁、negative） |
+| 视频提示词的某一段怎么写：摄影机 / 表演 / 物理与 AI 感 / 声音与台词 / 锁与 negative / 一镜到底与人群 | `references/video-prompt/camera-behavior.md`、`acting.md`、`physics.md`、`audio.md`、`locks.md`、`one-take.md`（均在 `references/video-prompt/`） | 对应段落的提示词写法 |
 | 镜头语言：角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成 | `references/camera/index.md` 选词典：`lexicon-shot` / `lexicon-move` / `lexicon-light` / `lexicon-frame` / `lexicon-transition` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
 | 某类场景怎么排镜头（对话、追逐、打斗、悬疑、亲密、蒙太奇、开场结尾、反转打脸） | `references/camera/recipes/index.md` → 对应配方 | 镜头序列 + 逐镜提示词 + 生成方式 |
@@ -77,7 +78,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 - `references/craft/index.md` — 6 个方法模块总导航（story / visual / staging / performance / sound / production）
 - `references/writing/index.md` — 写作查阅层：对白手法、叙事技巧、按效果反查、类型配方、剧本诊断
 - `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜头功能词典、三种拆法、场景示例、全片示例、分镜图、动态分镜、连续性、节奏
-- `references/video-prompt/index.md` — 视频提示词层：十九个段落、三档长度、从分镜脚本编译、场 5 完整示例
+- `references/video-prompt/index.md` — 视频提示词层：十九个段落、三档长度、从分镜脚本编译、场 5 完整示例；摄影机、表演、物理、声音、锁、一镜到底词库
 - `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源
 - `templates/` — treatment、script、scene-card、storyboard-script、shot-list、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

@@ -148,7 +148,7 @@
 
 ## 下一步：写提示词
 
-分镜脚本和生成清单定下来后，按批次把每个生成单位编译成视频提示词：字段对应、全局段复用、预判误读，见 `references/video-prompt/compile.md`。
+分镜脚本和生成清单定下来后，按批次把每个生成单位编译成视频提示词：字段对应、全局段复用、预判误读，见 `references/video-prompt/compile.md`；本片的提示词示例见 `references/video-prompt/example.md`。
 
 ## 来源
 

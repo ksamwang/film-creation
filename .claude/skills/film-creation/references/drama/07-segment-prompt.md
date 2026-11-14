@@ -2,6 +2,7 @@
 
 > 产物：P7 compiled prompt（`standard.md`）。片段提示词由分镜编译，**问题优先回分镜改**，不在提示词上打补丁。
 > 一句话：**自然语言、按镜头顺序、造型用 `@[名字]` 带图、台词写进去让模型说、结尾两条固定约束；其余交给参数面板。**
+> 短剧片段提示词的格式以本文件为准。平台允许较长提示词时，可以补入 `references/video-prompt/anatomy.md` 的戏的意图、人数锁、识别特征锁、总锁和这场戏的 negative（`references/video-prompt/compile.md` 末节）。
 
 ## 1. 为什么是自然语言而不是 token 块
 

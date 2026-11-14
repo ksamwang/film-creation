@@ -50,6 +50,7 @@
 - 生成方式（参考图生、首帧、首尾帧、续接）：`references/aigc/workflow.md`。
 - 台词时长估算与一镜一个说话人：`references/drama/04-script.md` §3。
 - 剧本上游：`writing/`；剧本到分镜的交接示例：`writing/example.md` §7。
+- 下游：分镜脚本编译成视频提示词，见 `references/video-prompt/compile.md`（用本层 `breakdown.md` 的场 5 做完整示例）。
 
 ## 来源
 

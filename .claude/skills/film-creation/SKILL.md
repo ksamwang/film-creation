@@ -14,6 +14,8 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
 | 故事 / 概念 | `references/craft/story/index.md` | 一句话 + beat sheet |
+| 写台词 / 改对白（太直白、太水、一个腔调） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
+| 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + 提示词 |
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
@@ -67,6 +69,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 路由表之外：
 
 - `references/craft/index.md` — 6 个方法模块总导航（story / visual / staging / performance / sound / production）
+- `references/writing/index.md` — 写作查阅层：对白手法、剧本诊断
 - `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源
 - `templates/` — treatment、scene-card、shot-list、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

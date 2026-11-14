@@ -17,6 +17,8 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + 提示词 |
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
+| 镜头语言：某个角度 / 运镜 / 焦段怎么写、能否生成 | `references/camera/lexicon-shot.md` 或 `references/camera/lexicon-move.md` | 取景句 / 运动句 + 生成方式 |
+| 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
 | 怎么生成 / 生成方式 / 镜头衔接 | `references/aigc/workflow.md` | 生成方式与串联 |
 | 选模型 / 模型能力 | `references/aigc/models.md` | 模型与模式 |
 | 资产一致性 / 参考图 | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |
@@ -64,5 +66,6 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 路由表之外：
 
 - `references/craft/index.md` — 6 个方法模块总导航（story / visual / staging / performance / sound / production）
+- `references/camera/index.md` — 镜头语言查阅层：取景 / 运动词典、按目的反查、可靠性分级
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源
 - `templates/` — treatment、scene-card、shot-list、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

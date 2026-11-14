@@ -151,7 +151,7 @@
 
 ## 7. 交接给分镜
 
-剧本交给 `templates/scene-card.md` 拆镜，逐镜拆法见 `references/storyboard/breakdown.md`。场 4 的拆法示意（镜头写法查 `camera/recipes/opening-ending.md`、`camera/intent.md`「领悟 / 顿悟」）：
+剧本交给 `templates/scene-card.md` 拆镜，逐镜拆法见 `references/storyboard/breakdown.md`，全片分镜脚本见 `references/storyboard/example.md`。场 4 的拆法示意（镜头写法查 `camera/recipes/opening-ending.md`、`camera/intent.md`「领悟 / 顿悟」）：
 
 | # | 画面 | 景别 | 时长 | 资产 |
 |---|---|---|---|---|

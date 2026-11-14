@@ -20,7 +20,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 | 写一个完整短片剧本 / 要剧本模板 | `templates/script.md`（示例 `references/writing/example.md`） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
 | 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
-| 分镜脚本：一场戏拆几个镜头、每镜拍什么、台词落在谁脸上 | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`） | 读戏卡 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、时长、生成） |
+| 分镜脚本：一场戏拆几个镜头、每镜拍什么、台词落在谁脸上 | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、时长、生成）+ 生成清单 `templates/shot-list.md` |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + 提示词 |
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
 | 镜头语言：角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成 | `references/camera/index.md` 选词典：`lexicon-shot` / `lexicon-move` / `lexicon-light` / `lexicon-frame` / `lexicon-transition` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
@@ -74,7 +74,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 
 - `references/craft/index.md` — 6 个方法模块总导航（story / visual / staging / performance / sound / production）
 - `references/writing/index.md` — 写作查阅层：对白手法、叙事技巧、按效果反查、类型配方、剧本诊断
-- `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜头功能词典、三种拆法
+- `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜头功能词典、三种拆法、场景示例、全片示例
 - `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源
-- `templates/` — treatment、script、scene-card、shot-list、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard
+- `templates/` — treatment、script、scene-card、storyboard-script、shot-list、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

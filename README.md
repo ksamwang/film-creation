@@ -48,7 +48,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 写一个完整短片剧本 / 要剧本模板 | `templates/script.md`（示例 `references/writing/example.md`） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
 | 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
-| 分镜脚本：一场戏拆几个镜头、每镜拍什么、台词落在谁脸上 | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`） | 读戏卡 + 分镜脚本 |
+| 分镜脚本：一场戏拆几个镜头、每镜拍什么、台词落在谁脸上 | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 分镜脚本 + 生成清单 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + prompts |
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
 | 镜头语言：角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成 | `references/camera/index.md` 选词典：`lexicon-shot` / `lexicon-move` / `lexicon-light` / `lexicon-frame` / `lexicon-transition` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
@@ -118,6 +118,8 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       breakdown.md          拆解七步与分镜脚本格式
       shot-functions.md     镜头功能词典
       three-ways.md         同一场戏的三种拆法
+      scene-types.md        对话 / 动作 / 情绪戏拆解示例
+      example.md            全片分镜脚本示例
       sources.md            来源
     camera/                 镜头语言查阅层
       index.md              用法与可靠性分级
@@ -152,7 +154,8 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
     treatment.md            AIGC 概念 / beat
     script.md               短片剧本
     scene-card.md           scene to shots
-    shot-list.md            shot prompt list
+    storyboard-script.md    分镜脚本
+    shot-list.md            生成清单（批次、进度、版本）
     character-sheet.md      三面板角色表
     asset-tokens.md         资产卡（参考图 + 描述 + token）
     edit-sound.md           剪辑与声音

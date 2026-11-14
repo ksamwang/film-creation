@@ -44,6 +44,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 故事 / 概念 | `references/craft/story/index.md` | 一句话 + beat sheet |
 | 写台词 / 改对白（太直白、太水、一个腔调） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 叙事技巧（伏笔、反转、倒计时、母题…）/ 想让观众爽、笑、哭、怕 | `references/writing/devices.md` 或 `references/writing/intent.md` | 技巧落法 / 情绪机制 + 写法 |
+| 按类型写（悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告） | `references/writing/genres/index.md` → 对应类型 | 类型约定 + beat 表 + 陈词滥调替代 |
 | 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + prompts |
@@ -106,6 +107,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       dialogue.md           对白手法
       devices.md            叙事技巧
       intent.md             按效果反查
+      genres/               类型配方（8 类）
       doctor.md             剧本诊断
       sources.md            来源
     camera/                 镜头语言查阅层

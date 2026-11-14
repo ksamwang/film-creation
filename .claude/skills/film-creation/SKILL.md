@@ -16,6 +16,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 | 故事 / 概念 | `references/craft/story/index.md` | 一句话 + beat sheet |
 | 写台词 / 改对白（太直白、太水、一个腔调） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 叙事技巧（伏笔、反转、倒计时、母题…）/ 想让观众爽、笑、哭、怕 | `references/writing/devices.md` 或 `references/writing/intent.md` | 技巧落法 / 情绪机制 + 写法 |
+| 按类型写（悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告） | `references/writing/genres/index.md` → 对应类型 | 类型约定 + beat 表 + 陈词滥调替代 |
 | 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + 提示词 |
@@ -70,7 +71,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 路由表之外：
 
 - `references/craft/index.md` — 6 个方法模块总导航（story / visual / staging / performance / sound / production）
-- `references/writing/index.md` — 写作查阅层：对白手法、叙事技巧、按效果反查、剧本诊断
+- `references/writing/index.md` — 写作查阅层：对白手法、叙事技巧、按效果反查、类型配方、剧本诊断
 - `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源
 - `templates/` — treatment、scene-card、shot-list、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

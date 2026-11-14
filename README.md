@@ -146,6 +146,7 @@ tools/                      索引、结构/视觉/提示/重复度检查
 - 新增导演：复制 `templates/director-entry.md`，按八节填写
 - 新增摄影：按 `dev-history/DP_BRIEF.md` 的结构
 - 调整方法模块：读 `dev-history/AIGC_CRAFT_BRIEF.md`，改完跑 `python tools/check_craft.py`
+- 调整镜头语言查阅层：词典条目按 `references/camera/index.md` 的字段写，配方按 `references/camera/recipes/index.md` 的结构写，改完跑 `python tools/check_camera.py`
 
 全局复用：把 `.claude/skills/film-creation/` 整个复制到 `~/.claude/skills/film-creation/`。
 

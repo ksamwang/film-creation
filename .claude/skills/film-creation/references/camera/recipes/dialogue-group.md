@@ -40,7 +40,7 @@
 7 | Same wide shot as shot 1: Father's chair angled toward Daughter; Son sits back, alone at frame left.
 ```
 
-## 四人以上
+## 变体：四人以上
 
 1. **分组**：把人分成 2–3 组（同一阵营、同一家庭、同一位置），每组一个双人或三人镜头。
 2. **中心人物**：选一个人做这场戏的视点，他的单人镜最多、最近；其他人用分组镜头。

@@ -31,6 +31,8 @@
 - 生成方式和可靠性分级见 `camera/index.md`；示例里的人物和场景都假定已经有参考图（`references/aigc/assets.md`），所以提示词里不写外貌。
 - 一场戏超过 8 镜，多半是台词被逐句切开了，回到问答合并（`craft/staging/04-coverage.md`）。
 
+配方是单场戏的默认序列；从剧本拆到逐镜的完整方法见 `references/storyboard/breakdown.md`。
+
 ## 来源
 
 见 `camera/sources.md`。

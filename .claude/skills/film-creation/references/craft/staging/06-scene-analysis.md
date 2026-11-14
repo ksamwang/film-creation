@@ -72,7 +72,7 @@ FAILURE (mode B: NEGATIVE): merged faces | mirrored room | extra limbs
 
 scene card 把风格意图落到生成层：导演档案定 beat 取舍与镜头数，摄影档案定 SHOT 与 MOTION，视觉描述填进风格句（模式 B 为 `STYLE`）。风格词只有能改变镜头、运动或顺序时才有意义。scene card 直接交给 `templates/shot-list.md`，一镜一行，不写散文分镜。
 
-对话、追逐、打斗、悬疑等常见场景的现成序列见 `references/camera/recipes/`，作为第三遍映射镜头时的起点。
+对话、追逐、打斗、悬疑等常见场景的现成序列见 `references/camera/recipes/`，作为第三遍映射镜头时的起点。把 scene card 展开成逐镜的分镜脚本（镜头数估算、镜头功能、台词落在谁脸上、时长、生成评估），见 `references/storyboard/breakdown.md`。
 
 ## 来源
 

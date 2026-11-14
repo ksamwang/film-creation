@@ -1,7 +1,7 @@
 # AI 生成提示卡
 
 > 复制这份模板，填成目标模型能执行的提示词。先选模式（`references/aigc/prompt-syntax.md` 第 0 节）。
-> 这是单镜提示卡。按分镜脚本写多镜头段落时，用 `references/video-prompt/compile.md` 的段落顺序。
+> 这是单镜提示卡。按分镜脚本写多镜头段落时，用 `video-prompt.md`（方法见 `references/video-prompt/compile.md`）。
 
 ## 项目 / 镜头
 

@@ -109,3 +109,20 @@
 | 分段生成与首尾帧续接 | `references/aigc/workflow.md` |
 | 人群分层、让路、朝向对比、反应由近及远 | 社区提示词模式归纳，属本包整理 |
 | 婚宴一镜到底示例 | 本包原创 |
+
+## example
+
+| 概念 / 规则 | 来源 |
+|---|---|
+| 全片层 / 场景层 / 单位层三层复用 | 属本包整理 |
+| 生成单位的切分与档位 | `storyboard/example.md` 生成清单；`video-prompt/compile.md` 第一步 |
+| 病房、灰鸽落肩示例 | 本包原创，延续 `writing/example.md` 与 `storyboard/example.md` |
+| 首尾帧生成 | `references/aigc/workflow.md` |
+
+## scene-prompts
+
+| 概念 / 规则 | 来源 |
+|---|---|
+| 三档示例 | 本包原创，延续 `storyboard/scene-types.md` 的场 7、场 9 |
+| 追逐的方向一致 | `storyboard/scene-types.md` 关键决定；《电影镜头设计》第六章 动作轴线原则 |
+| 长镜头对白：生成表演后期配音；说话人背对或侧对 | `storyboard/three-ways.md`；`references/drama/07-segment-prompt.md` §5 |

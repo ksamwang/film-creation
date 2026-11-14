@@ -28,6 +28,8 @@
 | `audio.md` | 声音与台词：画内声、房间音、声音落在时间点、原语言台词、一镜一个说话人、画外延续、静默、慢动作的声音 | 写 AUDIO 段和逐镜里的声音 |
 | `locks.md` | 锁与 negative：顽固默认与同义词、从错误版本倒推（五个方向、按类型）、总锁的选法、CRITICAL 配额 | 写硬约束、总锁、negative |
 | `one-take.md` | 一镜到底与调度：路点、交接、空间与光的变化、人群分层 / 让路 / 朝向 / 反应；婚宴一镜到底示例 | 写一镜到底和人群戏 |
+| `example.md` | 完整示例：鸽子短片 4 场 31 镜切成生成单位；全片层 / 场景层 / 单位层三层复用；病房两个单位和灰鸽落肩首尾帧的完整提示词 | 要给一整部片子写提示词 |
+| `scene-prompts.md` | 三档示例：轻量（单镜停顿）、标准（无台词情绪戏）、重型（小巷追逐）；长镜头对白的两种写法 | 拿不准该写多长 |
 | `sources.md` | 出处 | 需要核对出处时 |
 
 ## 三档长度
@@ -56,6 +58,7 @@
 
 - 提示词的基本语法（模式 A 自然语言 / 模式 B token 块、单镜写法）：`references/aigc/prompt-syntax.md`。多镜头序列和长提示词以本层为准。
 - 生成方式（参考图生、首帧、首尾帧、续接）：`references/aigc/workflow.md`；模型能力：`references/aigc/models.md`。
+- 模板：`templates/video-prompt.md`（三层复用、预判误读、自检、生成记录）。
 - 上游：分镜脚本 `storyboard/breakdown.md`，生成清单 `templates/shot-list.md`；镜头写法 `camera/lexicon-*.md`；连续性 `storyboard/continuity.md`。
 - 竖屏短剧的片段提示词由分镜机械编译，格式与固定约束以 `references/drama/07-segment-prompt.md` 为准；本层的段落可以作为补充，见 `compile.md`。
 

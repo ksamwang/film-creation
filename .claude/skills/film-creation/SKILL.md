@@ -1,6 +1,6 @@
 ---
 name: film-creation
-description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、镜头序列、图像/视频提示词、资产与一致性（参考图、角色表）、声音与剪辑、竖屏短剧（立项、分集大纲、剧本、角色场景拆解、分镜、片段提示词）需求时调用。内置 6 个 AIGC 方法模块、竖屏短剧生产标准、125 位导演、29 位摄影指导，以及按模型类型区分的两种提示词写法（自然语言 + 参考图 / token 块）。默认输出 AIGC 产物；实拍只在用户明确要求时回答。Triggers: story, storyboard, shot list, image/video prompts, character consistency, reference images, vertical short drama / micro-drama, script, episode outline."
+description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故事到提示词的全流程。用户提出这些需求时调用：故事、概念、treatment / 梗概；剧本、台词 / 对白、伏笔与反转等叙事技巧、按类型写（悬疑、爱情、喜剧、恐怖、动作、科幻、家庭、广告）、剧本诊断；角色设计、表演与跨镜头一致；情绪效果（哭、笑、怕、爽）；分镜脚本（一场戏拆几个镜头）、分镜图、连续性、节奏；镜头语言（景别、角度、运镜、焦段、光、构图、转场）；图像 / 视频提示词，含按分镜脚本写多镜头长提示词、一镜到底、首尾帧与生成方式、选模型（Seedance、Kling、Veo、Wan、SDXL 等）；参考图与资产一致性；声音、配乐与剪辑；导演 / 摄影风格参考与混搭（125 位导演、29 位摄影指导）、风格卡；迭代与交付；竖屏短剧 / 漫剧（立项、出海、分集大纲、单集剧本、拆解、分镜、片段提示词、成片质检）。默认输出 AIGC 产物；实拍只在用户明确要求时回答。Triggers: story, treatment, logline, screenplay, script, dialogue, foreshadowing, plot twist, genre, character design, storyboard, shot list, scene breakdown, camera movement, framing, lens, lighting, continuity, pacing, image/video prompts, multi-shot video prompt, one-take, first/last frame, model choice, reference images, character consistency, sound design, editing, director or cinematographer style, style brief, vertical short drama / micro-drama, episode outline."
 ---
 
 # AIGC 创作参考包
@@ -9,43 +9,88 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 
 ## 路由表
 
-路径从本 skill 根目录算起。
+路径从本 skill 根目录算起。同一请求沾到两行时，按格子里的「→」取舍；两行都相关就都读，先读排在前面的。
+
+### 故事与写作
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 故事 / 概念 | `references/craft/story/index.md` | 一句话 + beat sheet |
-| 写台词 / 改对白（太直白、太水、一个腔调） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
-| 叙事技巧（伏笔、反转、倒计时、母题…）/ 想让观众爽、笑、哭、怕 | `references/writing/devices.md` 或 `references/writing/intent.md` | 技巧落法 / 情绪机制 + 写法 |
-| 按类型写（悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告） | `references/writing/genres/index.md` → 对应类型 | 类型约定 + beat 表 + 陈词滥调替代 |
-| 写一个完整短片剧本 / 要剧本模板 | `templates/script.md`（示例 `references/writing/example.md`） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
-| 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
-| 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
-| 分镜脚本：一场戏拆几个镜头、每镜拍什么、台词落在谁脸上 | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、时长、生成）+ 生成清单 `templates/shot-list.md` |
-| 分镜图 / 动态分镜 / 连续性 / 节奏 | `references/storyboard/frames.md`、`references/storyboard/animatic.md`、`references/storyboard/continuity.md`、`references/storyboard/pacing.md` | 分镜图与审图意见 / 动态分镜方案 / 连续性台账与修法 / 节奏表 |
-| 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + 提示词 |
-| 图像 / 视频提示词（单镜、基本语法） | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
-| 视频提示词：按分镜脚本写多镜头 / 长提示词（导演 + 摄影 + 场记写进一条） | `references/video-prompt/compile.md`（段落 `references/video-prompt/anatomy.md`，档位 `references/video-prompt/index.md`，示例 `references/video-prompt/example.md`、`references/video-prompt/scene-prompts.md`）+ `templates/video-prompt.md` | 生成单位切分 + 逐段提示词（全局段复用、逐镜时间线、总锁、negative） |
-| 视频提示词的某一段怎么写：摄影机 / 表演 / 物理与 AI 感 / 声音与台词 / 锁与 negative / 一镜到底与人群 | `references/video-prompt/camera-behavior.md`、`acting.md`、`physics.md`、`audio.md`、`locks.md`、`one-take.md`（均在 `references/video-prompt/`） | 对应段落的提示词写法 |
-| 镜头语言：角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成 | `references/camera/index.md` 选词典：`lexicon-shot` / `lexicon-move` / `lexicon-light` / `lexicon-frame` / `lexicon-transition` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
+| 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/craft/story/index.md` + `templates/treatment.md` | 一句话 + beat sheet / 一页 treatment |
+| 写台词 / 改对白：太直白、太水、一个腔调（dialogue） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
+| 点名一种叙事技巧：伏笔、反转、倒计时、母题…（foreshadowing, plot twist） | `references/writing/devices.md` | 技巧落法；同时点了类型 → 加读下面类型那一行 |
+| 想让观众爽、笑、哭、怕，不知道用什么技巧 | `references/writing/intent.md` | 情绪机制 + 写法 |
+| 按类型写：悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告（genre） | `references/writing/genres/index.md` → 对应类型（广告是 `references/writing/genres/brand.md`） | 类型约定 + 两档结构 + 陈词滥调替代 |
+| 写一个完整短片剧本 / 要剧本模板（screenplay, script） | `templates/script.md`（示例 `references/writing/example.md`；先按 `references/writing/genres/index.md` 选类型和时长档） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
+| 剧本 / beat 哪里不好、怎么改（script doctor） | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
+
+### 角色
+
+| 用户意图 | 先读 | 输出 |
+|---|---|---|
+| 设计一个角色：人设、欲望、缺陷、弧光（character design） | `references/craft/story/02-character.md` | 人物设定 + 资产卡 |
+| 角色跨镜头一致、角色表、脸 / 衣服漂移（character consistency） | `references/craft/performance/05-casting.md` + `references/aigc/assets.md` + `templates/character-sheet.md` | 三面板角色表提示词 + 资产卡 + 漂移修法 |
+| 角色怎么演：微动作、表演指导 → 提示词里演得太过走「视频提示词的某一段」 | `references/craft/performance/index.md` | 表演写法 |
+
+### 分镜
+
+| 用户意图 | 先读 | 输出 |
+|---|---|---|
+| 分镜脚本：把一场戏拆成镜头，几个镜头、每镜拍什么、台词落在谁脸上（scene breakdown, storyboard, shot list） | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，场景示例 `references/storyboard/scene-types.md`，全片示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、时长、生成）+ 生成清单 `templates/shot-list.md` |
+| 镜头策略：覆盖、走位、调度的取舍，不要整场表格（coverage, blocking） → 要整场拆成分镜脚本走上一行 | `references/craft/staging/04-coverage.md` + `references/craft/staging/index.md` + `references/craft/visual/index.md`（读戏 `references/craft/staging/06-scene-analysis.md`，场景卡 `templates/scene-card.md`） | 镜头策略 + 关键镜头 |
+| 分镜图：画什么、怎么审（storyboard frames） | `references/storyboard/frames.md` | 分镜图与审图意见 |
+| 动态分镜（animatic） | `references/storyboard/animatic.md` | 动态分镜方案 |
+| 连续性：人物换边、越轴、方向反、道具 / 服装跳（continuity） | `references/storyboard/continuity.md`；两人对话加 `references/camera/recipes/dialogue-two.md` | 连续性台账与修法 |
+| 节奏：剪出来平、拖、赶，镜长怎么排（pacing） | `references/storyboard/pacing.md` | 节奏表 + 改法 |
+
+### 镜头语言
+
+| 用户意图 | 先读 | 输出 |
+|---|---|---|
+| 镜头语言：景别 / 角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成（camera movement, framing, lens, lighting） | `references/camera/index.md` 选词典：`references/camera/lexicon-shot.md` / `references/camera/lexicon-move.md` / `references/camera/lexicon-light.md` / `references/camera/lexicon-frame.md` / `references/camera/lexicon-transition.md` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
-| 某类场景怎么排镜头（对话、追逐、打斗、悬疑、亲密、蒙太奇、开场结尾、反转打脸） | `references/camera/recipes/index.md` → 对应配方 | 镜头序列 + 逐镜提示词 + 生成方式 |
-| 怎么生成 / 生成方式 / 镜头衔接 | `references/aigc/workflow.md` | 生成方式与串联 |
-| 选模型 / 模型能力 | `references/aigc/models.md` | 模型与模式 |
-| 资产一致性 / 参考图 | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |
-| 声音 / 剪辑 | `references/craft/sound/index.md` + `templates/edit-sound.md` | 声音分工 + 剪辑方案 |
-| 风格参考 | `references/taxonomy.md` 选族 → `references/directors/<slug>.md` 或 `references/cinematographers/<slug>.md`，及 `references/prompts/` 或 `references/prompts-cinematographers/` 下同名文件；混搭加 `references/mixing.md` | 2–3 个参考 + 视觉基元 |
-| 迭代 / 交付 | `references/craft/production/index.md` | 镜头数 / 迭代预算 / 交付 |
-| 短剧：立项 / 题材 | `references/drama/01-premise.md` | setting |
-| 短剧：出海 | `references/drama/01-premise.md` + `references/drama/09-overseas.md` | 本地化 setting |
+| 某类场景怎么排镜头：对话、追逐、打斗、悬疑、亲密、蒙太奇、开场结尾、反转打脸 | `references/camera/recipes/index.md` → 对应配方 | 镜头序列 + 逐镜提示词 + 生成方式 |
+
+### 提示词与生成
+
+| 用户意图 | 先读 | 输出 |
+|---|---|---|
+| 图像 / 视频提示词：单镜、基本语法、单镜模板、token 写法（image prompt, SDXL） → 多镜头走下一行 | `references/aigc/prompt-syntax.md` + `templates/ai-prompt.md` | 按模式出提示词 |
+| 视频提示词：按分镜脚本写多镜头 / 长提示词，导演 + 摄影 + 场记写进一条（multi-shot video prompt） → 竖屏短剧走「短剧：片段提示词」 | `references/video-prompt/compile.md`（段落 `references/video-prompt/anatomy.md`，档位 `references/video-prompt/index.md`，示例 `references/video-prompt/example.md`、`references/video-prompt/scene-prompts.md`）+ `templates/video-prompt.md` | 生成单位切分 + 逐段提示词（全局段复用、逐镜时间线、总锁、negative） |
+| 视频提示词的某一段怎么写，或生成里的某个毛病：人物看镜头 / 演得太过 → 表演；多出路人 / 封不住音乐和字 → 锁；摄影机乱漂 → 摄影机；东西没重量 / AI 感 → 物理；台词 / 画内声 → 声音；一镜到底 / 人群 → 一镜到底。竖屏短剧的口型、站位走「短剧：片段提示词」 | 摄影机 `references/video-prompt/camera-behavior.md`；表演 `references/video-prompt/acting.md`；物理与 AI 感 `references/video-prompt/physics.md`；声音与台词 `references/video-prompt/audio.md`；锁与 negative `references/video-prompt/locks.md`；一镜到底与人群 `references/video-prompt/one-take.md` | 对应段落的提示词写法 |
+| 怎么生成：参考图生 / 首帧 / 首尾帧 / 续接，镜头之间怎么接（first/last frame） | `references/aigc/workflow.md` | 生成方式与串联 |
+| 选模型 / 模型能力 / 两个模型怎么选（model choice） | `references/aigc/models.md` | 模型与模式 |
+| 资产一致性 / 参考图 / 道具与场景锁（reference images） | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |
+
+### 声音、风格与交付
+
+| 用户意图 | 先读 | 输出 |
+|---|---|---|
+| 声音 / 配乐 / 剪辑方案（sound design, editing） → 竖屏短剧走「短剧：成片」；只问剪辑节奏走「节奏」 | `references/craft/sound/index.md` + `templates/edit-sound.md` | 声音分工 + 剪辑方案 |
+| 导演 / 摄影风格参考、混搭、风格卡（style reference, style brief） → 做广告再加读 `references/writing/genres/brand.md` | `references/taxonomy.md` 选族 → `references/directors/<slug>.md` 或 `references/cinematographers/<slug>.md`，及 `references/prompts/` 或 `references/prompts-cinematographers/` 下同名文件；混搭（含导演 × 摄影）加 `references/mixing.md`；风格卡用 `templates/style-brief.md` | 1 主参考 + 0–1 副参考（或导演 × 摄影）+ 视觉基元 / 风格卡 |
+| 迭代 / 预算 / 交付；15–90 秒短片怎么控镜头数 | `references/craft/production/index.md`（预算 `references/craft/production/03-budget.md`，短片 `references/craft/production/04-short-form.md`；生成顺序 `references/aigc/workflow.md`） | 镜头数 / 迭代预算 / 交付 |
+
+### 竖屏短剧
+
+先读 `references/drama/index.md`，产物按 `references/drama/standard.md` 字段出稿（见下文「短剧另有标准」）。
+
+| 用户意图 | 先读 | 输出 |
+|---|---|---|
+| 短剧：立项 / 题材 | `references/drama/01-premise.md` + `templates/drama-bible.md` | setting |
+| 短剧：出海（台词非中文时也读） | `references/drama/01-premise.md` + `references/drama/09-overseas.md` | 本地化 setting |
 | 短剧：画风 / 漫剧 | `references/drama/10-look.md` | 画风设定 |
-| 短剧：分集大纲 / 付费点 | `references/drama/02-season.md` | outline |
-| 短剧：单集剧本 | `references/drama/03-episode.md` + `references/drama/04-script.md` | script |
-| 短剧：角色场景拆解 / 造型图 | `references/drama/05-breakdown.md` | breakdown + 造型图规格 |
-| 短剧：分镜 | `references/drama/06-storyboard.md` | segments |
+| 短剧：分集大纲 / 付费点（episode outline） | `references/drama/02-season.md` + `templates/drama-outline.md` | outline |
+| 短剧：单集剧本 | `references/drama/03-episode.md` + `references/drama/04-script.md` + `templates/drama-episode.md` | script |
+| 短剧：角色场景拆解 / 造型图 | `references/drama/05-breakdown.md` + `templates/drama-breakdown.md` | breakdown + 造型图规格 |
+| 短剧：分镜 | `references/drama/06-storyboard.md` + `templates/drama-storyboard.md` | segments |
 | 短剧：片段提示词 / 口型 / 站位 | `references/drama/07-segment-prompt.md` | 编译提示词；问题回分镜改 |
 | 短剧：成片 / 配乐字幕 / 质检 | `references/drama/08-cut-qc.md` | 成片方案 + 质检 |
 | 短剧：字段 / JSON / 对接平台 | `references/drama/standard.md` | 按标准字段落表 |
-| 明确要实拍 | 说明默认不做实拍，按需给通用建议 | — |
+
+### 实拍
+
+| 用户意图 | 先读 | 输出 |
+|---|---|---|
+| 明确要实拍（排期、通告、布光等） | 说明默认不做实拍；用户坚持时，通用的拆解、排期、风险建议取自 `references/craft/production/01-breakdown.md`、`references/craft/production/02-schedule.md`、`references/craft/production/05-risk.md`，换成实拍语境讲 | 简短说明 + 通用建议 |
 
 `references/index.md`（导演/摄影全表，较大）只在按地域/年代查全表时读。
 
@@ -57,7 +102,7 @@ description: "AIGC 创作参考包，供 LLM 在用户提出故事、角色、�
 
 1. 先判断请求类型，不一套流程套所有人；不主动给实拍方案。
 2. 需要时才问，最多 3 个关键问题；目标模型不明按模式 A 写，必要时附模式 B。
-3. 导演/摄影：先问作品需要什么视觉，选 1 主参考 + 0–1 副参考，只取 2–3 条视觉约束（机位、光源、色彩关系）转成视觉基元；不写导演名、不给剧组职位；「反向约束」改写成正面描述，有 negative 参数再放进去。
+3. 导演/摄影：先问作品需要什么视觉，选 1 主参考 + 0–1 副参考（导演 × 摄影的分工搭配另算，见 `references/mixing.md`），只取 2–3 条视觉约束（机位、光源、色彩关系）转成视觉基元；不写导演名、不给剧组职位；「反向约束」改写成正面描述，有 negative 参数再放进去。
 
 ## AIGC 提示规则
 

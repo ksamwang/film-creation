@@ -20,7 +20,7 @@
 | `recipes/` | 场景手法配方：对话、群戏、追逐、打斗、悬疑、亲密、蒙太奇、开场与结尾、反转 | 要排一整场戏的镜头序列；先读 `recipes/index.md` |
 | `sources.md` | 每个拍法的出处 | 需要核对出处时 |
 
-拍完一组镜头，回 `craft/staging/04-coverage.md` 和 `06-scene-analysis.md` 检查序列是否连得上；风格化约束从导演 / 摄影档案取（`references/prompting.md`）。
+拍完一组镜头，回 `craft/staging/04-coverage.md` 和 `craft/staging/06-scene-analysis.md` 检查序列是否连得上；风格化约束从导演 / 摄影档案取（`references/prompting.md`）。
 
 ## 条目字段
 

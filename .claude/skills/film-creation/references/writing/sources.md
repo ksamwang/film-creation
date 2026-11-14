@@ -82,3 +82,12 @@
 | 赛道对应、情绪流与剧情流 | `references/drama/01-premise.md` |
 | 各类型的观众期待、必备元素、节点比例、陈词滥调与替代 | 行业惯例，属本包整理 |
 | 各类型示例 | 本包原创 |
+
+## example
+
+| 概念 / 规则 | 来源 |
+|---|---|
+| 诊断流程与输出格式 | `writing/doctor.md` |
+| 「因此 / 但是」骨架检查 | `craft/story/04-scene.md` |
+| 剧本格式、语速估时 | `references/drama/04-script.md` |
+| 故事、剧本与台词 | 本包原创 |

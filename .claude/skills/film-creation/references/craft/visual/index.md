@@ -23,7 +23,7 @@
 
 ## 与其他模块
 
-分镜、走位、覆盖读 `craft/staging/`；故事与场景读 `craft/story/`；导演/摄影风格读 `references/directors/` 与 `references/cinematographers/`。本模块只给画面判断，不堆导演名字。
+分镜、走位、覆盖读 `craft/staging/`；故事与场景读 `craft/story/`；导演/摄影风格读 `references/directors/` 与 `references/cinematographers/`；具体角度、焦段怎么写、能否生成查 `references/camera/`。本模块只给画面判断，不堆导演名字。
 
 ## 来源
 

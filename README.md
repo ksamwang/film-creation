@@ -89,7 +89,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 
 先按目标模型选模式（`references/aigc/prompt-syntax.md`）：
 
-- **模式 A（默认）**：大语言模型编码的图像/视频模型（Seedance、Kling、Veo、Wan、Hailuo、GPT-Image、Nano Banana、Flux 等）。自然语言按时间顺序写；空间写画面左右和机位前后；有参考图时不重复外貌；正面描述，否定只进 negative 参数。
+- **模式 A（默认）**：大语言模型编码的图像/视频模型（Seedance、Kling、Veo、Wan、Hailuo、GPT-Image、Nano Banana、Flux 等）。自然语言按时间顺序写；空间写画面左右和机位前后；有参考图时不重写外貌、只写识别特征锁；正面描述优先，顽固默认集中封住，negative 写这一镜的错误版本；多镜头长提示词见 `references/video-prompt/`。
 - **模式 B**：CLIP 系模型（SD / SDXL 及微调）。token 块、`|` 分隔；一个提示一个主语；否定进 NEGATIVE；token 逐字复用；图生视频只写运动。
 
 生成方式见 `references/aigc/workflow.md`，模型能力见 `references/aigc/models.md`。
@@ -184,7 +184,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
     drama-*.md              短剧：bible / outline / episode / breakdown / storyboard
 DESIGN.md                   设计说明
 dev-history/                开发过程简报（写作标准、改写简报，供维护者参考）
-tools/                      索引、结构/视觉/提示/重复度检查；镜头层、写作层、分镜层检查
+tools/                      索引、结构/视觉/提示/重复度检查；镜头层、写作层、分镜层、视频提示词层检查
 ```
 
 ## 扩展
@@ -195,6 +195,7 @@ tools/                      索引、结构/视觉/提示/重复度检查；镜�
 - 调整镜头语言查阅层：词典条目按 `references/camera/index.md` 的字段写，配方按 `references/camera/recipes/index.md` 的结构写，改完跑 `python tools/check_camera.py`
 - 调整写作查阅层：手法按 `references/writing/dialogue.md`、技巧按 `references/writing/devices.md` 的字段写，类型按 `references/writing/genres/index.md` 的结构写，改完跑 `python tools/check_writing.py`
 - 调整分镜查阅层：镜头功能按 `references/storyboard/shot-functions.md` 的字段写，分镜脚本表按 `references/storyboard/breakdown.md` 的九列写（功能取自功能词典，生成栏写可靠性），改完跑 `python tools/check_storyboard.py`
+- 调整视频提示词层：段落按 `references/video-prompt/anatomy.md` 的五个字段写，词库条目按「写法 / 防什么误读 / 用在 / 别这样写」写，完整提示词的 EDIT 时间码要接得上、CRITICAL 不超过 3 处、总锁不超过 8 条，改完跑 `python tools/check_video_prompt.py`
 
 全局复用：把 `.claude/skills/film-creation/` 整个复制到 `~/.claude/skills/film-creation/`。
 

@@ -49,6 +49,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
 | 分镜脚本：一场戏拆几个镜头、每镜拍什么、台词落在谁脸上 | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 分镜脚本 + 生成清单 |
+| 分镜图 / 动态分镜 / 连续性 / 节奏 | `references/storyboard/frames.md`、`references/storyboard/animatic.md`、`references/storyboard/continuity.md`、`references/storyboard/pacing.md` | 分镜图与审图意见 / 动态分镜方案 / 连续性台账与修法 / 节奏表 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + prompts |
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
 | 镜头语言：角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成 | `references/camera/index.md` 选词典：`lexicon-shot` / `lexicon-move` / `lexicon-light` / `lexicon-frame` / `lexicon-transition` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
@@ -118,6 +119,10 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       breakdown.md          拆解七步与分镜脚本格式
       shot-functions.md     镜头功能词典
       three-ways.md         同一场戏的三种拆法
+      frames.md             分镜图
+      animatic.md           动态分镜
+      continuity.md         连续性
+      pacing.md             节奏
       scene-types.md        对话 / 动作 / 情绪戏拆解示例
       example.md            全片分镜脚本示例
       sources.md            来源

@@ -71,6 +71,8 @@ Q who bears | Medium close-up of Lin on a 50mm lens; the camera eases slightly c
 
 覆盖表决定剪辑节奏与生成清单。导演档案取"长镜头还是分切"，转成镜头数与时长；摄影档案取"机位是否固定"，转成取景与运动。冷静或压迫靠长镜头与分切、固定与手持的选择，不靠后期加速。分镜每行保留 Q，剪辑按 Q 检查。
 
+逐条的连续性规则（含 AIGC 漂移与连续性台账）见 `references/storyboard/continuity.md`；节奏与镜流见 `references/storyboard/pacing.md`。
+
 ## 来源
 
 见 `craft/sources.md#staging`。

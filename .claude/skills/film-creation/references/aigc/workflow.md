@@ -67,6 +67,8 @@
 - 每段提示词第一句写接住的状态：「她仍站在窗边，右手扶着窗框」。
 - 续接越多越漂。漂了就用重出的关键帧重新起头，切点藏在遮挡里（人物走过前景、镜头扫过门框）。
 
+分镜图的两种做法（草图分镜 / 成片风关键帧）与动态分镜见 `references/storyboard/frames.md`、`references/storyboard/animatic.md`；连续性的逐条规则见 `references/storyboard/continuity.md`。
+
 ## 3. 按镜头类型推荐
 
 | 镜头 | 首选 | 备选 | 要点 |

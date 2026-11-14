@@ -10,6 +10,8 @@
 
 ## 转场
 
+> 各类转场的生成侧准备与剪辑侧做法见 `references/camera/lexicon-transition.md`；默认硬切。
+
 - 硬切：
 - 叠化 / 淡入淡出：
 - 声音先入 / 画面先走：

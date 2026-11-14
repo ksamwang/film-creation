@@ -67,7 +67,7 @@ LLM 不按固定流程走；它按请求类型读模块，按需要提问，按�
 | AIGC | 两种提示词模式：A 自然语言 + 参考图（默认，LLM 编码的现代模型），B token 块 + NEGATIVE（CLIP 系模型）；一致性按参考图 → 首帧续接 → 文本锁分层；不绑定平台、不写画幅（2026-11-10 起，取代「纯文本 token、不用参考图」） |
 | 短剧 | `references/drama/standard.md` 定义立项到成片的字段契约，平台无关；与通用规则冲突时以短剧为准 |
 | 镜头语言 | `references/camera/` 为查阅层：取景 / 运动 / 光 / 构图 / 转场词典（写法、作用、用与不用、生成可靠性「稳 / 定帧 / 后期」、短剧枚举）、按目的反查和场景手法配方（recipes/）；craft 的 visual / staging 仍是判断层（2026-11-14） |
-| 分镜 | `references/storyboard/` 为查阅层，核心是分镜脚本：拆解七步（读戏 → 定镜头数 → 定每镜拍什么 → 排顺序 → 分配台词与声音 → 定时长 → 评估生成）、镜头功能词典、同一场戏的三种拆法；分镜脚本按剪辑顺序，生成清单按场景 / 资产分组；craft/staging/06 仍是判断层，竖屏短剧以 drama/06 为准，另有场景与全片示例、分镜脚本模板（2026-11-14） |
+| 分镜 | `references/storyboard/` 为查阅层，核心是分镜脚本：拆解七步（读戏 → 定镜头数 → 定每镜拍什么 → 排顺序 → 分配台词与声音 → 定时长 → 评估生成）、镜头功能词典、同一场戏的三种拆法；分镜脚本按剪辑顺序，生成清单按场景 / 资产分组；craft/staging/06 仍是判断层，竖屏短剧以 drama/06 为准，另有分镜图、动态分镜、连续性、节奏、场景与全片示例、分镜脚本模板（2026-11-14） |
 | 写作 | `references/writing/` 为查阅层：对白手法（改前 / 改后、作用、用与不用、生成落法、短剧写法）、叙事技巧（是什么、作用、落到产物、失败）、按效果反查（以知识关系为前提）、类型配方（8 类，观众期待 + 两档结构 + 陈词滥调替代 + 短剧赛道对应）与剧本诊断（概念 → 人物 → 结构 → 场景 → 对白 → 生成六层，先治最上层），另有完整示例与短片剧本模板 `templates/script.md`；craft/story 仍是判断层（2026-11-14） |
 | 语言 | 中文条目，导演名保留原文/通用译名 |
 
@@ -332,7 +332,7 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
       sound/               # index.md + 5 个子文件
       production/          # index.md + 5 个子文件
     writing/               # 写作查阅层：index、dialogue、devices、intent、genres/（8 类）、doctor、example、sources
-    storyboard/            # 分镜查阅层：index、breakdown、shot-functions、three-ways、scene-types、example、sources
+    storyboard/            # 分镜查阅层：index、breakdown、shot-functions、three-ways、frames、animatic、continuity、pacing、scene-types、example、sources
     camera/                # 镜头语言查阅层
       index.md             # 用法、条目字段、可靠性分级
       lexicon-shot.md      # 景别、角度、关系视角、焦段、景深与焦点
@@ -427,7 +427,9 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
 - **出处**：《电影镜头设计》《导演创作完全手册》只引目录章节名；书里没有的（镜头数估算、功能分类、三种拆法对比）标「行业惯例」或「属本包整理」。
 - **scene-types.md**：对话（雨夜车内）、动作（小巷追逐）、无台词情绪戏的拆解示例与对比。
 - **example.md + `templates/storyboard-script.md`**：接写作层示例，4 场 31 镜的全片分镜脚本，含预算紧时的删减顺序与按批次重排的生成清单；`templates/shot-list.md` 改为生成清单（批次、进度、版本）。
-- 待做：分镜图与动态分镜、连续性与节奏、检查脚本。
+- **frames.md / animatic.md**：分镜图分草图分镜（审镜流）与成片风关键帧（当首帧）；标注在排版里加，不让模型画；动态分镜在视频生成前检查节奏与信息，视频生成后逐镜替换成粗剪。
+- **continuity.md / pacing.md**：连续性按空间、动作、状态、光与时间、声音分条，每条写观众察觉、AIGC 失败、修法与分镜脚本写法，附 AIGC 漂移表和连续性台账；节奏写镜长曲线、镜流、节奏工具、按类型参考与剪辑余量。
+- 待做：检查脚本。
 
 ### 摄影指导层（29 位）
 
@@ -483,6 +485,7 @@ DP 层与导演层并列，但不复制导演结构：
 | 2026-11-14 | 写作层完整示例 `writing/example.md`、短片剧本模板 `templates/script.md`、检查脚本 `tools/check_writing.py`；补齐叙事技巧的「失败」字段 |
 | 2026-11-14 | 分镜查阅层 `references/storyboard/`：拆解七步、镜头功能词典、三种拆法 |
 | 2026-11-14 | 分镜示例：三类场景拆解、全片分镜脚本；分镜脚本模板；生成清单加批次与进度 |
+| 2026-11-14 | 分镜图、动态分镜、连续性、节奏 |
 | 2026-11-14 | 镜头语言查阅层 `references/camera/`：五份词典、按目的反查、9 类场景配方、检查脚本 |
 
 各轮的写作与改写标准见 `dev-history/`。

@@ -26,6 +26,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 ## 包里有什么
 
 - **6 个 AIGC 方法模块**：故事、视觉、调度、表演、声音、制作
+- **写作查阅层**：对白手法（潜台词、攻防、交代信息、人物声口、节奏、钩子台词、修剪）与剧本诊断（六层症状 → 修法）
 - **镜头语言查阅层**：景别、角度、焦段、景深、运镜、航拍、速度、光、构图、转场的词典（写法 + 生成可靠性），按目的反查拍法，以及 9 类场景的镜头序列配方
 - **竖屏短剧**：生产标准（立项 → 大纲 → 剧本 → 拆解 → 造型图 → 分镜 → 片段提示词 → 成片的字段契约）+ 各阶段写法，见 `.claude/skills/film-creation/references/drama/`
 - **125 位导演 + 29 位摄影指导**：视觉基元参考
@@ -41,6 +42,8 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
 | 故事 / 概念 | `references/craft/story/index.md` | 一句话 + beat sheet |
+| 写台词 / 改对白（太直白、太水、一个腔调） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
+| 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + prompts |
 | 图像 / 视频提示词 | `references/aigc/prompt-syntax.md` | 按模式出提示词 |
@@ -97,6 +100,11 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       index.md              顶层导航
       sources.md            全局来源表
       story/ visual/ staging/ performance/ sound/ production/
+    writing/                写作查阅层
+      index.md              用法与对白总规则
+      dialogue.md           对白手法
+      doctor.md             剧本诊断
+      sources.md            来源
     camera/                 镜头语言查阅层
       index.md              用法与可靠性分级
       lexicon-shot.md       景别、角度、焦段、景深

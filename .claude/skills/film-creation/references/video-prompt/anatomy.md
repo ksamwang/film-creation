@@ -42,6 +42,8 @@ Shot 1 0–3s · Shot 2 3–6s · Shot 3 6–10s · Shot 4 10–12s.
 
 **常见错误**：时间码加起来不等于总时长；镜头数超过模型单次能稳定处理的数量（多数在 3–6 镜，见 `references/drama/06-storyboard.md`）；写了「快速剪辑」却不给时间码，模型自由发挥。
 
+**词库**：一镜到底的路径写法见 `video-prompt/one-take.md`。
+
 ### 全片硬约束 GLOBAL RULES
 
 **作用**：封住模型最顽固的默认。配乐、画面文字（字幕、标题、水印、logo）、慢动作，是模型最爱自作主张加的东西。
@@ -60,6 +62,8 @@ GLOBAL RULES:
 **什么时候省**：模型或平台已有对应参数（音频开关、负面参数框）时，可以只保留提示词里的一句作为兜底；竖屏短剧按 `references/drama/07-segment-prompt.md` 的两条固定约束写。
 
 **常见错误**：只在 negative 参数里写，正文却描述「气氛紧张的音乐」之类自相矛盾的话；同义词列不全，模型换个形式加上（没有字幕，但出现了屏幕上可读的标语）。
+
+**词库**：同义说法的完整清单见 `video-prompt/locks.md` 第 1 节。
 
 ### 风格 STYLE
 
@@ -113,6 +117,8 @@ The café is closed and empty: no staff, no customers, no passers-by outside the
 **什么时候省**：人群戏不用人数锁，改写人群怎么分布、谁在动、谁不动；单人空间里没有任何可能出现别人的地方时可以省。
 
 **常见错误**：只写 two people 不写背景空；写了「空荡的街道」又写「远处的车流」，模型补上行人。
+
+**词库**：人群的写法见 `video-prompt/one-take.md` 第 2 节。
 
 ### 资产 ASSETS
 
@@ -199,6 +205,8 @@ Focal length is fixed within each shot: no zooming, no breathing.
 
 **常见错误**：只写「特写」「中景」不写焦段，模型用广角拍特写，脸被拉变形；焦段写了但和景别矛盾（24mm 写成 tight close-up）。焦段与视角的对照见 `camera/lexicon-shot.md` 焦段一节。
 
+**词库**：焦段与视野对照、机位高度、焦点行为见 `video-prompt/camera-behavior.md` 第 4 节。
+
 ### 摄影机行为 CAMERA
 
 **作用**：摄影的工作。摄影机怎么动、为什么动、由谁在操作。模型默认是稳定器式的平滑漂移——「一直在缓慢移动」的 AI 感就来自这里。
@@ -221,6 +229,8 @@ following the boy as he stands, settling once he stops.
 **什么时候省**：不能省，至少写一句静止还是运动。不写，模型一定会加漂移。
 
 **常见错误**：写「dynamic camera」「cinematic movement」，模型乱动；一镜里写两种运动（推 + 摇 + 环绕），模型压缩成一团。运镜词汇见 `camera/lexicon-move.md`。
+
+**词库**：操作员式写法的词库见 `video-prompt/camera-behavior.md`。
 
 ### 光 LIGHT
 
@@ -275,6 +285,8 @@ No airbrushed skin, no waxy faces, no plastic sheen on surfaces.
 
 **常见错误**：为了「电影感」到处加雾和光束（体积光滥用）；写了防 AI 质感，但风格段又写 ultra detailed / 8K，互相抵消。
 
+**词库**：反 AI 质感词库见 `video-prompt/physics.md` 第 4 节。
+
 ### 逐镜时间线 SHOTS
 
 **作用**：导演 + 场记的工作，提示词的主体。每个镜头里按时间发生什么。
@@ -320,6 +332,8 @@ Objects do not morph, duplicate or pass through each other.
 
 **常见错误**：写一大段通用物理（gravity is realistic），不对应画面里任何一件东西。
 
+**词库**：词库见 `video-prompt/physics.md`。
+
 ### 表演 ACTING
 
 **作用**：导演的工作。细到眼睛和嘴的表演指令。
@@ -344,6 +358,8 @@ lips move; the listener's mouth stays closed, no silent mouthing.
 
 **常见错误**：写「very emotional」「intense performance」，模型演成肥皂剧；不写不看镜头，人物突然直视观众；不写嘴，两个人都在动嘴。
 
+**词库**：词库与常见情绪的反误读表见 `video-prompt/acting.md`。
+
 ### 声音 AUDIO
 
 **作用**：声音的工作。画内声、台词、静默。
@@ -367,6 +383,8 @@ Mira does not answer. After his line: near silence, only the fridge.
 
 **常见错误**：台词翻译成英文写，生成的口型和后期配音对不上；写「tense atmosphere sounds」，模型加环境音乐；不写静默，模型填满。声音设计见 `craft/sound/`。
 
+**词库**：词库见 `video-prompt/audio.md`。
+
 ### 总锁 LOCKS
 
 **作用**：场记的工作。在结尾把最关键的不变量再列一次。长提示词中段的信息容易被稀释，结尾的重复让它们重新加权。
@@ -388,6 +406,8 @@ LOCKS:
 
 **常见错误**：把普通描述也放进来，变成第二份提示词；总锁和正文矛盾（正文写他站起来，总锁写他从不站）。
 
+**词库**：选法见 `video-prompt/locks.md` 第 3 节。
+
 ### negative
 
 **作用**：这场戏的错误版本。不是通用的「blurry, low quality」，而是**这场戏最可能被生成错的样子**。
@@ -405,6 +425,8 @@ smooth floating camera; waxy skin.
 **什么时候省**：轻量档只保留两三条最可能的错误。
 
 **常见错误**：抄一份万能 negative 清单（extra fingers, bad anatomy, ...），和这场戏无关；正文里写的东西又出现在 negative 里，互相抵消。
+
+**词库**：从错误版本倒推的方法见 `video-prompt/locks.md` 第 2 节。
 
 ---
 

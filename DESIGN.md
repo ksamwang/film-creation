@@ -334,7 +334,7 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
       production/          # index.md + 5 个子文件
     writing/               # 写作查阅层：index、dialogue、devices、intent、genres/（8 类）、doctor、example、sources
     storyboard/            # 分镜查阅层：index、breakdown、shot-functions、three-ways、frames、animatic、continuity、pacing、scene-types、example、sources
-    video-prompt/          # 视频提示词层：index、anatomy、compile、sources
+    video-prompt/          # 视频提示词层：index、anatomy、compile、camera-behavior、acting、physics、audio、locks、one-take、sources
     camera/                # 镜头语言查阅层
       index.md             # 用法、条目字段、可靠性分级
       lexicon-shot.md      # 景别、角度、关系视角、焦段、景深与焦点
@@ -440,6 +440,7 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
 - **index.md**：段落与岗位的对应；三档长度（轻量 / 标准 / 重型，字数为社区经验值）；五条总规则（先全局再逐镜最后再锁、约束对应误读、正面优先而顽固默认集中封住、情绪三件套、全局段跨段逐字复用）。
 - **anatomy.md**：十九个段落（剪辑合同、硬约束、风格、戏的意图、人数锁、资产、空间地图、首帧、镜头锁、摄影机、光、色、空气与质感、逐镜时间线、物理、表演、声音、总锁、negative），每段写作用、写法、例、什么时候省、常见错误；「CRITICAL」限 2–3 处，冗余只给关键不变量。
 - **compile.md**：分镜脚本字段 → 提示词段落的对应表；七步（定档位与生成单位 → 全局段 → 戏的意图 → 空间地图 → 逐镜翻译 → 预判误读 → 自检）；场 5 切成三个生成单位，段 B（5-05 – 5-09）写出完整标准档提示词。
+- **写法词库**（每条写法 / 防什么误读 / 用在 / 别这样写）：`camera-behavior.md` 把摄影机写成有身体、有反应、有动机的操作员，附焦段与视野对照；`acting.md` 写情绪三件套与常见情绪的默认演法和改法、眼睛与嘴；`physics.md` 写重量、惯性、材料、接触与反 AI 质感；`audio.md` 写画内声、原语言台词、一镜一个说话人、静默、慢动作的声音；`locks.md` 写顽固默认的同义词清单、从错误版本倒推 negative、总锁选法与 CRITICAL 配额；`one-take.md` 写一镜到底的路点、动机、交接与人群调度，附婚宴一镜到底示例。
 - **与 aigc/prompt-syntax 的关系**：四条写法原则（识别特征锁、正面优先、三档长度、机身锚点）扩展了 prompt-syntax 的单镜规则；多镜头与长提示词以本层为准，prompt-syntax 的对应规则在后续一期同步修订。
 - **出处**：书里没有视频提示词写法；段落结构与规则是对社区成片效果较好的提示词做的模式归纳，原文不收入，示例全部原创。
 
@@ -500,6 +501,7 @@ DP 层与导演层并列，但不复制导演结构：
 | 2026-11-14 | 分镜图、动态分镜、连续性、节奏 |
 | 2026-11-14 | 分镜层检查脚本 `tools/check_storyboard.py` |
 | 2026-11-14 | 视频提示词层 `references/video-prompt/`：十九个段落、三档长度、从分镜脚本编译与场 5 完整示例 |
+| 2026-11-14 | 视频提示词写法词库：摄影机行为、表演、物理与反 AI 质感、声音与台词、锁与 negative、一镜到底与人群调度 |
 | 2026-11-14 | 镜头语言查阅层 `references/camera/`：五份词典、按目的反查、9 类场景配方、检查脚本 |
 
 各轮的写作与改写标准见 `dev-history/`。

@@ -131,6 +131,12 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       index.md              提示词是制作文件；三档长度；总规则
       anatomy.md            十九个段落
       compile.md            从分镜脚本编译；场 5 完整示例
+      camera-behavior.md    摄影机写成操作员；焦段与视野
+      acting.md             表演指导与反误读
+      physics.md            物理与反 AI 质感
+      audio.md              声音与台词
+      locks.md              锁与 negative
+      one-take.md           一镜到底与人群调度
       sources.md            来源
     camera/                 镜头语言查阅层
       index.md              用法与可靠性分级

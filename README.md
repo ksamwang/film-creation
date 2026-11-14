@@ -45,6 +45,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 写台词 / 改对白（太直白、太水、一个腔调） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 叙事技巧（伏笔、反转、倒计时、母题…）/ 想让观众爽、笑、哭、怕 | `references/writing/devices.md` 或 `references/writing/intent.md` | 技巧落法 / 情绪机制 + 写法 |
 | 按类型写（悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告） | `references/writing/genres/index.md` → 对应类型 | 类型约定 + beat 表 + 陈词滥调替代 |
+| 写一个完整短片剧本 / 要剧本模板 | `templates/script.md`（示例 `references/writing/example.md`） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
 | 剧本 / beat 哪里不好、怎么改 | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 | 角色 / 人物 | `references/craft/performance/index.md` + `templates/character-sheet.md` | 资产卡 + 角色表提示词 |
 | 镜头序列 / 分镜 | `references/craft/staging/index.md` + `references/craft/visual/index.md` | shot list + prompts |
@@ -109,6 +110,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       intent.md             按效果反查
       genres/               类型配方（8 类）
       doctor.md             剧本诊断
+      example.md            完整示例（初稿 → 诊断 → 改稿）
       sources.md            来源
     camera/                 镜头语言查阅层
       index.md              用法与可靠性分级
@@ -141,6 +143,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
     prompts-cinematographers/<slug>.md 29 份摄影提示参考
   templates/
     treatment.md            AIGC 概念 / beat
+    script.md               短片剧本
     scene-card.md           scene to shots
     shot-list.md            shot prompt list
     character-sheet.md      三面板角色表
@@ -151,7 +154,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
     drama-*.md              短剧：bible / outline / episode / breakdown / storyboard
 DESIGN.md                   设计说明
 dev-history/                开发过程简报（写作标准、改写简报，供维护者参考）
-tools/                      索引、结构/视觉/提示/重复度检查
+tools/                      索引、结构/视觉/提示/重复度检查；镜头层、写作层检查
 ```
 
 ## 扩展
@@ -160,6 +163,7 @@ tools/                      索引、结构/视觉/提示/重复度检查
 - 新增摄影：按 `dev-history/DP_BRIEF.md` 的结构
 - 调整方法模块：读 `dev-history/AIGC_CRAFT_BRIEF.md`，改完跑 `python tools/check_craft.py`
 - 调整镜头语言查阅层：词典条目按 `references/camera/index.md` 的字段写，配方按 `references/camera/recipes/index.md` 的结构写，改完跑 `python tools/check_camera.py`
+- 调整写作查阅层：手法按 `references/writing/dialogue.md`、技巧按 `references/writing/devices.md` 的字段写，类型按 `references/writing/genres/index.md` 的结构写，改完跑 `python tools/check_writing.py`
 
 全局复用：把 `.claude/skills/film-creation/` 整个复制到 `~/.claude/skills/film-creation/`。
 

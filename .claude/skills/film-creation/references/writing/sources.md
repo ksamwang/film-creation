@@ -38,6 +38,7 @@
 | 论展示 | 《剧本结构设计》第 10 章 |
 | 不归点、beat、场景卡、「因此 / 但是」检查 | `craft/story/` |
 | 痛点是爽点的前提；反派要强 | `references/drama/01-premise.md` |
+| 拍不连（#25）：在场、物件起名与交接、一场一个时空、一种读法、写了「说」就给词 | 本包整理：《连城》分镜回归里分镜替剧本补的几处；场的定义同 `references/drama/04-script.md` §1，分镜侧的同类规则见 `storyboard/flow.md` §3、§5 |
 | 前 3 秒见冲突 | `references/drama/03-episode.md` |
 | 每集上限、动作行写法 | `references/drama/04-script.md` |
 | 六层诊断顺序、诊断流程与输出格式 | 属本包整理 |

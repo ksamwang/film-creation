@@ -19,8 +19,8 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 | 写台词 / 改对白：太直白、太水、一个腔调（dialogue） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 点名一种叙事技巧：伏笔、反转、倒计时、母题…（foreshadowing, plot twist） | `references/writing/devices.md` | 技巧落法；同时点了类型 → 加读下面类型那一行 |
 | 想让观众爽、笑、哭、怕，不知道用什么技巧 | `references/writing/intent.md` | 情绪机制 + 写法 |
-| 按类型写：悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告（genre） | `references/writing/genres/index.md` → 对应类型（广告是 `references/writing/genres/brand.md`） | 类型约定 + 两档结构 + 陈词滥调替代 |
-| 写一个完整短片剧本 / 要剧本模板（screenplay, script） | `templates/script.md`（示例 `references/writing/example.md`；先按 `references/writing/genres/index.md` 选类型和时长档） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
+| 按类型写：悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告（genre） | `references/writing/genres/index.md` → 对应类型（广告是 `references/writing/genres/brand.md`） | 类型约定 + 两档结构 + 陈词滥调替代；要出剧本正文 → 加读下一行 |
+| 写剧本：完整短片剧本、把故事 / 梗概改成剧本、写其中几场、要剧本模板（screenplay, script） | `templates/script.md`（正文按模板的格式和五条事实规则写；示例 `references/writing/example.md`；先按 `references/writing/genres/index.md` 选类型和时长档） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
 | 剧本 / beat 哪里不好、怎么改（script doctor） | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
 
 ### 角色

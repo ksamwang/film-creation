@@ -28,6 +28,10 @@ DEVICE_FIELDS = ["**是什么**", "**作用**", "**落到产物**", "**失败**"
 SOURCE_SECTIONS = ["## dialogue", "## doctor", "## devices", "## intent", "## genres"]
 TEMPLATE = os.path.join(SKILL, "templates", "script.md")
 TEMPLATE_SECTIONS = ["## 片头信息", "## Beat 表", "## 技巧与伏笔", "## 正文", "## 台词表", "## 资产", "## 检查"]
+# Fact rules in the script template body: presence, props, time-space, one reading, spoken words
+TEMPLATE_RULES = ["**在场**", "**物件**", "**时空**", "**一种读法**", "**台词**"]
+DRAMA_SCRIPT = os.path.join(REFS, "drama", "04-script.md")
+DRAMA_RULES = ["**出手之前先在场**", "**物件交接写一次", "**一场一个时空**", "**写了「说」就给词**"]
 BANNED = ["演员", "排练", "选角", "剧组", "通告", "灯具", "轨道", "布光", "现场录音", "同期声"]
 ROUTES = ["references/writing/dialogue.md", "references/writing/devices.md",
           "references/writing/intent.md", "references/writing/doctor.md",
@@ -190,11 +194,22 @@ def main() -> None:
         for sec in TEMPLATE_SECTIONS:
             if sec not in text:
                 report(f"templates/script.md: 缺小节「{sec}」")
+        for rule in TEMPLATE_RULES:
+            if rule not in text:
+                report(f"templates/script.md: 正文规则缺 {rule}")
+        if "doctor.md` #25" not in text:
+            report("templates/script.md: 检查没有指向 doctor.md #25")
     else:
         report("缺少 templates/script.md")
 
     for path in sorted(glob.glob(os.path.join(WRITING, "**", "*.md"), recursive=True)):
         check_common(path)
+
+    if os.path.exists(DRAMA_SCRIPT):
+        text = read(DRAMA_SCRIPT)
+        for rule in DRAMA_RULES:
+            if rule not in text:
+                report(f"drama/04-script.md: 动作行规则缺 {rule}")
 
     skill = read(os.path.join(SKILL, "SKILL.md"))
     for route in ROUTES:

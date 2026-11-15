@@ -69,7 +69,7 @@ GLOBAL RULES:
 
 **作用**：摄影 + 调色的总基调。决定画面像什么：实拍质感、动画、某种胶片、某种渲染。
 
-**写法**：先写媒介（photoreal live-action look / 2D animation / stop-motion），再写**画面特征**：反差、暗部、高光过渡、颗粒、肤色质感、锐度。摄影机型号（ARRI Alexa、16mm 胶片）可以作为可选的风格锚点，但优先描述它带来的特征，因为模型对型号的理解不稳定。
+**写法**：先写媒介（photoreal live-action look / 2D animation / stop-motion），再写**画面特征**：反差、暗部、高光过渡、颗粒、肤色质感、锐度。摄影机型号（ARRI Alexa、16mm 胶片）可以作为可选的风格锚点，但优先描述它带来的特征，因为模型对型号的理解不稳定；各种器材和格式的特征见 `camera/lexicon-gear.md`。
 
 **例**：
 

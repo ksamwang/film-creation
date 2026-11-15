@@ -27,7 +27,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 
 - **6 个 AIGC 方法模块**：故事、视觉、调度、表演、声音、制作
 - **写作查阅层**：对白手法（潜台词、攻防、交代信息、人物声口、节奏、钩子台词、修剪）、叙事技巧（伏笔、反转、倒计时、母题等）、按效果反查（悬念、爽、笑、哭…），以及剧本诊断（六层症状 → 修法）
-- **镜头语言查阅层**：景别、角度、焦段、景深、运镜、航拍、速度、光、构图、转场的词典（写法 + 生成可靠性），按目的反查拍法，以及 9 类场景的镜头序列配方
+- **镜头语言查阅层**：景别、角度、焦段、景深、运镜、航拍、速度、光、构图、转场、器材与格式的词典（写法 + 生成可靠性），按目的反查拍法，以及 9 类场景的镜头序列配方
 - **竖屏短剧**：生产标准（立项 → 大纲 → 剧本 → 拆解 → 造型图 → 分镜 → 片段提示词 → 成片的字段契约）+ 各阶段写法，见 `.claude/skills/film-creation/references/drama/`
 - **125 位导演 + 29 位摄影指导**：视觉基元参考
 - **AIGC 提示规则**：两种模式（自然语言 + 参考图 / token 块）、资产卡与一致性分层、三面板角色表
@@ -78,6 +78,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
 | 镜头语言：景别 / 角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成（camera movement, framing, lens, lighting） | `references/camera/index.md` 选词典：`references/camera/lexicon-shot.md` / `references/camera/lexicon-move.md` / `references/camera/lexicon-light.md` / `references/camera/lexicon-frame.md` / `references/camera/lexicon-transition.md` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
+| 器材与格式：变形镜头、老镜头、微距、柔光滤镜、快门与拖影、胶片（Super 8 / 16mm / 35mm / 大画幅 / 黑白）、录像带、DV、手机、运动相机、数字电影机写进提示词（camera gear, lens type, film stock） → 实拍选型不答 | `references/camera/lexicon-gear.md`；质感句 `references/craft/visual/06-texture.md` | 器材的画面特征 + 提示词写法 + 可靠性 |
 | 色彩 / 色调 / 质感：整片或一场的色板、色温、饱和度、颗粒与胶片感、整体视觉方案（color grading, color palette, look） → 单个镜头的光走上一行；借某位导演 / 摄影的色彩走「风格参考」 | `references/craft/visual/index.md` → `references/craft/visual/05-color.md`（色温、色板、饱和度）/ `references/craft/visual/06-texture.md`（介质、颗粒、反差、空气）；和光一起定时加 `references/craft/visual/04-light.md` | 色板 + 色温 + 质感设定 + 写进提示词的描述 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
 | 某类场景怎么排镜头：对话、追逐、打斗、悬疑、亲密、蒙太奇、开场结尾、反转打脸 | `references/camera/recipes/index.md` → 对应配方 | 镜头序列 + 逐镜提示词 + 生成方式 |
@@ -196,6 +197,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       lexicon-light.md      人物光型、画内光源、时段与调性
       lexicon-frame.md      构图：位置、线条、层次、画框
       lexicon-transition.md 转场：剪切、光学、遮挡、匹配与变形
+      lexicon-gear.md       器材与格式：镜头、快门、胶片与录像介质
       intent.md             按目的反查拍法
       recipes/              场景手法配方（9 类场景）
       sources.md            来源

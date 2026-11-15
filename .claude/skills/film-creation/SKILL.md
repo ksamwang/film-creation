@@ -41,6 +41,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 | 动态分镜（animatic） | `references/storyboard/animatic.md` | 动态分镜方案 |
 | 连续性：人物换边、越轴、方向反、道具 / 服装跳（continuity） | `references/storyboard/continuity.md`；两人对话加 `references/camera/recipes/dialogue-two.md` | 连续性台账与修法 |
 | 节奏：剪出来平、拖、赶，镜长怎么排（pacing） | `references/storyboard/pacing.md` | 节奏表 + 改法 |
+| 镜间承接：分镜像打卡 / PPT、镜头之间缺因果和过渡、物件 / 空间 / 视点断层、场与场之间怎么接（shot flow, transitions between shots） | `references/storyboard/flow.md`；转场的具体做法 `references/camera/lexicon-transition.md` | 镜流句 + 切点承接表 + 场间接点 + 读链测试 |
 
 ### 镜头语言
 
@@ -122,7 +123,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 
 - `references/craft/index.md` — 6 个方法模块总导航（story / visual / staging / performance / sound / production）
 - `references/writing/index.md` — 写作查阅层：对白手法、叙事技巧、按效果反查、类型配方、剧本诊断
-- `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜头功能词典、三种拆法、场景示例、全片示例、分镜图、动态分镜、连续性、节奏
+- `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜间承接、镜头功能词典、三种拆法、场景示例、全片示例、分镜图、动态分镜、连续性、节奏
 - `references/video-prompt/index.md` — 视频提示词层：十九个段落、三档长度、从分镜脚本编译、场 5 完整示例；摄影机、表演、物理、声音、锁、一镜到底词库；全片示例与三档示例
 - `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源

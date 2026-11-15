@@ -18,7 +18,7 @@ BOARD = os.path.join(REFS, "storyboard")
 TEMPLATES = os.path.join(SKILL, "templates")
 
 REQUIRED = ["index.md", "breakdown.md", "shot-functions.md", "three-ways.md", "frames.md",
-            "animatic.md", "continuity.md", "pacing.md", "scene-types.md", "example.md", "sources.md"]
+            "animatic.md", "continuity.md", "pacing.md", "scene-types.md", "example.md", "flow.md", "sources.md"]
 FUNCTION_FIELDS = ["**是什么**", "**什么时候要**", "**一场放几个**", "**剧本里**", "**拍法**", "**生成**", "**失败**"]
 CONTINUITY_FIELDS = ["**规则**", "**观众察觉**", "**AIGC 常见失败**", "**修法**"]
 SCRIPT_FILES = ["breakdown.md", "scene-types.md", "example.md"]
@@ -31,7 +31,7 @@ TEMPLATE_SECTIONS = {
 BANNED = ["演员", "排练", "选角", "剧组", "通告", "灯具", "轨道", "布光", "现场录音", "同期声"]
 ROUTES = ["references/storyboard/breakdown.md", "references/storyboard/shot-functions.md",
           "references/storyboard/frames.md", "references/storyboard/continuity.md",
-          "references/storyboard/pacing.md", "templates/storyboard-script.md"]
+          "references/storyboard/pacing.md", "references/storyboard/flow.md", "templates/storyboard-script.md"]
 REF = re.compile(r"`((?:references|templates|craft|camera|writing|storyboard|recipes|directors|cinematographers|aigc|drama)/[^`*<>\s]+?\.md)")
 BARE = re.compile(r"`([a-z][a-z0-9-]*\.md)`")
 ROW = re.compile(r"^\| *(\d+)-(\d+)([A-Z]?) *\|(.*)$", re.M)

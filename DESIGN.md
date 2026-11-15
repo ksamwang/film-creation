@@ -76,7 +76,7 @@ LLM 不按固定流程走；它按请求类型读模块，按需要提问，按�
 | AIGC | 两种提示词模式：A 自然语言 + 参考图（默认，LLM 编码的现代模型），B token 块 + NEGATIVE（CLIP 系模型）；一致性按参考图 → 首帧续接 → 文本锁分层；不绑定平台、不写画幅（2026-11-10 起，取代「纯文本 token、不用参考图」） |
 | 短剧 | `references/drama/standard.md` 定义立项到成片的字段契约，平台无关；与通用规则冲突时以短剧为准 |
 | 镜头语言 | `references/camera/` 为查阅层：取景 / 运动 / 光 / 构图 / 转场词典（写法、作用、用与不用、生成可靠性「稳 / 定帧 / 后期」、短剧枚举）、按目的反查和场景手法配方（recipes/）；craft 的 visual / staging 仍是判断层（2026-11-14） |
-| 分镜 | `references/storyboard/` 为查阅层，核心是分镜脚本：拆解七步（读戏 → 定镜头数 → 定每镜拍什么 → 排顺序 → 分配台词与声音 → 定时长 → 评估生成）、镜头功能词典、同一场戏的三种拆法；分镜脚本按剪辑顺序，生成清单按场景 / 资产分组；craft/staging/06 仍是判断层，竖屏短剧以 drama/06 为准，另有分镜图、动态分镜、连续性、节奏、场景与全片示例、分镜脚本模板（2026-11-14） |
+| 分镜 | `references/storyboard/` 为查阅层，核心是分镜脚本：拆解七步（读戏 → 定镜头数 → 定每镜拍什么 → 排顺序 → 分配台词与声音 → 定时长 → 评估生成）、镜间承接（镜流句、七种承接、三种断层、呼吸、场间接点）、镜头功能词典、同一场戏的三种拆法；分镜脚本按剪辑顺序，生成清单按场景 / 资产分组；craft/staging/06 仍是判断层，竖屏短剧以 drama/06 为准，另有分镜图、动态分镜、连续性、节奏、场景与全片示例、分镜脚本模板（2026-11-14） |
 | 写作 | `references/writing/` 为查阅层：对白手法（改前 / 改后、作用、用与不用、生成落法、短剧写法）、叙事技巧（是什么、作用、落到产物、失败）、按效果反查（以知识关系为前提）、类型配方（8 类，观众期待 + 两档结构 + 陈词滥调替代 + 短剧赛道对应）与剧本诊断（概念 → 人物 → 结构 → 场景 → 对白 → 生成六层，先治最上层），另有完整示例与短片剧本模板 `templates/script.md`；craft/story 仍是判断层（2026-11-14） |
 | 视频提示词 | `references/video-prompt/` 为查阅层：提示词是一份压缩的制作文件（剪辑、导演、摄影、美术、调色、声音、场记），十九个段落按「全局 → 逐镜 → 总锁」排列，按模型能力与复杂度分轻量 / 标准 / 重型三档；从分镜脚本编译；有参考图时写识别特征锁而非全文重写外貌，正面描述优先、顽固默认集中封住，机身型号只做可选锚点；单镜基本语法仍在 aigc/prompt-syntax，竖屏短剧以 drama/07 为准（2026-11-14） |
 | 语言 | 中文条目，导演名保留原文/通用译名 |
@@ -342,7 +342,7 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
       sound/               # index.md + 5 个子文件
       production/          # index.md + 5 个子文件
     writing/               # 写作查阅层：index、dialogue、devices、intent、genres/（8 类）、doctor、example、sources
-    storyboard/            # 分镜查阅层：index、breakdown、shot-functions、three-ways、frames、animatic、continuity、pacing、scene-types、example、sources
+    storyboard/            # 分镜查阅层：index、breakdown、shot-functions、three-ways、frames、animatic、continuity、pacing、flow、scene-types、example、sources
     video-prompt/          # 视频提示词层：index、anatomy、compile、camera-behavior、acting、physics、audio、locks、one-take、example、scene-prompts、sources
     camera/                # 镜头语言查阅层
       index.md             # 用法、条目字段、可靠性分级
@@ -433,6 +433,7 @@ keywords: [错位, 延迟, 霓虹, 独白, 重复]
 分镜不只是分镜图。分镜脚本是导演对剧本最详细的拆解：一场戏几个镜头、每镜拍什么、按什么顺序、台词落在谁脸上、每镜几秒、怎么生成。`craft/staging/06-scene-analysis.md` 是判断层，`references/storyboard/` 是查阅层。
 
 - **breakdown.md**：拆解七步，每步有产物；镜头数用四种估法取交集（时长 ÷ 平均镜长、按 beat、按必看信息、按生成预算）；分镜脚本格式与镜号规则（场-镜，插入用字母，删除不重排）；审读清单。
+- **flow.md**：镜间承接。针对「打卡式分镜」（每镜完成一个功能、镜间只能读成「然后」、场头固定建立、场尾停在事件、场间一律硬切）：拆镜前先写镜流句，切点落在「因此 / 但是 / 同时」上；七种承接；物件流转表、空间链、视点链查三种断层；呼吸预算约 10–15%；每两场之间写接点；读链测试验收；剪辑单位和生成单位分开。breakdown.md 第一步加镜流句、第二步必看信息降为下限并加呼吸预算、第四步加切点承接表与场头场尾规则；shot-functions.md 加功能和承接对照。
 - **shot-functions.md**：按功能分类的镜头词典，每条写什么时候要、一场放几个、剧本里常不常缺、拍法、生成、失败；附「剧本常缺镜头」速查。
 - **three-ways.md**：同一场戏的经典覆盖 / 长镜头 / 碎切，对比镜头数、观众位置、剪辑弹性、生成次数、风险与返工成本。
 - **AIGC 原则**：成本按镜头数算，不按秒算；分镜脚本按剪辑顺序，生成清单按场景 / 资产重排，镜号不变。
@@ -518,6 +519,7 @@ DP 层与导演层并列，但不复制导演结构：
 | 2026-11-14 | 视频提示词示例：全片提示词（三层复用）、三档示例、视频提示词模板 `templates/video-prompt.md` |
 | 2026-11-14 | 视频提示词层收尾：prompt-syntax 规则 4、6、7 按识别特征锁 / 正面优先 / 三档长度修订，相关文件同步；drama/07 §7 长提示词可补段落；检查脚本 `tools/check_video_prompt.py` |
 | 2026-11-14 | 路由审查：description 补齐各层触发词；路由表按领域分组、写清撞车取舍、挂上全部模板；补模型怎么选、点名的人没有档案时怎么办；检查脚本 `tools/check_routing.py` |
+| 2026-11-15 | 镜间承接 `storyboard/flow.md`：镜流句、七种承接、三种断层、呼吸预算、场间接点、读链测试；拆解步骤、功能词典、节奏同步 |
 | 2026-11-14 | 镜头语言查阅层 `references/camera/`：五份词典、按目的反查、9 类场景配方、检查脚本 |
 
 各轮的写作与改写标准见 `dev-history/`。

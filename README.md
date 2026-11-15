@@ -71,6 +71,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 动态分镜（animatic） | `references/storyboard/animatic.md` | 动态分镜方案 |
 | 连续性：人物换边、越轴、方向反、道具 / 服装跳（continuity） | `references/storyboard/continuity.md`；两人对话加 `references/camera/recipes/dialogue-two.md` | 连续性台账与修法 |
 | 节奏：剪出来平、拖、赶，镜长怎么排（pacing） | `references/storyboard/pacing.md` | 节奏表 + 改法 |
+| 镜间承接：分镜像打卡 / PPT、镜头之间缺因果和过渡、物件 / 空间 / 视点断层、场与场之间怎么接（shot flow, transitions between shots） | `references/storyboard/flow.md`；转场的具体做法 `references/camera/lexicon-transition.md` | 镜流句 + 切点承接表 + 场间接点 + 读链测试 |
 
 ### 镜头语言
 

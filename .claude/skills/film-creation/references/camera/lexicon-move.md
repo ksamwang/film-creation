@@ -1,13 +1,31 @@
-# 运动词典：运镜、航拍与穿越、速度与时间
+# 运动词典：运镜、航拍与穿越、速度与时间、复合运动
 
 字段与可靠性分级见 `camera/index.md`。运动怎么设计（起幅—触发—落幅、运动动机）见 `craft/staging/03-camera-movement.md`；本篇只管「叫什么、怎么写、能不能出」。
 
-**写运动的四条硬规则**
+**运动句：六项写全**
 
-1. 一次生成一种运动。推近 + 横摇 + 变焦会让脸和墙一起变形；复合效果拆两镜。
-2. 写清起点、方向、终点：`slowly pushes in from medium to close-up`，不只写 `push in`。
-3. 写速度：`slow`、`steady`、`sudden`。不写时模型常给中速漂移。
-4. 首帧生视频只写运动和动作，不复述画面；单段 3–5 秒最稳，更长就拆镜或续接（`references/aigc/workflow.md`）。
+模型最常见的运动毛病是两种：不知道推到哪（停在半路，或一直漂），不知道多快（给一个中速漂移）。一句运动按下面六项写，缺哪项补哪项：
+
+| 项 | 写什么 | 不写会怎样 | 例 |
+|---|---|---|---|
+| 起幅 | 运动开始时的景别和主体位置 | 模型自选起点，和上一镜接不上 | `Starting on a medium shot of her at the counter,` |
+| 运动 | 一种运动加方向 | 方向随机，或换成别的运动 | `the camera pushes in` / `pans left` |
+| 速度 | `slow` / `steady` / `sudden`，需要时写加速、减速 | 中速漂移；停的时候一顿 | `slowly, easing to a stop` |
+| 幅度 | 走多远、转多少 | 运动过度或不够 | `about two steps` / `a quarter turn` |
+| 落幅 | 运动结束时的画面 | 停在半路，或落幅之后继续漂 | `until her eyes fill the frame` |
+| 动机 | 什么让它动：人物走动、一声响、一个视线 | 像无人机在漂（`craft/staging/03-camera-movement.md`） | `as he steps through the door` |
+
+```text
+Starting on a medium shot of her at the counter, the camera slowly pushes in about two steps as he steps through the door behind her, easing to a stop when her eyes fill the frame.
+```
+
+模式 B 用 `MOTION:` 块，六项各一格：`MOTION: slow push-in | start medium on C1 at counter | about two steps | trigger C2 enters behind | end close-up on C1's eyes`。
+
+**另外三条**
+
+1. **一次生成一种运动意图。** 一个主运动，最多加一个为了让主体留在画框里的补偿运动：跟着人横移时顺势摇向他、升起时俯下去看住他（§6）。两种各自独立的运动（推近 + 横摇 + 变焦）会让脸和墙一起变形，拆成两镜。
+2. **主体运动和摄影机运动分开写。** 先写人怎么动，再写摄影机怎么动，各一句；混在一句里，模型常把人物的动作安到摄影机上。
+3. **首帧生视频只写运动和动作，不复述画面。** 单段 3–5 秒最稳，更长就拆镜或续接；运动强度参数和首帧的限制见 §7（`references/aigc/workflow.md`）。
 
 ---
 
@@ -28,7 +46,7 @@
 - **短剧**：`pan`
 
 ### 竖摇 Tilt
-- **写法**：`The camera tilts up from his muddy boots to his face.` B: `tilt up from feet to face`
+- **写法**：`The camera tilts up slowly from his muddy boots, past the rifle strap, and stops on his face.` B: `slow tilt up, feet to face`
 - **作用**：自下而上揭示身份或体量（脚 → 脸、楼底 → 楼顶）；自上而下表示坠落或看向地面。
 - **用 / 不用**：人物出场、建筑体量；竖屏里竖摇比横摇更合适，画面本身是纵向的。
 - **生成**：稳。
@@ -60,7 +78,7 @@
 - **短剧**：`pull_out`
 
 ### 后拉揭示 Pull-back reveal
-- **写法**：`Start tight on the cracked watch in her hand, then pull back to reveal she is standing on the edge of the rooftop.` B: `pull-back reveal, detail to wide`
+- **写法**：`Start tight on the cracked watch in her hand, then pull back slowly and steadily until the whole rooftop edge and the city below are in frame.` B: `slow pull-back reveal, detail to wide`
 - **作用**：先给细节，后给处境；落幅改变了起幅的意义（《电影镜头入门》Step4「后拉揭示」）。
 - **用 / 不用**：揭示地点、危险、人群、身份反转。落幅必须有新信息。
 - **生成**：定帧。起幅、落幅各出一张关键帧，走首尾帧。
@@ -80,7 +98,7 @@
 - **短剧**：落 `zoom`；竖屏短剧的「打脸」反转常用，成片阶段做。
 
 ### 希区柯克变焦 Dolly zoom
-- **写法**：`Dolly zoom: the camera moves back while zooming in, so his face stays the same size while the corridor behind him stretches away.` B: `dolly zoom, vertigo effect`
+- **写法**：`Dolly zoom over three seconds: the camera moves slowly back while zooming in, so his face stays the same size while the corridor behind him stretches away.` B: `slow dolly zoom, vertigo effect`
 - **作用**：人物不动，世界在变形——眩晕、顿悟、恐惧袭来（《电影镜头入门》Step4「眩晕」）。
 - **用 / 不用**：一部片一次，留给最大的心理冲击。
 - **生成**：定帧，多数模型做不准。近似做法：生成一段拉远镜头，后期逐帧放大让脸保持同样大小，背景就会向前压。仍不成立就改用推近 + 声音处理。
@@ -91,21 +109,21 @@
 ## 3. 移动与跟随
 
 ### 横移 Lateral tracking / trucking
-- **写法**：`The camera tracks sideways to the right, parallel to her as she walks along the shop windows.` B: `lateral tracking shot, moving right`
+- **写法**：`The camera tracks sideways to the right at her walking pace, parallel to her as she passes the shop windows, and stops with her at the last one.` B: `lateral tracking right, walking pace`
 - **作用**：和人物并行；扫过一排东西（人群、货架、废墟）让观众逐个看过去。
 - **用 / 不用**：开阔空间；窄空间换用摇。
 - **生成**：稳。
 - **短剧**：`tracking`
 
 ### 后跟 Follow from behind
-- **写法**：`The camera follows close behind him at shoulder height as he walks down the dark corridor.` B: `follow shot from behind`
+- **写法**：`The camera follows close behind him at shoulder height, matching his slow steps down the dark corridor, and stops when he stops at the door.` B: `follow shot from behind, walking pace`
 - **作用**：观众跟着他进入未知；他看到的我们同时看到（《电影镜头入门》Step4「跟拍」）。
 - **用 / 不用**：进入新空间、走向冲突；要看表情时改前引。
 - **生成**：稳；背面镜头身份难辨，前面先有一镜正面锚定。
 - **短剧**：`tracking`
 
 ### 前引 Leading shot
-- **写法**：`The camera moves backward ahead of her as she walks toward it, keeping her in a steady medium shot.` B: `leading shot, camera retreating`
+- **写法**：`The camera moves backward ahead of her at her walking pace as she walks toward it, keeping her in a steady medium shot until she stops.` B: `leading shot, camera retreating, walking pace`
 - **作用**：边走边看表情；人物在推着画面前进。
 - **用 / 不用**：走路对话、带着情绪前进；人物直奔镜头且镜头加速后退，就是 `craft/staging/03-camera-movement.md` 里的「反推镜头」，一场只放一次。
 - **生成**：稳。
@@ -119,14 +137,14 @@
 - **短剧**：`orbit`
 
 ### 升 Crane up
-- **写法**：`The camera cranes up and away from her as she stands alone in the square, until the whole square is visible.` B: `crane up, rising away`
+- **写法**：`The camera cranes slowly up and away from her as she stands alone in the square, until the whole square is visible and she is a small dot in the middle.` B: `slow crane up, rising away`
 - **作用**：离开人物、上升到俯视——结局、孤立、命运；《电影镜头入门》Step3 专讲升降的情感表达。
 - **用 / 不用**：场尾、片尾；从人物上升到环境。
 - **生成**：稳。
 - **短剧**：`crane`
 
 ### 降 Crane down
-- **写法**：`The camera cranes down from the rooftops into the narrow street, settling at eye level as he steps out of the door.` B: `crane down to eye level`
+- **写法**：`The camera cranes steadily down from the rooftops into the narrow street, settling at eye level just as he steps out of the door.` B: `steady crane down to eye level`
 - **作用**：从世界进入个人——开场、把观众带进故事。
 - **生成**：稳。
 - **短剧**：`crane`
@@ -144,7 +162,7 @@
 - **短剧**：`handheld`
 
 ### 稳定跟随 Steadicam / gimbal
-- **写法**：`Smooth floating steadicam move, gliding behind him through the kitchen and out into the dining room.` B: `steadicam, smooth gliding`
+- **写法**：`Smooth floating steadicam move at walking pace, gliding behind him through the kitchen and out into the dining room, where it settles on the long table.` B: `steadicam, smooth gliding, walking pace`
 - **作用**：既跟随又平滑，像一个无形的观察者在漂；长镜头的主要方式。
 - **用 / 不用**：穿过多个空间、梦境感、群戏巡游；紧张场面换手持。
 - **生成**：稳。
@@ -172,7 +190,7 @@
 ## 4. 航拍与穿越
 
 ### 航拍拉升 Aerial rise / pull-away
-- **写法**：`Aerial shot rising straight up from the car on the empty road until the whole forest surrounds it.` B: `drone ascending, top-down reveal`
+- **写法**：`Aerial shot rising slowly and straight up from the car on the empty road until the whole forest surrounds it.` B: `slow drone ascent, top-down reveal`
 - **作用**：从个人到环境；孤立、结局、规模。
 - **生成**：稳。模型很擅长航拍。
 - **短剧**：落 `crane`
@@ -184,7 +202,7 @@
 - **短剧**：落 `tracking`
 
 ### 航拍俯冲 Aerial dive
-- **写法**：`The drone dives down the side of the tower toward the street, leveling out just above the crowd.` B: `drone dive, descending fast`
+- **写法**：`The drone dives fast down the side of the tower toward the street, slowing and leveling out just above the crowd.` B: `fast drone dive, level out above crowd`
 - **作用**：冲进事件现场；速度、危险。
 - **生成**：稳；接近地面后人物会糊，落幅放在人群不在个人。
 
@@ -195,7 +213,7 @@
 - **生成**：稳（简单路径）。穿过狭窄障碍时障碍物会变形或被穿模，**定帧**：首尾帧锁住两侧。
 
 ### 穿越固体 Push through
-- **写法**：`The camera pushes forward through the rain-streaked window into the room, where she sits at the table.` B: `camera passes through window`
+- **写法**：`The camera pushes slowly forward through the rain-streaked window into the room and stops on her at the table.` B: `slow push through window, end on her`
 - **作用**：从外到内，打破空间边界——窥视、进入内心（《电影镜头入门》Step4「穿越固体」）。
 - **用 / 不用**：外景 → 内景的段落开头；穿过钥匙孔、屏幕、眼睛也是这一类。
 - **生成**：定帧。首帧是外侧、尾帧是内侧，走首尾帧；穿越瞬间常出现溶化，可接受时就保留，否则在玻璃处硬切。
@@ -243,18 +261,125 @@
 
 ---
 
-## 6. 短剧 `move` 枚举对照
+## 6. 复合运动与微运动
+
+复合运动只有一种写得稳：一个主运动，加一个让主体留在画框里的补偿运动。补偿运动不改变这一镜的意图，观众感觉到的仍然是一种运动。两种各自有意图的运动叠在一起，拆成两镜。
+
+### 跟摇 Pan to follow
+- **写法**：`She crosses the room from the window to the door; the camera stays in place and pans slowly with her, keeping her in a medium shot, and stops as she reaches the door.` B: `static position, pan to follow, medium shot`
+- **作用**：机位不动，镜头头部跟着人转。观众在原地看着人物走过去，空间被一点点扫出来（《镜头的语法》5.2）。
+- **用 / 不用**：窄空间里人物移动；走位短的对话。人物要走很远，换成横移或后跟。
+- **生成**：稳。写清人物从哪到哪，摄影机「在原地」。
+- **失败**：摄影机跟着人一起平移，变成横移。写 `stays in place`。
+- **短剧**：`pan`
+
+### 移动加摇 Track and pan
+- **写法**：`The camera tracks slowly right along the market stalls while panning left to keep him centered as he walks past it, ending on his back as he moves away.` B: `lateral track right with compensating pan, subject centered`
+- **作用**：摄影机横移，镜头同时转向主体，人物始终在画框中间，背景快速换过去。视差强，空间显得深（行业惯例）。
+- **用 / 不用**：人物和摄影机擦肩而过；在人群、货架、柱廊之间穿行。
+- **生成**：稳（主体在中间时）。写出「摇是为了让他留在中间」，模型更容易当成一个动作做。
+- **失败**：主体滑出画框，或背景扭曲。缩短幅度，或改成单纯的横移。
+- **短剧**：`tracking`
+
+### 升俯 Crane with tilt
+- **写法**：`The camera cranes slowly up while tilting down, keeping her centered below as she sits alone on the steps, until it looks almost straight down on her.` B: `crane up with tilt down, subject held in frame`
+- **作用**：升起时俯下去看住人物，视平线在变，人物越来越小却一直在画框中心。观众从她身边退到她头顶（《电影镜头入门》Step3）。
+- **用 / 不用**：场尾、孤立、俯瞰命运。反过来是降仰：从高处降下来时抬头看住人物，常用在出场。
+- **生成**：稳。单纯写 `crane up` 时人物容易出画，这样写更稳。
+- **失败**：摄影机只俯不升，或只升不俯，人物出画。两个动作写在同一句，写清「保持她在中心」。升多高用画面里的参照物写（`from her eye level up past the top of the window frame`），不写米数，模型不认米数。
+- **短剧**：`crane`
+
+### 环绕推近 Arc in
+- **写法**：`The camera arcs a quarter turn around him while slowly pushing in, from a medium side view to a close-up of his face as he realizes.` B: `quarter arc with slow push-in, medium to close-up`
+- **作用**：一边绕一边靠近，背景在转，人物在变大。比单纯推近多了一层「世界在他周围转」的感觉，常用在领悟和决定的一刻（行业惯例）。
+- **用 / 不用**：人物觉醒、决定、关系翻转的一拍。对话中途用会越轴。
+- **生成**：稳（四分之一圈以内）；半圈以上加推近，脸会漂，定帧。
+- **失败**：绕得太多、脸变形。限幅：`a quarter turn`。
+- **短剧**：`orbit`
+
+### 推近转焦 Push with rack focus
+- **写法**：`The camera slowly pushes in on the letter on the table; as it settles, the focus shifts from the letter to her face in the doorway behind.` B: `slow push-in, rack focus foreground to background`
+- **作用**：先靠近一个东西，再把注意力交给后面的人。一个镜头完成「这个东西 → 这个人」的交接（《电影镜头设计》12.4 移动兴趣中心）。
+- **用 / 不用**：物件和人物的关系；揭示谁在看。
+- **生成**：定帧。焦点转移的时机模型控制不准。三种做法按稳妥程度：推近和转焦分成两镜（第二镜锁死机位只转焦，用第一镜的尾帧做首帧）；首尾帧，首帧焦点在物件、尾帧焦点在人；后期做焦点切换（生成两条焦点不同的同构图素材，剪辑里叠化）。
+- **失败**：两处一直都清楚，或焦点来回跳。写清「推近停下之后」才转焦。
+- **短剧**：`push_in`，焦点写进 `text`。
+
+### 垂直升降 Pedestal
+- **写法**：`The camera rises straight up, level and without tilting, from the height of the child's eyes to the height of the adults' faces.` B: `pedestal up, level, no tilt`
+- **作用**：只换高度、不换角度：从孩子的视平线升到大人的视平线，从桌面升到人脸。视平线的变化本身就是信息（行业惯例）。
+- **用 / 不用**：视角交换（孩子和大人）、从物件升到人物。
+- **生成**：定帧。模型常把它做成竖摇或升俯；用首尾帧锁住两个高度的平视画面。
+- **失败**：变成仰拍或俯拍。写 `level, without tilting`。
+- **短剧**：`crane`
+
+### 微推 Creep in
+- **写法**：`An almost imperceptible push-in over the whole shot, the frame tightening by only a few percent while she listens.` B: `very slow creep in, barely perceptible`
+- **作用**：观众察觉不到摄影机在动，只觉得压力在慢慢增加。是对话和反应镜里最常用的「静中有动」（行业惯例）。
+- **用 / 不用**：倾听、沉默、反应镜、呼吸镜；想要画面活一点又不想要运镜存在感时用。滑轨式的小幅横移见 `camera/lexicon-gear.md` 滑轨微移。
+- **生成**：稳。写清「几乎看不出」和幅度，否则会变成普通推近。
+- **失败**：推得太多。写 `only a few percent` 或 `barely`。
+- **短剧**：`push_in`
+
+### 不能叠的组合
+
+| 组合 | 为什么不行 | 改法 |
+|---|---|---|
+| 推近 + 横摇 + 变焦 | 三种运动各有意图，透视和画框一起乱，脸和墙一起变形 | 拆成两镜，或只留推近 |
+| 推近 + 变焦（不是希区柯克变焦） | 模型分不清两种放大，透视乱跳 | 只写一种 |
+| 环绕 + 猛烈手持 | 方向感完全丢失 | 环绕用稳定器；手持另起一镜 |
+| 升降 + 横滚 | 人物和地平线一起转，模型常把人画歪 | 横滚单独一镜，或后期旋转 |
+| 甩镜 + 任何运动 | 甩镜本来就在后期做 | 生成两段稳定镜头，剪辑加甩动 |
+
+---
+
+## 7. 图生视频：运动强度与首帧
+
+首帧生视频（图生视频）时，运动受两样东西限制：平台的运动强度参数，和首帧本身的构图。
+
+**运动强度参数**
+
+不少平台有一个控制「画面动多少」的参数，名字各不相同（运动强度、动态程度、motion strength、motion bucket 等），有的版本没有。用法：
+
+| 档位 | 适合 | 风险 |
+|---|---|---|
+| 低 | 微推、呼吸镜、静物、风吹头发 | 写了运镜也可能几乎不动 |
+| 中 | 走路、慢推、跟摇、横移 | 多数镜头的默认 |
+| 高 | 奔跑、打斗、航拍、FPV | 脸和手容易变形，背景会扭 |
+
+- **参数和文字同向。** 文字写 `slow push-in`、参数开到高，画面会乱动；参数开到低、文字写 `fast FPV dive`，画面基本不动。先定这一镜要多少运动，两边一起调。
+- 参数控制不了方向和落点，方向和落点仍然靠运动句的六项。
+- **画面里所有在动的东西都算进运动量**：摄影机、人物、环境（烛影、风、雨、人群）。一镜里摄影机在升、窗外烛影在晃，参数取低到中，环境运动写成轻微的（`the candlelight flickers faintly`）；动的东西越多，参数越低，靠文字里的速度词压。
+- 平台没有这个参数时，用速度词和幅度词代替（`slowly`、`barely`、`a few steps`）。
+
+**首帧限制运动**
+
+| 运动 | 首帧要满足 | 不满足会怎样 |
+|---|---|---|
+| 推近 | 落点在首帧里已经看得见、够清楚（要推到脸上，首帧里脸不能太小、太糊） | 推到最后是一张糊脸 |
+| 拉远、后拉揭示 | 拉出来的空间是模型编的；要和场景资产一致，就用首尾帧 | 空间和场景资产对不上 |
+| 横移、跟随 | 运动方向那一侧留出空间；人物朝向和运动方向一致 | 人物撞出画框，或往反方向走 |
+| 环绕 | 主体四周的空间要能被看见（首帧不能是贴墙的特写） | 背景是编的，越绕越漂 |
+| 升降 | 落幅高度用首帧里看得见的参照物写（升到窗框顶、降到桌面高度）；一次升降不超过一层楼的高度差 | 透视在中途溶化 |
+
+- **景别跨度和时长匹配。** 3–5 秒能稳定地从中景推到近景；从全景推到大特写，换首尾帧或拆两镜。
+- **首尾帧只走得通一种运动。** 两帧之间透视差太大，模型会用溶化代替运动；起幅和落幅要是同一种运动能连起来的两张画面（`references/aigc/workflow.md`）。
+- 首帧已经决定了景别和构图，提示词里只写运动和动作，不复述画面（本篇开头「另外三条」）。
+
+---
+
+## 8. 短剧 `move` 枚举对照
 
 | 枚举 | 本篇条目 |
 |---|---|
 | `static` | 固定机位 |
-| `push_in` | 推近（也承接希区柯克变焦的近似） |
+| `push_in` | 推近（也承接希区柯克变焦的近似）、推近转焦、微推 |
 | `pull_out` | 拉远、后拉揭示 |
-| `pan` | 横摇、甩镜（甩镜在成片做） |
+| `pan` | 横摇、甩镜（甩镜在成片做）、跟摇 |
 | `tilt` | 竖摇 |
-| `tracking` | 横移、后跟、前引、稳定跟随、飞越 |
-| `orbit` | 环绕、子弹时间 |
-| `crane` | 升、降、搜索式上升、航拍拉升 |
+| `tracking` | 横移、后跟、前引、稳定跟随、飞越、移动加摇 |
+| `orbit` | 环绕、子弹时间、环绕推近 |
+| `crane` | 升、降、搜索式上升、航拍拉升、升俯、垂直升降 |
 | `handheld` | 手持 |
 | `zoom` | 变焦、急推（急推在成片做） |
 

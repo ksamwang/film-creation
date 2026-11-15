@@ -65,7 +65,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 分镜脚本：把一场戏拆成镜头，几个镜头、每镜拍什么、台词落在谁脸上（scene breakdown, storyboard, shot list） | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，场景示例 `references/storyboard/scene-types.md`，全片示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、时长、生成）+ 生成清单 `templates/shot-list.md` |
+| 分镜脚本：把一场戏拆成镜头，几个镜头、每镜拍什么、台词落在谁脸上（scene breakdown, storyboard, shot list） | `references/storyboard/breakdown.md`（镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，场景示例 `references/storyboard/scene-types.md`，全片示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 镜流句 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、接 / 出、时长、生成）+ 场间接点 + 生成清单 `templates/shot-list.md` |
 | 镜头策略：覆盖、走位、调度的取舍，不要整场表格（coverage, blocking） → 要整场拆成分镜脚本走上一行 | `references/craft/staging/04-coverage.md` + `references/craft/staging/index.md` + `references/craft/visual/index.md`（读戏 `references/craft/staging/06-scene-analysis.md`，场景卡 `templates/scene-card.md`） | 镜头策略 + 关键镜头 |
 | 分镜图：画什么、怎么审（storyboard frames） | `references/storyboard/frames.md` | 分镜图与审图意见 |
 | 动态分镜（animatic） | `references/storyboard/animatic.md` | 动态分镜方案 |
@@ -242,7 +242,7 @@ tools/                      索引、结构/视觉/提示/重复度检查；镜�
 - 调整方法模块：读 `dev-history/AIGC_CRAFT_BRIEF.md`，改完跑 `python tools/check_craft.py`
 - 调整镜头语言查阅层：词典条目按 `references/camera/index.md` 的字段写，配方按 `references/camera/recipes/index.md` 的结构写，改完跑 `python tools/check_camera.py`
 - 调整写作查阅层：手法按 `references/writing/dialogue.md`、技巧按 `references/writing/devices.md` 的字段写，类型按 `references/writing/genres/index.md` 的结构写，改完跑 `python tools/check_writing.py`
-- 调整分镜查阅层：镜头功能按 `references/storyboard/shot-functions.md` 的字段写，分镜脚本表按 `references/storyboard/breakdown.md` 的九列写（功能取自功能词典，生成栏写可靠性），改完跑 `python tools/check_storyboard.py`
+- 调整分镜查阅层：镜头功能按 `references/storyboard/shot-functions.md` 的字段写，分镜脚本表按 `references/storyboard/breakdown.md` 的十列写（功能取自功能词典，「接 / 出」写成「接 …；出 …」，生成栏写可靠性；多场分镜每两场之间写场间接点），改完跑 `python tools/check_storyboard.py`
 - 调整视频提示词层：段落按 `references/video-prompt/anatomy.md` 的五个字段写，词库条目按「写法 / 防什么误读 / 用在 / 别这样写」写，完整提示词的 EDIT 时间码要接得上、CRITICAL 不超过 3 处、总锁不超过 8 条，改完跑 `python tools/check_video_prompt.py`
 - 调整路由：改 SKILL.md 的 description 或路由表后，同步 README 的路由表，改完跑 `python tools/check_routing.py`（触发词、路径、模板是否都挂上、全部文件是否可达）
 

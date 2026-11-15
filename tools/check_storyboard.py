@@ -22,10 +22,12 @@ REQUIRED = ["index.md", "breakdown.md", "shot-functions.md", "three-ways.md", "f
 FUNCTION_FIELDS = ["**是什么**", "**什么时候要**", "**一场放几个**", "**剧本里**", "**拍法**", "**生成**", "**失败**"]
 CONTINUITY_FIELDS = ["**规则**", "**观众察觉**", "**AIGC 常见失败**", "**修法**"]
 SCRIPT_FILES = ["breakdown.md", "scene-types.md", "example.md"]
+JOIN_FILES = {"example.md"}  # multi-scene storyboards: every pair of consecutive scenes needs a 场间接点 line
+LINKS = ("问答", "视线", "动作", "声音", "物件", "运动", "构图", "情绪", "场头", "场间", "开场")
 STRUCTURAL_TAGS = {"结尾", "开场"}
 GRADES = ("稳", "定帧", "后期")
 TEMPLATE_SECTIONS = {
-    "storyboard-script.md": ["### 读戏", "### 镜头数", "### 分镜脚本", "### 高风险镜头与备选", "### 审读"],
+    "storyboard-script.md": ["### 读戏", "### 镜流", "### 镜头数", "### 分镜脚本", "### 场间接点", "### 高风险镜头与备选", "### 审读"],
     "shot-list.md": ["## 批次", "## 逐镜", "## 进度", "## 覆盖检查", "## 一致性"],
 }
 BANNED = ["演员", "排练", "选角", "剧组", "通告", "灯具", "轨道", "布光", "现场录音", "同期声"]
@@ -91,17 +93,22 @@ def check_fields(path: str, fields, skip=lambda title, body: False) -> int:
 
 
 def check_script(path: str, functions: set) -> int:
-    """Validate storyboard-script rows: columns, function, grade, order, and the stated shot count per scene."""
+    """Validate storyboard-script rows: columns, function, link, grade, order, stated shot counts, scene joins."""
     text = read(path)
     rows = ROW.findall(text)
     groups = []  # consecutive rows sharing a scene number
     for scene, shot, suffix, rest in rows:
         cells = [c.strip() for c in rest.rstrip().rstrip("|").split("|")]
         label = f"{scene}-{shot}{suffix}"
-        if len(cells) != 8:
-            report(f"{rel(path)} · {label}: 分镜脚本应为 9 列，实际 {len(cells) + 1} 列")
+        if len(cells) != 9:
+            report(f"{rel(path)} · {label}: 分镜脚本应为 10 列，实际 {len(cells) + 1} 列")
             continue
-        func, grade = cells[0], cells[7]
+        func, link, grade = cells[0], cells[6], cells[8]
+        m = re.match(r"接 (.+?)；出 (.+)$", link)
+        if not m:
+            report(f"{rel(path)} · {label}: 「接 / 出」栏应写成「接 …；出 …」")
+        elif not any(w in m.group(1) for w in LINKS):
+            report(f"{rel(path)} · {label}: 「接」没有写承接方式（{' / '.join(LINKS[:8])}）")
         for part in re.split(r"[/／]", func):
             name = re.sub(r"（.*?）", "", part).strip()
             if name not in functions and name not in STRUCTURAL_TAGS:
@@ -123,6 +130,11 @@ def check_script(path: str, functions: set) -> int:
                 report(f"{rel(path)} · 场 {scene}: 写的是 {want} 镜，表里有 {count} 镜")
     elif stated:
         report(f"{rel(path)}: 镜头数声明 {len(stated)} 处，分镜脚本 {len(groups)} 场，对不上")
+    if os.path.basename(path) in JOIN_FILES:
+        joins = set(re.findall(r"场间接点 (\d+) → (\d+)", text))
+        for (a, *_), (b, *_) in zip(groups, groups[1:]):
+            if (a, b) not in joins:
+                report(f"{rel(path)}: 场 {a} 和场 {b} 之间没有写场间接点")
     return len(rows)
 
 

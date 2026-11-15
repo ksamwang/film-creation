@@ -318,7 +318,7 @@ Ends: Mira still facing the sink, eyes lowered, hands flat on the counter.
 
 **作用**：特效的工作。重量、惯性、材质的反应。模型的物理常常发飘：杯子没重量，门没惯性，人走路脚不落地。
 
-**写法**：写这场戏里会被观众看到的物理细节：重量（a heavy ceramic mug, set down with a dull knock），惯性（the door swings back and stops against the wall），接触（feet plant firmly, weight shifts）。只写镜头里真的出现的。
+**写法**：写这场戏里会被观众看到的物理细节：重量（a heavy ceramic mug, set down with a dull knock），惯性（the door swings back and stops against the wall），接触（feet plant firmly, weight shifts）。只写镜头里真的出现的。**这一段只做总锁**：每个具体动作的重量和接触写进逐镜时间线的动作句里（`video-prompt/compile.md` 物理写进动作句），只写在这一段，模型常常不理。
 
 **例**：
 
@@ -330,7 +330,7 @@ Objects do not morph, duplicate or pass through each other.
 
 **什么时候省**：没有物件交互的对白镜头可以只保留最后一句。
 
-**常见错误**：写一大段通用物理（gravity is realistic），不对应画面里任何一件东西。
+**常见错误**：写一大段通用物理（gravity is realistic），不对应画面里任何一件东西；时间线里用 gently、floats、glides 写动作，这一段再写「东西有重量」也救不回来（`video-prompt/physics.md` §5）。
 
 **词库**：词库见 `video-prompt/physics.md`。
 

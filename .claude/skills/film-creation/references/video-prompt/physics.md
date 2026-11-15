@@ -2,7 +2,7 @@
 
 观众说一段视频「一看就是 AI」，指的通常不是画面不清楚，而是两类问题：
 
-1. **物理发飘**：东西没有重量，动作没有惯性，人走路不落地，水像果冻，布料像塑料。
+1. **物理发飘**：东西没有重量，动作没有惯性，人走路不落地，水像果冻，布料像塑料。很多时候是写手自己的用词造成的（§5）。
 2. **质感太干净**：皮肤磨皮、表面无瑕、光线完美、所有东西都在最佳位置。
 
 这两类问题都不能靠「realistic」「high quality」解决。要写**具体物件的具体物理**，和**这个空间里真实会有的不完美**。
@@ -269,7 +269,83 @@ camera drift.
 
 ---
 
-## 5. 常见问题
+## 5. 该飘的和不该飘的
+
+写手自己的用词常常就在制造失重。大语言模型写提示词时偏爱「柔和」的词：gently、softly、gracefully、floats、glides、drifts，中文是轻轻、缓缓、飘、优雅地。这些词放在有重量的东西上，模型就让它失重。
+
+但有些东西本来就会飘：纸、花瓣、灰尘、烟、头发、薄纱。它们的毛病不是飘，而是**飘了不落**：悬在空中、落地后还在动、所有东西用同一种速度飘。
+
+**两类东西分开写**
+
+| 绝不能飘 | 会飘，但必须落定 |
+|---|---|
+| 有重量的器物（杯、碗、箱、刀、礼箱）、家具、人、动物、车 | 纸、花瓣、落叶、灰尘、烟、雪、头发、薄纱、羽毛 |
+| 写重量、落地的声音、身体的用力 | 写翻飞多久、往哪边、落在哪、落定后不动 |
+
+**飘的词对照表**
+
+| 写手常用 | 问题 | 换成 |
+|---|---|---|
+| `gently places` / 轻轻放下 | 东西没有落地的分量 | `sets it down; it lands with a soft knock` / 放下，落下时轻轻一磕 |
+| `softly closes the door` / 轻轻关门 | 门没有惯性 | `eases the door shut against its weight until the latch clicks` / 顶着门的分量慢慢合上，直到门闩咔一声 |
+| `gracefully walks` / 优雅地走 | 脚不落地、滑行 | `walks with an even pace, each step landing heel first` / 步子均匀，每一步脚跟先落地 |
+| `glides across the room` / 飘过房间 | 人像在滑冰 | `crosses the room in four steps` / 四步走过房间 |
+| `floats down` / 飘落（重物） | 重物失重 | `drops and hits the floor` / 掉下去，砸在地上 |
+| `drifts`（人、物、摄影机） | 没有动力的漂移 | 写动力：`is pushed by`、`rolls because the floor tilts`；摄影机写明运动和落点（`camera/lexicon-move.md`） |
+| `slowly`、`缓缓` 堆在每个动作上 | 整段像慢动作，重量感全丢 | 只给真的慢的那一个动作，其余写正常速度 |
+| `delicately holds` / 轻柔地拿着 | 手和物件没有接触压力 | `holds it between finger and thumb, the paper bending slightly` / 用拇指和食指捏住，纸微微弯下去 |
+| `weightless`、`ethereal`、`dreamy` | 直接要求失重 | 只在真要失重的段落用（梦境、失重环境） |
+
+形容气氛的 `soft light`、`gently lifted blacks` 不在此列：它们说的是光和影调，不是运动。
+
+### 纸 Paper
+
+**写法**：
+
+```text
+The poem slips from between the pages, tilts once in the air, slides sideways and
+lands flat on the wet stone; a corner darkens with water and it does not move again.
+```
+
+**防什么误读**：模型的纸要么像铁片一样直直掉下，要么在空中悬浮、来回飘很久，落地后还在滑。
+
+**用在**：信、诗笺、文件、钞票、书页。一张纸从手里滑落约 1 秒落地；室内无风时只翻一两下。散落一地的纸，写「先后落地，最后一张落定后全部静止」。
+
+**别这样写**：the letter floats gently to the ground——没有落点，没有时间，模型会让它一直飘。
+
+### 花瓣与落叶 Petals and leaves
+
+**写法**：
+
+```text
+A single peach petal comes loose in the rain, falls fast with the raindrops, sticks
+to the wet wall and stays there.
+```
+
+**防什么误读**：模型的花瓣在任何天气下都慢悠悠地飘、成片地飘，像加了粒子特效。
+
+**用在**：花、叶、雪。写清天气对它的影响：雨里花瓣被打着往下掉，有风时斜着飞，无风时直落。数量写少（一瓣、几片），成片的花瓣雨是特效感最强的画面。
+
+**别这样写**：petals floating dreamily through the air——无天气、无数量、无落点。
+
+### 落定 Settling
+
+**写法**：
+
+```text
+When everything has fallen, nothing moves: the papers lie still on the floor, the
+dust settles out of the light, the curtain hangs straight again.
+```
+
+**防什么误读**：模型在动作结束后还让画面里的东西继续轻微飘动，整张画面像在水里。
+
+**用在**：散落、倒塌、打翻之后；每一段的结束状态。和 `video-prompt/compile.md` 的「写结束状态」一起用。
+
+**别这样写**：只写动作开始，不写结束时的静止。
+
+---
+
+## 6. 常见问题
 
 | 问题 | 原因 | 改法 |
 |---|---|---|
@@ -280,6 +356,8 @@ camera drift.
 | 手指乱、穿模 | 复杂手部动作 | 一镜一个简单动作；写接触点 |
 | 像样板间 | 默认干净 | 写两三个具体使用痕迹 |
 | 脸像蜡像 | 默认磨皮 | 写毛孔、油光、细纹；删掉 flawless |
+| 什么都轻飘飘 | 写手用了 gently、floats、glides 这类词 | 按 §5 对照表换；重物写落地，纸和花瓣写落定 |
+| 纸悬在空中 | 没写落点和时间 | 写翻几下、落在哪、落定后不动（§5 纸） |
 
 ## 来源
 

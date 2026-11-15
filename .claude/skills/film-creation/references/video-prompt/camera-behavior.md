@@ -100,7 +100,7 @@ toward the sound a moment after it hits the floor, losing focus briefly, then fi
 
 ```text
 The operator is watching the boy, not the mother. Even while she speaks, the frame
-favours him, drifting back to his face whenever he moves.
+favours him, swinging back to his face whenever he moves.
 ```
 
 **防什么误读**：手持镜头里谁说话就对准谁，失去视点。写清操作员关心谁，镜头就有了立场。

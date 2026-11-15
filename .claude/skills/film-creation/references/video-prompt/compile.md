@@ -70,8 +70,37 @@
 1. **时间码**：本单位内从 0 开始累加；每镜比分镜脚本多留的余量（`storyboard/pacing.md` §6）在生成时长里体现，不必写进时间码。
 2. **功能 → 观众必须读到什么**：先写这一镜的目的，再写动作。反应镜写「她看见了什么、怎么变」，不只写「她的近景」。
 3. **景别 / 角度 / 运镜 → LENS 与 CAMERA**：焦段写进镜头锁；运镜如果全段一致，在 CAMERA 段统一写，逐镜只写例外。
-4. **画面 → 微动作**：按时间码拆开，一镜一个主要动作；补物理后果；写结束状态。
+4. **画面 → 微动作**：按时间码拆开，一镜一个主要动作；物理写进动作句（见下面「物理写进动作句」）；写结束状态。
 5. **台词 / 声音 → AUDIO 与内嵌提示**：台词原文写在说话的时间点，同时写「其他人嘴闭着」；声音先行写在上一镜末尾。
+
+**物理写进动作句**
+
+物件发飘、人轻飘飘，毛病出在时间线的动作句里，不在 PHYSICS 段：「她把杯子放下」「把信递过去」这类句子里没有重量和接触，模型就按失重来演。末尾一段总的物理描述离动作太远，常被忽略。所以每个碰到物件、身体用力的动作，都在那一句里写全：
+
+**谁 + 动作 + 接触点 + 重量的后果 + 停下来的状态**
+
+```text
+不写：She places the cup on the table.
+写：  She sets the full cup down with both hands; it lands with a dull knock, the tea sways once and settles, and her fingers stay on the rim a moment longer.
+```
+
+| 动作 | 这一句里必须有 | 例 |
+|---|---|---|
+| 拿起 | 手怎么握、身体怎么对重量反应（手腕下沉、肩膀用力） | `lifts the lacquer box with both hands, elbows bending under its weight` |
+| 放下 | 落下的声音或反弹、放下后不再动 | `sets it down with a soft thud; it does not slide` |
+| 递交 | 给的手、接的手、交接那一下的重量转移 | `holds the letter out; he takes it, and her hand drops slightly as the weight leaves it` |
+| 坐下 / 起身 | 重心落到哪里、坐具的反应 | `sits back into the chair; the cushion sinks and the chair creaks once` |
+| 走路 | 脚跟落地、重心跟着脚走、地面的反应 | `each step lands heel first on the wet stone` |
+| 推门 / 关门 | 用了多大力、过冲、回弹、停在哪 | `the door swings shut, bounces off the frame and settles a finger's width open` |
+| 倒水 / 液体 | 流的方向、溅、晃、液面停下 | `the water hits the bottom of the bowl, splashes once and settles` |
+| 翻纸 / 纸落下 | 纸的弯曲、翻飞的时间、落定后不动（§5） | `the page bends as she turns it and falls flat` |
+| 衣服 / 头发 | 跟着动作走、动作停了也停（§2） | `her sleeve swings with the gesture and falls still` |
+
+- **写人的身体怎么对重量反应**，比写物件的形容词有效（`video-prompt/physics.md` §1）。
+- **只写镜头里真的出现的动作**。没碰物件的对白镜头不用硬加。
+- **检查用词**：写完把时间线里的 gently、softly、gracefully、floats、glides、drifts（中文：轻轻、缓缓、飘、优雅地）挑出来，对照 `video-prompt/physics.md` §5 的对照表换成有重量的写法；该飘的东西（纸、花瓣、灰尘）保留，但写清落在哪。
+- **离开手或桌面的东西都写落点**：滑过桌沿、松手、被碰掉，下一句写它落在哪、怎么停（`falls off the edge and lands face down on the floorboards`）。悬在空中的手或笔写清是谁在停、为什么停（`his hand stops above the paper, the brush tip trembling`），别只写停在空中。
+- PHYSICS 段仍然保留，作为总锁兜底：物件不变形、重物不飘、手和物件真的接触（`video-prompt/anatomy.md` 物理）。
 
 ## 第六步：预判误读，写锁和 negative
 

@@ -45,6 +45,12 @@ SHOT = re.compile(r"^SHOT (\d+) — ([\d.]+)–([\d.]+)s", re.M)
 
 issues = 0
 
+# Words that make motion weightless, and contexts where they are fine (negations, tone, things that do float).
+FLOATY = re.compile(r"\b(gently|softly|gracefully|glid\w*|float\w*|drift\w*|weightless|ethereal)\b|轻轻|缓缓|飘|优雅地", re.I)
+FLOATY_OK = re.compile(r"\b(no|not|without|avoid|never|might)\b|lifted blacks|drift-prone|dust|smoke|steam|haze|petal|snow|feather|paper|page|不|别|没", re.I)
+FLOATY_FILES = [os.path.join(VP, "*.md"), os.path.join(SKILL, "templates", "video-prompt.md"),
+                os.path.join(REFS, "aigc", "prompt-syntax.md")]
+
 
 def report(msg: str) -> None:
     global issues
@@ -137,6 +143,30 @@ def check_common(path: str) -> None:
             report(f"{rel(path)}: 出现实拍用语「{word}」")
 
 
+def check_floaty() -> int:
+    """Prompt examples must not use weightless motion words (video-prompt/physics.md §5)."""
+    n = 0
+    for pattern in FLOATY_FILES:
+        for path in sorted(glob.glob(pattern)):
+            if os.path.basename(path) == "physics.md":
+                continue  # the word table itself
+            text = read(path)
+            for m in BLOCK.finditer(text):
+                start = text[:m.start()].count("\n") + 2
+                negative = False  # a NEGATIVE paragraph names the errors, floaty words included
+                for i, line in enumerate(m.group(1).split("\n")):
+                    if re.match(r"\s*NEGATIVE\b", line, re.I):
+                        negative = True
+                    elif not line.strip():
+                        negative = False
+                    if negative:
+                        continue
+                    if FLOATY.search(line) and not FLOATY_OK.search(line):
+                        n += 1
+                        report(f"{rel(path)}:{start + i}: 提示词里有失重的词，按 physics.md §5 换：{line.strip()[:60]}")
+    return n
+
+
 def main() -> None:
     for name in REQUIRED:
         if not os.path.exists(os.path.join(VP, name)):
@@ -204,6 +234,8 @@ def main() -> None:
         if phrase in syntax:
             report(f"aigc/prompt-syntax.md 仍写着「{phrase}」，与识别特征锁原则冲突")
 
+    floaty = check_floaty()
+    print(f"[ok] 提示词示例里的失重词: {floaty} 处")
     print(f"\nChecked video-prompt layer: {n_entries} lexicon entries, {n_prompts} multi-shot prompts, {issues} issues.")
     sys.exit(1 if issues else 0)
 

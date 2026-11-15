@@ -150,7 +150,7 @@ CAMERA PATH:
 8–11s — Just inside the hall the camera stops and holds. Chen keeps walking away,
   frame right, weaving between round tables toward the stage. All the guests face
   the stage, frame right. The camera lets him go.
-11–15s — The camera pans slowly left, away from Chen, and drifts in slightly to find
+11–15s — The camera pans slowly left, away from Chen, and pushes in a step to find
   the bride standing near the door, frame centre, medium close-up. She has turned
   away from the stage and is looking back at the kitchen doors, curious. She does not
   see the cake. The camera settles and holds still on her for the last second.

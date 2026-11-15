@@ -215,6 +215,9 @@ def main() -> None:
     for route in ROUTES:
         if route not in skill:
             report(f"SKILL.md 没有指向 {route}")
+    row = next((l for l in skill.splitlines() if l.startswith("| 写剧本")), "")
+    if "references/writing/dialogue.md" not in row:
+        report("SKILL.md「写剧本」一行没有把 references/writing/dialogue.md 列为必读")
 
     total = sum(counts.values())
     print(f"\nChecked writing layer: {total} entries, {len(actual)} genres, {issues} issues.")

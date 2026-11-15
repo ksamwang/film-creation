@@ -32,6 +32,7 @@ TRIGGERS = {
     "连续性 / 节奏": ["连续性", "节奏"],
     "镜头语言": ["镜头语言", "运镜"],
     "色彩与质感": ["色彩", "色调"],
+    "器材与格式": ["器材"],
     "多镜头视频提示词": ["多镜头"],
     "生成方式": ["首尾帧", "生成方式"],
     "选模型": ["选模型"],
@@ -90,6 +91,20 @@ def table_paths(section: str) -> list:
     return [p for row in rows for p in PATH.findall(row)]
 
 
+def check_columns(name: str, section: str) -> None:
+    """Every row of a table has as many cells as its header."""
+    width = None
+    for line in section.splitlines():
+        if not line.startswith("|"):
+            width = None
+            continue
+        cells = line.rstrip().count("|") - line.count("\|")
+        if width is None:
+            width = cells
+        elif cells != width:
+            report(f"{name}: 这一行有 {cells - 1} 列，表头是 {width - 1} 列：{line[:40]}…")
+
+
 def main() -> None:
     files = all_md()
     skill = read(SKILL)
@@ -119,6 +134,7 @@ def main() -> None:
         elif p not in files:
             report(f"SKILL.md 路由表: 路径不存在 {p}")
     print(f"[ok] 路由表: {len(paths)} 处路径")
+    check_columns("SKILL.md 路由表", section)
 
     # 3. Every template is routed
     routed = set(paths)
@@ -160,6 +176,7 @@ def main() -> None:
         start = readme.index("## 请求路由表")
         end = readme.index("\n## ", start + 1)
         mirror = set(table_paths(readme[start:end]))
+        check_columns("README 路由表", readme[start:end])
         for p in sorted(routed - mirror):
             report(f"README 路由表缺 {p}（SKILL.md 有）")
         for p in sorted(mirror - routed):

@@ -17,7 +17,7 @@ REFS = os.path.join(SKILL, "references")
 CAMERA = os.path.join(REFS, "camera")
 RECIPES = os.path.join(CAMERA, "recipes")
 
-LEXICONS = ["lexicon-shot.md", "lexicon-move.md", "lexicon-light.md", "lexicon-frame.md"]
+LEXICONS = ["lexicon-shot.md", "lexicon-move.md", "lexicon-light.md", "lexicon-frame.md", "lexicon-gear.md"]
 REQUIRED = ["index.md", "intent.md", "sources.md", "lexicon-transition.md"] + LEXICONS
 RECIPE_FILES = ["dialogue-two.md", "dialogue-group.md", "chase.md", "fight.md", "suspense.md",
                 "romance.md", "montage.md", "opening-ending.md", "reversal.md"]
@@ -26,7 +26,7 @@ RECIPE_SECTIONS = ["## 这场戏要什么", "## 默认序列", "## 示例", "## 
 GRADES = ("稳", "定帧", "后期")
 BANNED = ["演员", "排练", "选角", "剧组", "通告", "灯具", "轨道", "布光", "现场录音", "同期声"]
 ROUTES = ["references/camera/index.md", "references/camera/intent.md",
-          "references/camera/recipes/index.md"]
+          "references/camera/recipes/index.md", "references/camera/lexicon-gear.md"]
 REF = re.compile(r"`((?:references|templates|craft|camera|recipes|directors|cinematographers|aigc|drama)/[^`*<>\s]+?\.md)")
 BARE = re.compile(r"`([a-z][a-z0-9-]*\.md)`")
 

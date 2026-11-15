@@ -95,6 +95,17 @@
 | 取景句的四项写法 | `craft/visual/02-composition.md` |
 | 对称、负空间 | 行业惯例 |
 
+## lexicon-gear
+
+| 概念 / 规则 | 来源 |
+|---|---|
+| 光学镜头的美学：焦距、光圈；变形镜头的焦外形状 | 《导演的摄影课》第三章（经 `craft/visual/03-lens.md`） |
+| 画幅与格式：小画幅颗粒粗、反差高，大画幅颗粒细、层次多；胶片颗粒与数字噪点不同 | 《导演的摄影课》论画幅与格式（经 `craft/visual/06-texture.md`） |
+| 手持、移动车、斯坦尼康传达的信息不同 | 《导演的摄影课》第七章（经 `camera/lexicon-move.md`） |
+| 滑轨、车载、索道；老镜头、微距、探针、柔光滤镜；窄快门、拖影与抽帧；Super 8、16mm、35mm、65mm / IMAX、黑白、VHS、DV、手机、运动相机、数字电影机的画面特征 | 行业惯例 |
+| 先写特征、型号只做锚点；一片一套介质；画幅不写进提示词 | `video-prompt/anatomy.md` 风格段；`craft/visual/06-texture.md` |
+| 生成可靠性分级 | 2026-11 时的通用经验，同 `camera/index.md` |
+
 ## lexicon-transition
 
 | 概念 / 规则 | 来源 |

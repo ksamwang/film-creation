@@ -46,7 +46,7 @@ Muted emerald, crimson and amber, with soft 35mm film grain.
 
 ```text
 She lifts the cigarette, takes one slow drag, then turns her head toward the door as a bell rings.
-The camera drifts slowly closer, handheld, following the turn.
+The handheld camera creeps a step closer, following the turn.
 ```
 
 ### 规则
@@ -77,7 +77,7 @@ SHOT: medium close-up | eye level | 50mm | doorframe foreground
 LIGHT: practical neon | low key | half-face shadow
 COLOR: emerald | crimson | amber | mixed tungsten-neon
 TEXTURE: smoke | rain | wet glass | film grain
-MOTION: slow handheld drift | follow from behind | 4s | 24fps
+MOTION: slow handheld follow | from behind | 4s | 24fps
 NEGATIVE: clean symmetrical | even studio light | modern glass | digital sharpness | warm filter
 ```
 

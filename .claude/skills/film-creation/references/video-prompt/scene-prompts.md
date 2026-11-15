@@ -75,8 +75,8 @@ table. A room no one has lived in for months.
 SHOT 1 — 0–4s — coffee table, from above, 85mm.
 0.0–2.5s: The scarf lies on the table: half-finished, the needles crossed in the last row,
   the ball of yarn beside it. Nothing moves.
-2.5s: Lin's hand enters frame from the top and rests on the scarf. Her fingers flatten
-  the wool gently.
+2.5s: Lin's hand enters frame from the top and rests on the scarf; the wool gives under
+  her palm. Her fingers press the stitches flat.
 Ends: her hand resting on the scarf.
 
 SHOT 2 — 4–10s — Lin, medium close-up, 50mm.

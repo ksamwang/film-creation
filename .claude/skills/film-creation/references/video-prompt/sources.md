@@ -49,6 +49,7 @@
 | 预判误读的三种处理位置、自检清单 | 属本包整理 |
 | 场 5 段 B 示例 | 本包原创，延续 `storyboard/breakdown.md` 的场 5 |
 | 竖屏短剧以 drama/07 为准 | `references/drama/07-segment-prompt.md` |
+| 物理写进动作句：谁 + 动作 + 接触点 + 重量的后果 + 停下来的状态 | 属本包整理；词表见 `physics.md` §5 |
 
 ## camera-behavior
 
@@ -80,6 +81,7 @@
 | 液体、布料、头发、烟与蒸汽、倒影的常见失败 | 社区提示词模式归纳，属本包整理 |
 | 手部动作一镜一个简单动作 | 属本包整理；一镜一个动作见 `references/drama/06-storyboard.md` §2 |
 | 皮肤、使用痕迹、不完美的光、镜头质感 | 社区提示词模式归纳；光见 `camera/lexicon-light.md` |
+| 失重感常来自提示词自己的用词（gently、floats、轻轻、飘）；该飘的东西也要写落定 | 社区提示词模式归纳，属本包整理 |
 
 ## audio
 

@@ -47,7 +47,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 镜头语言：景别 / 角度 / 运镜 / 焦段 / 光 / 构图 / 转场怎么写、能否生成（camera movement, framing, lens, lighting） | `references/camera/index.md` 选词典：`references/camera/lexicon-shot.md` / `references/camera/lexicon-move.md` / `references/camera/lexicon-light.md` / `references/camera/lexicon-frame.md` / `references/camera/lexicon-transition.md` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
+| 镜头语言：景别 / 角度 / 运镜（含复合运镜）/ 焦段 / 光 / 构图 / 转场怎么写、能否生成（camera movement, framing, lens, lighting） | `references/camera/index.md` 选词典：`references/camera/lexicon-shot.md` / `references/camera/lexicon-move.md` / `references/camera/lexicon-light.md` / `references/camera/lexicon-frame.md` / `references/camera/lexicon-transition.md` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
 | 器材与格式：变形镜头、老镜头、微距、柔光滤镜、快门与拖影、胶片（Super 8 / 16mm / 35mm / 大画幅 / 黑白）、录像带、DV、手机、运动相机、数字电影机写进提示词（camera gear, lens type, film stock） → 实拍选型不答 | `references/camera/lexicon-gear.md`；质感句 `references/craft/visual/06-texture.md` | 器材的画面特征 + 提示词写法 + 可靠性 |
 | 色彩 / 色调 / 质感：整片或一场的色板、色温、饱和度、颗粒与胶片感、整体视觉方案（color grading, color palette, look） → 单个镜头的光走上一行；借某位导演 / 摄影的色彩走「风格参考」 | `references/craft/visual/index.md` → `references/craft/visual/05-color.md`（色温、色板、饱和度）/ `references/craft/visual/06-texture.md`（介质、颗粒、反差、空气）；和光一起定时加 `references/craft/visual/04-light.md` | 色板 + 色温 + 质感设定 + 写进提示词的描述 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
@@ -60,7 +60,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 | 图像 / 视频提示词：单镜、基本语法、单镜模板、token 写法（image prompt, SDXL） → 多镜头走下一行 | `references/aigc/prompt-syntax.md` + `templates/ai-prompt.md` | 按模式出提示词 |
 | 视频提示词：按分镜脚本写多镜头 / 长提示词，导演 + 摄影 + 场记写进一条（multi-shot video prompt） → 竖屏短剧走「短剧：片段提示词」 | `references/video-prompt/compile.md`（段落 `references/video-prompt/anatomy.md`，档位 `references/video-prompt/index.md`，示例 `references/video-prompt/example.md`、`references/video-prompt/scene-prompts.md`）+ `templates/video-prompt.md` | 生成单位切分 + 逐段提示词（全局段复用、逐镜时间线、总锁、negative） |
 | 视频提示词的某一段怎么写，或生成里的某个毛病：人物看镜头 / 演得太过 → 表演；多出路人 / 封不住音乐和字 → 锁；摄影机乱漂 → 摄影机；东西没重量 / AI 感 → 物理；台词 / 画内声 → 声音；一镜到底 / 人群 → 一镜到底。竖屏短剧的口型、站位走「短剧：片段提示词」 | 摄影机 `references/video-prompt/camera-behavior.md`；表演 `references/video-prompt/acting.md`；物理与 AI 感 `references/video-prompt/physics.md`；声音与台词 `references/video-prompt/audio.md`；锁与 negative `references/video-prompt/locks.md`；一镜到底与人群 `references/video-prompt/one-take.md` | 对应段落的提示词写法 |
-| 怎么生成：参考图生 / 首帧 / 首尾帧 / 续接，镜头之间怎么接（first/last frame） | `references/aigc/workflow.md` | 生成方式与串联 |
+| 怎么生成：参考图生 / 首帧 / 首尾帧 / 续接，镜头之间怎么接，图生视频的运动强度（first/last frame） | `references/aigc/workflow.md`（运动强度与首帧限制 `references/camera/lexicon-move.md` §7） | 生成方式与串联 |
 | 选模型 / 模型能力 / 两个模型怎么选（model choice） | `references/aigc/models.md` | 模型与模式 |
 | 资产一致性 / 参考图 / 道具与场景锁（reference images） | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |
 
@@ -113,7 +113,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 
 - **模式 A（默认）**：大语言模型编码的模型（Seedance、Kling、Veo、Wan、Hailuo、GPT-Image、Nano Banana、Flux 等）。自然语言按时间顺序写，一镜 2–3 个动作；空间写画面左右、机位前后、接触点，情绪写成可见动作；有参考图时不重写外貌、只写 2–4 条识别特征锁，写清每张图是谁、只管什么；正面描述优先，顽固默认（配乐、文字、多余的人、漂移）集中成约束句并列全同义说法，negative 只写这一镜的错误版本。多镜头和长提示词见 `references/video-prompt/`。
 - **模式 B**：CLIP 系（SD / SDXL 及微调）或用户要 token 写法。`|` 分隔的 token 块；一个提示一个主语；词序即权重；正向不写否定，否定进 NEGATIVE；token 逐字复用；图生视频只写运动。
-- **通用**：具体胜过形容（一个机位、一个光源、一个材质），不写 `cinematic / 8K / masterpiece`；风格放最后，8–15 个视觉基元；不写画幅、分辨率、时长；一致性先靠参考图，再靠首帧续接，文本锁兜底（`references/aigc/assets.md`）。
+- **通用**：具体胜过形容（一个机位、一个光源、一个材质），不写 `cinematic / 8K / masterpiece`；风格放最后，8–15 个视觉基元；不写画幅、分辨率、总时长（参数面板里设；段内时间点可以写）；一致性先靠参考图，再靠首帧续接，文本锁兜底（`references/aigc/assets.md`）。
 
 ## 质量门
 

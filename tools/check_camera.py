@@ -142,6 +142,12 @@ def main() -> None:
             n = check_lexicon(path)
             total += n
             print(f"[ok] {name}: {n} 个条目")
+    move = os.path.join(CAMERA, "lexicon-move.md")
+    if os.path.exists(move):
+        text = read(move)
+        for sec in ("**运动句：六项写全**", "## 6. 复合运动与微运动", "### 不能叠的组合", "## 7. 图生视频"):
+            if sec not in text:
+                report(f"camera/lexicon-move.md: 缺「{sec}」")
     path = os.path.join(CAMERA, "lexicon-transition.md")
     if os.path.exists(path):
         n = check_transition(path)

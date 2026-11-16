@@ -35,7 +35,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 分镜脚本：把一场戏拆成镜头，几个镜头、每镜拍什么、台词落在谁脸上（scene breakdown, storyboard, shot list） | `references/storyboard/breakdown.md` + `references/storyboard/flow.md`（镜间承接，拆镜前通读；镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，场景示例 `references/storyboard/scene-types.md`，全片示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 镜流句 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、接 / 出、时长、生成）+ 场间接点 + 生成清单 `templates/shot-list.md` |
+| 分镜脚本：把一场戏拆成镜头，几个镜头、每镜拍什么、台词落在谁脸上；画面感弱、动作拍不清（scene breakdown, storyboard, shot list） | `references/storyboard/breakdown.md` + `references/storyboard/decoupage.md`（动作拆成画面）+ `references/storyboard/flow.md`（镜间承接，拆镜前通读；镜头功能 `references/storyboard/shot-functions.md`，拆法风格 `references/storyboard/three-ways.md`，场景示例 `references/storyboard/scene-types.md`，全片示例 `references/storyboard/example.md`）+ `templates/storyboard-script.md` | 读戏卡 + 镜流句 + 分镜脚本（镜号、功能、景别、角度、运镜、画面、台词、接 / 出、时长、生成）+ 场间接点 + 生成清单 `templates/shot-list.md` |
 | 镜头策略：覆盖、走位、调度的取舍，不要整场表格（coverage, blocking） → 要整场拆成分镜脚本走上一行 | `references/craft/staging/04-coverage.md` + `references/craft/staging/index.md` + `references/craft/visual/index.md`（读戏 `references/craft/staging/06-scene-analysis.md`，场景卡 `templates/scene-card.md`） | 镜头策略 + 关键镜头 |
 | 分镜图：画什么、怎么审（storyboard frames） | `references/storyboard/frames.md` | 分镜图与审图意见 |
 | 动态分镜（animatic） | `references/storyboard/animatic.md` | 动态分镜方案 |

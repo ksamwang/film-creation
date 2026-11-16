@@ -27,9 +27,11 @@ DIALOGUE_FIELDS = ["**改后**", "**作用**"]
 DEVICE_FIELDS = ["**是什么**", "**作用**", "**落到产物**", "**失败**"]
 SOURCE_SECTIONS = ["## dialogue", "## doctor", "## devices", "## intent", "## genres"]
 TEMPLATE = os.path.join(SKILL, "templates", "script.md")
-TEMPLATE_SECTIONS = ["## 片头信息", "## Beat 表", "## 技巧与伏笔", "## 正文", "## 台词表", "## 资产", "## 检查"]
+TEMPLATE_SECTIONS = ["## 片头信息", "## 场表", "## 场间", "## 技巧与伏笔", "## 正文", "## 台词表", "## 资产", "## 检查"]
 # Fact rules in the script template body: presence, props, time-space, one reading, spoken words
 TEMPLATE_RULES = ["**在场**", "**物件**", "**时空**", "**一种读法**", "**台词**"]
+# Narrative rules: one spine question, every scene played out with a reaction and decision, causes between scenes on screen
+TEMPLATE_NARRATIVE = ["主线问题", "反应 → 决定", "容量校验", "画外发生了什么", "doctor.md` #26"]
 DRAMA_SCRIPT = os.path.join(REFS, "drama", "04-script.md")
 DRAMA_RULES = ["**出手之前先在场**", "**物件交接写一次", "**一场一个时空**", "**写了「说」就给词**"]
 BANNED = ["演员", "排练", "选角", "剧组", "通告", "灯具", "轨道", "布光", "现场录音", "同期声"]
@@ -199,6 +201,9 @@ def main() -> None:
                 report(f"templates/script.md: 正文规则缺 {rule}")
         if "doctor.md` #25" not in text:
             report("templates/script.md: 检查没有指向 doctor.md #25")
+        for phrase in TEMPLATE_NARRATIVE:
+            if phrase not in text:
+                report(f"templates/script.md: 叙事规则缺「{phrase}」")
     else:
         report("缺少 templates/script.md")
 

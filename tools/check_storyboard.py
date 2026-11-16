@@ -18,7 +18,12 @@ BOARD = os.path.join(REFS, "storyboard")
 TEMPLATES = os.path.join(SKILL, "templates")
 
 REQUIRED = ["index.md", "breakdown.md", "shot-functions.md", "three-ways.md", "frames.md",
-            "animatic.md", "continuity.md", "pacing.md", "scene-types.md", "example.md", "flow.md", "sources.md"]
+            "animatic.md", "continuity.md", "pacing.md", "scene-types.md", "example.md", "flow.md", "decoupage.md", "sources.md"]
+DECOUPAGE_SECTIONS = ["## 1. 五条原则", "## 2. 一个动作的六拍", "## 3. 示例", "## 4. 常见动作的拆法",
+                      "## 5. 拆镜之前先做视觉设计", "## 6. 画面栏怎么写", "## 7. 运镜：默认固定", "## 8. 数镜头"]
+# The picture column describes what can be seen: no simile, no mood adjectives (decoupage.md §6)
+LITERARY = re.compile(r"如.{1,6}般|宛如|仿佛|犹如|惨白|惨惨|赫然|彻底|凄|绝望|悲痛|如遭")
+MOVING_MAX = 0.5  # share of shots with a camera move in one worked storyboard (decoupage.md §7)
 FUNCTION_FIELDS = ["**是什么**", "**什么时候要**", "**一场放几个**", "**剧本里**", "**拍法**", "**生成**", "**失败**"]
 CONTINUITY_FIELDS = ["**规则**", "**观众察觉**", "**AIGC 常见失败**", "**修法**"]
 SCRIPT_FILES = ["breakdown.md", "scene-types.md", "example.md"]
@@ -27,13 +32,14 @@ LINKS = ("问答", "视线", "动作", "声音", "物件", "运动", "构图", "
 STRUCTURAL_TAGS = {"结尾", "开场"}
 GRADES = ("稳", "定帧", "后期")
 TEMPLATE_SECTIONS = {
-    "storyboard-script.md": ["### 读戏", "### 镜流", "### 镜头数", "### 分镜脚本", "### 场间接点", "### 高风险镜头与备选", "### 审读"],
+    "storyboard-script.md": ["### 读戏", "### 镜流", "### 视觉设计", "### 镜头数", "### 分镜脚本", "### 场间接点", "### 高风险镜头与备选", "### 审读"],
     "shot-list.md": ["## 批次", "## 逐镜", "## 进度", "## 覆盖检查", "## 一致性"],
 }
 BANNED = ["演员", "排练", "选角", "剧组", "通告", "灯具", "轨道", "布光", "现场录音", "同期声"]
 ROUTES = ["references/storyboard/breakdown.md", "references/storyboard/shot-functions.md",
           "references/storyboard/frames.md", "references/storyboard/continuity.md",
-          "references/storyboard/pacing.md", "references/storyboard/flow.md", "templates/storyboard-script.md"]
+          "references/storyboard/pacing.md", "references/storyboard/flow.md", "references/storyboard/decoupage.md",
+          "templates/storyboard-script.md"]
 REF = re.compile(r"`((?:references|templates|craft|camera|writing|storyboard|recipes|directors|cinematographers|aigc|drama)/[^`*<>\s]+?\.md)")
 BARE = re.compile(r"`([a-z][a-z0-9-]*\.md)`")
 ROW = re.compile(r"^\| *(\d+)-(\d+)([A-Z]?) *\|(.*)$", re.M)
@@ -97,6 +103,7 @@ def check_script(path: str, functions: set) -> int:
     text = read(path)
     rows = ROW.findall(text)
     groups = []  # consecutive rows sharing a scene number
+    moving = 0
     for scene, shot, suffix, rest in rows:
         cells = [c.strip() for c in rest.rstrip().rstrip("|").split("|")]
         label = f"{scene}-{shot}{suffix}"
@@ -104,6 +111,10 @@ def check_script(path: str, functions: set) -> int:
             report(f"{rel(path)} · {label}: 分镜脚本应为 10 列，实际 {len(cells) + 1} 列")
             continue
         func, link, grade = cells[0], cells[6], cells[8]
+        if LITERARY.search(cells[4]):
+            report(f"{rel(path)} · {label}: 画面栏写了形容词或比喻「{LITERARY.search(cells[4]).group(0)}」，改成看得见的东西（decoupage.md §6）")
+        if cells[3] not in ("固定", "—", ""):
+            moving += 1
         m = re.match(r"接 (.+?)；出 (.+)$", link)
         if not m:
             report(f"{rel(path)} · {label}: 「接 / 出」栏应写成「接 …；出 …」")
@@ -123,6 +134,8 @@ def check_script(path: str, functions: set) -> int:
             groups[-1][2] = key
         else:
             groups.append([scene, 1, key])
+    if rows and moving / len(rows) > MOVING_MAX:
+        report(f"{rel(path)}: {moving}/{len(rows)} 镜在动，运镜默认固定（decoupage.md §7）")
     stated = [int(n) for n in re.findall(r"\*\*(\d+) 镜\*\*", text)]
     if stated and len(stated) == len(groups):
         for (scene, count, _), want in zip(groups, stated):
@@ -206,6 +219,14 @@ def main() -> None:
         for sec in sections:
             if sec not in text:
                 report(f"templates/{name}: 缺小节「{sec}」")
+
+    path = os.path.join(BOARD, "decoupage.md")
+    if os.path.exists(path):
+        text = read(path)
+        for sec in DECOUPAGE_SECTIONS:
+            if sec not in text:
+                report(f"storyboard/decoupage.md: 缺小节「{sec}」")
+        print(f"[ok] decoupage.md: {len(DECOUPAGE_SECTIONS)} 节")
 
     for path in sorted(glob.glob(os.path.join(BOARD, "*.md"))):
         check_common(path)

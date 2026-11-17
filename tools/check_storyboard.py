@@ -23,13 +23,18 @@ DECOUPAGE_SECTIONS = ["## 1. 五条原则", "## 2. 一个动作的六拍", "## 3
                       "## 5. 拆镜之前先做视觉设计", "## 6. 画面栏怎么写", "## 7. 运镜：默认固定", "## 8. 数镜头"]
 # The picture column describes what can be seen: no simile, no mood adjectives (decoupage.md §6)
 LITERARY = re.compile(r"如.{1,6}般|宛如|仿佛|犹如|惨白|惨惨|赫然|彻底|凄|绝望|悲痛|如遭")
-MOVING_MAX = 0.5  # share of shots with a camera move in one worked storyboard (decoupage.md §7)
+MOVING_MAX = 0.5
+# Shot-size joins (continuity.md 景别衔接): the eight sizes, plus 中远景 and 插入特写; a camera move may write "A → B"
+SIZES = ["大远景", "远景", "全景", "中远景", "中景", "中近景", "近景", "特写", "大特写", "插入特写"]
+LADDER = {"大远景": 1, "远景": 2, "全景": 3, "中远景": 3.5, "中景": 4, "中近景": 5, "近景": 6, "特写": 7, "插入特写": 7, "大特写": 8}
+CLOSE = {"特写", "大特写", "插入特写"}
+CLOSE_RUN_MAX = 4  # share of shots with a camera move in one worked storyboard (decoupage.md §7)
 FUNCTION_FIELDS = ["**是什么**", "**什么时候要**", "**一场放几个**", "**剧本里**", "**拍法**", "**生成**", "**失败**"]
 CONTINUITY_FIELDS = ["**规则**", "**观众察觉**", "**AIGC 常见失败**", "**修法**"]
 SCRIPT_FILES = ["breakdown.md", "scene-types.md", "example.md"]
 JOIN_FILES = {"example.md"}  # multi-scene storyboards: every pair of consecutive scenes needs a 场间接点 line
 LINKS = ("问答", "视线", "动作", "声音", "物件", "运动", "构图", "情绪", "场头", "场间", "开场")
-STRUCTURAL_TAGS = {"结尾", "开场"}
+STRUCTURAL_TAGS = {"结尾", "开场", "有意跳切"}
 GRADES = ("稳", "定帧", "后期")
 TEMPLATE_SECTIONS = {
     "storyboard-script.md": ["### 读戏", "### 镜流", "### 视觉设计", "### 镜头数", "### 分镜脚本", "### 场间接点", "### 高风险镜头与备选", "### 审读"],
@@ -134,6 +139,7 @@ def check_script(path: str, functions: set) -> int:
             groups[-1][2] = key
         else:
             groups.append([scene, 1, key])
+    check_sizes(path, rows)
     if rows and moving / len(rows) > MOVING_MAX:
         report(f"{rel(path)}: {moving}/{len(rows)} 镜在动，运镜默认固定（decoupage.md §7）")
     stated = [int(n) for n in re.findall(r"\*\*(\d+) 镜\*\*", text)]
@@ -149,6 +155,34 @@ def check_script(path: str, functions: set) -> int:
             if (a, b) not in joins:
                 report(f"{rel(path)}: 场 {a} 和场 {b} 之间没有写场间接点")
     return len(rows)
+
+
+def check_sizes(path: str, rows) -> None:
+    """Shot-size joins: known size names, no same-subject same-size same-angle cut, no long run of close-ups."""
+    shots = []
+    for scene, shot, suffix, rest in rows:
+        cells = [c.strip() for c in rest.rstrip().rstrip("|").split("|")]
+        if len(cells) != 9:
+            continue
+        label = f"{scene}-{shot}{suffix}"
+        sizes = [x.strip() for x in cells[1].split("→")]
+        if any(x not in SIZES for x in sizes):
+            report(f"{rel(path)} · {label}: 景别「{cells[1]}」不是八档里的名字（continuity.md 景别衔接）")
+        shots.append((scene, label, sizes[-1], sizes[0], cells[2][:2], cells[4][:2], cells[0]))  # angle and subject by their first two characters
+    run = 0
+    for i, (scene, label, end, start, angle, subject, func) in enumerate(shots):
+        run = run + 1 if start in CLOSE and end in CLOSE else 0
+        if run == CLOSE_RUN_MAX:
+            report(f"{rel(path)} · {label}: 连续 {run} 个特写，回到一个交代空间的镜头（continuity.md 景别衔接）")
+        if i and shots[i - 1][0] == scene:
+            prev = shots[i - 1]
+            gap = abs(LADDER.get(prev[2], 0) - LADDER.get(start, 0))
+            # Subject is guessed from the first two characters, so only the clearest cases are flagged:
+            # the same size, or 中近景 next to 近景 (a half step that reads as a zoom glitch)
+            near = gap == 0 or {prev[2], start} == {"中近景", "近景"}
+            if near and prev[4] == angle and prev[5] == subject and "有意跳切" not in func:
+                kind = "同景别" if gap == 0 else "只差一档"
+                report(f"{rel(path)} · {prev[1]} → {label}: 同一主体{kind}、角度没换，是跳切；跨两档或换角度（continuity.md 景别衔接）")
 
 
 def check_common(path: str) -> None:

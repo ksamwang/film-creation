@@ -97,6 +97,7 @@
 | 衣服 / 头发 | 跟着动作走、动作停了也停（§2） | `her sleeve swings with the gesture and falls still` |
 
 - **写人的身体怎么对重量反应**，比写物件的形容词有效（`video-prompt/physics.md` §1）。
+- **同一主体的相邻两镜写清景别差**：两镜都写切点（`cut at the waist` / `face only, chin to hairline`），景别写得太近，模型会出两张几乎一样的画面，像卡帧（`storyboard/continuity.md` 景别衔接）。
 - **只写镜头里真的出现的动作**。没碰物件的对白镜头不用硬加。
 - **检查用词**：写完把时间线里的 gently、softly、gracefully、floats、glides、drifts（中文：轻轻、缓缓、飘、优雅地）挑出来，对照 `video-prompt/physics.md` §5 的对照表换成有重量的写法；该飘的东西（纸、花瓣、灰尘）保留，但写清落在哪。
 - **离开手或桌面的东西都写落点**：滑过桌沿、松手、被碰掉，下一句写它落在哪、怎么停（`falls off the edge and lands face down on the floorboards`）。悬在空中的手或笔写清是谁在停、为什么停（`his hand stops above the paper, the brush tip trembling`），别只写停在空中。

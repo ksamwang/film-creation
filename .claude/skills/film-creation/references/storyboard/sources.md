@@ -37,6 +37,7 @@
 | 镜流句、必看信息只作下限、呼吸预算、切点承接表、场头与场尾规则 | `storyboard/flow.md`，属本包整理 |
 | 读戏六问、四种镜头数估法、平均镜长参考表、剧本常缺镜头清单、「看 → 看到什么 → 反应」三镜组、台词落在谁脸上、合并与拆开的取舍 | 行业惯例，属本包整理 |
 | 生成可靠性、生成方式、按场景 / 资产分组 | `camera/index.md`、`references/aigc/workflow.md`，属本包整理 |
+| 台词栏的「听：」；声音性反应；默剧检验 | 属本包整理；听者写进同一条提示词见 [Directing Performance in AI Video](https://www.ekly.ai/guides/directing-ai-performance) |
 
 ## flow
 
@@ -50,6 +51,7 @@
 | 「因此 / 但是」检查 | `craft/story/04-scene.md` |
 | 打卡式分镜的症状、镜流句、七种承接、三种断层与流转表、呼吸预算比例、场间接点表、读链测试、剪辑单位与生成单位分开 | 行业惯例，属本包整理 |
 | 示例场景（面馆、车票） | 本包原创 |
+| 情绪带进下一场 | 属本包整理；声音先入见 [No Film School: pre-lap](https://nofilmschool.com/pre-lap-screenwriting-and-editing) |
 
 ## shot-functions
 

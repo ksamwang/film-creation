@@ -102,6 +102,21 @@
 | 续接后画质变软、颜色偏 | 误差逐段累积 | 重出关键帧重新起头，切点藏在遮挡里 |
 | 编辑几轮后画面发脏 | 编辑累积损失 | 回到原图，一次写清全部改动 |
 | 视频转视频闪烁 | 结构改动太大 | 降低改动强度，或只改局部 |
+| 人物呆、像念稿，听的人不动 | 提示词只有动作，没有意图、档位和听者 | 按 `video-prompt/acting.md` 补档位、情绪轨迹、动作 → 反应；仍不行走下面 §6 |
+| 台词语气平、情绪不到 | 模型自己选的语气 | 先配音再生成（§6） |
+
+## 6. 表演：情绪镜头怎么生成
+
+峰值镜头（重逢、诀别、哀求、爆发）只靠一条提示词，经常演不到位。按代价从低到高有四种做法，可以叠加：
+
+1. **写足提示词**：档位、情绪轨迹、台词的表演标注、听者反应、声音性反应（`video-prompt/acting.md`）。同一镜生成 2–3 条，挑表演最好的一条；表情的变化是过程，不是跳变。
+2. **先配音，再生成**：先用支持情绪标签的语音模型做出台词，例如 ElevenLabs v3 的 `[whispers]` `[crying]` `[laughs]`，标点和大写也会影响节奏，选一个音域合适的声音最要紧。再把音频作为参考传给支持音频参考的视频模型，驱动口型、节奏和情绪，提示词里同时写台词原文（Seedance 2.x 指南）。语气由声音先定下来，脸跟着声音走。
+3. **表演迁移**：用户自己对着手机把这一镜演一遍，用表演迁移模型把面部、头部、上身和口型迁到角色上（Runway Act-Two：可调表情强度，可以只迁面部；Kling 的 Motion Control 用参考视频驱动）。适合表情细、模型怎么写都演不出来的镜头。
+4. **后期修表情**：已经生成的镜头只差一点（眉、眼、嘴角、头部角度），用表情编辑工具逐项调整，按时间排成变化序列（ComfyUI AdvancedLivePortrait 的 Expression Editor）。不要用它造一整段表演，改动大了会假。
+
+来源：[ElevenLabs v3 audio tags](https://elevenlabs.io/blog/v3-audiotags)、[v3 prompting](https://cdntest.elevenlabs.io/docs/best-practices/prompting)；[Seedance 2.0 handbook](https://openart.ai/blog/seedance-2-0-handbook/)；[Runway Act-Two](https://help.runwayml.com/hc/en-us/articles/42311337895827)；[AdvancedLivePortrait](https://www.runcomfy.com/comfyui-workflows/advanced-live-portrait-workflow-in-comfyui)。各工具的功能更新快，用前看当前文档。
+
+每镜的生成栏写清用的是哪一种（如「参考图生 + 配音驱动」「表演迁移」）。各模型是否支持音频参考、表演迁移，见 `models.md`。
 
 ## 检查清单
 
@@ -112,3 +127,4 @@
 - [ ] 需要接上的镜头标了衔接方式（真实尾帧 / 首尾帧 / 续接 / 硬切），长镜头切点在停顿处？
 - [ ] 最难的镜头先跑过？预演和定稿规格分开？
 - [ ] 选的方式目标模型支持（`models.md`）？
+- [ ] 峰值情绪镜头选了表演做法（写足提示词 / 先配音 / 表演迁移 / 表情修补），而不是只跑一条提示词（§6）？

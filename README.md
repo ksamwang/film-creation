@@ -46,7 +46,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
 | 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/craft/story/index.md` + `templates/treatment.md` | 一句话 + beat sheet / 一页 treatment |
-| 写台词 / 改对白：太直白、太水、一个腔调（dialogue） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
+| 写台词 / 改对白：太直白、太水、一个腔调、太少像默剧（dialogue） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 点名一种叙事技巧：伏笔、反转、倒计时、母题…（foreshadowing, plot twist） | `references/writing/devices.md` | 技巧落法；同时点了类型 → 加读下面类型那一行 |
 | 想让观众爽、笑、哭、怕，不知道用什么技巧 | `references/writing/intent.md` | 情绪机制 + 写法 |
 | 按类型写：悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告（genre） | `references/writing/genres/index.md` → 对应类型（广告是 `references/writing/genres/brand.md`） | 类型约定 + 两档结构 + 陈词滥调替代；要出剧本正文 → 加读下一行 |
@@ -59,7 +59,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 |---|---|---|
 | 设计一个角色：人设、欲望、缺陷、弧光（character design） | `references/craft/story/02-character.md` | 人物设定 + 资产卡 |
 | 角色跨镜头一致、角色表、脸 / 衣服漂移（character consistency） | `references/craft/performance/05-casting.md` + `references/aigc/assets.md` + `templates/character-sheet.md` | 三面板角色表提示词 + 资产卡 + 漂移修法 |
-| 角色怎么演：微动作、表演指导 → 提示词里演得太过走「视频提示词的某一段」 | `references/craft/performance/index.md` | 表演写法 |
+| 角色怎么演：微动作、表演指导；人物呆、像默剧、各演各的，情绪该外放多少 → 提示词里演得太过走「视频提示词的某一段」 | `references/craft/performance/index.md` + `references/craft/performance/06-interaction.md` | 表演写法 + 强度档位 |
 
 ### 分镜
 
@@ -89,7 +89,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 |---|---|---|
 | 图像 / 视频提示词：单镜、基本语法、单镜模板、token 写法（image prompt, SDXL） → 多镜头走下一行 | `references/aigc/prompt-syntax.md` + `templates/ai-prompt.md` | 按模式出提示词 |
 | 视频提示词：按分镜脚本写多镜头 / 长提示词，导演 + 摄影 + 场记写进一条（multi-shot video prompt） → 竖屏短剧走「短剧：片段提示词」 | `references/video-prompt/compile.md`（段落 `references/video-prompt/anatomy.md`，档位 `references/video-prompt/index.md`，示例 `references/video-prompt/example.md`、`references/video-prompt/scene-prompts.md`）+ `templates/video-prompt.md` | 生成单位切分 + 逐段提示词（全局段复用、逐镜时间线、总锁、negative） |
-| 视频提示词的某一段怎么写，或生成里的某个毛病：人物看镜头 / 演得太过 → 表演；多出路人 / 封不住音乐和字 → 锁；摄影机乱漂 → 摄影机；东西没重量 / AI 感 → 物理；台词 / 画内声 → 声音；一镜到底 / 人群 → 一镜到底。竖屏短剧的口型、站位走「短剧：片段提示词」 | 摄影机 `references/video-prompt/camera-behavior.md`；表演 `references/video-prompt/acting.md`；物理与 AI 感 `references/video-prompt/physics.md`；声音与台词 `references/video-prompt/audio.md`；锁与 negative `references/video-prompt/locks.md`；一镜到底与人群 `references/video-prompt/one-take.md` | 对应段落的提示词写法 |
+| 视频提示词的某一段怎么写，或生成里的某个毛病：人物看镜头 / 演得太过 / 演得呆、听的人不动 → 表演；多出路人 / 封不住音乐和字 → 锁；摄影机乱漂 → 摄影机；东西没重量 / AI 感 → 物理；台词 / 画内声 → 声音；一镜到底 / 人群 → 一镜到底。竖屏短剧的口型、站位走「短剧：片段提示词」 | 摄影机 `references/video-prompt/camera-behavior.md`；表演 `references/video-prompt/acting.md`；物理与 AI 感 `references/video-prompt/physics.md`；声音与台词 `references/video-prompt/audio.md`；锁与 negative `references/video-prompt/locks.md`；一镜到底与人群 `references/video-prompt/one-take.md` | 对应段落的提示词写法 |
 | 怎么生成：参考图生 / 首帧 / 首尾帧 / 续接，镜头之间怎么接，图生视频的运动强度（first/last frame） | `references/aigc/workflow.md`（运动强度与首帧限制 `references/camera/lexicon-move.md` §7） | 生成方式与串联 |
 | 选模型 / 模型能力 / 两个模型怎么选（model choice） | `references/aigc/models.md` | 模型与模式 |
 | 资产一致性 / 参考图 / 道具与场景锁（reference images） | `references/aigc/assets.md` + `templates/asset-tokens.md` | 资产卡 + 参考图规格 |

@@ -42,6 +42,10 @@
 | 观众大于/等于/小于人物；加叙 | 《电影叙事学研究》附录二 弗朗索瓦·若斯特谈本文的阐释与观众的参与 |
 | 心理时空；现实与回忆交替、回忆中出现幻觉；意识流叙事 | 《从文本到影像》电影《白色栀子花》创作谈·剧作 |
 | 茶几玻璃反光同时承担人物关系与时代气氛 | 《从文本到影像》电影《白色栀子花》创作谈·导演艺术 |
+| 让人记住的是矛盾；主导特质与它的反面 | Linda Seger《Creating Unforgettable Characters》（据摘要，引用原文前核对） |
+| 心理姿态：把核心需要做成外在动作 | Michael Chekhov《To the Actor》 |
+| 动作质感：重量、时间、空间、流动 | Rudolf Laban 动作分析（Effort） |
+| 记忆点五项：矛盾、核心动作与质感、标志、出场动作、音色 | 属本包整理 |
 
 ## visual
 
@@ -111,6 +115,7 @@
 | 亮色前进、暗色后退；深色衣服不要贴深色背景；颜色意义依语境 | 《镜头的语法》第 6 章（6.13） |
 | 色温作为光的属性 | 《镜头的语法》第 3 章（3.3） |
 | 光源的色温与显色性 | 《电影照明器材与操作》第 1 章（1.1.3） |
+| 色彩脚本：一场一格看全片色彩走向；色彩随情绪起落 | 《The Art of Pixar: The Complete Color Scripts》；Lou Romano 等的色彩脚本实践 |
 
 ### 06-texture
 
@@ -189,6 +194,11 @@
 | 剧团位置：角色在整体配置中的适配；能力上限 | 《表演的艺术》第 1 课《走上舞台的第一步》 |
 | 才华清单；身体、声音、语言等外在工具；美与知性不是先决条件 | 《尊重表演艺术》第 1 章《基本概念》 |
 | 高超技巧应能演出任何角色；位置是配置问题，能力是上限问题 | 《尊重表演艺术》第 21 章《初次接触一出戏》 |
+| 一场戏是谈判；思考导向结论、情绪导向行动；执行一个行动直到被迫改变 | Ed Hooks《Acting for Animators》（据读书笔记转述，引用原文前核对第 5 版） |
+| 结果式指令与及物动词；演员能控制做什么，控制不了感受 | Judith Weston《Directing Actors》第 1 章 Result Direction and Quick Fixes |
+| 表演就是反应；倾听与时时刻刻的反应 | Sanford Meisner 方法（Strandberg-Long, University of Kent 论文转述） |
+| 地位高低写成身体：静止、视线、填补沉默 | Keith Johnstone《Impro》；AIGC 用法见 [Directing Performance in AI Video](https://www.ekly.ai/guides/directing-ai-performance) |
+| 克制 / 写实 / 戏剧化三档强度；强度词导致眼睛发光 | 属本包整理；后者见 [Seedance 2.5 提示词指南（BytePlus 官方）](https://ai.byteplus.com/ark/region:ap-southeast-1/docs/seedance-2-5-prompt-guide) |
 
 > 两书 PDF 为试读样本；可抽取正文为《尊重表演艺术》第 1、11、21、22 章与《表演的艺术》第 1、2 课。其余条目依据目录中的章节标题与主题定位，用于术语归属与章节引用，不复述未抽取到的内容。
 

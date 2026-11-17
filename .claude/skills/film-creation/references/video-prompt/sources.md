@@ -71,6 +71,11 @@
 | 情绪三件套与常见情绪的默认演法 | 社区提示词模式归纳，属本包整理 |
 | 只有说话人动嘴、不看镜头 | `references/drama/07-segment-prompt.md`；社区提示词模式归纳 |
 | 欲言又止、动作停住、呼吸、倾听、背景人物 | 属本包整理 |
+| 克制 / 写实 / 戏剧化档位；戏剧化档写法表 | 属本包整理；依据 `craft/performance/06-interaction.md` |
+| 情绪随时间变化并配微表情；台词格式「角色台词（情绪）：内容」；强度词换温和说法、写明眼睛正常；不说话的人嘴闭着 | [Seedance 2.5 提示词指南（BytePlus 官方）](https://ai.byteplus.com/ark/region:ap-southeast-1/docs/seedance-2-5-prompt-guide) |
+| 听者与说话人写在同一条提示词；反应晚半拍；地位；每人都有指令 | [Directing Performance in AI Video](https://www.ekly.ai/guides/directing-ai-performance) |
+| 说台词时不写点头、转头 | Seedance 2.0 社区经验（[OpenArt handbook](https://openart.ai/blog/seedance-2-0-handbook/) 等），属经验值 |
+| 声音性反应、动作与反应 | 属本包整理 |
 
 ## physics
 

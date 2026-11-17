@@ -20,6 +20,8 @@
 | 目标、障碍、行动动词 | 表演两书（经 `craft/performance/02-action.md`） |
 | 台词字数、语速估时、一镜一个说话人、去 AI 味 | `references/drama/04-script.md` |
 | 潜台词技法分类（答非所问、转移话题、借物说话、反话、过度礼貌、沉默作答）；攻防动词表；声口表；回扣 | 行业惯例，属本包整理 |
+| 对白量：默剧检验、每场一轮交锋、峰值喊出来 | 属本包整理；谈判见 Ed Hooks《Acting for Animators》；对白承担交代、塑造人物、行动三件事见 Robert McKee《Dialogue》 |
+| 默剧检验的 20–30 秒阈值 | 本包默认值，按类型调 |
 
 ## doctor
 
@@ -43,6 +45,7 @@
 | 前 3 秒见冲突 | `references/drama/03-episode.md` |
 | 每集上限、动作行写法 | `references/drama/04-script.md` |
 | 六层诊断顺序、诊断流程与输出格式 | 属本包整理 |
+| #27 像默剧、各演各的；#28 人物没有记忆点 | 属本包整理；依据 `writing/dialogue.md` §0、`craft/performance/06-interaction.md`、`craft/story/02-character.md` |
 
 ## devices
 

@@ -20,7 +20,7 @@ CHARACTERS:
 <<<{name}>>> — face, hair and build only. Not pose or expression.
   Identity lock: {2–4 drift-prone features}, {explicit absences: no glasses / no scar}.
 
-ACTING (whole film): {restraint level}. Blinks at a normal rate. Nobody looks into the lens.
+ACTING (whole film): {default intensity: restrained / naturalistic / heightened; peaks: which units go heightened}. Blinks at a normal rate. Nobody looks into the lens.
 Only the speaking character's lips move; listeners keep their mouths closed.
 ```
 
@@ -104,12 +104,13 @@ CAMERA: {all locked-off / moving}. {no drift, no push}. {exceptions: shot N only
 
 SHOT 1 — {0–a}s — {framing, lens}.
 {t}s: {one main action}; {physical consequence}.
-{t}s: {name} says, in {language}: "{line}" — {delivery}. Only {name}'s lips move.
+{t}s: {name} ({delivery: voice change, pace, what the body is doing}), in {language}: "{line}". Only {name}'s lips move.
+{t}s: {listener} {reaction, half a beat late: what changes in face / hands / breath}.
 Ends: {end state}.
 
 SHOT 2 — ...
 
-ACTING: {behaviour + meaning + not, for this unit}.
+ACTING: {this unit's intensity}. {who wants what from whom}. {emotional arc: from → to, because}. {behaviour + meaning; restrained units add the not}. {vocal reactions: gasp / sob / laugh / calling a name, with timecodes}.
 
 AUDIO: Diegetic only. Room tone: {sources}. {timed sound cues}.
 {N} lines, in {language}, one speaker at a time. {where the silence is}.

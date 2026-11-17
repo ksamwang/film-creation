@@ -28,7 +28,10 @@ MOVING_MAX = 0.5
 SIZES = ["大远景", "远景", "全景", "中远景", "中景", "中近景", "近景", "特写", "大特写", "插入特写"]
 LADDER = {"大远景": 1, "远景": 2, "全景": 3, "中远景": 3.5, "中景": 4, "中近景": 5, "近景": 6, "特写": 7, "插入特写": 7, "大特写": 8}
 CLOSE = {"特写", "大特写", "插入特写"}
-CLOSE_RUN_MAX = 4  # share of shots with a camera move in one worked storyboard (decoupage.md §7)
+CLOSE_RUN_MAX = 4
+# Listeners (breakdown.md 第五步): a dialogue scene needs someone who is changed by the lines
+SPEECH = re.compile(r"^[^：｜|（]{1,8}(（[^）]*）)?：\S")
+DIALOGUE_MIN = 3  # share of shots with a camera move in one worked storyboard (decoupage.md §7)
 FUNCTION_FIELDS = ["**是什么**", "**什么时候要**", "**一场放几个**", "**剧本里**", "**拍法**", "**生成**", "**失败**"]
 CONTINUITY_FIELDS = ["**规则**", "**观众察觉**", "**AIGC 常见失败**", "**修法**"]
 SCRIPT_FILES = ["breakdown.md", "scene-types.md", "example.md"]
@@ -140,6 +143,7 @@ def check_script(path: str, functions: set) -> int:
         else:
             groups.append([scene, 1, key])
     check_sizes(path, rows)
+    check_listeners(path, rows)
     if rows and moving / len(rows) > MOVING_MAX:
         report(f"{rel(path)}: {moving}/{len(rows)} 镜在动，运镜默认固定（decoupage.md §7）")
     stated = [int(n) for n in re.findall(r"\*\*(\d+) 镜\*\*", text)]
@@ -155,6 +159,23 @@ def check_script(path: str, functions: set) -> int:
             if (a, b) not in joins:
                 report(f"{rel(path)}: 场 {a} 和场 {b} 之间没有写场间接点")
     return len(rows)
+
+
+def check_listeners(path: str, rows) -> None:
+    """A scene with several spoken lines must show a listener: a 反应 shot or a 「听：」 note (breakdown.md 第五步)."""
+    scenes = {}
+    for scene, shot, suffix, rest in rows:
+        cells = [c.strip() for c in rest.rstrip().rstrip("|").split("|")]
+        if len(cells) != 9:
+            continue
+        s = scenes.setdefault(scene, [0, False])
+        if SPEECH.match(cells[5]):
+            s[0] += 1
+        if "反应" in cells[0] or "听：" in cells[5]:
+            s[1] = True
+    for scene, (lines, heard) in scenes.items():
+        if lines >= DIALOGUE_MIN and not heard:
+            report(f"{rel(path)} · 场 {scene}: {lines} 句台词，没有一个反应镜或「听：」，人物各演各的（breakdown.md 第五步）")
 
 
 def check_sizes(path: str, rows) -> None:

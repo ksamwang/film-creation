@@ -1,8 +1,14 @@
 # 表演指导：写给模型的戏
 
-模型的表演默认是**放大**：难过就流泪，生气就皱眉瞪眼，开心就露齿大笑，坏人就冷笑。这些是它在训练数据里见得最多的「情绪标签」。真实的戏往往相反：情绪越大，动作越小。
+模型的表演有两种默认，方向相反。一种是**标签化**：难过就流泪，生气就皱眉瞪眼，坏人就冷笑。另一种是**呆**：只给了动作、没给意图时，人物照着动作做完就停，听的人一动不动，整段像默剧。
 
-所以给模型写表演，核心不是「写出情绪」，而是**写出可见的行为，同时封住模型对这种情绪的默认演法**。表演的判断原则在 `craft/performance/index.md`；这份文件是写进提示词时的词库。
+所以写表演要做三件事：
+
+1. **写清这一拍人物要什么、对谁做**。
+2. **写出可见的行为和情绪变化的方向**：从什么变成什么，因为什么。情绪词可以写，但只作表演标注，不能单独出现。
+3. **按强度档位（§2）决定外放多少**，再封住这一档里模型的错误演法。
+
+克制不是默认值。传奇、古装、短剧的重逢、诀别、哀求，该喊就喊，该哭就哭。表演的判断原则在 `craft/performance/index.md`，互动与档位见 `craft/performance/06-interaction.md`；这份文件是写进提示词时的词库。
 
 每条四个字段：**写法**、**防什么误读**、**用在**、**别这样写**。
 
@@ -55,9 +61,69 @@ and he is relaxed.
 
 **别这样写**：写出剧情背景，却不写此刻谁知道、谁不知道。
 
+### 情绪轨迹 From → to, because
+
+**写法**：
+
+```text
+Liancheng hears her name and freezes; she does not turn yet (0–2s). She turns her
+head slowly, disbelief first: eyes searching, lips parted (2–4s). When she sees it
+is really him, her face breaks: mouth trembling, tears welling, then she calls out (4–6s).
+```
+
+**防什么误读**：只写一个情绪，模型从头到尾挂着同一张脸；只写结果，变化会一下跳过去，像换了一张图。
+
+**用在**：每个情绪转折的镜头。写清起点、触发、终点，以及每一段的微表情（Seedance 2.5 官方指南：写情绪随时间的变化，并配上每次变化的微表情）。
+
+**别这样写**：she is shocked and then happy——两个标签，中间没有过程。
+
+### 动作与反应 Action → reaction
+
+**写法**：
+
+```text
+Qiaosheng grabs the chain and pleads (0–3s). The guard on frame right shoves his chest
+with the iron gauntlet; Qiaosheng stumbles back a step, still holding the chain (3–5s).
+The second guard tightens his grip and steps in beside the first (5–6s).
+```
+
+**防什么误读**：每个人各演各的，台词或动作打出去，没有人接；或者对方的反应和触发同时发生，看起来像预先排好的。
+
+**用在**：所有两人以上的镜头。每个动作后面写出对方被改变的样子，反应比触发晚半拍。镜头里每个人都有一句指令，不动也要写「不动，只看着他」。原则见 `craft/performance/06-interaction.md`。
+
+**别这样写**：they argue——不写谁先出手，谁被逼退。
+
+### 地位 Status
+
+**写法**：
+
+```text
+The judge does not move; he looks at Qiaosheng for a long beat before speaking.
+Qiaosheng's hands keep tightening on Liancheng's sleeve; his eyes go from the judge's
+face to his hands and back.
+```
+
+**防什么误读**：模型让所有人用同一种姿态站着，权力关系读不出来。
+
+**用在**：审讯、求情、对峙、上下级。地位高：静止、视线慢、不怕停顿；地位低：手上找事、看对方的脸、身体前倾。一场里地位交换了，就是转折。
+
+**别这样写**：he looks powerful / she looks submissive。
+
 ---
 
-## 2. 反误读：常见情绪的默认与改法
+## 2. 强度档位与反误读
+
+先选档位，再选写法。档位按类型给默认，按场切换：同一部片子，铺垫用写实，峰值用戏剧化。档位要写进剧本场表，分镜和提示词都沿用。
+
+| 档位 | 什么时候用 | 看起来像什么 | 提示词怎么写 |
+|---|---|---|---|
+| 克制 | 生活流、悬疑铺垫、压着不说的戏 | 情绪在身体里，脸上只漏一点 | 用下面第一张表；最后加一句 nuanced and realistic, never exaggerated |
+| 写实 | 大多数剧情戏 | 正常外放：会笑出声、会红眼眶、会提高声音 | 行为 + 情绪轨迹 + 台词的表演标注（§4）；不加 not-crying 一类的封锁 |
+| 戏剧化 | 传奇、古装、聊斋、爱情和短剧的重逢、诀别、哀求、狂喜、暴怒 | 喊名字、哭出声、扑上去、跪下 | 用下面第二张表；动作要有重心和接触，声音性反应写进台词（§4） |
+
+强度词（intense、hysterical、撕心裂肺）会让模型把眼睛画得发光或变形。写戏剧化时，用具体的身体动作承担强度，再加一句 eyes natural, no glow（Seedance 2.5 官方指南）。
+
+**克制档：模型演成情绪标签时的改法**
 
 | 想要的 | 模型的默认 | 写法 |
 |---|---|---|
@@ -72,11 +138,21 @@ and he is relaxed.
 | 冷漠 | 面无表情的僵硬 | continues what she was doing; answers without looking up; face relaxed, not frozen |
 | 虚伪的友善 | 坏人式的笑 | warm and easy on the surface; smile reaches the mouth only; not villainous, not menacing |
 
-**防什么误读**：表里左列是模型最常见的情绪标签化表演。
+**戏剧化档：峰值场的写法**
 
-**用在**：写 THE BEAT 和 ACTING 段时，按表里的写法组合；「not ...」放在 THE BEAT 或 negative 里。
+| 想要的 | 模型容易演成 | 写法 |
+|---|---|---|
+| 重逢 | 两人站定相视微笑，或者一冲就抱住，中间没有过程 | freezes, disbelief first, then calls his name, voice breaking; runs, the last steps uneven; they collide, her weight hitting his chest, his arms closing late |
+| 哀求 | 站着说台词，手垂着 | grabs the chain with both hands, knees bending toward the ground, voice rising and cracking on the last word; looks from one guard's face to the other |
+| 诀别 | 安静流一滴泪 | holds on a beat too long, fingers sliding off one by one; a sob escapes before she can stop it; turns away, shoulders shaking |
+| 狂喜 | 露齿大笑、举手欢呼 | laughs and cries at once, hand over mouth, then grabs the other person's arms and shakes them |
+| 暴怒 | 瞪眼、龇牙、全身发抖 | slams the cup down so it cracks, steps in close, voice dropping then exploding on one word; the other person flinches |
 
-**别这样写**：intense, emotional, powerful performance——这些词会把一切往左列推。
+**防什么误读**：克制档的表是模型最常见的情绪标签化表演；戏剧化档的表，是峰值被压平、或者演成一个定格姿势。
+
+**用在**：写 THE BEAT 和 ACTING 段时，先按档位挑表，再组合写法；克制档的「not ...」放在 THE BEAT 或 negative 里。
+
+**别这样写**：intense, emotional, powerful performance——这些词既不说明档位，也不说明动作，只会把画面推向标签化。
 
 ---
 
@@ -145,6 +221,36 @@ mouth along, does not murmur.
 **用在**：所有两人以上、有台词的镜头。关键时标 CRITICAL，并进总锁。另见 `references/drama/07-segment-prompt.md` 的口型部分。
 
 **别这样写**：只写台词，不写谁在说、谁闭嘴。
+
+### 台词的表演标注 Delivery cue
+
+**写法**：
+
+```text
+Qiaosheng (choking, faster with each word, hands still on the chain): "Let me pass...
+I beg you, let me pass! She is the one I came for!"
+```
+
+**防什么误读**：只给台词原文，模型用平均语气念出来，脸也跟着平；在台词里逐字加语气，有的模型会把标注当字幕画出来。
+
+**用在**：每句台词。格式是「角色（语气、节奏、正在做的动作）：台词」（Seedance 2.5 官方格式「角色台词（情绪）：内容」）。语气写声音怎么变：哽咽、越说越急、压低、最后一个字破音。说话期间不要再写点头、转头，这类动作会和口型抢（Seedance 社区经验）。先配音再生成时，同样的标注写进语音模型的音频标签，见 `references/aigc/workflow.md`。
+
+**别这样写**：Qiaosheng: "Let me pass."——没有语气，也没有他在做什么。
+
+### 声音性反应 Vocal reactions
+
+**写法**：
+
+```text
+Liancheng gasps, a short sharp intake of breath; then a sob breaks out of her before
+she can speak. Qiaosheng laughs once through his tears.
+```
+
+**防什么误读**：模型的人物只在有台词时出声，其余时间是哑的；情绪最满的时候反而没有声音，像默剧。
+
+**用在**：惊、哭、笑、喘、喊名字。声音性反应也算对白，写进分镜的台词 / 声音栏，计入「默剧检验」（`references/writing/dialogue.md` §0）。克制档才改成屏住呼吸。
+
+**别这样写**：she reacts emotionally——不写发出什么声音。
 
 ### 没说出口的话 Words held back
 
@@ -236,7 +342,7 @@ He is taking it in, not waiting for his turn to speak.
 
 **防什么误读**：听的人要么完全僵住，要么在做与戏无关的动作。
 
-**用在**：反应镜、过肩镜里前景的人。
+**用在**：反应镜、过肩镜里前景的人。听的人要被那句话改变：写清听到哪个词时他变了、变成什么（手松开、呼吸停住、眼眶红了）。听者和说话的人写在同一条 prompt 里；台词说到一半，可以把镜头留在听的人脸上。
 
 **别这样写**：he reacts——不写怎么反应。
 
@@ -280,7 +386,8 @@ listening. She does not look at the adults when they argue.
 
 | 问题 | 原因 | 改法 |
 |---|---|---|
-| 演得像肥皂剧 | 写了情绪词、副词 | 换成行为 + 不是什么 |
+| 演得像肥皂剧 | 只写了情绪词、副词，没写档位 | 选档位；换成行为 + 情绪轨迹，克制档加「不是什么」 |
+| 呆、像默剧 | 只写动作没写意图；没写听者；把峰值场也压成了克制 | 写这一拍要什么、对谁做；加动作 → 反应；峰值改戏剧化档，加声音性反应 |
 | 人物直视镜头 | 没给视线目标 | 写看谁、看哪；ACTING 段写不看镜头 |
 | 两个人一起动嘴 | 没写谁闭嘴 | 只有说话的人动嘴；进总锁 |
 | 像蜡像 | 没有眨眼、呼吸、微动作 | 自然眨眼 + 一个微动作 + 呼吸 |

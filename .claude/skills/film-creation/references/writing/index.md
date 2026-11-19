@@ -23,7 +23,7 @@
 
 ## 和其他文件的关系
 
-- 故事的骨架（不归点、beat、场景卡）仍以 `craft/story/` 为准；本层不重复，只链接。
+- 故事与剧本的总纲是 `references/dramaturgy.md`（《诗学》与《编剧的艺术》）；故事的骨架（不归点、beat、场景卡）以 `craft/story/` 为准。本层不重复，只链接。
 - 竖屏短剧的台词规则（字数上限、语速估时、一镜一个说话人、VO / OS 的代价）以 `references/drama/04-script.md` 为准。本层每条手法附短剧写法；冲突时以 `drama/` 为准。
 - 台词作为声音怎么处理（人声功能、旁白的知识关系、语音提示）见 `craft/sound/05-dialogue.md`。
 - 台词背后的表演（目标、障碍、微动作）见 `craft/performance/02-action.md`。

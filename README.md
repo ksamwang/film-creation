@@ -45,13 +45,13 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/craft/story/index.md` + `templates/treatment.md` | 一句话 + beat sheet / 一页 treatment |
+| 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/dramaturgy.md`（总纲）+ `references/craft/story/index.md` + `templates/treatment.md` | 一句话 + beat sheet / 一页 treatment |
 | 写台词 / 改对白：太直白、太水、一个腔调、太少像默剧（dialogue） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 点名一种叙事技巧：伏笔、反转、倒计时、母题…（foreshadowing, plot twist） | `references/writing/devices.md` | 技巧落法；同时点了类型 → 加读下面类型那一行 |
 | 想让观众爽、笑、哭、怕，不知道用什么技巧 | `references/writing/intent.md` | 情绪机制 + 写法 |
 | 按类型写：悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告（genre） | `references/writing/genres/index.md` → 对应类型（广告是 `references/writing/genres/brand.md`） | 类型约定 + 两档结构 + 陈词滥调替代；要出剧本正文 → 加读下一行 |
-| 写剧本：完整短片剧本、把故事 / 梗概改成剧本、写其中几场、要剧本模板（screenplay, script） | `templates/script.md` + `references/writing/dialogue.md`（写台词前通读：潜台词、攻防、交代信息、声口、修剪；正文按模板的格式和五条事实规则写；示例 `references/writing/example.md`；先按 `references/writing/genres/index.md` 选类型和时长档） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
-| 剧本 / beat 哪里不好、怎么改（script doctor） | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
+| 写剧本：完整短片剧本、把故事 / 梗概改成剧本、写其中几场、要剧本模板（screenplay, script） | `references/dramaturgy.md`（总纲，按时长档取用）+ `templates/script.md` + `references/writing/dialogue.md`（写台词前通读：潜台词、攻防、交代信息、声口、修剪；正文按模板的格式和五条事实规则写；示例 `references/writing/example.md`；先按 `references/writing/genres/index.md` 选类型和时长档） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
+| 剧本 / beat 哪里不好、怎么改（script doctor） | `references/writing/doctor.md`（判断标准 `references/dramaturgy.md` §5） | 诊断：最大问题 + 证据 + 修法 |
 
 ### 角色
 
@@ -215,6 +215,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       01-09                 立项 → 成片的分阶段写法（09 出海）
       10-look.md            画风与漫剧（非写实画风）
       sources.md            来源
+    dramaturgy.md           故事与剧本总纲：《诗学》与《编剧的艺术》
     taxonomy.md             风格族谱（风格参考先读这里选族）
     index.md                125 导演 + 29 摄影总表（按地域/年代查全表时读）
     mixing.md               视觉混搭 + 导演 × 摄影

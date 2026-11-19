@@ -15,13 +15,13 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/craft/story/index.md` + `templates/treatment.md` | 一句话 + beat sheet / 一页 treatment |
+| 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/dramaturgy.md`（总纲）+ `references/craft/story/index.md` + `templates/treatment.md` | 一句话 + beat sheet / 一页 treatment |
 | 写台词 / 改对白：太直白、太水、一个腔调、太少像默剧（dialogue） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 点名一种叙事技巧：伏笔、反转、倒计时、母题…（foreshadowing, plot twist） | `references/writing/devices.md` | 技巧落法；同时点了类型 → 加读下面类型那一行 |
 | 想让观众爽、笑、哭、怕，不知道用什么技巧 | `references/writing/intent.md` | 情绪机制 + 写法 |
 | 按类型写：悬疑、爱情、喜剧、恐怖、犯罪 / 动作、科幻 / 奇幻、家庭、广告（genre） | `references/writing/genres/index.md` → 对应类型（广告是 `references/writing/genres/brand.md`） | 类型约定 + 两档结构 + 陈词滥调替代；要出剧本正文 → 加读下一行 |
-| 写剧本：完整短片剧本、把故事 / 梗概改成剧本、写其中几场、要剧本模板（screenplay, script） | `templates/script.md` + `references/writing/dialogue.md`（写台词前通读：潜台词、攻防、交代信息、声口、修剪；正文按模板的格式和五条事实规则写；示例 `references/writing/example.md`；先按 `references/writing/genres/index.md` 选类型和时长档） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
-| 剧本 / beat 哪里不好、怎么改（script doctor） | `references/writing/doctor.md` | 诊断：最大问题 + 证据 + 修法 |
+| 写剧本：完整短片剧本、把故事 / 梗概改成剧本、写其中几场、要剧本模板（screenplay, script） | `references/dramaturgy.md`（总纲，按时长档取用）+ `templates/script.md` + `references/writing/dialogue.md`（写台词前通读：潜台词、攻防、交代信息、声口、修剪；正文按模板的格式和五条事实规则写；示例 `references/writing/example.md`；先按 `references/writing/genres/index.md` 选类型和时长档） | 片头信息 + beat 表 + 正文 + 台词表 + 检查 |
+| 剧本 / beat 哪里不好、怎么改（script doctor） | `references/writing/doctor.md`（判断标准 `references/dramaturgy.md` §5） | 诊断：最大问题 + 证据 + 修法 |
 
 ### 角色
 
@@ -125,6 +125,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 路由表之外：
 
 - `references/craft/index.md` — 6 个方法模块总导航（story / visual / staging / performance / sound / production）
+- `references/dramaturgy.md` — 故事与剧本总纲：《诗学》与《编剧的艺术》的十二条总则、类型与时长边界、写作顺序、审稿十问
 - `references/writing/index.md` — 写作查阅层：对白手法、叙事技巧、按效果反查、类型配方、剧本诊断
 - `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜间承接、镜头功能词典、三种拆法、场景示例、全片示例、分镜图、动态分镜、连续性、节奏
 - `references/video-prompt/index.md` — 视频提示词层：十九个段落、三档长度、从分镜脚本编译、场 5 完整示例；摄影机、表演、物理、声音、锁、一镜到底词库；全片示例与三档示例

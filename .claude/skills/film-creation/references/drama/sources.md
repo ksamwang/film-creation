@@ -10,7 +10,7 @@
 | HG | 红果短剧创作服务平台《短剧编剧第一课》01–10 期（经 [hongguo-shortdrama-screenwriting](https://github.com/zhu5859243-free/hongguo-shortdrama-screenwriting) v4.0 整理，MIT） | 平台课程（工作室访谈） | 选题五问、黄金开场、期待/悬念/钩子、情绪点、节奏、台词、可拍性 |
 | SF | [short-drama-factory](https://github.com/lixiaoxiao9888-create/short-drama-factory) v3.2（MIT） | 开源 skill | 四幕比例、三级付费墙、单元链、断章公式、篇幅三档 |
 | EM | [emma-screenwriting-skills](https://github.com/adoria111/emma-screenwriting-skills)（MIT） | 开源 skill | 出海题材卡、钩子机制与诊断、小兑现与大悬念、文化替换 |
-| ZS | [zenstory-ai/drama-skills](https://github.com/zenstory-ai/drama-skills)（MIT），`evaluations/model-behavior-probes.md` 与实现笔记 | 开源 skill + 模型实测（2026-09—11） | 片段容量、对白时长、口型、站位、参考图、续接、反应镜、空间母版 |
+| ZS | [zenstory-ai/drama-skills](https://github.com/zenstory-ai/drama-skills)（MIT），仓库内的模型行为实测记录（evaluations 目录）与实现笔记 | 开源 skill + 模型实测（2026-09—11） | 片段容量、对白时长、口型、站位、参考图、续接、反应镜、空间母版 |
 | ML | [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT） | 开源 skill | 台词语速分档、投喂前闸门思路 |
 | OM | [Open Micro Drama: Writing a Micro Drama Script](https://openmicrodrama.com/guides/writing-a-micro-drama-script)；[Filmustage: How to Write a Vertical Drama Script in 2026](https://filmustage.com/blog/how-to-write-a-vertical-drama-script/) | 行业指南 | 出海集长、季长、付费墙区间、单集 90 秒骨架 |
 | JM | 即梦短剧工作室流程实测（2026-11） | 产品观察 | 流程分段、片段写法、造型 = 一张图 |

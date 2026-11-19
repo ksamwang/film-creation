@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check skill routing: description triggers, routing-table paths, routed templates and layer entries,
-reachability of every reference file from SKILL.md, bare filename references, and README parity."""
+reachability of every reference file from SKILL.md, broken path references, taxonomy coverage of every
+director and cinematographer profile, and README parity."""
 
 import collections
 import os
@@ -159,8 +160,6 @@ def main() -> None:
                 continue
             target = resolve(ref, here, files)
             if target is None:
-                if "/" not in ref:
-                    report(f"{here}: `{ref}` 在本目录和 references/ 下都找不到，写完整路径")
                 continue
             if target not in depth:
                 depth[target] = depth[here] + 1
@@ -170,7 +169,45 @@ def main() -> None:
         report(f"{f}: 从 SKILL.md 顺着引用到不了")
     print(f"[ok] 可达: {len(depth)}/{len(files)} 个文件")
 
-    # 6. README mirrors the routing table
+    # 6. Every path-like reference in every file resolves
+    broken = 0
+    for here in sorted(files):
+        for a, b in LINK.findall(read(os.path.join(SKILL_DIR, here))):
+            ref = a or b
+            if "<" in ref or resolve(ref, here, files):
+                continue
+            broken += 1
+            if "/" in ref:
+                report(f"{here}: `{ref}` 指向不存在的文件（外部文件不要用反引号路径写法）")
+            else:
+                report(f"{here}: `{ref}` 在本目录和 references/ 下都找不到，写完整路径")
+    print(f"[ok] 引用: {len(files)} 个文件里没有断链" if not broken else f"[!] 引用: {broken} 处断链")
+
+    # 7. Every director / cinematographer profile is named in taxonomy.md (style route picks a family first)
+    taxonomy = read(os.path.join(SKILL_DIR, "references", "taxonomy.md"))
+    profiles = 0
+    for folder in ("directors", "cinematographers"):
+        d = os.path.join(SKILL_DIR, "references", folder)
+        for name in sorted(os.listdir(d)):
+            m = re.search(r"^title:\s*\"?(.+?)\"?\s*$", read(os.path.join(d, name)), re.M)
+            if not m:
+                report(f"references/{folder}/{name}: 没有 title")
+                continue
+            profiles += 1
+            title = m.group(1)
+            cn = re.split(r"\s+(?=[A-Za-zÀ-ɏ])", title, maxsplit=1)[0]
+            en = title[len(cn):].strip()
+            segs = cn.split("·")
+            # full name, surname, English name, or a given name of 3+ characters used alone (阿巴斯, 阿彼察邦)
+            names = [n for n in (cn, segs[-1], en) if len(n) >= 2]
+            hit = any(n in taxonomy for n in names)
+            if not hit and len(segs) > 1 and len(segs[0]) >= 3:
+                hit = re.search(re.escape(segs[0]) + "(?!·)", taxonomy) is not None
+            if not hit:
+                report(f"references/{folder}/{name}（{title}）没有出现在 taxonomy.md 的任何一族里")
+    print(f"[ok] 族谱: 检查了 {profiles} 份档案")
+
+    # 8. README mirrors the routing table
     if os.path.exists(README):
         readme = read(README)
         start = readme.index("## 请求路由表")

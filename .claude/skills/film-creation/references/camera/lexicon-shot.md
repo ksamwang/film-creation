@@ -13,7 +13,7 @@
 | 大远景 | `Extreme wide shot: the figure is a small dot against the whole valley.` | 人在世界里有多小；地点、季节、孤立 | `extreme_wide` |
 | 远景 | `Wide shot, the whole room visible, both people head to toe in the middle distance.` | 空间地理、谁在哪 | `wide` |
 | 全景 | `Full shot including her feet, a little floor below and headroom above.` | 全身姿态、走位 | `full` |
-| 中远景（膝上） | `Medium-full shot cut just above the knees.` | 姿态 + 手部动作，西部片的拔枪景别 | 落 `full` |
+| 中远景（膝上，又叫牛仔中景 cowboy shot） | `Medium-full shot cut just above the knees.` | 姿态 + 手部动作，西部片的拔枪景别 | 落 `full` |
 | 中景 | `Medium shot cut at the waist.` | 动作与手里的东西；对话的默认景别 | `medium` |
 | 中近景 | `Medium close-up cut at mid-chest.` | 表情为主、带一点手势 | `medium_close` |
 | 特写 | `Close-up, face from chin to just above the hairline.` | 表情、视线 | `close` |
@@ -86,6 +86,15 @@
 
 对话戏的两个单人镜，水平角度要对称：A 是 3/4 朝右，B 就是 3/4 朝左，镜头高度、焦段一致（《镜头的语法》6.11）。
 
+**机位高度**（垂直角度之外，摄影机放多高）：
+
+| 高度 | 写法 | 作用 | 生成 |
+|---|---|---|---|
+| 地面 | `Camera on the ground, the floor filling the lower half, feet passing close to the lens.` | 脚步、追逐、孩子或动物的世界 | 稳 |
+| 腰高 | `Camera at hip height, level, the holstered hand at frame centre.` | 西部对峙、手和腰间的东西 | 稳 |
+| 肩高 | `Camera at shoulder height, slightly above eye line.` | 纪实感、跟随，比眼平略有俯视 | 稳 |
+| 后备箱视角 | `From inside the car boot looking up: two men lean over the opening against the sky.` | 被困的东西「看」上面的人；威胁、黑色幽默 | 定帧 |
+
 ---
 
 ## 4. 倾斜：荷兰角 Dutch angle
@@ -139,6 +148,24 @@
 - **作用**：把关系本身作为主语。《镜头的语法》2.3 分侧面双人、面向镜头双人、过肩双人三种：侧面是对峙，面向镜头是「我们一起面对」，过肩把重心交给一方。
 - **生成**：稳；两人以上靠参考图分配身份并写清左右（`craft/staging/05-multi-character.md`）。
 - **短剧**：竖屏不要左右排开，用前后纵深或上下错落（`references/drama/06-storyboard.md` 第 4 节）。
+
+### 三人镜头 Three-shot
+- **写法**：`Three-shot: the mother in the centre facing camera, the two sons in profile on either side, all in focus.` B: `three-shot, triangle arrangement`
+- **作用**：三人的关系一镜看清：谁在中间、谁被挤在边上。三角形站位最稳（`camera/lexicon-frame.md` 三角形构图）。
+- **用 / 不用**：三人戏的主镜；关系变化时，谁离开三角形就是谁被排除。多人对话见 `camera/recipes/dialogue-group.md`。
+- **生成**：稳；三人各挂参考图、写清左中右。
+
+### 采访构图 Interview framing
+- **写法**：`Interview framing: he sits left of centre in medium close-up, looking just off camera to the right at an unseen interviewer.` B: `interview framing, eyeline off camera`
+- **作用**：纪录片和伪纪录片的标志；人物对一个画外的人说话，观众像在听证词。
+- **用 / 不用**：纪录片质感、证人陈述、广告证言（`camera/looks.md` 纪录片质感）。
+- **生成**：稳；要写「看画外右侧，不看镜头」。
+
+### 打破第四面墙 Breaking the fourth wall
+- **写法**：`She stops mid-sentence, turns her head and looks straight into the lens for a beat, then goes back to the scene.` B: `looks directly into camera, breaking the fourth wall`
+- **作用**：人物知道观众在看：共谋、讽刺、坦白，或让观众不安。
+- **用 / 不用**：喜剧旁白、独白、反转后的一瞥；一部片里是一个约定，偶尔一次要有理由。其他时候所有人都不看镜头（`video-prompt/acting.md`「不看镜头」）。
+- **生成**：稳；但它和全片总锁「不看镜头」冲突，这一镜要单独解除。
 
 ---
 

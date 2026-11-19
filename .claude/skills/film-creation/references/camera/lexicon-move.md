@@ -1,4 +1,4 @@
-# 运动词典：运镜、航拍与穿越、速度与时间、复合运动
+# 运动词典：运镜、航拍与穿越、特技运镜、速度与时间、复合运动
 
 字段与可靠性分级见 `camera/index.md`。运动怎么设计（起幅—触发—落幅、运动动机）见 `craft/staging/03-camera-movement.md`；本篇只管「叫什么、怎么写、能不能出」。
 
@@ -218,6 +218,63 @@ Starting on a medium shot of her at the counter, the camera slowly pushes in abo
 - **用 / 不用**：外景 → 内景的段落开头；穿过钥匙孔、屏幕、眼睛也是这一类。
 - **生成**：定帧。首帧是外侧、尾帧是内侧，走首尾帧；穿越瞬间常出现溶化，可接受时就保留，否则在玻璃处硬切。
 
+**AIGC 特技运镜。** 下面这些在实拍里要专门的设备或特效才做得到，在生成里却常见，多数是短视频和广告里的「炫技」。一个片段最多用一次；每条都要写清起幅和落幅，否则模型只给一段漂移。
+
+### 地球变焦 Earth zoom / cosmic zoom
+- **写法**：`Starting on the whole Earth from orbit, the camera dives straight down through the clouds, over the coastline, into the city, down to a single rooftop where she stands.` B: `earth zoom, orbit to rooftop, continuous dive`
+- **作用**：从宏大落到一个人，或从一个人拉回宇宙：「这么大的世界里，偏偏是她」。（行业惯例）
+- **用 / 不用**：开场、结尾、广告的定位镜头。中段用会打断叙事。
+- **生成**：定帧。一段生成撑不住全部尺度：拆成三四段（太空 → 云层 → 城市 → 屋顶），每段首尾帧相接，接点放在云层这类能遮住拼缝的地方。
+- **失败**：中途地形溶化或比例乱跳。分段，每段只跨一个尺度。
+- **短剧**：开场定位可用，分段生成。
+
+### 推进到眼部 Push into the eye
+- **写法**：`The camera pushes slowly into her left eye until the iris fills the frame, then passes through the pupil into darkness.` B: `extreme push into eye, iris fills frame, through pupil`
+- **作用**：进入人物内心：接回忆、幻觉、梦，或「她看见了什么」。（行业惯例）
+- **用 / 不用**：转入回忆或心理段落的入口。只是想要近景时不用。
+- **生成**：定帧。推到虹膜一段稳；穿过瞳孔进入另一个画面，按首尾帧做，或在黑处硬切到下一镜。
+- **失败**：眼睛变形、虹膜纹理乱跳。写清哪只眼，镜头只推不摇。
+- **短剧**：回忆入口可用，落 `push`。
+
+### 转台环绕 Turntable orbit
+- **写法**：`The product sits still on a plain grey surface while the camera circles it once, smoothly, at the height of the label, the light staying fixed.` B: `360 turntable orbit, product still, even speed, fixed light`
+- **作用**：把一件东西转着看全：产品、雕像、角色亮相。（行业惯例）
+- **用 / 不用**：广告产品、角色设定展示、关键道具的介绍。叙事镜头里用普通环绕（§3）。
+- **生成**：稳（半圈以内）；整圈时背面细节会编，定帧：先出正、侧、背三张参考图。
+- **失败**：转到背面东西变了样，或光跟着转。写 `the light staying fixed`，挂多角度参考图。
+- **短剧**：不用。
+
+### 机械臂高速运镜 Robotic arm move
+- **写法**：`A fast, precise robotic-arm move: the camera whips from the splashing coffee up and over the cup, stopping dead on the logo, perfectly still.` B: `robotic arm camera, fast precise move, hard stop on product`
+- **作用**：极快又极准，急起急停，像机器在拍。广告和美食镜头的高级感。（行业惯例）
+- **用 / 不用**：产品、美食、科技广告。人物戏里像炫技。
+- **生成**：定帧。急停常被画成慢慢减速，用尾帧锁住停的位置；更狠的停顿剪辑时做。
+- **失败**：变成普通的平滑移动。写 `whips`、`stopping dead`，并锁尾帧。
+- **短剧**：不用。
+
+### 越过障碍的升镜 Crane over obstacle
+- **写法**：`Starting low behind the stone wall, the camera rises up and over the top of it, revealing the army filling the valley beyond.` B: `crane up over wall, reveal valley beyond`
+- **作用**：遮挡在前，越过去才看见：揭示规模、危险或目的地。（行业惯例）
+- **用 / 不用**：段落开头的揭示；「翻过这堵墙，外面是另一个世界」。
+- **生成**：定帧。首帧是墙，尾帧是墙后的景；越过的瞬间可能穿模，墙顶写清楚。
+- **失败**：镜头穿过墙而不是越过。写 `up and over the top of`。
+- **短剧**：落 `crane`。
+
+### 双轨移动 Parallel tracking / dual dolly
+- **写法**：`Two people walk side by side down the corridor; the camera tracks backward ahead of them at exactly their pace, keeping both faces in a steady two-shot.` B: `tracking backward, matched pace, steady two-shot`
+- **作用**：摄影机和人以同样的速度走，背景在流动，人在画面里不动：边走边谈的对话，或两个并行动作在分割画面里同步。（行业惯例）
+- **用 / 不用**：走廊、街道上的边走边谈；分割画面里左右两条线同步前进。
+- **生成**：稳（单人或两人）。分割画面两边分开生成，剪辑时并排。
+- **失败**：人在画面里越走越小或越走越大。写 `at exactly their pace`。
+- **短剧**：落 `tracking`。
+
+| 其他 | 画面是什么 | 生成 |
+|---|---|---|
+| 坠落跟拍 Falling with subject | 镜头和下坠的人一起掉，人在画面里相对不动，背景飞速往上掠 | 定帧；人脸容易糊 |
+| 浮游镜头 Floating camera | 镜头像幽灵一样缓慢飘过房间，不跟人，没有动机地游走 | 稳；要的就是漂，写清起止 |
+| 上下甩 Vertical whip | 甩镜的竖向版，从天甩到地或反过来，带运动模糊 | 后期（同甩镜） |
+| 追逐车 Chase vehicle | 镜头在高速车旁贴地跟着，车身和路面飞掠 | 稳（简单路径）；车载拍法见 `camera/lexicon-gear.md` §1 |
+
 ---
 
 ## 5. 速度与时间
@@ -258,6 +315,33 @@ Starting on a medium shot of her at the counter, the camera slowly pushes in abo
 - **写法**：生成正常镜头，剪辑时倒放；提示词不写。
 - **作用**：时间倒流、回忆、超现实。
 - **生成**：后期。生成「倒着发生」的动作通常不成立；挑倒放后看起来仍合理的动作（碎片聚合、水回到杯中）。
+
+### 回旋 Boomerang
+- **写法**：生成一个两三秒的短动作，剪辑时正放接倒放，来回循环；提示词只写正向动作。
+- **作用**：动作来回重复，轻巧、好玩：干杯、甩头发、跳起落下。短视频和广告常用。
+- **生成**：后期。挑倒放也合理的动作（§5 倒放）。
+
+### 无缝循环 Seamless loop
+- **写法**：`The lantern sways gently left and right, ending exactly where it began.` B: `seamless loop, same start and end pose`；首帧和尾帧用同一张图。
+- **作用**：首尾相接、可以无限播放：屏保、海报、产品页、氛围画面。
+- **生成**：定帧。首尾帧给同一张图；运动写成往返（摇摆、呼吸、流水），不写单向的位移。
+
+### 动态照片 Cinemagraph
+- **写法**：`Everything is completely still except the steam rising from her cup and the curtain moving in the breeze.` B: `cinemagraph, frozen scene, only steam and curtain move`
+- **作用**：整张画面静止，只有一处在动：观众的眼睛直接落在那一处。
+- **生成**：定帧。首帧生视频，写清楚「其余全部静止」；人物难免微动，剪辑时用遮罩冻住其余部分。
+
+### 卡顿 Stutter / step frame
+- **写法**：生成正常速度，剪辑时抽帧或重复帧，让动作一顿一顿地走。
+- **作用**：动作变得机械、紧张、不连贯：打斗的冲击、精神错乱、MV 节拍。和窄快门的清晰感不同，这里是时间被切碎（`camera/lexicon-gear.md` §3）。
+- **生成**：后期。
+
+### 定格动画 Stop motion
+- **写法**：`Stop-motion animation: clay figures with visible fingerprints, slightly jerky movement at a low frame rate, tiny handmade props.` B: `stop motion, clay figures, fingerprints, jerky low frame rate`
+- **作用**：手工、童趣、略带诡异，每一帧都看得出是做出来的。（行业惯例）
+- **用 / 不用**：整部片或一个段落的画风；广告的手作感。和写实镜头混剪要有理由。
+- **生成**：稳（材质）；一顿一顿的节奏生成里不稳，剪辑时抽帧补。
+- **失败**：动作太流畅，像普通 3D 动画。写 `jerky low frame rate`，剪辑时抽成每秒 12 帧左右。
 
 ---
 

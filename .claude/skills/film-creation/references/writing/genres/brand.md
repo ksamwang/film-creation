@@ -59,6 +59,8 @@
 
 - 产品是资产：外观、logo、屏幕内容在图阶段做对，每一镜用同一张参考（`references/aigc/assets.md`）。
 - 产品镜头：插入特写，可用定帧（`camera/lexicon-shot.md`）；屏幕内容和字最好后期合成。
+- 产品镜头的几种拍法：英雄镜头（低机位微仰、黑底或纯色底、轮廓光勾出外形，慢推到 logo 停住）；转台环绕或机械臂急停（`camera/lexicon-move.md` 特技运镜）；液体飞溅、粉末炸开这类高速瞬间（升格慢动作）。一条片子选一种为主。
+- 投放格式：社交平台的短循环用无缝循环、回旋、动态照片（`camera/lexicon-move.md` §5）；无缝循环的首尾帧用同一张图。
 - 光：高调、干净、暖色画内光源（`camera/lexicon-light.md`）。
 - 可借档案：`directors/iwai-shunji.md`、`directors/hirokazu-kore-eda.md`、`directors/wes-anderson.md`（品牌化构图）、`directors/rajkumar-hirani.md`（温情喜剧）。
 

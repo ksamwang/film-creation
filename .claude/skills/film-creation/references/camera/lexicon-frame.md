@@ -45,6 +45,24 @@
 - **生成**：稳；无首帧时模型常把主体放在正中，写清「上半部」或「上三分之一线」。
 - **短剧**：竖屏下方约 20% 被字幕和平台界面挡住，脸和关键动作放在中上部（`references/drama/06-storyboard.md`）。
 
+### 黄金分割与非对称 Golden ratio / asymmetry
+- **写法**：`She stands on the golden-section line at frame right, the larger empty part of the room on the left, the balance deliberately uneven.` B: `asymmetric composition, golden ratio placement`
+- **作用**：比三分法更自然的偏移；非对称让画面有张力，等着被「补齐」。
+- **用 / 不用**：日常戏的默认偏移；要庄重、仪式、控制感时用对称。
+- **生成**：稳；模型分不清黄金分割和三分法，写清在哪一侧、空的部分有多大就够。
+
+### 反向留白 Short-siding
+- **写法**：`Short-sided: he faces frame right but sits pressed against the right edge, the empty space behind his head on the left.` B: `short-siding, subject facing the near edge, empty space behind`
+- **作用**：和视线留白相反：人物「撞」在画框上，前路被堵住；不安、被逼、有东西从背后来。
+- **用 / 不用**：受困、焦虑、背后有威胁、对话里关系失衡的一方；连续使用会让观众烦躁，留给关键的几镜。
+- **生成**：稳；模型默认给视线留白，要明写「脸贴近哪一侧画框，空间在他身后」。
+
+### 视觉重量 Visual weight
+- **写法**：`The father fills the lower two-thirds of frame left in a dark coat; the boy is small and pale at the far right edge.` B: `unbalanced visual weight, dominant dark mass frame left`
+- **作用**：大、暗、近、高饱和、在画面中心的东西更「重」，观众先看、觉得它更有分量；用来分配权力。
+- **用 / 不用**：权力关系、压迫、谁主导这场戏；关系转变时把重量换到另一边。
+- **生成**：稳；写清每个人占画面多大、什么颜色、在哪一侧。
+
 ---
 
 ## 2. 线条与形状
@@ -78,6 +96,18 @@
 - **作用**：稳定的多人关系；顶点上的人是这一拍的中心（《电影镜头入门》Step2「三人、四人构图」；`recipes/dialogue-group.md`）。
 - **生成**：稳；人越多越要参考图分配身份。
 
+### 一点透视 One-point perspective
+- **写法**：`One-point perspective down the long corridor, the walls, ceiling lights and floor lines all converging on her small figure at the vanishing point.` B: `one-point perspective, symmetrical corridor, vanishing point`
+- **作用**：所有线把视线推向一点；秩序、命运、无处可逃（`camera/looks.md` 反乌托邦）。
+- **用 / 不用**：走廊、铁路、长桌、宫殿；和中心构图、对称一起用。
+- **生成**：稳；写清消失点上是什么。
+
+### 重复与图案 Pattern and repetition
+- **写法**：`Rows of identical desks repeat to the back of the hall; one desk in the middle row is empty.` B: `repeating pattern, one broken element`
+- **作用**：重复建立秩序，打破重复的那一个就是主角或事件。
+- **用 / 不用**：体制、群体、日常的单调；一定要有一个「不一样」的点。
+- **生成**：稳；大量重复的人脸会出错，重复物件比重复人更稳。
+
 ---
 
 ## 3. 层次与纵深
@@ -95,6 +125,24 @@
 
 ### 前景遮挡
 - 见 `lexicon-shot.md`「遮挡偷窥」「前景虚化」。
+
+### 图底关系 Figure-ground
+- **写法**：`Her black silhouette stands against a bright white sky; nothing else in the frame competes with the shape.` B: `strong figure-ground separation, dark figure on bright ground`
+- **作用**：主体和背景在明度或颜色上截然分开，一眼就读出主体的形状。
+- **用 / 不用**：亮相、剪影、远景里要认出人物；也可以反过来，让人物融进背景（隐藏、被吞没）。
+- **生成**：稳；写清主体和背景谁亮谁暗。
+
+### 影调对比 Tonal contrast
+- **写法**：`The only bright area is the white letter in her hands; the room around it falls to near black.` B: `tonal contrast, single bright area`
+- **作用**：用亮暗而不是颜色引导视线；画面里最亮的地方就是观众先看的地方。
+- **用 / 不用**：低调场景、要指认一个物件或一张脸时；和 `camera/lexicon-light.md` §4 低调一起用。
+- **生成**：稳。
+
+### 脏画面与干净画面 Dirty / clean frame
+- **写法**：`Dirty single: the blurred edge of her shoulder intrudes on frame left, he is sharp on the right.` / `Clean single: he alone in frame, nothing of her visible.` B: `dirty frame, foreground shoulder` / `clean single`
+- **作用**：脏画面里对方的一部分留在画内，两人还连着；干净画面只剩一个人，距离、孤立、关系断开。
+- **用 / 不用**：对话里关系的变化：先脏后干净，就是两人「分开了」（`camera/lexicon-shot.md` 过肩）。
+- **生成**：稳；写清前景是谁、哪一侧、虚到什么程度。
 
 ---
 
@@ -128,6 +176,18 @@
 - **写法**：`He walks out of frame at the left; the camera holds on the empty kitchen.`
 - **作用**：人走了，空间留下；结尾、告别、离开后的余波。也是天然的剪辑点（`craft/staging/04-coverage.md`）。
 - **生成**：稳。人物出画后画面常继续「生成」新东西，写 `the empty kitchen, nothing moves`。
+
+### 反射镜头 Reflection shot
+- **写法**：`We see her only in the bathroom mirror; the real her is out of frame, the reflection framed by the mirror's edge.` B: `reflection in mirror, subject only seen reflected`
+- **作用**：分裂、自我审视、两面性；镜子、水面、车窗、玻璃让一个人同时出现两次，或只以倒影出现。
+- **用 / 不用**：身份、谎言、自我怀疑；水面倒影用于转场（`camera/lexicon-transition.md` 匹配剪接）。
+- **生成**：定帧；倒影和本人的动作常对不上、左右反了，先出关键帧检查。
+
+### 画报式构图 Tableau
+- **写法**：`A frontal tableau: the whole family stands in a row facing camera in the doorway, perfectly still, the camera static and centred.` B: `tableau shot, frontal, symmetrical group, static`
+- **作用**：把人物摆成一幅画，像舞台或家族照；疏离、仪式、喜剧的冷面。
+- **用 / 不用**：开场、结尾、全家福、宣告；需要动起来的戏不用（`directors/wes-anderson.md`）。
+- **生成**：稳；人一多就容易出脸，参考图逐个挂。
 
 ---
 

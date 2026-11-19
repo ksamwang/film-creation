@@ -77,6 +77,21 @@
 - **用 / 不用**：特写默认要有；刻意去掉用来表示绝望或非人。
 - **生成**：稳。
 
+**辅助光、光比与光的质感**：光型定了主光在哪，下面这些决定暗部多暗、轮廓多亮、光是硬是软。都写成画面里看得见的后果。
+
+| 名称 | 写法 | 作用 | 生成 |
+|---|---|---|---|
+| 补光与光比 | `The shadow side of her face is two stops darker but still readable` / `The shadow side falls to black` | 光比小：明快、坦白；光比大：戏剧、秘密 | 稳；写「暗侧能不能看见」比写数字准 |
+| 硬光 / 柔光 | `Hard light, sharp-edged shadows` / `Soft light wrapping around her face, shadows with gentle edges` | 硬：紧张、真实、暴露；柔：温和、美化 | 稳 |
+| 轮廓侧光 Kicker | `A thin bright edge of light along his cheek and jaw from behind frame right` | 把人从暗背景里勾出来，比逆光更窄、更侧 | 稳 |
+| 头发光 Hair light | `A soft light from above and behind catches the top of her hair` | 头和背景分开；古典人像、广告的精致感 | 稳 |
+| 交叉光 Cross light | `Two hard lights from opposite sides, each face lit from the far side, a dark seam down the middle` | 两人对峙、双面性；脸被分成两半 | 稳 |
+| 反射补光 Bounce | `Warm light bouncing up from the sunlit table onto their faces` | 有动机的柔和补光：桌面、地面、水面、雪地把光反上来 | 稳 |
+| 碎光 Dappled light | `Sunlight through the leaves, moving dappled patches on her face and dress` | 自然、夏天、不安定；光斑在动，人物情绪也在动 | 稳；光斑跟着风动，写 `dapples shifting in the breeze` |
+| 投影图案 Gobo | `A window-frame shadow is cast across the floor and up the wall` / `Prison-bar shadows across his body` | 用影子说话：窗格、栏杆、树枝、十字；困住、宗教、回忆 | 稳；图案要有画内来源（窗、栏杆） |
+| 聚光 Spotlight | `A single hard spotlight from above isolates him on the dark stage` | 舞台、审判、被所有人看着、独白 | 稳 |
+| 黑底只照人 Cameo light | `Only her face and hands are lit; the background is pure black, no detail at all` | 把人物从世界里剥离；肖像、内心、梦 | 稳；模型爱补背景，写 `background pure black` |
+
 ---
 
 ## 2. 画内光源（光源动机）
@@ -109,6 +124,12 @@
 | 月光夜景 | `Cool moonlight from high frame right, deep blue shadows, faces barely readable` | 夜、秘密 | 稳；易死黑，写清哪里能看见 |
 | 雨夜 | `Night rain, wet asphalt reflecting the shop signs, rim light on wet hair` | 都市、情绪、追逐 | 稳 |
 | 雾与体积光 | `Shafts of light through the haze from the high windows` | 神圣、梦境、空间感 | 稳；全片都有会像 MV |
+| 洒湿地面 Wet-down | `The street is wet though it is not raining, every lamp doubled in the asphalt` | 夜景的反光和质感；不下雨也让城市发亮 | 稳 |
+| 沙尘暴 | `A wall of brown dust rolls in, the sun reduced to a pale disc, visibility a few metres` | 末日、绝境、看不见前路 | 稳；人物衣服和脸上要有沙 |
+| 火花与余烬 | `Embers drift up from the burning beam, glowing orange against the dark` | 战后、毁灭、大片质感 | 稳；火星要往上飘，写热气和方向 |
+| 浮尘 | `Dust motes hanging in the window light` | 静、旧、时间停住 | 稳 |
+| 雪 | `Heavy snow falling straight down in windless air, settling on his shoulders` | 寂静、纯净、寒冷 | 稳；落在身上要积住（`video-prompt/physics.md`） |
+| 水下 | `Underwater, light rippling across her face from the surface above, hair floating, bubbles rising` | 窒息、失重、梦、重生 | 定帧；头发和衣服在水里的运动先出关键帧 |
 
 时段写进场景级设定：同一场的几个镜头必须是同一个时段，否则剪在一起会跳（`craft/visual/05-color.md`）。
 

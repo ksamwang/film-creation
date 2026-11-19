@@ -48,7 +48,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
 | 镜头语言：景别 / 角度 / 运镜（含复合运镜）/ 焦段 / 光 / 构图 / 转场怎么写、能否生成（camera movement, framing, lens, lighting） | `references/camera/index.md` 选词典：`references/camera/lexicon-shot.md` / `references/camera/lexicon-move.md` / `references/camera/lexicon-light.md` / `references/camera/lexicon-frame.md` / `references/camera/lexicon-transition.md` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
-| 器材与格式：变形镜头、老镜头、微距、柔光滤镜、快门与拖影、胶片（Super 8 / 16mm / 35mm / 大画幅 / 黑白）、录像带、DV、手机、运动相机、数字电影机写进提示词（camera gear, lens type, film stock） → 实拍选型不答 | `references/camera/lexicon-gear.md`；质感句 `references/craft/visual/06-texture.md` | 器材的画面特征 + 提示词写法 + 可靠性 |
+| 器材与格式：变形镜头、老镜头、微距、柔光滤镜、快门与拖影、胶片（Super 8 / 16mm / 35mm / 大画幅 / 黑白）、录像带、DV、手机、运动相机、数字电影机、调色风格（漂白旁路、日拍夜……）、双重曝光 / 漏光 / 故障等光学效果写进提示词（camera gear, lens type, film stock, color grade） → 实拍选型不答 | `references/camera/lexicon-gear.md`；质感句 `references/craft/visual/06-texture.md` | 器材的画面特征 + 提示词写法 + 可靠性 |
 | 色彩 / 色调 / 质感：整片或一场的色板、色温、饱和度、颗粒与胶片感、整体视觉方案（color grading, color palette, look） → 单个镜头的光走上一行；借某位导演 / 摄影的色彩走「风格参考」 | `references/craft/visual/index.md` → `references/craft/visual/05-color.md`（色温、色板、饱和度）/ `references/craft/visual/06-texture.md`（介质、颗粒、反差、空气）；和光一起定时加 `references/craft/visual/04-light.md` | 色板 + 色温 + 质感设定 + 写进提示词的描述 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
 | 某类场景怎么排镜头：对话、追逐、打斗、悬疑、亲密、蒙太奇、开场结尾、反转打脸 | `references/camera/recipes/index.md` → 对应配方 | 镜头序列 + 逐镜提示词 + 生成方式 |
@@ -69,6 +69,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
 | 声音 / 配乐 / 剪辑方案（sound design, editing） → 竖屏短剧走「短剧：成片」；只问剪辑节奏走「节奏」 | `references/craft/sound/index.md` + `templates/edit-sound.md` | 声音分工 + 剪辑方案 |
+| 类型影调：要「黑色电影 / 武侠 / 赛博朋克 / 梦核……那种感觉」，指一类片子的画面（genre look） → 指某位导演或摄影走下一行；类型的叙事约定走「按类型写」 | `references/camera/looks.md` | 3–5 条视觉基元 + 风格句 + 可借档案 |
 | 导演 / 摄影风格参考、混搭、风格卡（style reference, style brief） → 做广告再加读 `references/writing/genres/brand.md` | `references/taxonomy.md` 选族 → `references/directors/<slug>.md` 或 `references/cinematographers/<slug>.md`，及 `references/prompts/` 或 `references/prompts-cinematographers/` 下同名文件；混搭（含导演 × 摄影）加 `references/mixing.md`；风格卡用 `templates/style-brief.md`；风格卡写成提示词按 `references/prompting.md` 转换 | 1 主参考 + 0–1 副参考（或导演 × 摄影）+ 视觉基元 / 风格卡 |
 | 迭代 / 预算 / 交付；15–90 秒短片怎么控镜头数 | `references/craft/production/index.md`（预算 `references/craft/production/03-budget.md`，短片 `references/craft/production/04-short-form.md`；生成顺序 `references/aigc/workflow.md`） | 镜头数 / 迭代预算 / 交付 |
 
@@ -127,6 +128,6 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 - `references/writing/index.md` — 写作查阅层：对白手法、叙事技巧、按效果反查、类型配方、剧本诊断
 - `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜间承接、镜头功能词典、三种拆法、场景示例、全片示例、分镜图、动态分镜、连续性、节奏
 - `references/video-prompt/index.md` — 视频提示词层：十九个段落、三档长度、从分镜脚本编译、场 5 完整示例；摄影机、表演、物理、声音、锁、一镜到底词库；全片示例与三档示例
-- `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级
+- `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级；类型影调卡 `references/camera/looks.md`
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源
 - `templates/` — treatment、script、scene-card、storyboard-script、shot-list、video-prompt、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

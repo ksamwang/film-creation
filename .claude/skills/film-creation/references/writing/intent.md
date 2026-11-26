@@ -123,7 +123,7 @@
 
 - **一场戏一个主情绪**。悬念和笑可以交替，但不要在同一拍里。
 - **情绪要有对比**：笑之后的哭更重，安静之后的惊吓更响，压之后的爽更爽。排 beat 时标出每个 beat 的主情绪，相邻 beat 尽量不同。
-- **短剧的情绪密度**：每集至少一个小情绪点（`references/drama/02-season.md`），开场 3 秒内给出第一个情绪钩子（`references/drama/03-episode.md`）。
+- **短剧的情绪密度**：每集 2–4 个小爽点，约每 15–20 秒一个（`references/drama/02-season.md`），开场 3 秒内给出第一个情绪钩子（`references/drama/03-episode.md`）。
 
 ## 来源
 

@@ -69,7 +69,7 @@
 |---|---|
 | 知识关系与悬念 / 惊奇 / 戏剧反讽 | 《电影叙事学研究》附录二（经 `craft/story/05-narrative.md`） |
 | 获得感、痛点是爽点的前提、打脸对象是主要反派 | `references/drama/01-premise.md` |
-| 每集一个小情绪点；前 3 秒钩子 | `references/drama/02-season.md`、`references/drama/03-episode.md` |
+| 每集 2–4 个小爽点；前 3 秒钩子 | `references/drama/02-season.md`、`references/drama/03-episode.md` |
 | 铺垫—反转、三次法则、一本正经、错位等喜剧手法；克制催泪；恐惧的未知原则 | 行业惯例 |
 | 各效果与镜头的对接 | `camera/intent.md`、`camera/recipes/`，属本包整理 |
 

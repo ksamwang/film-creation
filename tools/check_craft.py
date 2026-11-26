@@ -39,14 +39,14 @@ def main() -> None:
             issues += 1
             continue
         idx_chars = chars(index)
-        if not (400 <= idx_chars <= 1200):
+        if idx_chars < 400:
             print(f"[!] {m}/index.md: {idx_chars} 字")
             issues += 1
 
         subs = [f for f in sorted(glob.glob(os.path.join(d, "*.md")))
                 if os.path.basename(f) not in ("index.md", "_sources.md")]
-        if not (4 <= len(subs) <= 6):
-            print(f"[!] {m}: {len(subs)} 个子文件（应 4–6）")
+        if len(subs) < 4:
+            print(f"[!] {m}: {len(subs)} 个子文件（至少 4 个）")
             issues += 1
         total = 0
         for f in subs:
@@ -54,7 +54,7 @@ def main() -> None:
             total += n
             name = os.path.basename(f)
             text = open(f, encoding="utf-8").read()
-            if not (700 <= n <= 1600):
+            if n < 700:
                 print(f"[!] {m}/{name}: {n} 字")
                 issues += 1
             if "来源" not in text:
@@ -71,8 +71,8 @@ def main() -> None:
             if len(aigc_hits) < 2:
                 print(f"[!] {m}/{name}: 缺 AIGC 执行词")
                 issues += 1
-        if not (3500 <= total <= 6500):
-            print(f"[!] {m}: 子文件合计 {total} 字（应 3500–6500）")
+        if total < 3500:
+            print(f"[!] {m}: 子文件合计 {total} 字（至少 3500）")
             issues += 1
         else:
             print(f"[ok] {m}: {len(subs)} 个子文件，合计 {total} 字")

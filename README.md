@@ -101,6 +101,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 |---|---|---|
 | 声音 / 配乐 / 剪辑方案（sound design, editing） → 竖屏短剧走「短剧：成片」；只问剪辑节奏走「节奏」 | `references/craft/sound/index.md` + `templates/edit-sound.md` | 声音分工 + 剪辑方案 |
 | 类型影调：要「黑色电影 / 武侠 / 赛博朋克 / 梦核……那种感觉」，指一类片子的画面（genre look） → 指某位导演或摄影走下一行；类型的叙事约定走「按类型写」 | `references/camera/looks.md` | 3–5 条视觉基元 + 风格句 + 可借档案 |
+| 不知道要什么风格、色彩、光、怎么讲，想要几个方案挑（options, recommendations） | `references/guide.md` | 选项卡：每项 3 个方向 + 推荐 |
 | 导演 / 摄影风格参考、混搭、风格卡（style reference, style brief） → 做广告再加读 `references/writing/genres/brand.md` | `references/taxonomy.md` 选族 → `references/directors/<slug>.md` 或 `references/cinematographers/<slug>.md`，及 `references/prompts/` 或 `references/prompts-cinematographers/` 下同名文件；混搭（含导演 × 摄影）加 `references/mixing.md`；风格卡用 `templates/style-brief.md`；风格卡写成提示词按 `references/prompting.md` 转换 | 1 主参考 + 0–1 副参考（或导演 × 摄影）+ 视觉基元 / 风格卡 |
 | 迭代 / 预算 / 交付；15–90 秒短片怎么控镜头数 | `references/craft/production/index.md`（预算 `references/craft/production/03-budget.md`，短片 `references/craft/production/04-short-form.md`；生成顺序 `references/aigc/workflow.md`） | 镜头数 / 迭代预算 / 交付 |
 
@@ -133,7 +134,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 
 1. **默认 AIGC**；不主动给实拍方案。
 2. **先判断请求类型**，不要一套流程套所有人。
-3. **需要时才问**，最多 3 个关键问题。
+3. **不问开放问题，出选项卡**：没说清又会明显改变结果的创作决定，每项给三个方向、一个推荐和「按你推荐的来」（`references/guide.md`）。
 4. **每条建议落到 AIGC 产物**。
 5. **引用导演/摄影时给视觉基元**，不给剧组职位。
 

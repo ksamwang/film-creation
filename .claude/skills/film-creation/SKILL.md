@@ -71,6 +71,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 |---|---|---|
 | 声音 / 配乐 / 剪辑方案（sound design, editing） → 竖屏短剧走「短剧：成片」；只问剪辑节奏走「节奏」 | `references/craft/sound/index.md` + `templates/edit-sound.md` | 声音分工 + 剪辑方案 |
 | 类型影调：要「黑色电影 / 武侠 / 赛博朋克 / 梦核……那种感觉」，指一类片子的画面（genre look） → 指某位导演或摄影走下一行；类型的叙事约定走「按类型写」 | `references/camera/looks.md` | 3–5 条视觉基元 + 风格句 + 可借档案 |
+| 不知道要什么风格、色彩、光、怎么讲，想要几个方案挑（options, recommendations） | `references/guide.md` | 选项卡：每项 3 个方向 + 推荐 |
 | 导演 / 摄影风格参考、混搭、风格卡（style reference, style brief） → 做广告再加读 `references/writing/genres/brand.md` | `references/taxonomy.md` 选族 → `references/directors/<slug>.md` 或 `references/cinematographers/<slug>.md`，及 `references/prompts/` 或 `references/prompts-cinematographers/` 下同名文件；混搭（含导演 × 摄影）加 `references/mixing.md`；风格卡用 `templates/style-brief.md`；风格卡写成提示词按 `references/prompting.md` 转换 | 1 主参考 + 0–1 副参考（或导演 × 摄影）+ 视觉基元 / 风格卡 |
 | 迭代 / 预算 / 交付；15–90 秒短片怎么控镜头数 | `references/craft/production/index.md`（预算 `references/craft/production/03-budget.md`，短片 `references/craft/production/04-short-form.md`；生成顺序 `references/aigc/workflow.md`） | 镜头数 / 迭代预算 / 交付 |
 
@@ -106,8 +107,8 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 ## 使用原则
 
 1. 先判断请求类型，不一套流程套所有人；不主动给实拍方案。
-2. 需要时才问，最多 3 个关键问题；目标模型不明按模式 A 写，必要时附模式 B。
-3. 导演/摄影：先问作品需要什么视觉，选 1 主参考 + 0–1 副参考（导演 × 摄影的分工搭配另算，见 `references/mixing.md`），只取 2–3 条视觉约束（机位、光源、色彩关系）转成视觉基元；不写导演名、不给剧组职位；「反向约束」改写成正面描述，有 negative 参数再放进去。
+2. 不问开放问题，出选项卡（`references/guide.md`）：用户没说、又会明显改变结果的创作决定（讲述顺序、主参考风格、色彩、光、画幅），一轮最多四项，每项 3 个拉开方向的选项 + 推荐和理由 + 「按你推荐的来」；用户已说清的、小请求不出卡；没答就按推荐走并写明。目标模型不明按模式 A 写，必要时附模式 B。
+3. 导演/摄影：先按选项卡给出候选（`references/guide.md` §3），选 1 主参考 + 0–1 副参考（导演 × 摄影的分工搭配另算，见 `references/mixing.md`），只取 2–3 条视觉约束（机位、光源、色彩关系）转成视觉基元；不写导演名、不给剧组职位；「反向约束」改写成正面描述，有 negative 参数再放进去。
 
 ## AIGC 提示规则
 
@@ -131,5 +132,6 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 - `references/storyboard/index.md` — 分镜查阅层：拆解七步、镜头数估算、镜间承接、镜头功能词典、三种拆法、场景示例、全片示例、分镜图、动态分镜、连续性、节奏
 - `references/video-prompt/index.md` — 视频提示词层：十九个段落、三档长度、从分镜脚本编译、场 5 完整示例；摄影机、表演、物理、声音、锁、一镜到底词库；全片示例与三档示例
 - `references/camera/index.md` — 镜头语言查阅层：取景 / 运动 / 光 / 构图 / 转场词典、按目的反查、场景配方、可靠性分级；类型影调卡 `references/camera/looks.md`
+- `references/guide.md` — 创作引导：什么时候出选项卡、放哪些决定、选项怎么出
 - `references/prompting.md` — 档案 → 提示词的转换；`references/drama/sources.md` — 短剧来源
 - `templates/` — treatment、script、scene-card、storyboard-script、shot-list、video-prompt、ai-prompt、style-brief 等；短剧 drama-bible / drama-outline / drama-episode / drama-breakdown / drama-storyboard

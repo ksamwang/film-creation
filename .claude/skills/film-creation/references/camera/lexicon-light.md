@@ -79,6 +79,18 @@
 
 **辅助光、光比与光的质感**：光型定了主光在哪，下面这些决定暗部多暗、轮廓多亮、光是硬是软。都写成画面里看得见的后果。
 
+**光比档位**：光比是亮面和暗面的亮度比。数字给人看，提示词里写成暗面的样子，有些模型不认「1:8」。
+
+| 光比 | 暗面的样子（写进提示词） | 观感 | 用在 |
+|---|---|---|---|
+| 1:2 | `the shadow side only slightly darker, faces evenly lit` | 平、干净、坦白 | 日常、轻松、交代信息、广告 |
+| 1:4 | `the shadow side clearly darker but full of detail` | 立体、有层次 | 常规叙事的默认档 |
+| 1:8 | `the shadow side deep, only the edge of the face readable` | 反差明确、压得住 | 对峙、审问、压迫、暗流 |
+| 1:16 | `half the face falls into near-black shadow` | 强反差、大面积暗部 | 悬疑、揭露、孤立；只给一场里的少数几镜，整场铺开会闷 |
+
+**曝光底线**：暗部可以深，整体不能欠曝；脸上的高光要留得住五官，不能一片白；阴影要有颜色和层次（青灰、暗棕），不写纯黑。光比大不等于画面暗，暗是用亮的部分衬出来的。
+
+
 | 名称 | 写法 | 作用 | 生成 |
 |---|---|---|---|
 | 补光与光比 | `The shadow side of her face is two stops darker but still readable` / `The shadow side falls to black` | 光比小：明快、坦白；光比大：戏剧、秘密 | 稳；写「暗侧能不能看见」比写数字准 |

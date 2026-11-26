@@ -4,9 +4,6 @@
 
 ## dialogue
 
-称呼（四个变量、降格与退回、称呼是体温计不是推进器、称呼表）：思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT，V8.2.0-SLIM） dialogue-naturalization，本包改写。
-
-
 | 概念 / 规则 | 来源 |
 |---|---|
 | 对白推动故事情节发展；戏剧即冲突 | 《编剧的策略》第五章 5.1–5.2 |

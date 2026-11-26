@@ -129,8 +129,6 @@
 5. **只重跑出问题的单位。** 改过的段重新生成，没问题的段不动。
 6. **记下来。** 新发现的穿帮模式记进项目的连续性台账（`storyboard/continuity.md` §7），下次写稿前先看一遍。
 
-来源：思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT） 的拉片改稿闭环（blooper-prevention-playbook §九），本包改写。
-
 ## 检查清单
 
 - [ ] 每镜标了生成方式，理由是这一镜必须锁住的东西？

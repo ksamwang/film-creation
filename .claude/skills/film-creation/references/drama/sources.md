@@ -11,7 +11,6 @@
 | SF | [short-drama-factory](https://github.com/lixiaoxiao9888-create/short-drama-factory) v3.2（MIT） | 开源 skill | 四幕比例、三级付费墙、单元链、断章公式、篇幅三档 |
 | EM | [emma-screenwriting-skills](https://github.com/adoria111/emma-screenwriting-skills)（MIT） | 开源 skill | 出海题材卡、钩子机制与诊断、小兑现与大悬念、文化替换 |
 | ZS | [zenstory-ai/drama-skills](https://github.com/zenstory-ai/drama-skills)（MIT），仓库内的模型行为实测记录（evaluations 目录）与实现笔记 | 开源 skill + 模型实测（2026-09—11） | 片段容量、对白时长、口型、站位、参考图、续接、反应镜、空间母版 |
-| ML | [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT） | 开源 skill | 台词语速分档、投喂前闸门思路 |
 | OM | [Open Micro Drama: Writing a Micro Drama Script](https://openmicrodrama.com/guides/writing-a-micro-drama-script)；[Filmustage: How to Write a Vertical Drama Script in 2026](https://filmustage.com/blog/how-to-write-a-vertical-drama-script/) | 行业指南 | 出海集长、季长、付费墙区间、单集 90 秒骨架 |
 | JM | 即梦短剧工作室流程实测（2026-11） | 产品观察 | 流程分段、片段写法、造型 = 一张图 |
 | BK | 本包 `docs/` 书目：《编剧的策略》《剧本结构设计》《短片的法则》《视听：幻觉的构建》 | 书 | 钩子、不归点、短篇约束、声音分工 |
@@ -53,7 +52,6 @@
 | 长档（约 3 分钟）双回合 + 中段小钩 | SF v3.2 | 编辑归纳 |
 | 台词精简高负载、对白为主 VO/OS 为辅、朗读减三成 | HG 09 | 平台经验 |
 | 不靠剧外小传让观众脑补；少写心理多写行为 | HG 红线 10–11 | 平台经验 |
-| 台词语速分档（标准 3.5–5 字/秒，快念 5.5–6 字/秒） | ML | 编辑归纳 |
 | 写一些你能生成的东西；先定上限再写 | BK《短片的法则》第 9 章 | 书 |
 
 ### 拆解、分镜、提示词、成片（05–08）

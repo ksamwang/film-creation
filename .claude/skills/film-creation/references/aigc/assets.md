@@ -109,8 +109,6 @@ NEGATIVE: ...
 - 同一个人全片同一个名字，不和「那个男人」「黑衣人」「他」混着指同一个人；名字是模型跨镜认人最可靠的抓手。
 - 状态偏离定稿图时写清楚（湿透、受伤、外套脱在左手），写法见 `video-prompt/locks.md` §4。
 
-来源：防撞脸、场景拼图、站位白模图、四格板、交付形态与接线单、文字锁，思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT） 的资产引擎与素材形态规则（character-diversity-engine、scene-grid-template、asset-delivery-modes），本包改写。
-
 ## 7. 漂移时怎么办
 
 | 症状 | 先查 | 修法 |

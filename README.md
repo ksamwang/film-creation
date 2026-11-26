@@ -45,7 +45,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
-| 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/dramaturgy.md`（总纲）+ `references/craft/story/index.md` + `templates/treatment.md` | 一句话 + beat sheet / 一页 treatment |
+| 故事 / 概念 / 一页 treatment、梗概（story, logline, treatment） | `references/dramaturgy.md`（总纲）+ `references/craft/story/index.md` + `templates/treatment.md`（讲述方式、风格没说清，先按 `references/guide.md` 出选项卡；故事设计和 beat 见 `references/craft/story/03-structure.md`） | 选项卡（需要时）+ 一句话 + beat sheet / 一页 treatment |
 | 写台词 / 改对白：太直白、太水、一个腔调、太少像默剧（dialogue） | `references/writing/dialogue.md` | 改后的台词 + 镜头落法 |
 | 点名一种叙事技巧：伏笔、反转、倒计时、母题…（foreshadowing, plot twist） | `references/writing/devices.md` | 技巧落法；同时点了类型 → 加读下面类型那一行 |
 | 想让观众爽、笑、哭、怕，不知道用什么技巧 | `references/writing/intent.md` | 情绪机制 + 写法 |

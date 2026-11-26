@@ -24,7 +24,7 @@ He plants his rear foot and twists his hips; the turn travels up through his sho
 - **写法**：`He slips left, his head dropping under the jab, and answers with a short right hook to the jaw; his feet stay planted shoulder-width apart.`
 - **作用**：头部移动、组合拳、步法；节奏是「躲—打—躲」的短循环，近距离、高频率。
 - **用 / 不用**：街头单挑、拳台、体力相当的对峙。不适合长距离和多人。
-- **生成**：稳。组合拳一镜写两三下就够，多了后面的拳会被吞掉。
+- **生成**：稳。组合拳逐拳写清先后（刺拳、勾拳、上勾），比写「一套组合拳」可靠。
 
 ### 泰拳 Muay Thai
 - **写法**：`She grabs his neck with both hands in a clinch and drives her right knee up into his stomach twice.`

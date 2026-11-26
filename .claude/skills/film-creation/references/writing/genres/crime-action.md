@@ -58,7 +58,7 @@
 ## 镜头与画面
 
 - 配方：`camera/recipes/fight.md`、`camera/recipes/chase.md`、`camera/recipes/reversal.md`。
-- 动作在 AIGC 里难生成：一镜一个动作，接触点靠剪辑，复杂动作拆成起势和结果（`camera/recipes/fight.md`）。
+- 动作在 AIGC 里能生成连续交手，关键是逐拍写清谁打谁、打在哪、怎么受力；要强调的一击单独拆成出招和结果两镜（`camera/recipes/fight.md`）。
 - 光：硬光、低调、霓虹与画内光源（`camera/lexicon-light.md`）。
 - 可借档案：`directors/john-woo.md`、`directors/johnnie-to.md`、`directors/jean-pierre-melville.md`、`directors/george-miller.md`、`directors/quentin-tarantino.md`。
 

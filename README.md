@@ -115,7 +115,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 短剧：出海（台词非中文时也读） | `references/drama/01-premise.md` + `references/drama/09-overseas.md` | 本地化 setting |
 | 短剧：画风 / 漫剧 | `references/drama/10-look.md` | 画风设定 |
 | 短剧：分集大纲 / 付费点（episode outline） | `references/drama/02-season.md` + `templates/drama-outline.md` | outline |
-| 短剧：单集剧本 | `references/drama/03-episode.md` + `references/drama/04-script.md` + `templates/drama-episode.md` | script |
+| 短剧：单集剧本 | `references/drama/03-episode.md` + `references/drama/04-script.md` + `templates/drama-episode.md`（要不要出选项卡按 `references/guide.md` §1–2，讲述顺序不出卡；台词改不顺再读 `references/writing/dialogue.md`） | 选项卡（需要时）+ script |
 | 短剧：角色场景拆解 / 造型图 | `references/drama/05-breakdown.md` + `templates/drama-breakdown.md` | breakdown + 造型图规格 |
 | 短剧：分镜 | `references/drama/06-storyboard.md` + `templates/drama-storyboard.md` | segments |
 | 短剧：片段提示词 / 口型 / 站位 | `references/drama/07-segment-prompt.md` | 编译提示词；问题回分镜改 |

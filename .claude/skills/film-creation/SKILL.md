@@ -85,7 +85,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 | 短剧：出海（台词非中文时也读） | `references/drama/01-premise.md` + `references/drama/09-overseas.md` | 本地化 setting |
 | 短剧：画风 / 漫剧 | `references/drama/10-look.md` | 画风设定 |
 | 短剧：分集大纲 / 付费点（episode outline） | `references/drama/02-season.md` + `templates/drama-outline.md` | outline |
-| 短剧：单集剧本 | `references/drama/03-episode.md` + `references/drama/04-script.md` + `templates/drama-episode.md` | script |
+| 短剧：单集剧本 | `references/drama/03-episode.md` + `references/drama/04-script.md` + `templates/drama-episode.md`（要不要出选项卡按 `references/guide.md` §1–2，讲述顺序不出卡；台词改不顺再读 `references/writing/dialogue.md`） | 选项卡（需要时）+ script |
 | 短剧：角色场景拆解 / 造型图 | `references/drama/05-breakdown.md` + `templates/drama-breakdown.md` | breakdown + 造型图规格 |
 | 短剧：分镜 | `references/drama/06-storyboard.md` + `templates/drama-storyboard.md` | segments |
 | 短剧：片段提示词 / 口型 / 站位 | `references/drama/07-segment-prompt.md` | 编译提示词；问题回分镜改 |
@@ -102,7 +102,7 @@ description: "AIGC 影视创作参考包，覆盖 AI 图像 / 视频作品从故
 
 ## 短剧另有标准
 
-短剧产物按 `references/drama/standard.md` 字段出稿；没读过 `references/drama/index.md` 先读它。与通用规则冲突时**以 `references/drama/` 为准**。宿主平台规定了输出格式（如指定 JSON）时**格式以平台为准**：不改字段名、不加平台没要的字段。一次只读当前阶段的 1–2 篇。
+短剧产物按 `references/drama/standard.md` 字段出稿；没读过 `references/drama/index.md` 先读它。与通用规则冲突时**以 `references/drama/` 为准**。宿主平台规定了输出格式（如指定 JSON）时**格式以平台为准**：不改字段名、不加平台没要的字段。一次只读当前阶段路由列出的文件，不翻其他阶段。
 
 ## 使用原则
 

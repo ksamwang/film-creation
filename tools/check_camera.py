@@ -17,7 +17,7 @@ REFS = os.path.join(SKILL, "references")
 CAMERA = os.path.join(REFS, "camera")
 RECIPES = os.path.join(CAMERA, "recipes")
 
-LEXICONS = ["lexicon-shot.md", "lexicon-move.md", "lexicon-light.md", "lexicon-frame.md", "lexicon-gear.md", "looks.md"]
+LEXICONS = ["lexicon-shot.md", "lexicon-move.md", "lexicon-light.md", "lexicon-frame.md", "lexicon-gear.md", "looks.md", "lexicon-action.md"]
 REQUIRED = ["index.md", "intent.md", "sources.md", "lexicon-transition.md"] + LEXICONS
 RECIPE_FILES = ["dialogue-two.md", "dialogue-group.md", "chase.md", "fight.md", "suspense.md",
                 "romance.md", "montage.md", "opening-ending.md", "reversal.md"]

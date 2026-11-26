@@ -63,6 +63,26 @@
 - 分镜脚本画面栏里出现的方向词（「看向画右的走廊」「转向画右的顾言」）全部要和地图一致；不一致，先改分镜脚本。
 - 写「哪里没有什么」：空的工位、空的走廊。
 
+**跨段空间交接。** 同一场戏切成几个生成单位时，每个单位各自写得都对，接缝处仍会出现左右对调、家具换位、倒下的人又站着。原因是模型没有记忆，它每段都靠画面里看得见的固定物重建空间，不靠「东侧」「北墙」这种抽象方位。所以空间地图要随单位往下交，每个单位的空间段末尾写一行交接：
+
+| 项 | 写什么 | 不写会怎样 |
+|---|---|---|
+| 机位侧 | 这个单位的机位站在场景哪一侧、朝哪拍，整段不换半边 | 模型每段重新决定「画左」指哪边 |
+| 画框映射 | 画左是什么方位、靠着什么固定物；画右同理 | 绝对方位和画面左右各说各的 |
+| 固定可见物 | 门、窗、柱、火堆、长桌各在画面哪个位置；景别切掉时可以不入画，入画时位置不变 | 换一段，家具换了位置 |
+| 接缝两侧的物 | 上一单位末镜看得见的固定物，下一单位首镜至少再出现两件 | 上一段的东西在下一段凭空消失 |
+
+```text
+Spatial handoff: the camera stays on the south side of the hall facing north for this whole
+unit. Frame left is the west wall with the stone pillar; frame right is the east window. The
+fire pit sits at lower frame center whenever it is in shot. Last unit ended on the pillar and
+the window; this unit opens on the same pillar and window.
+```
+
+- **轴线跟着交。** 相邻单位写人物左右关系的那句，逐字一样。确实要变（有人离场、有人走到另一边），在下一单位开头写清是怎么变过去的，带一个看得见的动作：「他从画右抽刀横跨两步，压到画面中央；她顺势退到画右后方」。只写「改为双人对峙」不写路径，模型会直接把人重排。
+- **机位要换半边**（人物走出门、转成背拍），也写出物理路径，而且不越轴（`storyboard/continuity.md` §1）。
+- 交接只写正面描述，不写「不要重排」；禁令仍集中在总锁里（`video-prompt/locks.md`）。
+
 ## 第五步：逐镜翻译
 
 每一行分镜脚本变成一段 SHOT：

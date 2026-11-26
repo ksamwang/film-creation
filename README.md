@@ -78,6 +78,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
 | 用户意图 | 先读 | 输出 |
 |---|---|---|
 | 镜头语言：景别 / 角度 / 运镜（含复合运镜）/ 焦段 / 光 / 构图 / 转场怎么写、能否生成（camera movement, framing, lens, lighting） | `references/camera/index.md` 选词典：`references/camera/lexicon-shot.md` / `references/camera/lexicon-move.md` / `references/camera/lexicon-light.md` / `references/camera/lexicon-frame.md` / `references/camera/lexicon-transition.md` | 取景句 / 运动句 / 光的描述 / 剪辑转场 + 生成方式 |
+| 打戏的动作设计：武学（拳击、泰拳、咏春、八极、太极、八卦……）、兵器（剑、刀、长兵、软兵、拔刀）、玄幻法术与特效（法阵、法相、尺度、色彩对冲）、受击与命中定格（martial arts, weapon, spell VFX） | `references/camera/lexicon-action.md`；排镜头加 `references/camera/recipes/fight.md` | 动作写法 + 特效写法 + 可靠性 |
 | 器材与格式：变形镜头、老镜头、微距、柔光滤镜、快门与拖影、胶片（Super 8 / 16mm / 35mm / 大画幅 / 黑白）、录像带、DV、手机、运动相机、数字电影机、调色风格（漂白旁路、日拍夜……）、双重曝光 / 漏光 / 故障等光学效果写进提示词（camera gear, lens type, film stock, color grade） → 实拍选型不答 | `references/camera/lexicon-gear.md`；质感句 `references/craft/visual/06-texture.md` | 器材的画面特征 + 提示词写法 + 可靠性 |
 | 色彩 / 色调 / 质感：整片或一场的色板、色温、饱和度、颗粒与胶片感、整体视觉方案（color grading, color palette, look） → 单个镜头的光走上一行；借某位导演 / 摄影的色彩走「风格参考」 | `references/craft/visual/index.md` → `references/craft/visual/05-color.md`（色温、色板、饱和度）/ `references/craft/visual/06-texture.md`（介质、颗粒、反差、空气）；和光一起定时加 `references/craft/visual/04-light.md` | 色板 + 色温 + 质感设定 + 写进提示词的描述 |
 | 想要某种效果（压迫、孤立、揭示…）不知怎么拍 | `references/camera/intent.md` | 拍法组合 + 示例 |
@@ -199,6 +200,7 @@ LLM 读到它之后，能判断用户要什么、读哪一块、产出一组可�
       lexicon-light.md      人物光型、画内光源、时段与调性
       lexicon-frame.md      构图：位置、线条、层次、画框
       lexicon-transition.md 转场：剪切、光学、遮挡、匹配与变形
+      lexicon-action.md     动作：武学、兵器、法术特效、受击与命中定格
       lexicon-gear.md       器材与格式：镜头、快门、胶片与录像介质、调色风格、光学效果
       looks.md              类型影调卡：黑色电影、武侠、赛博朋克等 20 种
       intent.md             按目的反查拍法

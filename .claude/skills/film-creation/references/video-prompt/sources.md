@@ -40,6 +40,9 @@
 
 ## compile
 
+跨段空间交接（机位侧、画框映射、固定可见物、接缝两侧的物、轴线逐字沿用）：思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT，V8.2.0-SLIM） cross-segment-spatial-handoff，本包改写。
+
+
 | 概念 / 规则 | 来源 |
 |---|---|
 | 分镜脚本字段与提示词段落的对应 | 属本包整理；分镜脚本格式见 `storyboard/breakdown.md` |
@@ -106,8 +109,12 @@
 | 两条固定约束（音乐、文字） | `references/drama/07-segment-prompt.md` §3 |
 | 从错误版本倒推的五个方向；按类型的错误版本 | 属本包整理 |
 | 总锁的选法、道具状态锁、CRITICAL 配额 | 社区提示词模式归纳，属本包整理；道具连续性见 `storyboard/continuity.md` |
+| 解释权三规律（状态不会消失、靠位移自洽、路径只剩终态）；姿态交接、点到人头、状态写到可执行、画左画右、路径拆点 | 思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT，V8.2.0-SLIM） blooper-prevention-playbook，本包改写 |
 
 ## one-take
+
+人群的停顿与恢复：思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT，V8.2.0-SLIM） crowd-behavior-direction，本包改写。
+
 
 | 概念 / 规则 | 来源 |
 |---|---|

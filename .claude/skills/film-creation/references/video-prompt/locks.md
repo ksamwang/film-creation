@@ -222,7 +222,93 @@ CRITICAL — no readable text anywhere, including screens.
 
 ---
 
-## 4. 常见问题
+## 4. 解释权：稿子没写死，模型就补
+
+成片穿帮大多不是模型随机出错，而是稿子把某件事留给了模型去猜。三条规律：
+
+1. **状态不会自己消失。** 一个人建立了姿态（趴在桌上、拎着外套），后文不写它结束，它要么一直保留，要么转到画面里最近的另一个人身上。
+2. **模型靠位移自洽，不靠方位词。** 只写「从东侧门进来」，门被放错边，模型就让人横穿整个房间来圆。
+3. **连续路径只剩终态。** 「手从门框一路摸到窗沿」，模型只理解「手在窗沿」，中间直接跳过。
+
+下面五条锁对着这三条写。复盘时也用同一个问法：穿帮的这一下，是稿子里哪一句没写死（`aigc/workflow.md` §7）。
+
+### 姿态交接 Pose handoff
+
+**写法**：
+
+```text
+Shot 3: Mia, who was leaning across the desk, now sits back upright with both hands on her
+lap and stays that way. Only Mia leaned on the desk; nobody else leans on it in this shot.
+```
+
+**防什么误读**：上一镜的姿态没写结束，模型把它挂到同框的另一个人身上（换成别人趴桌、别人拎包）。
+
+**用在**：每个有标志性姿态的人物，在姿态结束的那一镜。先问三件事：谁建立、在哪一镜结束、结束后换成什么。交出方和可能的接手方两头都写；只禁接手方，模型会换一个人挂。
+
+**别这样写**：只在新进画的人身上写动作，对原来那个人一字不提；或只写「禁止 Leo 趴桌」，不写 Mia 已经坐直。
+
+### 点到人头 One actor per action
+
+**写法**：
+
+```text
+Only Tom raises a hand and cheers; the two boys beside him stay seated and still, out of focus.
+```
+
+**防什么误读**：「旁边几个人起哄」没限定人数，所有背景人物同时做同一个动作。
+
+**用在**：画面里有两人以上、只该一个人动的时候。一镜里背景只给一个声音、一个动作，其余人静着，静才衬得出主角。人群整体怎么反应见 `video-prompt/one-take.md` §2。
+
+**别这样写**：the friends cheer / 几个同学起哄。
+
+### 状态写到可执行 State to the button
+
+**写法**：
+
+```text
+Leo has taken off the jersey and holds it in his left hand; he wears a plain grey T-shirt
+under the open black jacket, zipper down.
+```
+
+**防什么误读**：「外套还穿着」没说里面穿什么、拉链到哪，模型自己补，补出来的常常违和（里面什么都没穿、换了衣服）。
+
+**用在**：服装、道具、伤妆偏离参考图的时候。写清在哪只手、拉到哪、里面是什么，每次关键状态出现都复述一次。道具状态的跨镜锁见上面第 3 节「道具状态锁」。
+
+**别这样写**：仍、依然、照旧、同上、as before。这类词等于把解释权交给模型。
+
+### 画左画右 Screen left, screen right
+
+**写法**：
+
+```text
+The back door is on the right edge of frame. Leo enters through it, takes two steps toward
+frame center and stops beside the last desk.
+```
+
+**防什么误读**：只写东南西北或「后门」，模型把门放错边，再让人走一大段路圆回来。
+
+**用在**：所有入画、出画、位移。场景的绝对方位留在空间地图里（`video-prompt/compile.md` 第四步），镜头里一律落成画左、画右、前景、深处；位移写步数和终点。过肩镜：越过 A 的右肩，A 在画面左前景。
+
+**别这样写**：he comes in from the east door / 他从后门进来，走到她身边。
+
+### 路径拆点 Path as waypoints
+
+**写法**：
+
+```text
+Shot 4 (3s): his fingertips rest on the door frame. Shot 5 (3s): his palm slides onto the
+window sill. Her shoulders tighten as his hand moves; her eyes follow it.
+```
+
+**防什么误读**：一句「从 A 一路到 B」，模型只给终态，手在中途瞬移。
+
+**用在**：长路径动作。短镜装不下完整路径，就按路径上的落点拆成几镜，每镜写当前接触点、主动方的手、被动方的反应；被动方的反应是模型的进度条。单镜够长（一镜到底）时可以一镜写完，但要写出经过的点，见 `video-prompt/one-take.md` §1。
+
+**别这样写**：his hand traces all the way from the door frame to the window.
+
+---
+
+## 5. 常见问题
 
 | 问题 | 原因 | 改法 |
 |---|---|---|
@@ -231,6 +317,7 @@ CRITICAL — no readable text anywhere, including screens.
 | 正文要的东西被抑制 | negative 太宽 | 逐条对照正文，写具体的人和动作 |
 | 后半段人数错 | 中段被稀释 | 总锁里再写一次 |
 | 处处强调 | CRITICAL 太多 | 只留 2–3 处 |
+| 姿态转到别人身上、背景人一起动、衣服被补错、门在错的一边、动作瞬移 | 稿子把解释权留给了模型 | 按第 4 节写死 |
 
 ## 来源
 

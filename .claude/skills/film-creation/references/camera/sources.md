@@ -105,6 +105,12 @@
 | 对称、负空间 | 行业惯例 |
 | 黄金分割与非对称、反向留白、视觉重量、一点透视、重复与图案、图底关系、影调对比、脏画面与干净画面、反射镜头、画报式构图 | 行业惯例 |
 
+## recipes · fight 补充
+
+| 概念 / 规则 | 来源 |
+|---|---|
+| 镜内四拍（起、爆、顿、收）；一镜一个主要任务；防守三态与受击链；闪避幅度 | 思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT，V8.2.0-SLIM） combat-rhythm-and-load-guardrails、defense-evasion-rules，本包改写；动作数量上限不收 |
+
 ## lexicon-gear
 
 | 概念 / 规则 | 来源 |
@@ -116,6 +122,14 @@
 | 先写特征、型号只做锚点；一片一套介质；画幅不写进提示词 | `video-prompt/anatomy.md` 风格段；`craft/visual/06-texture.md` |
 | 生成可靠性分级 | 2026-11 时的通用经验，同 `camera/index.md` |
 | 调色风格（漂白旁路、交叉冲印、日拍夜、分离色调、青橙等）写成色相、饱和、反差；双重曝光、暗角、漏光、强制透视、故障、画幅切换与视觉噱头 | 行业惯例；色彩规则见 `craft/visual/05-color.md` |
+
+## lexicon-action
+
+| 概念 / 规则 | 来源 |
+|---|---|
+| 只取神不取形；发力链；各门功夫与兵器的节奏和身形；先定形再上光、三层构造、特效随动作生、尺度证明、法阵分层反向旋转、法相同步、冷暖对冲、手绘化；命中定格分级、环境反馈、方向性震屏；血腥转译成气浪与定格 | 思路取自 [manju-laoli-skill](https://github.com/lixiaoxiao9888-create/manju-laoli-skill)（MIT，V8.2.0-SLIM） 的打戏引擎（`sd-combat-engine`、`sd-real-engine`、`sd-xuanhuan-engine`），按本包体例改写为不绑定单一模型的词条；招式参数与招式名库不收 |
+| 各门功夫的特征描述 | 武术常识，属本包整理 |
+| 生成可靠性分级 | 2026-11 时的通用经验，同 `camera/index.md` |
 
 ## lexicon-transition
 

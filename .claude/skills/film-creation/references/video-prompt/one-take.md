@@ -112,6 +112,24 @@ them, then a wave of heads turns.
 
 **别这样写**：everyone turns to look。
 
+### 人群的停顿与恢复 Freeze and recover
+
+**写法**：
+
+```text
+Before she speaks, the classroom is busy: one boy spins a pen, two girls in front copy notes,
+someone at the back stares out the window. When she says "I'm leaving," the boy by the window
+looks up first; half a second later the girls turn. On "today," every pen stops and nobody
+speaks. Then they recover one by one: the pen starts spinning again, the girls bend back over
+their notes, the back row keeps staring at her.
+```
+
+**防什么误读**：背景人物整场一个状态，要么全体僵住像蜡像，要么全体做同一件事；事件过后又同时恢复，像被同一个开关控制。
+
+**用在**：有背景人物的对话戏、宣布、当众揭穿。分四拍：事件前，每人各做一件不同的事；事件抛出，先一两个人反应，彼此差零点几秒；事件最重的那一拍，才允许全体停住，一段最多一次，而且写清是被什么打断的；事件过后各自恢复，有先有后，总有一两个还停在刚才。
+
+**别这样写**：the whole class freezes and stares（当作整段的底色）/ everyone goes back to work。
+
 ---
 
 ## 3. 示例：婚宴后厨到宴会厅（重型档片段）
